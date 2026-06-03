@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A-Book vs B-Book คืออะไร — โบรกเกอร์ทำเงินจากคุณยังไง? | TurtlePip</title>
+<meta name="description" content="A-Book vs B-Book อธิบายแบบเข้าใจง่าย — รู้ไว้ก่อนที่โบรกเกอร์จะได้เปรียบคุณ">
+<link rel="stylesheet" href="../shared.css">
+<style>
+.article-wrap{max-width:720px;margin:0 auto;padding:28px 24px}
+.article-header{margin-bottom:32px}
+.article-tag{display:inline-flex;align-items:center;gap:5px;background:var(--gp);color:var(--gd);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.article-title{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1.3;margin-bottom:12px}
+.article-meta{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--t3);margin-bottom:20px;flex-wrap:wrap}
+.article-meta span{display:flex;align-items:center;gap:4px}
+.article-intro{font-size:15px;color:var(--t2);line-height:1.8;border-left:3px solid var(--gd);padding-left:16px;margin-bottom:32px}
+h2{font-size:20px;font-weight:800;margin:32px 0 14px;letter-spacing:-.3px}
+h3{font-size:16px;font-weight:700;margin:24px 0 10px}
+p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
+ul{list-style:none;padding:0;margin-bottom:16px}
+ul li{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:8px;padding-left:18px;position:relative}
+ul li::before{content:'›';position:absolute;left:4px;color:var(--gd);font-weight:700}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.compare-col{border-radius:var(--rl);padding:20px;border:1px solid var(--bdr)}
+.compare-col.a{background:var(--safebg);border-color:#BBF7D0}
+.compare-col.b{background:var(--avoidbg);border-color:#FECACA}
+.compare-col-title{font-size:16px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.compare-col.a .compare-col-title{color:var(--safe)}
+.compare-col.b .compare-col-title{color:var(--avoid)}
+.compare-col p{font-size:13px;margin-bottom:8px}
+.compare-col ul li{font-size:13px}
+.callout{border-radius:var(--rl);padding:20px 24px;margin:24px 0}
+.callout.green{background:var(--gp);border:1px solid #C3E6A0}
+.callout.red{background:var(--avoidbg);border:1px solid #FECACA}
+.callout.amber{background:var(--warnbg);border:1px solid #FDE68A}
+.callout-title{font-size:14px;font-weight:800;margin-bottom:8px}
+.callout.green .callout-title{color:var(--gd)}
+.callout.red .callout-title{color:var(--avoid)}
+.callout.amber .callout-title{color:var(--warn)}
+.callout p{font-size:13px;margin-bottom:0;color:var(--t2)}
+.verdict-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.verdict-table th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg)}
+.verdict-table td{padding:11px 14px;border-bottom:1px solid var(--bdr);vertical-align:top}
+.verdict-table tr:last-child td{border-bottom:none}
+.broker-verdict-row{display:flex;align-items:center;gap:8px}
+.model-tag{display:inline-flex;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
+.model-a{background:var(--safebg);color:var(--safe)}
+.model-b{background:var(--avoidbg);color:var(--avoid)}
+.model-mix{background:var(--warnbg);color:var(--warn)}
+.share-bar{background:var(--bg);border:1px solid var(--bdr);border-radius:var(--rl);padding:16px 20px;margin-top:32px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.share-text{font-size:13px;font-weight:700}
+.share-btns{display:flex;gap:8px}
+.share-btn{border:1px solid var(--bdr);background:var(--surf);border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--f);color:var(--t1)}
+.related{margin-top:32px}
+.related-title{font-size:14px;font-weight:700;margin-bottom:14px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.related-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:14px;cursor:pointer;transition:border-color .15s;text-decoration:none;display:block}
+.related-card:hover{border-color:var(--gd)}
+.related-tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gd);margin-bottom:5px}
+.related-title2{font-size:12px;font-weight:700;color:var(--t1);line-height:1.4}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><img src="../logos/turtlepip-logo.png" alt="TurtlePip"></a>
+    <div class="nav-links">
+      <a href="../index.html" class="nl">โบรกเกอร์</a>
+      <a href="../compare.html" class="nl">เปรียบเทียบ</a>
+      <a href="../matcher.html" class="nl">หาโบรกที่ใช่</a>
+      <a href="../blacklist.html" class="nl">แบล็คลิสต์</a>
+      <a href="../blog.html" class="nl on">บทความ</a>
+    </div>
+  </div>
+</nav>
+
+<div class="article-wrap">
+
+  <div style="font-size:12px;color:var(--t3);margin-bottom:16px">
+    <a href="../index.html" style="color:var(--t3);text-decoration:none">หน้าหลัก</a> › 
+    <a href="../blog.html" style="color:var(--t3);text-decoration:none">บทความ</a> › 
+    A-Book vs B-Book
+  </div>
+
+  <div class="article-header">
+    <div class="article-tag">คู่มือ</div>
+    <h1 class="article-title">A-Book vs B-Book คืออะไร<br>โบรกเกอร์ทำเงินจากคุณยังไง?</h1>
+    <div class="article-meta">
+      <span>🐢 ทีมเต่า</span>
+      <span>📅 พฤษภาคม 2026</span>
+      <span>⏱️ อ่าน 6 นาที</span>
+    </div>
+    <div class="article-intro">
+      รู้ไหมว่าโบรกเกอร์บางเจ้าได้กำไรเมื่อคุณขาดทุน? นี่คือความจริงที่คนส่วนใหญ่ไม่รู้ก่อนเปิดบัญชี — ทีมเต่าจะอธิบายให้เข้าใจง่ายๆ ว่า A-Book กับ B-Book ต่างกันยังไง และสิ่งนี้ส่งผลต่อการเทรดของคุณอย่างไร
+    </div>
+  </div>
+
+  <h2>ก่อนอื่น — โบรกเกอร์ทำเงินยังไง?</h2>
+  <p>เวลาคุณเทรด Forex คุณต้องมีคู่สัญญาอีกฝั่ง — ใครสักคนต้องรับซื้อหรือขายให้คุณ โบรกเกอร์แต่ละเจ้าจัดการเรื่องนี้ต่างกัน และวิธีที่เขาจัดการนั้นมีผลโดยตรงกับผลประโยชน์ที่ align กับคุณหรือเปล่า</p>
+
+  <div class="compare-grid">
+    <div class="compare-col a">
+      <div class="compare-col-title">A-Book (ECN/STP)</div>
+      <p>โบรกเกอร์ส่ง order ของคุณออกไปยังตลาดจริง หรือ liquidity provider ภายนอก</p>
+      <ul>
+        <li>โบรกได้กำไรจาก spread หรือ commission เท่านั้น</li>
+        <li>ไม่มี conflict of interest — เขาไม่ได้กำไรเมื่อคุณขาดทุน</li>
+        <li>Execution โปร่งใส ราคาตลาดจริง</li>
+        <li>เหมาะกับ active trader ปริมาณสูง</li>
+      </ul>
+    </div>
+    <div class="compare-col b">
+      <div class="compare-col-title">B-Book (Market Maker)</div>
+      <p>โบรกเกอร์รับฝั่งตรงข้าม order ของคุณเอง — ถ้าคุณกำไร เขาขาดทุน</p>
+      <ul>
+        <li>โบรกได้กำไรเมื่อลูกค้าขาดทุน</li>
+        <li>มี conflict of interest ชัดเจน</li>
+        <li>Spread กว้างกว่า มักมีการ requote</li>
+        <li>ไม่ใช่ว่าผิดกฎหมาย แต่ต้องเข้าใจก่อนใช้</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>ทำไม B-Book ถึงยังมีอยู่?</h2>
+  <p>เพราะมันเป็นธุรกิจที่ทำกำไรได้ดีมาก สถิติอุตสาหกรรมบอกว่าผู้เทรดรายย่อย 70-80% ขาดทุนในระยะยาว นั่นหมายความว่าโบรก B-Book มีโอกาสสูงมากที่จะได้กำไรจากลูกค้า</p>
+  <p>แต่ B-Book ไม่ได้ผิดกฎหมายเสมอไป — โบรกที่มี Tier-1 regulation มักต้องมี risk management ที่ดี และหลายเจ้าใช้ hybrid model คือ A-Book กับ Trader ที่เทรดบ่อยและกำไรได้สม่ำเสมอ แต่ B-Book กับมือใหม่</p>
+
+  <div class="callout red">
+    <div class="callout-title">⚠️ สัญญาณเตือนว่าโบรกของคุณอาจ B-Book</div>
+    <p>Spread กว้างผิดปกติ · ถูก requote บ่อยช่วงข่าว · Slippage เสมอเมื่อกำไร · ไม่มี liquidity provider ที่ระบุชัดเจน · กำไรง่ายแต่ถอนยาก</p>
+  </div>
+
+  <h2>Hybrid Model — ความเป็นจริงในวงการ</h2>
+  <p>โบรกเกอร์ขนาดกลางส่วนใหญ่ไม่ได้เป็น A-Book หรือ B-Book 100% — พวกเขาใช้ Hybrid คือดูพฤติกรรมเทรดของคุณก่อนแล้วตัดสินใจว่าจะ route order ไปทางไหน</p>
+  <ul>
+    <li>Trader ที่ขาดทุนบ่อย — มักถูก route ไป B-Book</li>
+    <li>Trader ที่กำไรสม่ำเสมอ — มักถูก route ไป A-Book</li>
+    <li>Scalper ที่เทรดเยอะมาก — อาจถูกปิด account หรือถูก requote</li>
+  </ul>
+
+  <div class="callout amber">
+    <div class="callout-title">🐢 มุมมองทีมเต่า</div>
+    <p>จากประสบการณ์ในวงการ การที่โบรกเปลี่ยนเจ้าของมักทำให้ model เปลี่ยนจาก A-Book ไป B-Book โดยที่ลูกค้าไม่รู้ ติดตามข่าวการเปลี่ยนแปลงโบรกเกอร์ใน LINE OA ของทีมเต่าได้ฟรี</p>
+  </div>
+
+  <h2>โบรกในกลุ่มเราใช้ model ไหน?</h2>
+  <table class="verdict-table">
+    <thead>
+      <tr>
+        <th>โบรกเกอร์</th>
+        <th>Model</th>
+        <th>หมายเหตุ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>XS.com</strong></td>
+        <td><span class="model-tag model-a">A-Book ECN</span></td>
+        <td>ระบุชัดเจนใน T&C · liquidity provider ที่รู้จักได้</td>
+      </tr>
+      <tr>
+        <td><strong>Pepperstone</strong></td>
+        <td><span class="model-tag model-a">A-Book ECN</span></td>
+        <td>หนึ่งในโบรกที่โปร่งใสที่สุด · Razor account ECN แท้</td>
+      </tr>
+      <tr>
+        <td><strong>Exness</strong></td>
+        <td><span class="model-tag model-mix">Hybrid</span></td>
+        <td>Standard account อาจ B-Book · Pro account ECN มากกว่า</td>
+      </tr>
+      <tr>
+        <td><strong>HFM</strong></td>
+        <td><span class="model-tag model-mix">Hybrid</span></td>
+        <td>Zero Spread account ECN · Premium account ไม่ชัดเจน</td>
+      </tr>
+      <tr>
+        <td><strong>XM</strong></td>
+        <td><span class="model-tag model-b">Market Maker</span></td>
+        <td>ระบุตัวเองว่า Market Maker ใน regulation disclosure</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <div class="callout-title">✓ สรุปสั้นๆ — คุณควรทำอะไร?</div>
+    <p>ถ้าเทรดจริงจัง เลือก ECN/STP โบรก เช่น XS.com หรือ Pepperstone · ถ้าเงินทุนน้อยและยังเรียนรู้อยู่ Market Maker ก็ใช้ได้ แต่รู้ว่ากำลังเล่นอะไรอยู่ · อย่าฝากเยอะกับโบรกที่ไม่ชัดเจนว่าใช้ model ไหน</p>
+  </div>
+
+  <div class="share-bar">
+    <div class="share-text">บทความนี้มีประโยชน์ไหม? แชร์ให้เพื่อนด้วย</div>
+    <div class="share-btns">
+      <button class="share-btn">Facebook</button>
+      <button class="share-btn">LINE</button>
+      <button class="share-btn">Copy Link</button>
+    </div>
+  </div>
+
+  <div class="related">
+    <div class="related-title">บทความที่เกี่ยวข้อง</div>
+    <div class="related-grid">
+      <a href="review-xs.html" class="related-card">
+        <div class="related-tag">รีวิว</div>
+        <div class="related-title2">XS.com ดีไหม? รีวิวละเอียดจากทีมเต่า</div>
+      </a>
+      <a href="../blog.html" class="related-card">
+        <div class="related-tag">แจ้งเตือน</div>
+        <div class="related-title2">โบรกเกอร์ไหนเปลี่ยนทีมบริหารแล้วในปี 2026</div>
+      </a>
+      <a href="../matcher.html" class="related-card">
+        <div class="related-tag">เครื่องมือ</div>
+        <div class="related-title2">หาโบรก ECN ที่เหมาะกับสไตล์เทรดของคุณ</div>
+      </a>
+      <a href="../compare.html" class="related-card">
+        <div class="related-tag">เปรียบเทียบ</div>
+        <div class="related-title2">เปรียบเทียบ Spread ทุกโบรกแบบ side by side</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fin">
+    <div>© 2026 TurtlePip.com · ทีมเต่า · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</div>
+    <div class="flinks"><a href="#" class="flink">นโยบาย</a><a href="#" class="flink">คำเตือนความเสี่ยง</a></div>
+    <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
+  </div>
+</footer>
+</body>
+</html>

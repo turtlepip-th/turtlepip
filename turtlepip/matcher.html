@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หาโบรกที่ใช่ — TurtlePip</title>
+<style>
+@font-face { font-family:'NotoSans'; src:url('NotoSans.ttf') format('truetype'); font-weight:100 900; }
+@font-face { font-family:'NotoSans'; src:url('NotoSansThai.ttf') format('truetype'); font-weight:100 900; unicode-range:U+0E00-U+0E7F; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gd:#0A5550;--gm:#63B235;--gp:#F2FAE8;--cream:#FDEDD4;
+  --bg:#FAFAF8;--surf:#FFFFFF;--bdr:#E8E8E4;--bdrs:#D4D4CE;
+  --t1:#111110;--t2:#5C5C58;--t3:#9C9C98;
+  --safe:#16A34A;--safebg:#F0FDF4;
+  --warn:#D97706;--warnbg:#FFFBEB;
+  --avoid:#DC2626;--avoidbg:#FEF2F2;
+  --r:10px;--rl:14px;
+  --f:'NotoSans','Noto Sans Thai',sans-serif;
+}
+body{font-family:var(--f);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{background:var(--surf);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1120px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo img{height:46px;width:auto}
+.wrap{max-width:800px;margin:0 auto;padding:32px 24px}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:36px}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--gp);color:var(--gd);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;line-height:1.3}
+.hero p{font-size:14px;color:var(--t2);max-width:480px;margin:0 auto}
+
+/* STEPS */
+.steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:32px}
+.step-item{display:flex;align-items:center;gap:6px}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid var(--bdr);color:var(--t3);background:var(--surf);transition:all .2s}
+.step-num.done{background:var(--gd);border-color:var(--gd);color:white}
+.step-num.active{background:var(--surf);border-color:var(--gd);color:var(--gd)}
+.step-label{font-size:11px;color:var(--t3);font-weight:500}
+.step-label.active{color:var(--gd);font-weight:700}
+.step-line{width:40px;height:2px;background:var(--bdr);margin:0 8px}
+.step-line.done{background:var(--gd)}
+
+/* QUESTION CARD */
+.qcard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);padding:28px;margin-bottom:24px;display:none}
+.qcard.show{display:block;animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.qlabel{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.qtitle{font-size:18px;font-weight:800;letter-spacing:-.3px;margin-bottom:20px}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1.5px solid var(--bdr);border-radius:var(--r);cursor:pointer;transition:all .15s;background:var(--surf)}
+.opt:hover{border-color:var(--gd);background:var(--gp)}
+.opt.selected{border-color:var(--gd);background:var(--gp)}
+.opt-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--bg)}
+.opt-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:2px}
+.opt-sub{font-size:11px;color:var(--t2);line-height:1.5}
+.opt-check{width:18px;height:18px;border-radius:50%;border:2px solid var(--bdr);margin-left:auto;flex-shrink:0;margin-top:9px;transition:all .15s}
+.opt.selected .opt-check{background:var(--gd);border-color:var(--gd);display:flex;align-items:center;justify-content:center}
+.opt.selected .opt-check::after{content:'✓';color:white;font-size:10px;font-weight:800}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.btn-back{background:transparent;border:1px solid var(--bdrs);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--f);color:var(--t2)}
+.btn-next{background:var(--gd);color:white;border:none;border-radius:8px;padding:10px 24px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);opacity:.4;pointer-events:none;transition:all .15s}
+.btn-next.ready{opacity:1;pointer-events:auto}
+
+/* RESULTS */
+.results{display:none}
+.results.show{display:block;animation:fadein .3s ease}
+.result-header{text-align:center;margin-bottom:28px}
+.result-header h2{font-size:22px;font-weight:800;margin-bottom:6px}
+.result-header p{font-size:13px;color:var(--t2)}
+.result-summary{background:var(--gp);border:1px solid #C3E6A0;border-radius:var(--r);padding:12px 16px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:8px}
+.summary-pill{background:var(--gd);color:white;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
+
+/* RESULT CARDS */
+.rcard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);margin-bottom:16px;overflow:hidden;transition:all .15s}
+.rcard:hover{border-color:var(--gd)}
+.rcard.rank1{border:2px solid var(--gd)}
+.rcard-top{padding:16px 20px;display:flex;align-items:flex-start;gap:14px}
+.rank-badge{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0;font-family:monospace}
+.rank-badge.r1{background:var(--gd);color:white}
+.rank-badge.r2{background:var(--gp);color:var(--gd)}
+.rank-badge.r3{background:var(--bg);color:var(--t2);border:1px solid var(--bdr)}
+.broker-logo-wrap{width:44px;height:44px;border-radius:10px;overflow:hidden;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.broker-logo-wrap img{width:100%;height:100%;object-fit:contain}
+.rcard-info{flex:1;min-width:0}
+.rcard-top-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.rcard-name{font-size:15px;font-weight:800;color:var(--t1)}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
+.bsafe{background:var(--safebg);color:var(--safe)}
+.bwarn{background:var(--warnbg);color:var(--warn)}
+.match-pct{background:#E6F1FB;color:#0C447C;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
+.rcard-why{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:10px}
+.account-rec{background:var(--bg);border-radius:8px;padding:10px 12px;margin-bottom:0}
+.account-rec-label{font-size:10px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.account-tags{display:flex;flex-wrap:wrap;gap:6px}
+.acc-tag{background:var(--surf);border:1px solid var(--bdr);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--t1)}
+.acc-tag.recommended{background:var(--gp);border-color:#C3E6A0;color:var(--gd)}
+.rcard-bottom{border-top:1px solid var(--bdr);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.score-row{display:flex;gap:16px;flex-wrap:wrap}
+.score-item{text-align:center}
+.score-label{font-size:10px;color:var(--t3);margin-bottom:2px}
+.score-val{font-size:14px;font-weight:800;font-family:monospace}
+.score-val.g{color:var(--safe)}.score-val.a{color:var(--warn)}
+.btn-review{background:var(--gd);color:white;border:none;border-radius:8px;padding:9px 20px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--f);white-space:nowrap}
+.rank1-tag{display:flex;align-items:center;gap:5px;background:var(--gd);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:0 0 var(--r) var(--r);margin-left:20px;width:fit-content;margin-bottom:-1px}
+
+/* SPREAD TABLE */
+.spread-section{margin-top:32px}
+.spread-title{font-size:13px;font-weight:700;margin-bottom:12px}
+.spread-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden}
+.spread-table{width:100%;border-collapse:collapse;font-size:12px}
+.spread-table th{padding:9px 14px;text-align:center;font-size:10px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg)}
+.spread-table th:first-child{text-align:left}
+.spread-table td{padding:10px 14px;text-align:center;font-family:monospace;font-weight:700;border-bottom:1px solid var(--bdr)}
+.spread-table td:first-child{text-align:left;font-family:var(--f);font-weight:600;font-size:13px}
+.spread-table tr:last-child td{border-bottom:none}
+.spread-table tr.highlight{background:var(--gp)}
+.sp-low{color:var(--safe)}.sp-mid{color:var(--warn)}.sp-high{color:var(--avoid)}
+.spread-note{font-size:10px;color:var(--t3);padding:8px 14px;border-top:1px solid var(--bdr);background:var(--bg)}
+.news-badge{background:#FFFBEB;color:var(--warn);font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;border:1px solid #FDE68A;vertical-align:middle;margin-left:4px}
+
+.btn-restart{background:var(--bg);border:1px solid var(--bdrs);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--f);color:var(--t2);margin-top:8px}
+
+footer{background:var(--surf);border-top:1px solid var(--bdr);margin-top:48px;padding:16px 28px;text-align:center;font-size:11px;color:var(--t3)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-tag">ระบบจับคู่โบรกเกอร์ — ทีมเต่า</div>
+    <h1>หาโบรกที่ใช่<br>สำหรับคุณโดยเฉพาะ</h1>
+    <p>ตอบ 3 คำถาม ระบบจะแนะนำโบรกเกอร์และประเภทบัญชีที่เหมาะสมที่สุด พร้อมเหตุผลชัดเจน</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="steps" id="stepsBar">
+    <div class="step-item">
+      <div class="step-num active" id="s1">1</div>
+      <div class="step-label active" id="sl1">สไตล์เทรด</div>
+    </div>
+    <div class="step-line" id="line1"></div>
+    <div class="step-item">
+      <div class="step-num" id="s2">2</div>
+      <div class="step-label" id="sl2">เงินทุน</div>
+    </div>
+    <div class="step-line" id="line2"></div>
+    <div class="step-item">
+      <div class="step-num" id="s3">3</div>
+      <div class="step-label" id="sl3">Platform</div>
+    </div>
+  </div>
+
+  <!-- Q1: STYLE -->
+  <div class="qcard show" id="q1">
+    <div class="qlabel">คำถามที่ 1 / 3</div>
+    <div class="qtitle">คุณเทรดสไตล์ไหน?</div>
+    <div class="options">
+      <div class="opt" data-val="scalper" onclick="select(this,1)">
+        <div class="opt-icon">⚡</div>
+        <div><div class="opt-title">Scalper</div><div class="opt-sub">เปิดปิดเร็ว หลายออเดอร์ต่อวัน · ต้องการ spread ต่ำสุด · execution เร็ว</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="daytrader" onclick="select(this,1)">
+        <div class="opt-icon">📊</div>
+        <div><div class="opt-title">Day Trader</div><div class="opt-sub">เทรดในวัน ปิดก่อนตลาดหยุด · ดู chart เยอะ · ต้องการ platform ดี</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="swing" onclick="select(this,1)">
+        <div class="opt-icon">🌊</div>
+        <div><div class="opt-title">Swing Trader</div><div class="opt-sub">ถือ 2-7 วัน · ดู big picture · swap/overnight fee สำคัญ</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="copy" onclick="select(this,1)">
+        <div class="opt-icon">📋</div>
+        <div><div class="opt-title">Copy Trader</div><div class="opt-sub">ตามสัญญาณคนอื่น · ต้องการระบบ copy trade ที่ดี</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="news" onclick="select(this,1)">
+        <div class="opt-icon">📰</div>
+        <div><div class="opt-title">News Trader</div><div class="opt-sub">เทรดช่วงข่าว · ต้องการ slippage ต่ำ · execution ไวมาก</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="beginner" onclick="select(this,1)">
+        <div class="opt-icon">🐢</div>
+        <div><div class="opt-title">มือใหม่</div><div class="opt-sub">ยังไม่แน่ใจ · อยากเริ่มแบบปลอดภัย · ต้องการ support ภาษาไทย</div></div>
+        <div class="opt-check"></div>
+      </div>
+    </div>
+    <div class="qnav">
+      <div></div>
+      <button class="btn-next" id="next1" onclick="goTo(2)">ถัดไป →</button>
+    </div>
+  </div>
+
+  <!-- Q2: CAPITAL -->
+  <div class="qcard" id="q2">
+    <div class="qlabel">คำถามที่ 2 / 3</div>
+    <div class="qtitle">เงินทุนที่จะเริ่มต้น?</div>
+    <div class="options">
+      <div class="opt" data-val="micro" onclick="select(this,2)">
+        <div class="opt-icon">💵</div>
+        <div><div class="opt-title">น้อยกว่า $100</div><div class="opt-sub">เริ่มต้นเล็กน้อย · ต้องการ micro account · ฝากขั้นต่ำน้อย</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="small" onclick="select(this,2)">
+        <div class="opt-icon">💴</div>
+        <div><div class="opt-title">$100 — $500</div><div class="opt-sub">Standard micro account · เหมาะกับมือใหม่ถึงระดับกลาง</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="medium" onclick="select(this,2)">
+        <div class="opt-icon">💶</div>
+        <div><div class="opt-title">$500 — $2,000</div><div class="opt-sub">Standard account เต็มรูปแบบ · เข้าถึงเงื่อนไขที่ดีกว่า</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="large" onclick="select(this,2)">
+        <div class="opt-icon">💷</div>
+        <div><div class="opt-title">มากกว่า $2,000</div><div class="opt-sub">Pro/ECN account · spread ต่ำสุด · เงื่อนไขดีที่สุด</div></div>
+        <div class="opt-check"></div>
+      </div>
+    </div>
+    <div class="qnav">
+      <button class="btn-back" onclick="goTo(1)">← ย้อนกลับ</button>
+      <button class="btn-next" id="next2" onclick="goTo(3)">ถัดไป →</button>
+    </div>
+  </div>
+
+  <!-- Q3: PLATFORM -->
+  <div class="qcard" id="q3">
+    <div class="qlabel">คำถามที่ 3 / 3</div>
+    <div class="qtitle">Platform ที่ใช้หรืออยากใช้?</div>
+    <div class="options">
+      <div class="opt" data-val="mt" onclick="select(this,3)">
+        <div class="opt-icon">🖥️</div>
+        <div><div class="opt-title">MT4 / MT5</div><div class="opt-sub">Classic · รองรับ EA / bot · indicator เยอะ · ใช้งานง่าย</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="tv" onclick="select(this,3)">
+        <div class="opt-icon">📈</div>
+        <div><div class="opt-title">TradingView</div><div class="opt-sub">Chart สวย · indicator ทันสมัย · community ใหญ่ · ต้องการโบรกที่ integrate ได้</div></div>
+        <div class="opt-check"></div>
+      </div>
+      <div class="opt" data-val="any" onclick="select(this,3)">
+        <div class="opt-icon">🤷</div>
+        <div><div class="opt-title">ยังไม่มี — แนะนำให้เลย</div><div class="opt-sub">ให้ทีมเต่าแนะนำ platform ที่เหมาะกับสไตล์การเทรดของคุณ</div></div>
+        <div class="opt-check"></div>
+      </div>
+    </div>
+    <div class="qnav">
+      <button class="btn-back" onclick="goTo(2)">← ย้อนกลับ</button>
+      <button class="btn-next" id="next3" onclick="showResults()">ดูผลลัพธ์ →</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results"></div>
+
+</div>
+
+<footer>© 2026 TurtlePip.com · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</footer>
+
+<script>
+const answers = {q1:null,q2:null,q3:null};
+
+const BROKERS = [
+  {
+    id:'xs', name:'XS.com', logo:'logo-xs.jpg', logobg:'#fff', verdict:'แนะนำ',
+    score:9.2, score_spread:9.0, score_platform:8.5, score_support:9.5,
+    best_for:['scalper','daytrader','swing','news'],
+    platforms:['mt','any'], min_deposit:'micro',
+    accounts:[
+      {name:'Standard', min:10, spread:'จาก 1.0 pip', note:'เหมาะกับเริ่มต้น', rec:false},
+      {name:'Raw', min:200, spread:'จาก 0.0 pip + $3.5/lot', note:'เหมาะ scalper/active trader', rec:true},
+      {name:'Islamic', min:10, spread:'จาก 1.0 pip', note:'ไม่มี swap overnight', rec:false},
+    ],
+    spread:{eurusd:'0.8',xauusd:'0.18',btcusd:'45',eurusd_news:'3-5',xauusd_news:'8-15',btcusd_news:'150-300'},
+    why_swing:'Swap rate แข่งขันได้ดี · overnight ไม่แพง · chart ผ่าน MT5 ใช้ได้',
+    why_tv:'ไม่ support TradingView โดยตรง แต่ใช้ MT5 กับ chart plugin ได้',
+  },
+  {
+    id:'pepperstone', name:'Pepperstone', logo:'logo-pepperstone.png', logobg:'#0565F8', verdict:'แนะนำ',
+    score:9.0, score_spread:9.5, score_platform:9.5, score_support:8.0,
+    best_for:['scalper','daytrader','swing','news'],
+    platforms:['mt','tv','any'], min_deposit:'medium',
+    accounts:[
+      {name:'Standard', min:200, spread:'จาก 1.0 pip', note:'ไม่มี commission', rec:false},
+      {name:'Razor (ECN)', min:200, spread:'จาก 0.0 pip + $3.5/lot', note:'เหมาะ active trader', rec:true},
+    ],
+    spread:{eurusd:'0.7',xauusd:'0.15',btcusd:'40',eurusd_news:'2-4',xauusd_news:'6-12',btcusd_news:'120-250'},
+    why_swing:'ECN execution · swap rate โอเค · support TradingView เต็มรูปแบบ',
+    why_tv:'รองรับ TradingView native — เชื่อมต่อได้เลย ไม่ต้องใช้ plugin',
+  },
+  {
+    id:'exness', name:'Exness', logo:'logo-exness.png', logobg:'#FFDF01', verdict:'แนะนำ',
+    score:8.8, score_spread:8.5, score_platform:8.0, score_support:9.0,
+    best_for:['beginner','swing','copy','daytrader'],
+    platforms:['mt','any'], min_deposit:'micro',
+    accounts:[
+      {name:'Standard', min:10, spread:'จาก 0.3 pip', note:'ไม่มี commission · เหมาะมือใหม่', rec:true},
+      {name:'Standard Cent', min:10, spread:'จาก 0.3 pip', note:'lot เล็กมาก · ฝึกเทรด', rec:false},
+      {name:'Pro', min:200, spread:'จาก 0.1 pip', note:'สำหรับ trader ระดับกลางขึ้นไป', rec:false},
+    ],
+    spread:{eurusd:'0.9',xauusd:'0.25',btcusd:'50',eurusd_news:'3-6',xauusd_news:'10-20',btcusd_news:'200-400'},
+    why_swing:'ถอนเงินได้ทันที · swap rate แข่งขันได้ · Thai support ดีมาก',
+    why_tv:'ไม่รองรับ TradingView โดยตรง แนะนำใช้ MT5',
+  },
+  {
+    id:'hfm', name:'HFM', logo:'logo-hfm.jpg', logobg:'#111', verdict:'ระวัง',
+    score:7.1, score_spread:7.0, score_platform:7.5, score_support:7.0,
+    best_for:['beginner','copy'],
+    platforms:['mt','any'], min_deposit:'micro',
+    accounts:[
+      {name:'Cent', min:5, spread:'จาก 1.2 pip', note:'เหมาะมือใหม่มาก · lot เล็ก', rec:true},
+      {name:'Premium', min:100, spread:'จาก 1.2 pip', note:'standard ทั่วไป', rec:false},
+      {name:'Zero Spread', min:200, spread:'จาก 0.0 pip + $6/lot', note:'spread ต่ำ แต่ commission แพง', rec:false},
+    ],
+    spread:{eurusd:'1.2',xauusd:'0.30',btcusd:'65',eurusd_news:'5-8',xauusd_news:'15-25',btcusd_news:'200-400'},
+    why_swing:'Swap สูงกว่าคู่แข่ง · ไม่แนะนำสำหรับ swing',
+    why_tv:'ไม่รองรับ TradingView',
+  },
+  {
+    id:'xm', name:'XM', logo:'logo-xm.png', logobg:'#111', verdict:'ระวัง',
+    score:6.9, score_spread:6.5, score_platform:7.0, score_support:7.5,
+    best_for:['beginner'],
+    platforms:['mt','any'], min_deposit:'micro',
+    accounts:[
+      {name:'Micro', min:5, spread:'จาก 1.6 pip', note:'lot เล็กสุด · เหมาะมือใหม่', rec:false},
+      {name:'Standard', min:5, spread:'จาก 1.6 pip', note:'ไม่มี commission', rec:true},
+      {name:'XM Zero', min:100, spread:'จาก 0.0 pip + $3.5/lot', note:'spread ต่ำกว่า standard', rec:false},
+    ],
+    spread:{eurusd:'1.6',xauusd:'0.35',btcusd:'80',eurusd_news:'5-10',xauusd_news:'15-30',btcusd_news:'250-500'},
+    why_swing:'Spread สูง · ไม่เหมาะ active swing trader',
+    why_tv:'ไม่รองรับ TradingView',
+  },
+];
+
+function getMatchScore(b, style, capital, platform) {
+  let score = b.score * 40;
+  if (b.best_for.includes(style)) score += 30;
+  else score += 5;
+  if (b.platforms.includes(platform) || b.platforms.includes('any')) score += 20;
+  else score -= 10;
+  const capMap = {micro:0,small:100,medium:500,large:2000};
+  if (b.accounts.some(a => a.min <= capMap[capital]+1)) score += 10;
+  return Math.round(score);
+}
+
+function getRecommendedAccount(b, style, capital) {
+  const capMap = {micro:0,small:100,medium:500,large:2000};
+  const cap = capMap[capital];
+  const affordable = b.accounts.filter(a => a.min <= cap + (cap===0?15:cap*0.5));
+  if (affordable.length === 0) return b.accounts;
+  if (style === 'scalper' || style === 'news') {
+    const ecn = affordable.find(a => a.spread.includes('0.0'));
+    if (ecn) return b.accounts.map(a => ({...a, rec: a.name === ecn.name}));
+  }
+  if (style === 'beginner' || capital === 'micro') {
+    const cheap = affordable.reduce((a,b) => a.min <= b.min ? a : b);
+    return b.accounts.map(a => ({...a, rec: a.name === cheap.name}));
+  }
+  return b.accounts.map(a => ({...a, rec: affordable.includes(a) && a.rec}));
+}
+
+function getMatchPct(score) {
+  const max = 9.5*40+30+20+10;
+  return Math.round((score/max)*100);
+}
+
+function select(el, q) {
+  el.closest('.options').querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers['q'+q] = el.dataset.val;
+  document.getElementById('next'+q).classList.add('ready');
+}
+
+function goTo(q) {
+  document.querySelectorAll('.qcard').forEach(c => c.classList.remove('show'));
+  document.getElementById('q'+q).classList.add('show');
+  updateSteps(q);
+}
+
+function updateSteps(active) {
+  for (let i=1;i<=3;i++) {
+    const num = document.getElementById('s'+i);
+    const lbl = document.getElementById('sl'+i);
+    const line = document.getElementById('line'+i);
+    num.className = 'step-num' + (i<active?' done':i===active?' active':'');
+    lbl.className = 'step-label' + (i===active?' active':'');
+    if (line) line.className = 'step-line' + (i<active?' done':'');
+  }
+}
+
+function styleLabel(v) {
+  const map = {scalper:'Scalper',daytrader:'Day Trader',swing:'Swing Trader',copy:'Copy Trader',news:'News Trader',beginner:'มือใหม่'};
+  return map[v]||v;
+}
+function capitalLabel(v) {
+  const map = {micro:'< $100',small:'$100-$500',medium:'$500-$2,000',large:'> $2,000'};
+  return map[v]||v;
+}
+function platformLabel(v) {
+  const map = {mt:'MT4/MT5',tv:'TradingView',any:'แนะนำให้'};
+  return map[v]||v;
+}
+
+function showResults() {
+  const {q1:style, q2:capital, q3:platform} = answers;
+  if (!style||!capital||!platform) return;
+
+  document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('show'));
+  document.getElementById('stepsBar').style.display='none';
+
+  const scored = BROKERS.map(b => ({
+    ...b,
+    matchScore: getMatchScore(b, style, capital, platform),
+    accounts: getRecommendedAccount(b, style, capital)
+  })).sort((a,b) => b.matchScore - a.matchScore);
+
+  const top3 = scored.slice(0,3);
+  const spreadRows = scored.slice(0,5);
+
+  let html = `
+  <div class="result-header">
+    <h2>ผลการจับคู่โบรกเกอร์</h2>
+    <p>จาก 5 โบรกเกอร์ในระบบ — เรียงตามความเหมาะสมสำหรับคุณ</p>
+  </div>
+  <div class="result-summary">
+    <span class="summary-pill">${styleLabel(style)}</span>
+    <span class="summary-pill">${capitalLabel(capital)}</span>
+    <span class="summary-pill">${platformLabel(platform)}</span>
+  </div>`;
+
+  top3.forEach((b, i) => {
+    const pct = getMatchPct(b.matchScore);
+    const rankClass = i===0?'r1':i===1?'r2':'r3';
+    const cardClass = i===0?'rcard rank1':'rcard';
+    const why = platform==='tv' ? b.why_tv : b.why_swing;
+    const recAcc = b.accounts.find(a=>a.rec);
+
+    html += `
+    <div class="${cardClass}">
+      ${i===0?`<div class="rank1-tag">⭐ แนะนำอันดับ 1 สำหรับคุณ</div>`:''}
+      <div class="rcard-top">
+        <div class="rank-badge ${rankClass}">#${i+1}</div>
+        <div class="broker-logo-wrap" style="background:${b.logobg}"><img src="${b.logo}" alt="${b.name}"></div>
+        <div class="rcard-info">
+          <div class="rcard-top-row">
+            <span class="rcard-name">${b.name}</span>
+            <span class="badge ${b.verdict==='แนะนำ'?'bsafe':'bwarn'}">${b.verdict}</span>
+            <span class="match-pct">จับคู่ ${pct}%</span>
+          </div>
+          <div class="rcard-why">${why}</div>
+          <div class="account-rec">
+            <div class="account-rec-label">ประเภทบัญชีที่แนะนำ</div>
+            <div class="account-tags">
+              ${b.accounts.map(a=>`<span class="acc-tag${a.rec?' recommended':''}">${a.name} ${a.rec?'✓':''}<br><span style="font-size:10px;font-weight:400;color:var(--t2)">${a.spread}</span></span>`).join('')}
+            </div>
+            ${recAcc?`<div style="margin-top:8px;font-size:11px;color:var(--t2)">แนะนำ: <strong>${recAcc.name}</strong> — ${recAcc.note}</div>`:''}
+          </div>
+        </div>
+      </div>
+      <div class="rcard-bottom">
+        <div class="score-row">
+          <div class="score-item"><div class="score-label">TurtlePip Score</div><div class="score-val ${b.score>=8.5?'g':'a'}">${b.score}</div></div>
+          <div class="score-item"><div class="score-label">Spread</div><div class="score-val ${b.score_spread>=8.5?'g':'a'}">${b.score_spread}</div></div>
+          <div class="score-item"><div class="score-label">Platform</div><div class="score-val ${b.score_platform>=8.5?'g':'a'}">${b.score_platform}</div></div>
+          <div class="score-item"><div class="score-label">Support TH</div><div class="score-val ${b.score_support>=8.5?'g':'a'}">${b.score_support}</div></div>
+        </div>
+        <button class="btn-review">อ่านรีวิวเต็ม →</button>
+      </div>
+    </div>`;
+  });
+
+  // Spread comparison
+  html += `
+  <div class="spread-section">
+    <div class="spread-title">เปรียบเทียบ Spread — Standard Account</div>
+    <div class="spread-card">
+      <table class="spread-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">โบรกเกอร์</th>
+            <th>EUR/USD<br><span style="font-weight:400;text-transform:none;letter-spacing:0">ปกติ / ข่าว</span></th>
+            <th>XAU/USD<br><span style="font-weight:400;text-transform:none;letter-spacing:0">ปกติ / ข่าว</span></th>
+            <th>BTC/USD<br><span style="font-weight:400;text-transform:none;letter-spacing:0">ปกติ / ข่าว</span></th>
+          </tr>
+        </thead>
+        <tbody>`;
+
+  spreadRows.forEach((b,i) => {
+    const eu = parseFloat(b.spread.eurusd);
+    const xa = parseFloat(b.spread.xauusd);
+    const bt = parseFloat(b.spread.btcusd);
+    const euClass = eu<=0.9?'sp-low':eu<=1.2?'sp-mid':'sp-high';
+    const xaClass = xa<=0.20?'sp-low':xa<=0.30?'sp-mid':'sp-high';
+    const btClass = bt<=50?'sp-low':bt<=65?'sp-mid':'sp-high';
+    const isTop = i===0;
+    html += `
+          <tr${isTop?' class="highlight"':''}>
+            <td>${b.name}${isTop?' ⭐':''}</td>
+            <td><span class="${euClass}">${b.spread.eurusd}</span> <span class="news-badge">ข่าว ${b.spread.eurusd_news}</span></td>
+            <td><span class="${xaClass}">${b.spread.xauusd}</span> <span class="news-badge">ข่าว ${b.spread.xauusd_news}</span></td>
+            <td><span class="${btClass}">${b.spread.btcusd}</span> <span class="news-badge">ข่าว ${b.spread.btcusd_news}</span></td>
+          </tr>`;
+  });
+
+  html += `
+        </tbody>
+      </table>
+      <div class="spread-note">Standard Account เท่านั้น · ข้อมูล ณ พ.ค. 2026 · อัปเดตทุก 6 เดือน · ค่า spread ช่วงข่าวเป็น estimate อาจแตกต่างตามสภาวะตลาด</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:24px">
+    <button class="btn-restart" onclick="restart()">← เริ่มใหม่อีกครั้ง</button>
+  </div>`;
+
+  const el = document.getElementById('results');
+  el.innerHTML = html;
+  el.classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restart() {
+  answers.q1=answers.q2=answers.q3=null;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
+  document.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('ready'));
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('results').innerHTML='';
+  document.getElementById('stepsBar').style.display='flex';
+  goTo(1);
+}
+</script>
+</body>
+</html>
