@@ -3,26 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>หาโบรกที่ใช่ — TurtlePip</title>
+<link rel="stylesheet" href="shared.css">
+<title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <style>
-@font-face { font-family:'NotoSans'; src:url('NotoSans.ttf') format('truetype'); font-weight:100 900; }
-@font-face { font-family:'NotoSans'; src:url('NotoSansThai.ttf') format('truetype'); font-weight:100 900; unicode-range:U+0E00-U+0E7F; }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gd:#0A5550;--gm:#63B235;--gp:#F2FAE8;--cream:#FDEDD4;
-  --bg:#FAFAF8;--surf:#FFFFFF;--bdr:#E8E8E4;--bdrs:#D4D4CE;
-  --t1:#111110;--t2:#5C5C58;--t3:#9C9C98;
-  --safe:#16A34A;--safebg:#F0FDF4;
-  --warn:#D97706;--warnbg:#FFFBEB;
-  --avoid:#DC2626;--avoidbg:#FEF2F2;
-  --r:10px;--rl:14px;
-  --f:'NotoSans','Noto Sans Thai',sans-serif;
-}
-body{font-family:var(--f);background:var(--bg);color:var(--t1);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
-nav{background:var(--surf);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
-.nav-inner{max-width:1120px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center}
-.logo{display:flex;align-items:center;text-decoration:none}
-.logo img{height:46px;width:auto}
+/* fonts from shared.css */
+/* root + body from shared.css */
+/* nav styles from shared.css */
 .wrap{max-width:800px;margin:0 auto;padding:32px 24px}
 
 /* HERO */
@@ -130,13 +116,17 @@ footer{background:var(--surf);border-top:1px solid var(--bdr);margin-top:48px;pa
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
+    <div class="nav-links"><a href="index.html" class="nl">โบรกเกอร์</a><a href="compare.html" class="nl">เปรียบเทียบ</a><a href="matcher.html" class="nl on">หาโบรกที่ใช่</a><a href="blacklist.html" class="nl">แบล็คลิสต์</a><a href="blog.html" class="nl">บทความ</a></div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">โบรกเกอร์</a><a href="compare.html">เปรียบเทียบ</a><a href="matcher.html" class="on">หาโบรกที่ใช่</a><a href="blacklist.html">แบล็คลิสต์</a><a href="blog.html">บทความ</a></div>
 <div class="wrap">
 
   <div class="hero">
-    <div class="hero-tag">ระบบจับคู่โบรกเกอร์ — ทีมเต่า</div>
+    <div class="hero-tag">ระบบจับคู่โบรกเกอร์ — ทีมซุปเต่า</div>
     <h1>หาโบรกที่ใช่<br>สำหรับคุณโดยเฉพาะ</h1>
     <p>ตอบ 3 คำถาม ระบบจะแนะนำโบรกเกอร์และประเภทบัญชีที่เหมาะสมที่สุด พร้อมเหตุผลชัดเจน</p>
   </div>
@@ -250,7 +240,7 @@ footer{background:var(--surf);border-top:1px solid var(--bdr);margin-top:48px;pa
       </div>
       <div class="opt" data-val="any" onclick="select(this,3)">
         <div class="opt-icon">🤷</div>
-        <div><div class="opt-title">ยังไม่มี — แนะนำให้เลย</div><div class="opt-sub">ให้ทีมเต่าแนะนำ platform ที่เหมาะกับสไตล์การเทรดของคุณ</div></div>
+        <div><div class="opt-title">ยังไม่มี — แนะนำให้เลย</div><div class="opt-sub">ให้ทีมซุปเต่าแนะนำ platform ที่เหมาะกับสไตล์การเทรดของคุณ</div></div>
         <div class="opt-check"></div>
       </div>
     </div>
