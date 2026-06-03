@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทความ Forex โดยทีมเต่า — TurtlePip</title>
-<meta name="description" content="บทความ Forex ภาษาไทย — A-Book vs B-Book, แจ้งเตือนโบรก, คู่มือเทรด จากทีมเต่า">
+<title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
+<meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
 <link rel="stylesheet" href="shared.css">
 <style>
 .page-hero{margin-bottom:28px}
@@ -53,19 +53,16 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links">
-      <a href="index.html" class="nl">โบรกเกอร์</a>
-      <a href="compare.html" class="nl">เปรียบเทียบ</a>
-      <a href="matcher.html" class="nl">หาโบรกที่ใช่</a>
-      <a href="blacklist.html" class="nl">แบล็คลิสต์</a>
-      <a href="blog.html" class="nl on">บทความ</a>
-    </div>
+    <div class="nav-links"><a href="index.html" class="nl">โบรกเกอร์</a><a href="compare.html" class="nl">เปรียบเทียบ</a><a href="matcher.html" class="nl">หาโบรกที่ใช่</a><a href="blacklist.html" class="nl">แบล็คลิสต์</a><a href="blog.html" class="nl on">บทความ</a></div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">โบรกเกอร์</a><a href="compare.html">เปรียบเทียบ</a><a href="matcher.html">หาโบรกที่ใช่</a><a href="blacklist.html">แบล็คลิสต์</a><a href="blog.html" class="on">บทความ</a></div>
 <div class="wrap">
   <div class="page-hero">
-    <h1>บทความจากทีมเต่า</h1>
+    <h1>บทความจากทีมซุปเต่า</h1>
     <p>ข้อมูลจริง ไม่มีโฆษณาแฝง — เขียนโดยคนที่เคยอยู่ในวงการ Forex มามากกว่า 5 ปี</p>
   </div>
 
@@ -83,9 +80,9 @@
     <div>
       <div class="feat-tag guide">คู่มือ — อ่านก่อนเปิดบัญชี</div>
       <div class="feat-title">A-Book vs B-Book คืออะไร — โบรกเกอร์ทำเงินจากคุณยังไง?</div>
-      <div class="feat-excerpt">รู้ไหมว่าโบรกเกอร์บางเจ้าได้กำไรเมื่อคุณขาดทุน? นี่คือความจริงที่คนส่วนใหญ่ไม่รู้ก่อนเปิดบัญชี ทีมเต่าอธิบายให้เข้าใจง่ายๆ พร้อมเปิดเผยว่าโบรกในกลุ่มเราแต่ละเจ้าใช้ model ไหน</div>
+      <div class="feat-excerpt">รู้ไหมว่าโบรกเกอร์บางเจ้าได้กำไรเมื่อคุณขาดทุน? นี่คือความจริงที่คนส่วนใหญ่ไม่รู้ก่อนเปิดบัญชี ทีมซุปเต่าอธิบายให้เข้าใจง่ายๆ พร้อมเปิดเผยว่าโบรกในกลุ่มเราแต่ละเจ้าใช้ model ไหน</div>
       <div class="feat-meta">
-        <span>🐢 ทีมเต่า</span>
+        <span>🐢 ทีมซุปเต่า</span>
         <span>📅 พ.ค. 2026</span>
         <span>⏱️ 6 นาทีอ่าน</span>
       </div>
@@ -97,7 +94,7 @@
     <div class="line-ico-sm">L</div>
     <div class="line-text">
       <div class="line-text-title">รับบทความใหม่ทันทีผ่าน LINE OA</div>
-      <div class="line-text-sub">ทีมเต่าส่งสรุปสั้นๆ ทุกครั้งที่มีบทความใหม่ — ไม่ spam ไม่ขายของ</div>
+      <div class="line-text-sub">ทีมซุปเต่าส่งสรุปสั้นๆ ทุกครั้งที่มีบทความใหม่ — ไม่ spam ไม่ขายของ</div>
     </div>
     <button class="btnline-sm">ติดตาม</button>
   </div>
@@ -109,7 +106,7 @@
     <a href="#" class="acard" data-cat="danger">
       <div class="acard-tag danger">แจ้งเตือน</div>
       <div class="acard-title">โบรกเกอร์ไหนเปลี่ยนทีมบริหารแล้ว — และธุรกิจเปลี่ยนไปอย่างไรในปี 2026</div>
-      <div class="acard-excerpt">VT Markets, OctaFX และอีกหลายเจ้าเปลี่ยนเจ้าของในช่วง 12 เดือนที่ผ่านมา ทีมเต่าตามติดว่าอะไรเปลี่ยน</div>
+      <div class="acard-excerpt">VT Markets, OctaFX และอีกหลายเจ้าเปลี่ยนเจ้าของในช่วง 12 เดือนที่ผ่านมา ทีมซุปเต่าตามติดว่าอะไรเปลี่ยน</div>
       <div class="acard-meta">3 วันที่แล้ว · 8 นาทีอ่าน</div>
     </a>
 
@@ -123,7 +120,7 @@
     <a href="#" class="acard" data-cat="test">
       <div class="acard-tag test">ทดสอบจริง</div>
       <div class="acard-title">ทดสอบถอนเงิน XS.com vs Pepperstone — ใครเร็วกว่า? ผลจริงพร้อมสกรีนช็อต</div>
-      <div class="acard-excerpt">ทีมเต่าถอนเงิน $500 จากทั้งสองโบรก วัดเวลาจริง เปิดเผยทุกขั้นตอน</div>
+      <div class="acard-excerpt">ทีมซุปเต่าถอนเงิน $500 จากทั้งสองโบรก วัดเวลาจริง เปิดเผยทุกขั้นตอน</div>
       <div class="acard-meta">2 สัปดาห์ที่แล้ว · 5 นาทีอ่าน</div>
     </a>
 
@@ -144,13 +141,13 @@
     <a href="#" class="acard" data-cat="news">
       <div class="acard-tag news">ข่าว</div>
       <div class="acard-title">อัปเดต Spread และเงื่อนไข XS.com พฤษภาคม 2026</div>
-      <div class="acard-excerpt">XS.com ปรับ spread XAUUSD ใหม่ — ดีขึ้นหรือแย่ลง? ทีมเต่าเช็คให้</div>
+      <div class="acard-excerpt">XS.com ปรับ spread XAUUSD ใหม่ — ดีขึ้นหรือแย่ลง? ทีมซุปเต่าเช็คให้</div>
       <div class="acard-meta">1 เดือนที่แล้ว · 3 นาทีอ่าน</div>
     </a>
 
     <a href="#" class="acard" data-cat="danger">
       <div class="acard-tag danger">แจ้งเตือน</div>
-      <div class="acard-title">OctaFX — ทำไมทีมเต่าถึงขึ้นแบล็คลิสต์? หลักฐานครบ</div>
+      <div class="acard-title">OctaFX — ทำไมทีมซุปเต่าถึงขึ้นแบล็คลิสต์? หลักฐานครบ</div>
       <div class="acard-excerpt">Belize regulation ไม่ได้ปกป้องคุณจริงๆ — อธิบายให้เข้าใจว่า SVG/Belize license หมายความว่าอะไร</div>
       <div class="acard-meta">2 เดือนที่แล้ว · 5 นาทีอ่าน</div>
     </a>
@@ -158,7 +155,7 @@
     <a href="#" class="acard" data-cat="test">
       <div class="acard-tag test">ทดสอบจริง</div>
       <div class="acard-title">ทดสอบ Thai Support — โทร LINE ทุกโบรกในกลุ่ม ตอบเร็วแค่ไหน?</div>
-      <div class="acard-excerpt">ทีมเต่าส่งข้อความถาม 5 โบรกพร้อมกัน จับเวลาตอบ วัดคุณภาพคำตอบ</div>
+      <div class="acard-excerpt">ทีมซุปเต่าส่งข้อความถาม 5 โบรกพร้อมกัน จับเวลาตอบ วัดคุณภาพคำตอบ</div>
       <div class="acard-meta">2 เดือนที่แล้ว · 4 นาทีอ่าน</div>
     </a>
 
@@ -167,7 +164,7 @@
 
 <footer>
   <div class="fin">
-    <div>© 2026 TurtlePip.com · บทความโดยทีมเต่า · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</div>
+    <div>© 2026 TurtlePip.com · บทความโดยทีมซุปเต่า · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</div>
     <div class="flinks"><a href="#" class="flink">นโยบาย</a><a href="#" class="flink">คำเตือนความเสี่ยง</a></div>
     <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
   </div>
