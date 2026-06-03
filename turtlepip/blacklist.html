@@ -3,184 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>แบล็คลิสต์โบรกเกอร์อันตราย 2026 — TurtlePip</title>
-<meta name="description" content="รายชื่อโบรกเกอร์ Forex ที่ควรหลีกเลี่ยง — มีหลักฐาน มีเหตุผล อัปเดตล่าสุด 2026">
+<title>แบล็คลิสต์โบรกเกอร์ 2026 — TurtlePip</title>
+<meta name="description" content="รายชื่อโบรกเกอร์ Forex ที่ควรหลีกเลี่ยงหรือระวัง — มีหลักฐานอ้างอิง อัปเดต พ.ค. 2026">
 <link rel="stylesheet" href="shared.css">
 <style>
-.page-hero{margin-bottom:28px}
-.page-hero h1{font-size:24px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
-.page-hero p{font-size:13px;color:var(--t2);max-width:600px}
-.alert-banner{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--rl);padding:14px 20px;margin-bottom:28px;display:flex;gap:12px;align-items:flex-start}
-.alert-icon{font-size:20px;flex-shrink:0}
-.alert-text-block p{font-size:13px;color:#7F1D1D;line-height:1.7;margin-bottom:4px}
-.alert-text-block p:last-child{margin-bottom:0}
-/* BLACKLIST CARD */
-.bcard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:16px}
-.bcard.level-high{border-left:4px solid var(--avoid)}
-.bcard.level-warn{border-left:4px solid var(--warn)}
-.bcard-head{padding:16px 20px;display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid var(--bdr)}
-.blevel{font-size:10px;font-weight:800;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:2px}
-.blevel.high{background:var(--avoidbg);color:var(--avoid)}
-.blevel.warn{background:var(--warnbg);color:var(--warn)}
-.bcard-name{font-size:16px;font-weight:800;margin-bottom:4px}
-.bcard-reg{font-size:11px;color:var(--t3)}
-.bcard-body{padding:16px 20px}
-.reasons{list-style:none;padding:0;margin-bottom:14px}
-.reasons li{display:flex;gap:10px;font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:8px;padding-left:0}
-.reason-icon{font-size:14px;flex-shrink:0;margin-top:1px}
-.evidence-box{background:var(--bg);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--t3);line-height:1.6}
-.evidence-box strong{color:var(--t2)}
-.bcard-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--bdr)}
-.bmeta-item{font-size:11px;color:var(--t3);display:flex;align-items:center;gap:4px}
-/* CHECKLIST */
-.checklist-card{background:var(--gp);border:1px solid #C3E6A0;border-radius:var(--rl);padding:20px 24px;margin-bottom:28px}
-.checklist-title{font-size:15px;font-weight:800;color:var(--gd);margin-bottom:14px}
-.checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.check-item{display:flex;gap:8px;font-size:13px;color:var(--t2);align-items:flex-start}
-.check-tick{color:var(--safe);font-weight:700;flex-shrink:0}
-/* LINE CTA */
-.line-alert{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--rl);padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.line-ico{width:44px;height:44px;background:#06C755;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:22px;font-weight:900;flex-shrink:0}
-.line-text-block{flex:1}
-.line-title{font-size:14px;font-weight:800;color:#14532D;margin-bottom:3px}
-.line-sub{font-size:12px;color:#166534}
-.btnline{background:#06C755;color:white;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);flex-shrink:0}
-@media(max-width:600px){.checklist-grid{grid-template-columns:1fr}}
+  .page-hero { margin-bottom: 24px; }
+  .page-hero h1 { font-size: 24px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 6px; }
+  .page-hero p  { font-size: 13px; color: var(--t2); max-width: 600px; line-height: 1.7; }
+
+  .criteria-box {
+    background: var(--gp); border: 1px solid #C3E6A0;
+    border-radius: var(--rl); padding: 16px 20px; margin-bottom: 24px;
+  }
+  .criteria-title { font-size: 13px; font-weight: 700; color: var(--gd); margin-bottom: 10px; }
+  .criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .criteria-item { display: flex; gap: 8px; font-size: 12px; color: var(--t2); align-items: flex-start; }
+  .criteria-tick { color: var(--safe); font-weight: 700; flex-shrink: 0; }
+
+  /* STATUS LEGEND */
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--t2); }
+
+  /* BCARD */
+  .bcard {
+    background: var(--surf); border: 1px solid var(--bdr);
+    border-radius: var(--rl); overflow: hidden; margin-bottom: 14px;
+  }
+  .bcard.avoid  { border-left: 4px solid var(--avoid); }
+  .bcard.inactive { border-left: 4px solid var(--t3); }
+
+  .bcard-head {
+    padding: 14px 20px; display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--bdr);
+  }
+  .bcard-name { font-size: 16px; font-weight: 800; margin-bottom: 3px; color: var(--t1); }
+  .bcard-reg  { font-size: 11px; color: var(--t3); }
+
+  .blevel {
+    font-size: 10px; font-weight: 800; padding: 3px 10px;
+    border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+  }
+  .blevel.avoid    { background: var(--avoidbg); color: var(--avoid); }
+  .blevel.inactive { background: #F1F5F9; color: #64748B; }
+
+  .bcard-body { padding: 14px 20px; }
+  .reasons { list-style: none; padding: 0; margin-bottom: 12px; }
+  .reasons li {
+    display: flex; gap: 10px; font-size: 13px; color: var(--t2);
+    line-height: 1.5; margin-bottom: 8px;
+  }
+  .ri { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+  .evidence-box {
+    background: var(--bg); border-radius: 8px;
+    padding: 10px 14px; font-size: 12px; color: var(--t3); line-height: 1.6;
+  }
+  .evidence-box strong { color: var(--t2); }
+
+  .bcard-meta {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--bdr);
+    font-size: 11px; color: var(--t3);
+  }
+
+  /* CHECKLIST */
+  .checklist-card {
+    background: var(--gp); border: 1px solid #C3E6A0;
+    border-radius: var(--rl); padding: 20px 24px; margin-bottom: 24px;
+  }
+  .checklist-title { font-size: 15px; font-weight: 800; color: var(--gd); margin-bottom: 14px; }
+  .checklist-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .check-item { display: flex; gap: 8px; font-size: 13px; color: var(--t2); align-items: flex-start; }
+  .ctick { color: var(--safe); font-weight: 700; flex-shrink: 0; }
+
+  /* LINE CTA */
+  .line-alert {
+    background: #F0FDF4; border: 1px solid #BBF7D0;
+    border-radius: var(--rl); padding: 20px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .line-ico {
+    width: 44px; height: 44px; background: #06C755;
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; color: white; font-size: 22px;
+    font-weight: 900; flex-shrink: 0;
+  }
+  .line-tb { flex: 1; }
+  .line-t  { font-size: 14px; font-weight: 800; color: #14532D; margin-bottom: 3px; }
+  .line-s  { font-size: 12px; color: #166534; }
+  .btnline {
+    background: #06C755; color: white; border: none; border-radius: 8px;
+    padding: 10px 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; font-family: var(--f); flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .checklist-grid { grid-template-columns: 1fr; }
+    .criteria-grid  { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
     <div class="nav-links">
-      <a href="index.html" class="nl">โบรกเกอร์</a>
-      <a href="compare.html" class="nl">เปรียบเทียบ</a>
-      <a href="matcher.html" class="nl">หาโบรกที่ใช่</a>
+      <a href="index.html"     class="nl">โบรกเกอร์</a>
+      <a href="compare.html"   class="nl">เปรียบเทียบ</a>
+      <a href="matcher.html"   class="nl">หาโบรกที่ใช่</a>
       <a href="blacklist.html" class="nl on">แบล็คลิสต์</a>
-      <a href="blog.html" class="nl">บทความ</a>
+      <a href="blog.html"      class="nl">บทความ</a>
     </div>
   </div>
 </nav>
 
 <div class="wrap">
+
   <div class="page-hero">
-    <h1>แบล็คลิสต์โบรกเกอร์อันตราย</h1>
-    <p>รายชื่อโบรกเกอร์ที่ทีมเต่าแนะนำให้หลีกเลี่ยง — ทุก entry มีหลักฐานและเหตุผลชัดเจน ไม่ใช่แค่ความเห็น</p>
+    <h1>แบล็คลิสต์โบรกเกอร์</h1>
+    <p>รายชื่อโบรกเกอร์ที่ทีมเต่าไม่แนะนำ — ทุก entry มีหลักฐานอ้างอิงจากแหล่งที่ตรวจสอบได้ ไม่ใช่ความเห็นส่วนตัว</p>
   </div>
 
-  <div class="alert-banner">
-    <div class="alert-icon">⚠️</div>
-    <div class="alert-text-block">
-      <p><strong>การขึ้นแบล็คลิสต์ของทีมเต่า</strong> — โบรกเกอร์จะถูกขึ้นรายการนี้เมื่อมีหลักฐานยืนยันได้อย่างน้อย 1 ใน 3 ข้อ: (1) มีประวัติ complaint ถอนเงินไม่ได้จากแหล่งที่น่าเชื่อถือ (2) ไม่มี Tier-1 regulation หรือ regulation ขาดหาย (3) เปลี่ยนทีมบริหารแล้วมีพฤติกรรมเปลี่ยนไปในทางที่ไม่ดี</p>
-      <p>โบรกเกอร์ในรายการนี้มีสิทธิ์ชี้แจง — ติดต่อทีมเต่าได้ตลอดเวลา</p>
+  <!-- CRITERIA -->
+  <div class="criteria-box">
+    <div class="criteria-title">เกณฑ์การขึ้นรายการ — โบรกจะถูกขึ้นเมื่อมีหลักฐานอย่างน้อย 1 ข้อ</div>
+    <div class="criteria-grid">
+      <div class="criteria-item"><span class="criteria-tick">1.</span>ไม่มี Tier-1 regulation (ASIC, FCA, CySEC) หรือ license ขาดหาย</div>
+      <div class="criteria-item"><span class="criteria-tick">2.</span>มีประวัติ complaint ถอนเงินไม่ได้จากแหล่งที่ตรวจสอบได้</div>
+      <div class="criteria-item"><span class="criteria-tick">3.</span>เปลี่ยนทีมบริหารแล้วมีพฤติกรรมเปลี่ยนในทางที่เสียหายต่อลูกค้า</div>
+      <div class="criteria-item"><span class="criteria-tick">4.</span>ประกาศหยุดให้บริการ หรือถูก regulator สั่งหยุด</div>
     </div>
   </div>
 
-  <!-- BLACKLIST ENTRIES -->
-  <div class="bcard level-high">
+  <!-- STATUS LEGEND -->
+  <div class="legend">
+    <div class="legend-item">
+      <span class="badge bavoid">หลีกเลี่ยง</span>
+      <span>มีหลักฐานปัญหาชัดเจน ไม่แนะนำเด็ดขาด</span>
+    </div>
+    <div class="legend-item">
+      <span class="badge" style="background:#F1F5F9;color:#64748B">หยุดให้บริการ</span>
+      <span>ไม่สามารถเทรดได้แล้ว — ไม่ใช่อันตราย แค่ใช้ไม่ได้</span>
+    </div>
+  </div>
+
+  <!-- VT MARKETS -->
+  <div class="bcard avoid">
     <div class="bcard-head">
       <div>
         <div class="bcard-name">VT Markets</div>
-        <div class="bcard-reg">ASIC (ออสเตรเลีย) · เจ้าของใหม่จากจีน</div>
+        <div class="bcard-reg">ASIC (ออสเตรเลีย) · เปลี่ยนเจ้าของใหม่ 2025</div>
       </div>
-      <span class="blevel high">หลีกเลี่ยง</span>
+      <span class="blevel avoid">หลีกเลี่ยง</span>
     </div>
     <div class="bcard-body">
       <ul class="reasons">
-        <li><span class="reason-icon">🔄</span>เปลี่ยนทีมบริหารเป็นทุนจีนในปี 2025 — โมเดลธุรกิจเปลี่ยนจาก ECN ไปทิศทาง B-Book มากขึ้น</li>
-        <li><span class="reason-icon">⏱️</span>ผู้ใช้หลายรายรายงานว่าถอนเงินช้าลงหลังเปลี่ยนมือ — บางรายรอเกิน 7 วันทำการ</li>
-        <li><span class="reason-icon">📋</span>T&C เปลี่ยนแปลงหลายครั้งในช่วง 6 เดือนหลังเปลี่ยนเจ้าของ โดยไม่แจ้งลูกค้าล่วงหน้า</li>
-        <li><span class="reason-icon">🏛️</span>ASIC regulation ยังมีอยู่ แต่ entity ที่ให้บริการ trader ไทยไม่ใช่ ASIC entity โดยตรง</li>
+        <li><span class="ri">🔄</span>เปลี่ยนเจ้าของเป็นทุนจีนปี 2025 — โมเดลธุรกิจเปลี่ยนจาก ECN ไปทิศทาง B-Book มากขึ้น</li>
+        <li><span class="ri">⏱️</span>ผู้ใช้รายงานถอนเงินช้าลงหลังเปลี่ยนมือ บางรายรอเกิน 7 วันทำการ</li>
+        <li><span class="ri">📋</span>T&C เปลี่ยนหลายครั้งในช่วง 6 เดือนหลังเปลี่ยนเจ้าของ โดยไม่แจ้งลูกค้าล่วงหน้า</li>
+        <li><span class="ri">🏛️</span>ASIC license ยังมี แต่ entity ที่รับ client ไทยไม่ใช่ ASIC entity โดยตรง</li>
       </ul>
       <div class="evidence-box">
-        <strong>หลักฐานอ้างอิง:</strong> รายงานการเปลี่ยนผู้ถือหุ้นจาก ASIC public register · ความเห็นผู้ใช้จาก Trustpilot และ ForexPeaceArmy (เก็บ screenshot ไว้แล้ว) · การเปลี่ยน T&C ที่ archive.org บันทึกไว้
+        <strong>หลักฐาน:</strong> รายงานเปลี่ยนผู้ถือหุ้นจาก ASIC public register · ความเห็นผู้ใช้จาก Trustpilot และ ForexPeaceArmy · การเปลี่ยน T&C ที่ archive.org บันทึกไว้
       </div>
       <div class="bcard-meta">
-        <span class="bmeta-item">📅 เพิ่มเข้ารายการ: พ.ค. 2026</span>
-        <span class="bmeta-item">🔄 อัปเดตล่าสุด: พ.ค. 2026</span>
-        <span class="bmeta-item">👁️ ติดตามสถานะ: ยังอยู่ในรายการ</span>
+        <span>📅 เพิ่มเข้ารายการ: พ.ค. 2026</span>
+        <span>🔄 อัปเดตล่าสุด: พ.ค. 2026</span>
       </div>
     </div>
   </div>
 
-  <div class="bcard level-high">
+  <!-- OctaFX -->
+  <div class="bcard avoid">
     <div class="bcard-head">
       <div>
         <div class="bcard-name">OctaFX</div>
-        <div class="bcard-reg">CySEC · SVG (เซนต์วินเซนต์)</div>
+        <div class="bcard-reg">SVG (เซนต์วินเซนต์) — ไม่มี Tier-1 regulation</div>
       </div>
-      <span class="blevel high">หลีกเลี่ยง</span>
+      <span class="blevel avoid">หลีกเลี่ยง</span>
     </div>
     <div class="bcard-body">
       <ul class="reasons">
-        <li><span class="reason-icon">🏛️</span>Entity หลักที่ให้บริการ trader ไทยจดทะเบียนที่ SVG — ไม่มีการ regulate ที่แท้จริง</li>
-        <li><span class="reason-icon">💰</span>Bonus เงื่อนไขซับซ้อน — หลายรายรายงานว่าถูก lock กำไรเพราะ bonus policy</li>
-        <li><span class="reason-icon">📱</span>ใช้ Influencer marketing heavy — รีวิวส่วนใหญ่เป็นโฆษณาแฝง ไม่ใช่ประสบการณ์จริง</li>
+        <li><span class="ri">🏛️</span>จดทะเบียนที่ SVG ซึ่งไม่มีอำนาจ regulate broker จริงๆ — เป็นแค่ company registration ไม่ใช่ financial regulation</li>
+        <li><span class="ri">💰</span>Bonus เงื่อนไขซับซ้อน มีรายงานถูก lock กำไรเพราะ bonus policy</li>
+        <li><span class="ri">📱</span>ใช้ Influencer marketing หนัก — รีวิวส่วนใหญ่เป็นโฆษณาแฝง ไม่ใช่ประสบการณ์จริง</li>
       </ul>
       <div class="evidence-box">
-        <strong>หลักฐานอ้างอิง:</strong> SVG FSA ไม่มีอำนาจ regulate broker จริงๆ (เป็นแค่ company registration) · complaint บน ForexPeaceArmy มากกว่า 200 รายการ เกี่ยวกับ bonus withdrawal issues
+        <strong>หลักฐาน:</strong> SVG FSA ไม่มีอำนาจ regulate broker ด้านการเงิน (ยืนยันจาก FSA SVG website) · complaint บน ForexPeaceArmy มากกว่า 200 รายการเรื่อง bonus withdrawal
       </div>
       <div class="bcard-meta">
-        <span class="bmeta-item">📅 เพิ่มเข้ารายการ: ม.ค. 2026</span>
-        <span class="bmeta-item">👁️ ติดตามสถานะ: ยังอยู่ในรายการ</span>
+        <span>📅 เพิ่มเข้ารายการ: ม.ค. 2026</span>
       </div>
     </div>
   </div>
 
-  <div class="bcard level-warn">
+  <!-- FBS — หยุดให้บริการ -->
+  <div class="bcard inactive">
     <div class="bcard-head">
       <div>
         <div class="bcard-name">FBS</div>
-        <div class="bcard-reg">CySEC · FSC Belize · FSCA</div>
+        <div class="bcard-reg">CySEC · FSC Belize · FSCA — หยุดให้บริการในไทยแล้ว</div>
       </div>
-      <span class="blevel warn">เฝ้าระวัง</span>
+      <span class="blevel inactive">หยุดให้บริการ</span>
     </div>
     <div class="bcard-body">
       <ul class="reasons">
-        <li><span class="reason-icon">📊</span>Entity หลักสำหรับ trader ไทยคือ Belize — Tier-3 regulation ต่ำกว่ามาตรฐาน</li>
-        <li><span class="reason-icon">🎁</span>Bonus promotion aggressive มาก — เงื่อนไขซับซ้อน trader มือใหม่มักเข้าใจผิด</li>
-        <li><span class="reason-icon">⚠️</span>Spread สูงกว่าค่าเฉลี่ยในกลุ่ม — เหมาะกับมือใหม่ที่ยังฝึกมากกว่า active trader</li>
+        <li><span class="ri">📧</span>FBS ส่ง email แจ้งลูกค้าไทยว่าหยุดให้บริการในภูมิภาคไทยแล้ว — ไม่สามารถเปิดบัญชีใหม่หรือเทรดได้</li>
+        <li><span class="ri">ℹ️</span>ไม่ใช่โบรกอันตราย — แค่ไม่สามารถใช้งานได้สำหรับ trader ไทย</li>
       </ul>
       <div class="evidence-box">
-        <strong>หมายเหตุ:</strong> FBS ยังไม่ถึงระดับ "หลีกเลี่ยง" — เป็น "เฝ้าระวัง" เพราะ regulation ต่ำกว่ามาตรฐาน แต่ยังให้บริการอยู่ปกติ · ทีมเต่าจะติดตามต่อ
+        <strong>หลักฐาน:</strong> Email แจ้งจาก FBS ถึงลูกค้าไทย · ยืนยันโดยทีมเต่าจากการทดสอบ registration พ.ค. 2026
       </div>
       <div class="bcard-meta">
-        <span class="bmeta-item">📅 เพิ่มเข้ารายการ: มี.ค. 2026</span>
-        <span class="bmeta-item">🔄 review ครั้งหน้า: ส.ค. 2026</span>
+        <span>📅 อัปเดต: พ.ค. 2026</span>
+        <span>ℹ️ สถานะ: หยุดให้บริการในไทย ไม่ใช่ scam</span>
       </div>
     </div>
   </div>
 
   <!-- CHECKLIST -->
   <div class="checklist-card">
-    <div class="checklist-title">✓ วิธีตรวจสอบโบรกเกอร์ก่อนเปิดบัญชี</div>
+    <div class="checklist-title">✓ วิธีตรวจสอบโบรกเกอร์ด้วยตัวเองก่อนเปิดบัญชี</div>
     <div class="checklist-grid">
-      <div class="check-item"><span class="check-tick">✓</span>เช็ค license จาก ASIC/FCA/CySEC website โดยตรง ไม่ใช่แค่เชื่อโบรก</div>
-      <div class="check-item"><span class="check-tick">✓</span>ดูว่า entity ที่ให้บริการคุณคือ entity เดียวกับที่ถือ license หรือเปล่า</div>
-      <div class="check-item"><span class="check-tick">✓</span>ค้นชื่อโบรก + "withdrawal problem" หรือ "scam" บน Google</div>
-      <div class="check-item"><span class="check-tick">✓</span>ทดสอบถอนเงินก้อนเล็กก่อนเสมอก่อนฝากใหญ่</div>
-      <div class="check-item"><span class="check-tick">✓</span>เช็คว่าเงินลูกค้า segregated จากเงินบริษัทไหม</div>
-      <div class="check-item"><span class="check-tick">✓</span>ดูว่าใครถือหุ้นโบรกเกอร์นั้นจริงๆ — เปิดเผยข้อมูลไหม</div>
+      <div class="check-item"><span class="ctick">✓</span>เช็ค license โดยตรงจาก ASIC / FCA / CySEC website — ไม่เชื่อแค่โลโก้บนเว็บโบรก</div>
+      <div class="check-item"><span class="ctick">✓</span>ดูว่า entity ที่ให้บริการคุณเป็น entity เดียวกับที่ถือ license จริงไหม</div>
+      <div class="check-item"><span class="ctick">✓</span>ค้น "ชื่อโบรก + withdrawal problem" หรือ "scam" บน Google ดูรีวิวจริง</div>
+      <div class="check-item"><span class="ctick">✓</span>ทดสอบถอนเงินก้อนเล็กก่อนเสมอ ก่อนฝากเงินก้อนใหญ่</div>
+      <div class="check-item"><span class="ctick">✓</span>เช็คว่าเงินลูกค้าถูก segregate จากเงินบริษัทไหม</div>
+      <div class="check-item"><span class="ctick">✓</span>ดูว่าเจ้าของโบรกเปิดเผยข้อมูลชัดเจนไหม มีการเปลี่ยนมือล่าสุดไหม</div>
     </div>
   </div>
 
   <!-- LINE CTA -->
   <div class="line-alert">
     <div class="line-ico">L</div>
-    <div class="line-text-block">
-      <div class="line-title">รับแจ้งเตือนโบรกใหม่ที่น่าสงสัยก่อนใคร</div>
-      <div class="line-sub">ทีมเต่าจะส่งแจ้งเตือนทันทีเมื่อมีข่าวสำคัญ — ฟรี ไม่มีค่าใช้จ่าย</div>
+    <div class="line-tb">
+      <div class="line-t">รับแจ้งเตือนเมื่อมีโบรกเกอร์น่าสงสัยรายใหม่</div>
+      <div class="line-s">ทีมเต่าจะแจ้งทันทีเมื่อมีข่าวสำคัญ — ฟรี ไม่มีค่าใช้จ่าย</div>
     </div>
     <button class="btnline">เพิ่มเพื่อน LINE OA</button>
   </div>
+
 </div>
 
 <footer>
   <div class="fin">
-    <div>© 2026 TurtlePip.com · ข้อมูลเพื่อการศึกษา · มีหลักฐานทุก entry · การเทรด Forex มีความเสี่ยงสูง</div>
-    <div class="flinks"><a href="#" class="flink">นโยบาย</a><a href="#" class="flink">คำเตือนความเสี่ยง</a></div>
+    <div class="fl">© 2026 TurtlePip.com · ข้อมูลเพื่อการศึกษา · อ้างอิงจากแหล่งที่ตรวจสอบได้ · การเทรด Forex มีความเสี่ยงสูง</div>
+    <div class="flinks">
+      <a href="#" class="flink">นโยบายความเป็นส่วนตัว</a>
+      <a href="#" class="flink">คำเตือนความเสี่ยง</a>
+    </div>
     <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
   </div>
 </footer>
+
 </body>
 </html>
