@@ -304,28 +304,43 @@
     .hamburger { display: flex; }
     .alert-bar { padding: 7px 14px; }
     .stats-in  { padding: 0 14px; }
-    .ad-wrap   { padding: 8px 14px; }
     .wrap      { padding: 14px; }
 
-    /* Table becomes a simple flex list — one row per broker */
-    .tbl-head   { display: none; }
+    /* Contain everything within viewport */
+    .broker-table, .tcard { overflow: hidden; }
+
+    /* Table: simple flex rows */
+    .tbl-head { display: none; }
     .broker-row {
       display: flex !important;
       align-items: center !important;
-      grid-template-columns: unset !important;
-      padding: 12px 14px;
-      gap: 10px;
+      padding: 11px 12px;
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
     }
-    .cell-rank   { width: 18px; flex-shrink: 0; font-size: 12px; padding: 0; }
-    .cell-broker { flex: 1; min-width: 0; padding: 0 6px; }
+    .cell-rank   { width: 16px; flex-shrink: 0; font-size: 11px; padding: 0; }
+    .cell-broker { flex: 1; min-width: 0; padding: 0 4px; overflow: hidden; }
+    .b-name      { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .b-reg       { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; }
     .cell-center { padding: 0; flex-shrink: 0; }
-    .col-dep     { display: none !important; }
-    .col-status  { display: none !important; }
+    .col-dep, .col-status { display: none !important; }
+    .mobile-right { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .score { font-size: 13px; }
+    .btn-review { padding: 4px 8px; font-size: 10px; }
 
-    /* Score + review button on right */
-    .mobile-right { display: flex; }
-    .score { font-size: 14px; }
-    .btn-review { padding: 5px 10px; font-size: 11px; }
+    /* Hero section */
+    .hero { padding: 20px 16px; }
+    .hero h2 { font-size: 20px; }
+    .hero-btns { flex-direction: column; gap: 8px; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; justify-content: center; }
+
+    /* Matcher pills */
+    .pills { gap: 5px; }
+    .pill { padding: 4px 10px; font-size: 11px; }
+
+    /* Articles */
+    .art-title { font-size: 13px; }
   }
 </style>
 </head>
@@ -365,14 +380,6 @@
   </div>
 </div>
 
-<!-- XS BANNER -->
-<div style="background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 20px;">
-  <div style="max-width:728px;margin:0 auto;">
-    <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored">
-      <img src="logos/xs-banner.jpg" alt="XS.com — เปิดบัญชีเทรด" style="width:100%;height:auto;border-radius:8px;display:block;">
-    </a>
-    <p style="font-size:9px;color:var(--t3);text-align:center;margin-top:4px;">Sponsored · การเทรด CFD มีความเสี่ยงสูง</p>
-  </div>
 </div>
 
 <!-- MAIN -->
@@ -621,6 +628,15 @@
 </div>
 
 <!-- FOOTER -->
+<!-- XS BANNER -->
+<div style="background:var(--surf);border-bottom:1px solid var(--bdr);padding:10px 20px;">
+  <div style="max-width:728px;margin:0 auto;">
+    <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored">
+      <img src="logos/xs-banner.jpg" alt="XS.com — เปิดบัญชีเทรด" style="width:100%;height:auto;border-radius:8px;display:block;">
+    </a>
+    <p style="font-size:9px;color:var(--t3);text-align:center;margin-top:4px;">Sponsored · การเทรด CFD มีความเสี่ยงสูง</p>
+  </div>
+
 <footer>
   <div class="fin">
     <div class="fl">
