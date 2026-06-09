@@ -9,6 +9,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Rebate page - highest priority -->
+  <url>
+    <loc>https://www.turtlepip.com/rebate.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Main pages -->
   <url>
     <loc>https://www.turtlepip.com/compare.html</loc>
