@@ -327,6 +327,9 @@
     .stat-chip { padding: 10px 14px; }
     .section { padding: 28px 16px; }
   }
+
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tbl-scroll .rtable { min-width: 480px; }
 </style>
 </head>
 <body>
@@ -356,7 +359,7 @@
 
 <!-- HERO -->
 <div class="rebate-hero">
-  <div class="hero-tag">💰 Cashback อัตโนมัติ — ทุก lot ที่เทรด</div>
+  <div class="hero-tag">Cashback อัตโนมัติ — ทุก lot ที่เทรด</div>
   <h1>เทรด XS.com ผ่านเรา<br>รับ Rebate คืนทุก lot</h1>
   <p>ไม่ว่าจะกำไรหรือขาดทุน — ทีมซุปเต่าคืน cashback ให้คุณทุกครั้งที่เทรด อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม</p>
   <div class="hero-btns">
@@ -370,12 +373,12 @@
 <!-- STATS -->
 <div class="stats-chips">
   <div class="stat-chip">
-    <div class="stat-chip-val">~70%</div>
-    <div class="stat-chip-label">Cashback ที่คุณได้รับ</div>
+    <div class="stat-chip-val">$0.60–0.90</div>
+    <div class="stat-chip-label">XAUUSD / lot</div>
   </div>
   <div class="stat-chip">
-    <div class="stat-chip-val">6–9 pts</div>
-    <div class="stat-chip-label">XAUUSD / lot (Standard)</div>
+    <div class="stat-chip-val">$6.50–10</div>
+    <div class="stat-chip-label">BTCUSD / lot</div>
   </div>
   <div class="stat-chip">
     <div class="stat-chip-val">อัตโนมัติ</div>
@@ -414,19 +417,24 @@
 
   <!-- REBATE TABLE -->
   <div class="section-title">อัตรา Rebate — Standard Account</div>
-  <div class="section-sub">ทีมซุปเต่าคืน cashback ~70% จากที่รับมา ตัวเลขด้านล่างคือ range ที่คุณจะได้รับจริง</div>
+  <div class="broker-tabs" style="display:flex;gap:8px;margin:12px 0 16px;flex-wrap:wrap;">
+    <button class="btab on" style="padding:8px 18px;border-radius:8px;border:1.5px solid var(--gd);background:var(--gd);color:white;font-size:13px;font-weight:700;font-family:var(--f);cursor:pointer;">XS.com</button>
+    <button class="btab" style="padding:8px 18px;border-radius:8px;border:1px solid var(--bdr);background:var(--surf);color:var(--t3);font-size:13px;font-weight:600;font-family:var(--f);cursor:not-allowed;" disabled>Pepperstone — เร็วๆ นี้</button>
+    <button class="btab" style="padding:8px 18px;border-radius:8px;border:1px solid var(--bdr);background:var(--surf);color:var(--t3);font-size:13px;font-weight:600;font-family:var(--f);cursor:not-allowed;" disabled>Exness — เร็วๆ นี้</button>
+  </div>
+  <div class="section-sub">ตัวเลขด้านล่างคือ cashback ที่คุณจะได้รับจริงต่อ 1 lot — จ่ายอัตโนมัติ ไม่ต้อง claim</div>
 
   <div class="rebate-card">
     <div class="rebate-card-head">
       <span class="rebate-card-title">XS.com — Standard Account</span>
       <span class="rebate-note">อัปเดต พ.ค. 2026</span>
     </div>
-    <table class="rtable">
+    <div class="tbl-scroll"><table class="rtable">
       <thead>
         <tr>
           <th>Symbol</th>
-          <th class="center">Rebate ที่ได้รับ / lot</th>
-          <th class="center">มูลค่าโดยประมาณ</th>
+          <th class="center">Cashback / lot</th>
+          <th class="center">หน่วย points</th>
         </tr>
       </thead>
       <tbody>
@@ -435,45 +443,29 @@
             <div class="symbol-name">XAU/USD (ทองคำ) <span class="popular-badge">ยอดนิยม</span></div>
             <div class="symbol-desc">Gold · XAUUSD</div>
           </td>
-          <td class="center"><span class="rebate-range">6–9 pts/lot</span></td>
-          <td class="center"><span class="you-get">~$0.60–0.90/lot</span></td>
+          <td class="center"><span class="rebate-range">$0.60–0.90</span></td>
+          <td class="center"><span class="you-get">6–9 pts</span></td>
         </tr>
         <tr>
           <td>
             <div class="symbol-name">EUR/USD</div>
             <div class="symbol-desc">Euro vs US Dollar · EURUSD</div>
           </td>
-          <td class="center"><span class="rebate-range">2–6 pts/lot</span></td>
-          <td class="center"><span class="you-get">~$0.20–0.60/lot</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="symbol-name">GBP/USD</div>
-            <div class="symbol-desc">Pound vs US Dollar · GBPUSD</div>
-          </td>
-          <td class="center"><span class="rebate-range">2–6 pts/lot</span></td>
-          <td class="center"><span class="you-get">~$0.20–0.60/lot</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="symbol-name">US30 (Dow Jones)</div>
-            <div class="symbol-desc">Wall Street 30 Index</div>
-          </td>
-          <td class="center"><span class="rebate-range">20–60 pts/lot</span></td>
-          <td class="center"><span class="you-get">~$0.20–0.60/lot</span></td>
+          <td class="center"><span class="rebate-range">$0.20–0.60</span></td>
+          <td class="center"><span class="you-get">2–6 pts</span></td>
         </tr>
         <tr>
           <td>
             <div class="symbol-name">BTC/USD</div>
-            <div class="symbol-desc">Bitcoin vs US Dollar</div>
+            <div class="symbol-desc">Bitcoin vs US Dollar · BTCUSD</div>
           </td>
-          <td class="center"><span class="rebate-range">650–1,000 pts/lot</span></td>
-          <td class="center"><span class="you-get">~$6.50–10.00/lot</span></td>
+          <td class="center"><span class="rebate-range">$6.50–10.00</span></td>
+          <td class="center"><span class="you-get">650–1,000 pts</span></td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="table-footer">
-      Standard Account เท่านั้น · Range ขึ้นอยู่กับ volume การเทรด · 1 pt = $0.01 สำหรับ XAUUSD · ค่าโดยประมาณ อาจแตกต่างตามสภาวะตลาด
+      Standard Account เท่านั้น · Range ขึ้นอยู่กับ volume การเทรด · Symbol อื่นๆ สอบถามทีมซุปเต่า · ค่าโดยประมาณ อาจแตกต่างตามสภาวะตลาด
     </div>
   </div>
 
@@ -485,7 +477,7 @@
 
     <!-- NEW ACCOUNT -->
     <div class="case-card new">
-      <div class="case-head">✓ ยังไม่มี XS.com account</div>
+      <div class="case-head">ยังไม่มี XS.com account</div>
       <div class="case-body">
         <ul class="case-steps">
           <li>
@@ -510,7 +502,7 @@
 
     <!-- TRANSFER -->
     <div class="case-card transfer">
-      <div class="case-head">🔄 มี XS.com account อยู่แล้ว</div>
+      <div class="case-head">มี XS.com account อยู่แล้ว</div>
       <div class="case-body">
         <ul class="case-steps">
           <li>
@@ -536,7 +528,7 @@ CID: [ใส่ XS Client ID ของคุณ]
 under new IB CID: [TurtlePip CID - เร็วๆ นี้]
 
 Thank you</div>
-        <button class="copy-btn" onclick="copyEmail()">📋 Copy Email Template</button>
+        <button class="copy-btn" onclick="copyEmail()">Copy Email Template</button>
 
         <a href="#line-contact" class="btn-case" style="margin-top:10px;background:#1D4ED8;">
           แจ้งทีมซุปเต่าหลัง Transfer →
@@ -582,7 +574,7 @@ Thank you</div>
         <span class="faq-arrow">▼</span>
       </div>
       <div class="faq-a">
-        Rebate rate ขึ้นอยู่กับ volume รวมของ portfolio ทั้งหมด — ยิ่งเทรดมาก rate ยิ่งดีขึ้น ทีมซุปเต่าจะพยายามให้ rate สูงสุดที่ทำได้
+        Rebate rate ขึ้นอยู่กับ volume รวมของ portfolio ทั้งหมด — ยิ่งเทรดมาก rate ยิ่งดีขึ้น ทีมซุปเต่าจะให้ rate ที่ดีที่สุดที่ทำได้เสมอ
       </div>
     </div>
     <div class="faq-item">
@@ -643,8 +635,8 @@ function copyEmail() {
   var text = document.getElementById('emailTemplate').innerText;
   navigator.clipboard.writeText(text).then(function() {
     var btn = document.querySelector('.copy-btn');
-    btn.textContent = '✓ Copied!';
-    setTimeout(function(){ btn.textContent = '📋 Copy Email Template'; }, 2000);
+    btn.textContent = 'Copied!';
+    setTimeout(function(){ btn.textContent = 'Copy Email Template'; }, 2000);
   });
 }
 document.querySelectorAll('#mobileMenu a').forEach(function(a) {

@@ -147,6 +147,9 @@
     .pc-grid { grid-template-columns: 1fr; }
     .review-hero { flex-direction: column; }
   }
+
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tbl-scroll table { min-width: 560px; }
 </style>
 </head>
 <body>
@@ -281,7 +284,7 @@
 
       <h2 id="accounts">ประเภทบัญชี</h2>
       <div class="data-card">
-        <table class="data-table">
+        <div class="tbl-scroll"><table class="data-table">
           <thead>
             <tr>
               <th>บัญชี</th>
@@ -326,7 +329,7 @@
               <td>Scalper · High volume</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
       </div>
       <p style="font-size:12px; color:var(--t3);">หมายเหตุ: Classic และ Extra account เป็น IB account พิเศษ ไม่ใช่ account สำหรับ retail client ทั่วไป</p>
 
@@ -338,7 +341,7 @@
         </div>
       </div>
       <div class="data-card">
-        <table class="data-table">
+        <div class="tbl-scroll"><table class="data-table">
           <thead>
             <tr><th>โบรกเกอร์</th><th>Swap-free</th><th>เงื่อนไข</th></tr>
           </thead>
@@ -359,7 +362,7 @@
               <td style="color:var(--t2);">ใช้บ่อยเกินไปจะลดสิทธิ์ และต้องจ่ายค่าธรรมเนียม</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
       </div>
 
       <h2 id="spread">Spread — Standard Account</h2>
@@ -367,7 +370,7 @@
         XS.com ใช้ Stable Float spread — XAUUSD 18–20 pts ทั้งช่วงปกติและช่วงข่าว ต่างจากคู่แข่งที่อาจ spike สูงกว่ามากช่วงข่าว
       </div>
       <div class="data-card">
-        <table class="data-table spread-table">
+        <div class="tbl-scroll"><table class="data-table spread-table">
           <thead>
             <tr>
               <th>คู่สกุลเงิน</th>
@@ -396,7 +399,7 @@
               <td style="color:var(--t2);">Float</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="table-note">
           Standard Account เท่านั้น · ข้อมูล ณ พ.ค. 2026 · "pts" = points สำหรับ XAUUSD (1 pt = $0.01) · อัปเดตทุก 6 เดือน
         </div>
