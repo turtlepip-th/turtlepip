@@ -1,0 +1,4 @@
+# Force HTTPS non-www canonical
+http://www.turtlepip.com/*   https://turtlepip.com/:splat  301!
+http://turtlepip.com/*       https://turtlepip.com/:splat  301!
+https://www.turtlepip.com/*  https://turtlepip.com/:splat  301!
