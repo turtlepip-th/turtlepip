@@ -1,0 +1,39 @@
+{
+  "slug": "xs-com",
+  "name": "XS.com",
+  "rank": 1,
+  "logo": "/logos/xs.jpg",
+  "logoBg": "#fff",
+  "founded": 2010,
+  "score": 9.2,
+  "scoreColor": "g",
+  "status": "recommended",
+  "statusLabel": "แนะนำ",
+  "regulators": ["CySEC", "ASIC", "FSCA"],
+  "extraLicenses": 5,
+  "licenseCount": 8,
+  "insurance": "$5M Lloyd's",
+  "execution": "ECN/STP",
+  "minDeposit": { "thb": 0, "usd": 0, "display": "฿500" },
+  "spreads": {
+    "eurusd": "1.1 pips",
+    "xauusd": "18–20 pts"
+  },
+  "spreadLevel": "lo",
+  "swapFree": "5 วัน อัตโนมัติ",
+  "promptPay": true,
+  "thaiSupport": true,
+  "hasRebate": true,
+  "tags": ["rebate", "scalper", "daytrader", "swing", "news"],
+  "scoreBreakdown": {
+    "trust": { "value": 9.0, "weight": 25, "label": "ความน่าเชื่อถือ — 8 licenses + $5M insurance" },
+    "thaiDeposit": { "value": 9.5, "weight": 20, "label": "ฝากถอนไทย — PromptPay, ธนาคาร, Crypto" },
+    "tradingConditions": { "value": 9.2, "weight": 20, "label": "Trading Conditions — Stable spread, Swap-free" },
+    "platform": { "value": 8.5, "weight": 15, "label": "Platform + Mobile — MT4 + MT5 + Web Trader" },
+    "thaiSupportScore": { "value": 9.5, "weight": 10, "label": "Thai Support — LINE, ภาษาไทย ตอบเร็ว" },
+    "easeOfUse": { "value": 8.5, "weight": 5, "label": "Ease of Use — สมัครง่าย verify เร็ว" }
+  },
+  "affiliateUrl": "https://my.xs.com/marketing/links/go/413",
+  "reviewUrl": "/reviews/xs-com",
+  "updated": "2026-05"
+}

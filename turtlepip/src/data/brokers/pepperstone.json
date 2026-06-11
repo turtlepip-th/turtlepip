@@ -1,0 +1,23 @@
+{
+  "slug": "pepperstone",
+  "name": "Pepperstone",
+  "rank": 2,
+  "logo": "/logos/pepperstone.png",
+  "logoBg": "#0565F8",
+  "logoStyle": "object-fit:cover;",
+  "score": 9.0,
+  "scoreColor": "g",
+  "status": "recommended",
+  "statusLabel": "แนะนำ",
+  "regulators": ["ASIC", "FCA", "CySEC"],
+  "extraLicenses": 1,
+  "minDeposit": { "usd": 200, "display": "$200" },
+  "spreads": {
+    "xauusd": "20–25 pts"
+  },
+  "spreadLevel": "md",
+  "hasRebate": false,
+  "tags": ["scalper", "daytrader", "swing", "news"],
+  "reviewUrl": null,
+  "updated": "2026-05"
+}

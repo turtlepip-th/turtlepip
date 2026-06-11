@@ -1,3 +1,8 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -5,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
-<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="/shared.css">
 <style>
   .page-grid { display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
   .breadcrumb { font-size: 12px; color: var(--t3); margin-bottom: 16px; }
@@ -137,6 +142,7 @@
   .side-compare-row { display: flex; justify-content: space-between; padding: 8px 15px; border-bottom: 1px solid var(--bdr); font-size: 12px; }
   .side-compare-row:last-child { border-bottom: none; }
   .side-compare-row.current { background: var(--gp); }
+  a.side-compare-row { text-decoration: none; }
 
   /* UNIQUE BADGE */
   .unique-badge { display: inline-flex; align-items: center; gap: 4px; background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; }
@@ -154,28 +160,19 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="../index.html" class="logo"><img src="../logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links"><a href="../index.html" class="nl">โบรกเกอร์</a><a href="../compare.html" class="nl">เปรียบเทียบ</a><a href="../matcher.html" class="nl">หาโบรกที่ใช่</a><a href="../blacklist.html" class="nl">แบล็คลิสต์</a><a href="../blog.html" class="nl">บทความ</a></div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu"><a href="../index.html">โบรกเกอร์</a><a href="../compare.html">เปรียบเทียบ</a><a href="../matcher.html">หาโบรกที่ใช่</a><a href="../blacklist.html">แบล็คลิสต์</a><a href="../blog.html">บทความ</a></div>
+<Nav />
 <div class="wrap">
 
   <p class="breadcrumb">
-    <a href="../index.html">หน้าหลัก</a> ›
-    <a href="../index.html">โบรกเกอร์</a> ›
+    <a href="/">หน้าหลัก</a> ›
+    <a href="/">โบรกเกอร์</a> ›
     XS.com
   </p>
 
   <!-- HERO -->
   <div class="review-hero">
     <div class="broker-logo-lg">
-      <img src="../logos/xs.jpg" alt="XS.com">
+      <img src="/logos/xs.jpg" alt="XS.com">
     </div>
     <div style="flex:1; min-width:0;">
       <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
@@ -478,24 +475,24 @@
           <span style="font-weight:700;">XS.com ★</span>
           <span style="color:var(--safe); font-family:monospace; font-weight:800;">9.2</span>
         </div>
-        <div class="side-compare-row">
-          <a href="pepperstone.html" style="color:var(--t2); text-decoration:none;">Pepperstone</a>
+        <a href="/reviews/pepperstone" class="side-compare-row">
+          <span style="color:var(--t2);">Pepperstone</span>
           <span style="color:var(--safe); font-family:monospace; font-weight:700;">9.0</span>
-        </div>
-        <div class="side-compare-row">
-          <a href="exness.html" style="color:var(--t2); text-decoration:none;">Exness</a>
+        </a>
+        <a href="/reviews/exness" class="side-compare-row">
+          <span style="color:var(--t2);">Exness</span>
           <span style="color:var(--safe); font-family:monospace; font-weight:700;">8.8</span>
-        </div>
-        <div class="side-compare-row">
-          <a href="hfm.html" style="color:var(--t2); text-decoration:none;">HFM</a>
+        </a>
+        <a href="/reviews/hfm" class="side-compare-row">
+          <span style="color:var(--t2);">HFM</span>
           <span style="color:#1D4ED8; font-family:monospace; font-weight:700;">7.1</span>
-        </div>
-        <div class="side-compare-row">
-          <a href="xm.html" style="color:var(--t2); text-decoration:none;">XM</a>
+        </a>
+        <a href="/reviews/xm" class="side-compare-row">
+          <span style="color:var(--t2);">XM</span>
           <span style="color:#1D4ED8; font-family:monospace; font-weight:700;">6.9</span>
-        </div>
+        </a>
         <div style="padding:10px 15px;">
-          <a href="../compare.html" style="font-size:12px; color:var(--gd); font-weight:600; text-decoration:none;">ดูตารางเปรียบเทียบ →</a>
+          <a href="/compare" style="font-size:12px; color:var(--gd); font-weight:600; text-decoration:none;">ดูตารางเปรียบเทียบ →</a>
         </div>
       </div>
 
@@ -504,23 +501,6 @@
   </div>
 </div>
 
-<footer>
-  <div class="fin">
-    <div class="fl">© 2026 TurtlePip.com · รีวิวโดยทีมซุปเต่า · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</div>
-    <div class="flinks">
-      <a href="#" class="flink">นโยบายความเป็นส่วนตัว</a>
-      <a href="#" class="flink">คำเตือนความเสี่ยง</a>
-    </div>
-    <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
-  </div>
-</footer>
-
-
-<script>
-function toggleMenu() {
-  var m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('open');
-}
-</script>
+<Footer />
 </body>
 </html>

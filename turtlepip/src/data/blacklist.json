@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "name": "VT Markets",
+      "reg": "ASIC (ออสเตรเลีย) · เปลี่ยนเจ้าของใหม่ 2025",
+      "level": "avoid",
+      "levelLabel": "หลีกเลี่ยง",
+      "reasons": [
+        { "icon": "🔄", "text": "เปลี่ยนเจ้าของเป็นทุนจีนปี 2025 — โมเดลธุรกิจเปลี่ยนจาก ECN ไปทิศทาง B-Book มากขึ้น" },
+        { "icon": "⏱️", "text": "ผู้ใช้รายงานถอนเงินช้าลงหลังเปลี่ยนมือ บางรายรอเกิน 7 วันทำการ" },
+        { "icon": "📋", "text": "T&C เปลี่ยนหลายครั้งในช่วง 6 เดือนหลังเปลี่ยนเจ้าของ โดยไม่แจ้งลูกค้าล่วงหน้า" },
+        { "icon": "🏛️", "text": "ASIC license ยังมี แต่ entity ที่รับ client ไทยไม่ใช่ ASIC entity โดยตรง" }
+      ],
+      "evidence": "รายงานเปลี่ยนผู้ถือหุ้นจาก ASIC public register · ความเห็นผู้ใช้จาก Trustpilot และ ForexPeaceArmy · การเปลี่ยน T&C ที่ archive.org บันทึกไว้",
+      "meta": ["📅 เพิ่มเข้ารายการ: พ.ค. 2026", "🔄 อัปเดตล่าสุด: พ.ค. 2026"]
+    },
+    {
+      "name": "OctaFX",
+      "reg": "SVG (เซนต์วินเซนต์) — ไม่มี Tier-1 regulation",
+      "level": "avoid",
+      "levelLabel": "หลีกเลี่ยง",
+      "reasons": [
+        { "icon": "🏛️", "text": "จดทะเบียนที่ SVG ซึ่งไม่มีอำนาจ regulate broker จริงๆ — เป็นแค่ company registration ไม่ใช่ financial regulation" },
+        { "icon": "💰", "text": "Bonus เงื่อนไขซับซ้อน มีรายงานถูก lock กำไรเพราะ bonus policy" },
+        { "icon": "📱", "text": "ใช้ Influencer marketing หนัก — รีวิวส่วนใหญ่เป็นโฆษณาแฝง ไม่ใช่ประสบการณ์จริง" }
+      ],
+      "evidence": "SVG FSA ไม่มีอำนาจ regulate broker ด้านการเงิน (ยืนยันจาก FSA SVG website) · complaint บน ForexPeaceArmy มากกว่า 200 รายการเรื่อง bonus withdrawal",
+      "meta": ["📅 เพิ่มเข้ารายการ: ม.ค. 2026"]
+    },
+    {
+      "name": "FBS",
+      "reg": "CySEC · FSC Belize · FSCA — หยุดให้บริการในไทยแล้ว",
+      "level": "inactive",
+      "levelLabel": "หยุดให้บริการ",
+      "reasons": [
+        { "icon": "📧", "text": "FBS ส่ง email แจ้งลูกค้าไทยว่าหยุดให้บริการในภูมิภาคไทยแล้ว — ไม่สามารถเปิดบัญชีใหม่หรือเทรดได้" },
+        { "icon": "ℹ️", "text": "ไม่ใช่โบรกอันตราย — แค่ไม่สามารถใช้งานได้สำหรับ trader ไทย" }
+      ],
+      "evidence": "Email แจ้งจาก FBS ถึงลูกค้าไทย · ยืนยันโดยทีมซุปเต่าจากการทดสอบ registration พ.ค. 2026",
+      "meta": ["📅 อัปเดต: พ.ค. 2026", "ℹ️ สถานะ: หยุดให้บริการในไทย ไม่ใช่ scam"]
+    }
+  ]
+}

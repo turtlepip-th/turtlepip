@@ -1,0 +1,23 @@
+{
+  "slug": "hfm",
+  "name": "HFM",
+  "rank": 4,
+  "logo": "/logos/hfm.jpg",
+  "logoBg": "#000",
+  "logoStyle": "object-fit:cover;",
+  "score": 7.1,
+  "scoreColor": "bl",
+  "status": "neutral",
+  "statusLabel": "กลาง",
+  "regulators": ["CySEC", "FCA", "DFSA", "FSA"],
+  "extraLicenses": 0,
+  "minDeposit": { "thb": 0, "display": "฿0" },
+  "spreads": {
+    "xauusd": "~25 pts"
+  },
+  "spreadLevel": "md",
+  "hasRebate": false,
+  "tags": ["beginner", "copy"],
+  "reviewUrl": null,
+  "updated": "2026-05"
+}

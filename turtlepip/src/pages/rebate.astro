@@ -1,3 +1,47 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import xs from '../data/brokers/xs.json';
+import xsRebate from '../data/rebates/xs.json';
+
+const xau = xsRebate.rates.find((r) => r.symbol === 'XAUUSD')!;
+const btc = xsRebate.rates.find((r) => r.symbol === 'BTCUSD')!;
+
+const tableRange = (vals: number[]) => `$${vals[0].toFixed(2)}–${vals[1].toFixed(2)}`;
+const chipRange = (vals: number[]) => {
+  const fmt = (n: number) => (Number.isInteger(n) ? n.toString() : n.toFixed(2));
+  return `$${fmt(vals[0])}–${fmt(vals[1])}`;
+};
+const pointsRange = (vals: number[]) => `${vals[0].toLocaleString()}–${vals[1].toLocaleString()}`;
+
+const faqs = [
+  {
+    q: 'Rebate จะเข้าเมื่อไหร่?',
+    a: 'Rebate คำนวณจาก volume การเทรดและจ่ายอัตโนมัติ ไม่ต้อง claim เอง ระยะเวลาขึ้นอยู่กับระบบ XS.com',
+  },
+  {
+    q: 'ต้องเทรด minimum กี่ lot ถึงได้ rebate?',
+    a: 'ทุก lot ที่เทรดได้ rebate ไม่มีขั้นต่ำ ไม่ว่าจะเป็น 0.01 lot หรือ 10 lot ก็ได้ cashback เหมือนกัน',
+  },
+  {
+    q: 'ถ้าเทรดขาดทุนก็ได้ rebate ไหม?',
+    a: 'ได้ครับ — Rebate คำนวณจาก volume ที่เทรด ไม่ใช่ผลกำไร ดังนั้นไม่ว่า trade จะปิดกำไรหรือขาดทุนก็ได้ cashback เหมือนกัน',
+  },
+  {
+    q: 'ทำไม range rebate ถึงไม่บอกตัวเลขแน่นอน?',
+    a: 'Rebate rate ขึ้นอยู่กับ volume รวมของ portfolio ทั้งหมด — ยิ่งเทรดมาก rate ยิ่งดีขึ้น ทีมซุปเต่าจะให้ rate ที่ดีที่สุดที่ทำได้เสมอ',
+  },
+  {
+    q: 'มีค่าธรรมเนียมในการรับ rebate ไหม?',
+    a: 'ไม่มีครับ — Rebate ฟรี 100% ไม่มีค่าสมาชิก ไม่มีค่าธรรมเนียม คุณได้รับ cashback เพิ่มโดยไม่เสียอะไร',
+  },
+  {
+    q: 'สามารถใช้กับทุก account type ได้ไหม?',
+    a: 'ตารางด้านบนแสดง Standard account — account type อื่นมี rebate rate ต่างกัน ติดต่อทีมซุปเต่าเพื่อสอบถามเพิ่มเติม',
+  },
+];
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -5,7 +49,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รับ Rebate จาก XS.com — คืนเงินทุก lot ที่เทรด | TurtlePip</title>
 <meta name="description" content="รับ cashback คืนทุก lot ที่เทรดกับ XS.com ผ่าน TurtlePip — XAUUSD สูงสุด 6-9 pts/lot อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="/shared.css">
 <style>
   /* HERO */
   .rebate-hero {
@@ -334,28 +378,7 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links">
-      <a href="rebate.html"    class="nl on">รับ Rebate</a>
-      <a href="index.html"     class="nl">โบรกเกอร์</a>
-      <a href="compare.html"   class="nl">เปรียบเทียบ</a>
-      <a href="blacklist.html" class="nl">แบล็คลิสต์</a>
-      <a href="blog.html"      class="nl">บทความ</a>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="rebate.html" class="on">รับ Rebate</a>
-  <a href="index.html">โบรกเกอร์</a>
-  <a href="compare.html">เปรียบเทียบ</a>
-  <a href="blacklist.html">แบล็คลิสต์</a>
-  <a href="blog.html">บทความ</a>
-</div>
+<Nav active="rebate" />
 
 <!-- HERO -->
 <div class="rebate-hero">
@@ -363,7 +386,7 @@
   <h1>เทรด XS.com ผ่านเรา<br>รับ Rebate คืนทุก lot</h1>
   <p>ไม่ว่าจะกำไรหรือขาดทุน — ทีมซุปเต่าคืน cashback ให้คุณทุกครั้งที่เทรด อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม</p>
   <div class="hero-btns">
-    <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored" class="btn-hero-main">
+    <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-hero-main">
       สมัครรับ Rebate เลย →
     </a>
     <a href="#how-it-works" class="btn-hero-sub">ดูวิธีการ</a>
@@ -373,11 +396,11 @@
 <!-- STATS -->
 <div class="stats-chips">
   <div class="stat-chip">
-    <div class="stat-chip-val">$0.60–0.90</div>
+    <div class="stat-chip-val">{chipRange(xau.cashbackUsd)}</div>
     <div class="stat-chip-label">XAUUSD / lot</div>
   </div>
   <div class="stat-chip">
-    <div class="stat-chip-val">$6.50–10</div>
+    <div class="stat-chip-val">{chipRange(btc.cashbackUsd)}</div>
     <div class="stat-chip-label">BTCUSD / lot</div>
   </div>
   <div class="stat-chip">
@@ -426,7 +449,7 @@
 
   <div class="rebate-card">
     <div class="rebate-card-head">
-      <span class="rebate-card-title">XS.com — Standard Account</span>
+      <span class="rebate-card-title">XS.com — {xsRebate.account}</span>
       <span class="rebate-note">อัปเดต พ.ค. 2026</span>
     </div>
     <div class="tbl-scroll"><table class="rtable">
@@ -438,30 +461,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <div class="symbol-name">XAU/USD (ทองคำ) <span class="popular-badge">ยอดนิยม</span></div>
-            <div class="symbol-desc">Gold · XAUUSD</div>
-          </td>
-          <td class="center"><span class="rebate-range">$0.60–0.90</span></td>
-          <td class="center"><span class="you-get">6–9 pts</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="symbol-name">EUR/USD</div>
-            <div class="symbol-desc">Euro vs US Dollar · EURUSD</div>
-          </td>
-          <td class="center"><span class="rebate-range">$0.20–0.60</span></td>
-          <td class="center"><span class="you-get">2–6 pts</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="symbol-name">BTC/USD</div>
-            <div class="symbol-desc">Bitcoin vs US Dollar · BTCUSD</div>
-          </td>
-          <td class="center"><span class="rebate-range">$6.50–10.00</span></td>
-          <td class="center"><span class="you-get">650–1,000 pts</span></td>
-        </tr>
+        {xsRebate.rates.map((rate) => (
+          <tr>
+            <td>
+              <div class="symbol-name">{rate.name} {rate.popular && <span class="popular-badge">ยอดนิยม</span>}</div>
+              <div class="symbol-desc">{rate.desc}</div>
+            </td>
+            <td class="center"><span class="rebate-range">{tableRange(rate.cashbackUsd)}</span></td>
+            <td class="center"><span class="you-get">{pointsRange(rate.points)} pts</span></td>
+          </tr>
+        ))}
       </tbody>
     </table></div>
     <div class="table-footer">
@@ -493,7 +502,7 @@
             <div>เทรดได้เลย — Rebate จะเข้าอัตโนมัติทุก lot</div>
           </li>
         </ul>
-        <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored" class="btn-case">
+        <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-case">
           สมัคร XS.com รับ Rebate →
         </a>
         <p style="font-size:10px;color:var(--t3);margin-top:8px;text-align:center;">Sponsored · การเทรด CFD มีความเสี่ยงสูง</p>
@@ -541,67 +550,24 @@ Thank you</div>
   <!-- FAQ -->
   <div class="section-title">คำถามที่พบบ่อย</div>
   <div class="faq-card">
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>Rebate จะเข้าเมื่อไหร่?</span>
-        <span class="faq-arrow">▼</span>
+    {faqs.map((faq) => (
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>{faq.q}</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          {faq.a}
+        </div>
       </div>
-      <div class="faq-a">
-        Rebate คำนวณจาก volume การเทรดและจ่ายอัตโนมัติ ไม่ต้อง claim เอง ระยะเวลาขึ้นอยู่กับระบบ XS.com
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>ต้องเทรด minimum กี่ lot ถึงได้ rebate?</span>
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        ทุก lot ที่เทรดได้ rebate ไม่มีขั้นต่ำ ไม่ว่าจะเป็น 0.01 lot หรือ 10 lot ก็ได้ cashback เหมือนกัน
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>ถ้าเทรดขาดทุนก็ได้ rebate ไหม?</span>
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        ได้ครับ — Rebate คำนวณจาก volume ที่เทรด ไม่ใช่ผลกำไร ดังนั้นไม่ว่า trade จะปิดกำไรหรือขาดทุนก็ได้ cashback เหมือนกัน
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>ทำไม range rebate ถึงไม่บอกตัวเลขแน่นอน?</span>
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        Rebate rate ขึ้นอยู่กับ volume รวมของ portfolio ทั้งหมด — ยิ่งเทรดมาก rate ยิ่งดีขึ้น ทีมซุปเต่าจะให้ rate ที่ดีที่สุดที่ทำได้เสมอ
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>มีค่าธรรมเนียมในการรับ rebate ไหม?</span>
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        ไม่มีครับ — Rebate ฟรี 100% ไม่มีค่าสมาชิก ไม่มีค่าธรรมเนียม คุณได้รับ cashback เพิ่มโดยไม่เสียอะไร
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>สามารถใช้กับทุก account type ได้ไหม?</span>
-        <span class="faq-arrow">▼</span>
-      </div>
-      <div class="faq-a">
-        ตารางด้านบนแสดง Standard account — account type อื่นมี rebate rate ต่างกัน ติดต่อทีมซุปเต่าเพื่อสอบถามเพิ่มเติม
-      </div>
-    </div>
+    ))}
   </div>
 
   <!-- CTA BOTTOM -->
   <div class="cta-bottom">
     <h2>เริ่มรับ Rebate วันนี้</h2>
     <p>สมัครผ่าน TurtlePip — ได้ rebate ทุก lot ตลอดไป ไม่มีหมดอายุ</p>
-    <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored" class="btn-cta-big">
+    <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-cta-big">
       สมัคร XS.com รับ Rebate →
     </a>
     <p style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:12px;">Sponsored · การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินทุนทั้งหมด</p>
@@ -609,41 +575,28 @@ Thank you</div>
 
 </div>
 
-<footer>
-  <div class="fin">
-    <div class="fl">© 2026 TurtlePip.com · Rebate & รีวิวโบรกเกอร์ Forex โดยทีมซุปเต่า · การเทรด Forex มีความเสี่ยงสูง</div>
-    <div class="flinks">
-      <a href="#" class="flink">นโยบายความเป็นส่วนตัว</a>
-      <a href="#" class="flink">คำเตือนความเสี่ยง</a>
-    </div>
-    <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
-  </div>
-</footer>
+<Footer />
 
 <script>
-function toggleMenu() {
-  var m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('open');
-}
-function toggleFaq(el) {
-  var ans = el.nextElementSibling;
-  var arrow = el.querySelector('.faq-arrow');
+function toggleFaq(el: HTMLElement) {
+  const ans = el.nextElementSibling as HTMLElement;
+  const arrow = el.querySelector('.faq-arrow');
   ans.classList.toggle('open');
-  arrow.classList.toggle('open');
+  arrow?.classList.toggle('open');
 }
+// @ts-expect-error - exposed for inline onclick handler
+window.toggleFaq = toggleFaq;
+
 function copyEmail() {
-  var text = document.getElementById('emailTemplate').innerText;
+  const text = (document.getElementById('emailTemplate') as HTMLElement).innerText;
   navigator.clipboard.writeText(text).then(function() {
-    var btn = document.querySelector('.copy-btn');
+    const btn = document.querySelector('.copy-btn') as HTMLElement;
     btn.textContent = 'Copied!';
     setTimeout(function(){ btn.textContent = 'Copy Email Template'; }, 2000);
   });
 }
-document.querySelectorAll('#mobileMenu a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.getElementById('mobileMenu').classList.remove('open');
-  });
-});
+// @ts-expect-error - exposed for inline onclick handler
+window.copyEmail = copyEmail;
 </script>
 </body>
 </html>

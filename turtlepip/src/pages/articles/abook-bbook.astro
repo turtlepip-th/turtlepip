@@ -1,3 +1,8 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -5,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
-<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="/shared.css">
 <style>
 .article-wrap{max-width:720px;margin:0 auto;padding:28px 24px}
 .article-header{margin-bottom:32px}
@@ -62,21 +67,12 @@ ul li::before{content:'›';position:absolute;left:4px;color:var(--gd);font-weig
 </style>
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="../index.html" class="logo"><img src="../logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links"><a href="../index.html" class="nl">โบรกเกอร์</a><a href="../compare.html" class="nl">เปรียบเทียบ</a><a href="../matcher.html" class="nl">หาโบรกที่ใช่</a><a href="../blacklist.html" class="nl">แบล็คลิสต์</a><a href="../blog.html" class="nl">บทความ</a></div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu"><a href="../index.html">โบรกเกอร์</a><a href="../compare.html">เปรียบเทียบ</a><a href="../matcher.html">หาโบรกที่ใช่</a><a href="../blacklist.html">แบล็คลิสต์</a><a href="../blog.html">บทความ</a></div>
+<Nav active="blog" />
 <div class="article-wrap">
 
   <div style="font-size:12px;color:var(--t3);margin-bottom:16px">
-    <a href="../index.html" style="color:var(--t3);text-decoration:none">หน้าหลัก</a> › 
-    <a href="../blog.html" style="color:var(--t3);text-decoration:none">บทความ</a> › 
+    <a href="/" style="color:var(--t3);text-decoration:none">หน้าหลัก</a> ›
+    <a href="/blog" style="color:var(--t3);text-decoration:none">บทความ</a> ›
     A-Book vs B-Book
   </div>
 
@@ -196,19 +192,19 @@ ul li::before{content:'›';position:absolute;left:4px;color:var(--gd);font-weig
   <div class="related">
     <div class="related-title">บทความที่เกี่ยวข้อง</div>
     <div class="related-grid">
-      <a href="review-xs.html" class="related-card">
+      <a href="/reviews/xs-com" class="related-card">
         <div class="related-tag">รีวิว</div>
         <div class="related-title2">XS.com ดีไหม? รีวิวละเอียดจากทีมซุปเต่า</div>
       </a>
-      <a href="../blog.html" class="related-card">
+      <a href="/blog" class="related-card">
         <div class="related-tag">แจ้งเตือน</div>
         <div class="related-title2">โบรกเกอร์ไหนเปลี่ยนทีมบริหารแล้วในปี 2026</div>
       </a>
-      <a href="../matcher.html" class="related-card">
+      <a href="/matcher" class="related-card">
         <div class="related-tag">เครื่องมือ</div>
         <div class="related-title2">หาโบรก ECN ที่เหมาะกับสไตล์เทรดของคุณ</div>
       </a>
-      <a href="../compare.html" class="related-card">
+      <a href="/compare" class="related-card">
         <div class="related-tag">เปรียบเทียบ</div>
         <div class="related-title2">เปรียบเทียบ Spread ทุกโบรกแบบ side by side</div>
       </a>
@@ -217,19 +213,6 @@ ul li::before{content:'›';position:absolute;left:4px;color:var(--gd);font-weig
 
 </div>
 
-<footer>
-  <div class="fin">
-    <div>© 2026 TurtlePip.com · ทีมซุปเต่า · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</div>
-    <div class="flinks"><a href="#" class="flink">นโยบาย</a><a href="#" class="flink">คำเตือนความเสี่ยง</a></div>
-    <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
-  </div>
-</footer>
-
-<script>
-function toggleMenu() {
-  var m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('open');
-}
-</script>
+<Footer />
 </body>
 </html>

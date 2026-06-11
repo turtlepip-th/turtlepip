@@ -1,0 +1,23 @@
+{
+  "slug": "xm",
+  "name": "XM",
+  "rank": 5,
+  "logo": "/logos/xm.jpg",
+  "logoBg": "#000",
+  "logoStyle": "padding:2px;",
+  "score": 6.9,
+  "scoreColor": "bl",
+  "status": "neutral",
+  "statusLabel": "กลาง",
+  "regulators": ["CySEC", "ASIC", "DFSA"],
+  "extraLicenses": 0,
+  "minDeposit": { "thb": 175, "display": "฿175" },
+  "spreads": {
+    "xauusd": "~37 pts"
+  },
+  "spreadLevel": "hi",
+  "hasRebate": false,
+  "tags": ["beginner"],
+  "reviewUrl": null,
+  "updated": "2026-05"
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "exness",
+  "name": "Exness",
+  "rank": 3,
+  "logo": "/logos/exness.png",
+  "logoBg": "#FFDF01",
+  "score": 8.8,
+  "scoreColor": "g",
+  "status": "recommended",
+  "statusLabel": "แนะนำ",
+  "regulators": ["CySEC", "FCA", "FSA"],
+  "extraLicenses": 4,
+  "minDeposit": { "thb": 0, "display": "฿0" },
+  "spreads": {
+    "xauusd": "~28 pts*"
+  },
+  "spreadLevel": "md",
+  "spreadNote": "*Exness กำลัง monitor อัปเดตเร็วๆ นี้",
+  "hasRebate": false,
+  "tags": ["beginner", "swing", "copy", "daytrader"],
+  "reviewUrl": null,
+  "updated": "2026-05"
+}

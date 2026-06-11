@@ -1,0 +1,128 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import articlesData from '../data/articles.json';
+
+const { featured, articles } = articlesData;
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
+<meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
+<link rel="stylesheet" href="/shared.css">
+<style>
+.page-hero{margin-bottom:28px}
+.page-hero h1{font-size:24px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
+.page-hero p{font-size:13px;color:var(--t2)}
+.filter-row{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:12px;color:var(--t3);font-weight:600}
+.filter-btn{background:var(--surf);border:1px solid var(--bdr);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--f);color:var(--t2);transition:all .15s}
+.filter-btn.on{background:var(--gd);color:white;border-color:var(--gd)}
+/* FEATURED */
+.featured-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);padding:24px;margin-bottom:28px;display:grid;grid-template-columns:1fr 200px;gap:20px;cursor:pointer;transition:border-color .15s;text-decoration:none;color:inherit}
+.featured-card:hover{border-color:var(--gd)}
+.feat-tag{display:inline-flex;align-items:center;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.feat-tag.danger{color:var(--avoid)}
+.feat-tag.guide{color:var(--gd)}
+.feat-tag.test{color:var(--safe)}
+.feat-tag.news{color:var(--warn)}
+.feat-title{font-size:20px;font-weight:800;line-height:1.35;letter-spacing:-.3px;margin-bottom:10px}
+.feat-excerpt{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:12px}
+.feat-meta{font-size:11px;color:var(--t3);display:flex;gap:12px}
+.feat-img{background:var(--bg);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:48px}
+/* ARTICLE GRID */
+.grid-title{font-size:14px;font-weight:700;margin-bottom:16px}
+.articles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px}
+.acard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);padding:18px;cursor:pointer;transition:border-color .15s;text-decoration:none;color:inherit;display:block}
+.acard:hover{border-color:var(--gd)}
+.acard-tag{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.acard-tag.danger{color:var(--avoid)}
+.acard-tag.guide{color:var(--gd)}
+.acard-tag.test{color:var(--safe)}
+.acard-tag.news{color:var(--warn)}
+.acard-title{font-size:13px;font-weight:700;line-height:1.45;margin-bottom:8px}
+.acard-excerpt{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:10px}
+.acard-meta{font-size:11px;color:var(--t3)}
+/* LINE CTA inline */
+.line-inline{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--rl);padding:16px 20px;display:flex;align-items:center;gap:14px;margin:8px 0 24px;flex-wrap:wrap}
+.line-ico-sm{width:36px;height:36px;background:#06C755;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;font-weight:900;flex-shrink:0}
+.line-text{flex:1}
+.line-text-title{font-size:13px;font-weight:700;color:#14532D;margin-bottom:2px}
+.line-text-sub{font-size:11px;color:#166534}
+.btnline-sm{background:#06C755;color:white;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--f);flex-shrink:0}
+@media(max-width:600px){.articles-grid{grid-template-columns:1fr}.featured-card{grid-template-columns:1fr}.feat-img{display:none}}
+</style>
+</head>
+<body>
+<Nav active="blog" />
+<div class="wrap">
+  <div class="page-hero">
+    <h1>บทความจากทีมซุปเต่า</h1>
+    <p>ข้อมูลจริง ไม่มีโฆษณาแฝง — เขียนโดยคนที่เคยอยู่ในวงการ Forex มามากกว่า 5 ปี</p>
+  </div>
+
+  <div class="filter-row">
+    <span class="filter-label">หมวด:</span>
+    <button class="filter-btn on" onclick="filterArticles('all',this)">ทั้งหมด</button>
+    <button class="filter-btn" onclick="filterArticles('danger',this)">แจ้งเตือน</button>
+    <button class="filter-btn" onclick="filterArticles('guide',this)">คู่มือ</button>
+    <button class="filter-btn" onclick="filterArticles('test',this)">ทดสอบจริง</button>
+    <button class="filter-btn" onclick="filterArticles('news',this)">ข่าว</button>
+  </div>
+
+  <!-- FEATURED -->
+  <a href={featured.href} class="featured-card" data-cat={featured.tag}>
+    <div>
+      <div class={`feat-tag ${featured.tag}`}>{featured.tagLabel}</div>
+      <div class="feat-title">{featured.title}</div>
+      <div class="feat-excerpt">{featured.excerpt}</div>
+      <div class="feat-meta">
+        {featured.meta.map((m) => <span>{m}</span>)}
+      </div>
+    </div>
+    <div class="feat-img">{featured.img}</div>
+  </a>
+
+  <div class="line-inline">
+    <div class="line-ico-sm">L</div>
+    <div class="line-text">
+      <div class="line-text-title">รับบทความใหม่ทันทีผ่าน LINE OA</div>
+      <div class="line-text-sub">ทีมซุปเต่าส่งสรุปสั้นๆ ทุกครั้งที่มีบทความใหม่ — ไม่ spam ไม่ขายของ</div>
+    </div>
+    <button class="btnline-sm">ติดตาม</button>
+  </div>
+
+  <!-- ARTICLES GRID -->
+  <div class="grid-title">บทความทั้งหมด</div>
+  <div class="articles-grid" id="articlesGrid">
+    {articles.map((a) => (
+      <a href={a.href} class="acard" data-cat={a.tag}>
+        <div class={`acard-tag ${a.tag}`}>{a.tagLabel}</div>
+        <div class="acard-title">{a.title}</div>
+        <div class="acard-excerpt">{a.excerpt}</div>
+        <div class="acard-meta">{a.meta}</div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<Footer />
+
+<script>
+function filterArticles(cat: string, btn: HTMLElement) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll<HTMLElement>('#articlesGrid .acard').forEach(card => {
+    if (cat === 'all') { card.style.display = ''; return; }
+    card.style.display = card.dataset.cat === cat ? '' : 'none';
+  });
+}
+// @ts-expect-error - exposed for inline onclick handler
+window.filterArticles = filterArticles;
+</script>
+</body>
+</html>

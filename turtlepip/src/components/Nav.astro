@@ -1,0 +1,62 @@
+---
+interface Props {
+  active?: 'rebate' | 'brokers' | 'compare' | 'matcher' | 'blacklist' | 'blog';
+}
+
+const { active } = Astro.props;
+
+const links = [
+  { key: 'rebate', href: '/rebate', label: 'รับ Rebate', highlight: true },
+  { key: 'brokers', href: '/', label: 'โบรกเกอร์' },
+  { key: 'compare', href: '/compare', label: 'เปรียบเทียบ' },
+  { key: 'matcher', href: '/matcher', label: 'หาโบรกที่ใช่' },
+  { key: 'blacklist', href: '/blacklist', label: 'แบล็คลิสต์' },
+  { key: 'blog', href: '/blog', label: 'บทความ' },
+] as const;
+---
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><img src="/logos/turtlepip-logo.png" alt="TurtlePip"></a>
+    <div class="nav-links">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={['nl', { on: active === link.key }]}
+          style={link.highlight ? 'color:var(--gd);font-weight:700;' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  {links.map((link) => (
+    <a
+      href={link.href}
+      class:list={{ on: active === link.key }}
+      style={link.highlight ? 'color:var(--gd);font-weight:700;' : undefined}
+    >
+      {link.label}
+    </a>
+  ))}
+</div>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    if (m) m.classList.toggle('open');
+  }
+  // @ts-expect-error - exposed for inline onclick handler
+  window.toggleMenu = toggleMenu;
+
+  document.querySelectorAll('#mobileMenu a').forEach((a) => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobileMenu')?.classList.remove('open');
+    });
+  });
+</script>

@@ -1,0 +1,32 @@
+{
+  "broker": "xs-com",
+  "account": "Standard Account",
+  "updated": "2026-05",
+  "thbRate": 35,
+  "rates": [
+    {
+      "symbol": "XAUUSD",
+      "name": "XAU/USD (ทองคำ)",
+      "desc": "Gold · XAUUSD",
+      "popular": true,
+      "cashbackUsd": [0.60, 0.90],
+      "points": [6, 9]
+    },
+    {
+      "symbol": "EURUSD",
+      "name": "EUR/USD",
+      "desc": "Euro vs US Dollar · EURUSD",
+      "popular": false,
+      "cashbackUsd": [0.20, 0.60],
+      "points": [2, 6]
+    },
+    {
+      "symbol": "BTCUSD",
+      "name": "BTC/USD",
+      "desc": "Bitcoin vs US Dollar · BTCUSD",
+      "popular": false,
+      "cashbackUsd": [6.50, 10.00],
+      "points": [650, 1000]
+    }
+  ]
+}

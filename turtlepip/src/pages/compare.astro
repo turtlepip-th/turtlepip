@@ -1,0 +1,253 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import compareData from '../data/compare.json';
+
+const { mainTable, spreadTable, scoreBreakdown } = compareData;
+
+function scoreColor(v: number) {
+  if (v >= 8.5) return 'var(--safe)';
+  if (v >= 6.5) return 'var(--warn)';
+  return 'var(--avoid)';
+}
+function scoreClass(v: number) {
+  if (v >= 8.5) return 'sc-g';
+  if (v >= 6.5) return 'sc-a';
+  return 'sc-r';
+}
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
+<meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
+<link rel="stylesheet" href="/shared.css">
+<style>
+.page-hero{margin-bottom:28px}
+.page-hero h1{font-size:24px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
+.page-hero p{font-size:13px;color:var(--t2)}
+.filter-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:12px;color:var(--t3);font-weight:600}
+.filter-btn{background:var(--surf);border:1px solid var(--bdr);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--f);color:var(--t2);transition:all .15s}
+.filter-btn.on{background:var(--gd);color:white;border-color:var(--gd)}
+/* MAIN COMPARE TABLE */
+.compare-wrap{overflow-x:auto;margin-bottom:28px}
+.ctable{width:100%;border-collapse:collapse;background:var(--surf);border-radius:var(--rl);overflow:hidden;border:1px solid var(--bdr);min-width:700px}
+.ctable th{padding:10px 14px;font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg);text-align:center;white-space:nowrap}
+.ctable th:first-child{text-align:left;width:200px}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bdr);text-align:center;font-size:13px;vertical-align:middle}
+.ctable td:first-child{text-align:left}
+.ctable tr:last-child td{border-bottom:none}
+.ctable tr:hover td{background:var(--bg)}
+.broker-cell{display:flex;align-items:center;gap:10px}
+.blogo{width:36px;height:36px;border-radius:8px;overflow:hidden;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.blogo img{width:100%;height:100%;object-fit:contain}
+.bname{font-size:13px;font-weight:700}
+.breg{font-size:10px;color:var(--t3)}
+.score-cell{font-size:15px;font-weight:800;font-family:monospace}
+.sc-g{color:var(--safe)}.sc-a{color:var(--warn)}.sc-r{color:var(--avoid)}
+.sp-low{color:var(--safe);font-weight:700}
+.sp-mid{color:var(--t1)}
+.sp-high{color:var(--t2)}
+.news-est{font-size:10px;color:var(--t3);display:block;margin-top:2px}
+.check-y{color:var(--safe);font-weight:700}
+.check-n{color:var(--avoid);font-weight:700}
+.check-p{color:var(--warn);font-weight:700}
+.model-tag{display:inline-flex;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px}
+.model-a{background:var(--gp);color:var(--gd);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.model-b{background:var(--bg);color:var(--t2);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;border:1px solid var(--bdr)}
+.model-mix{background:var(--warnbg);color:var(--warn)}
+.btn-review-sm{background:var(--gp);color:var(--gd);border:1px solid #C3E6A0;border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:var(--f);white-space:nowrap;text-decoration:none;display:inline-block}
+/* SPREAD SECTION */
+.section-title{font-size:16px;font-weight:800;margin-bottom:14px;letter-spacing:-.2px}
+.spread-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:28px}
+.stable{width:100%;border-collapse:collapse;min-width:600px}
+.stable th{padding:10px 16px;font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg);text-align:center}
+.stable th:first-child{text-align:left}
+.stable td{padding:12px 16px;border-bottom:1px solid var(--bdr);text-align:center;vertical-align:middle}
+.stable td:first-child{text-align:left}
+.stable tr:last-child td{border-bottom:none}
+.stable tr:hover td{background:var(--bg)}
+.stable tr.top-row td{background:var(--gp)}
+.sp-block{display:flex;flex-direction:column;align-items:center;gap:2px}
+.sp-main{font-size:14px;font-weight:800;font-family:monospace}
+.sp-news{font-size:10px;color:var(--t3);background:var(--warnbg);border:1px solid #FDE68A;border-radius:4px;padding:1px 5px;font-weight:700;color:var(--warn)}
+.snote{font-size:10px;color:var(--t3);padding:8px 16px;background:var(--bg);border-top:1px solid var(--bdr)}
+/* SCORING BREAKDOWN */
+.score-breakdown{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:28px}
+.score-table{width:100%;border-collapse:collapse;min-width:650px}
+.score-table th{padding:10px 14px;font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg);text-align:center}
+.score-table th:first-child{text-align:left}
+.score-table td{padding:10px 14px;border-bottom:1px solid var(--bdr);text-align:center;font-family:monospace;font-weight:700;font-size:13px}
+.score-table td:first-child{text-align:left;font-family:var(--f);font-weight:600}
+.score-table tr:last-child td{border-bottom:none}
+.score-table tr:hover td{background:var(--bg)}
+.score-table tr.top-row td{background:var(--gp)}
+/* NOTES */
+.note-box{background:var(--bg);border:1px solid var(--bdr);border-radius:var(--r);padding:14px 16px;font-size:12px;color:var(--t2);line-height:1.7}
+.note-box strong{color:var(--t1)}
+
+/* Mobile table scroll */
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tbl-scroll table { min-width: 700px; }
+@media (max-width: 820px) {
+  .wrap { padding: 14px; }
+}
+</style>
+</head>
+<body>
+<Nav active="compare" />
+<div class="wrap">
+  <div class="page-hero">
+    <h1>เปรียบเทียบโบรกเกอร์ Forex 2026</h1>
+    <p>ข้อมูลจริงจากทีมซุปเต่า · Standard Account เท่านั้น เพื่อความเท่าเทียม · อัปเดต พ.ค. 2026</p>
+  </div>
+
+  <div class="filter-row">
+    <span class="filter-label">กรองตามสไตล์:</span>
+    <button class="filter-btn on" onclick="filterTable('all',this)">ทั้งหมด</button>
+    <button class="filter-btn" onclick="filterTable('scalper',this)">Scalper</button>
+    <button class="filter-btn" onclick="filterTable('swing',this)">Swing</button>
+    <button class="filter-btn" onclick="filterTable('copy',this)">Copy Trade</button>
+    <button class="filter-btn" onclick="filterTable('beginner',this)">มือใหม่</button>
+  </div>
+
+  <!-- MAIN TABLE -->
+  <div class="compare-wrap">
+    <div class="tbl-scroll"><table class="ctable">
+      <thead>
+        <tr>
+          <th style="text-align:left">#&nbsp;&nbsp;โบรกเกอร์</th>
+          <th>สถานะ</th>
+          <th>TurtlePip<br>Score</th>
+          <th>Model</th>
+          <th>ฝากขั้นต่ำ</th>
+          <th>EUR/USD<br>Spread</th>
+          <th>PromptPay</th>
+          <th>TradingView</th>
+          <th>Thai Support</th>
+          <th>รีวิว</th>
+        </tr>
+      </thead>
+      <tbody id="mainTbody">
+        {mainTable.map((b) => (
+          <tr data-tags={b.tags.join(' ')}>
+            <td>
+              <div class="broker-cell">
+                <span style="font-size:12px;font-weight:700;color:var(--t3);font-family:monospace;width:16px">{b.rank}</span>
+                <div class="blogo" style={`background:${b.logoBg};${b.logoStyle ?? ''}`}><img src={b.logo} alt={b.name} style={b.imgStyle} /></div>
+                <div><div class="bname">{b.name}</div><div class="breg">{b.regText}</div></div>
+              </div>
+            </td>
+            <td><span class={`badge ${b.status === 'recommended' ? 'bsafe' : 'bneutral'}`}>{b.statusLabel}</span></td>
+            <td><span class={`score-cell ${scoreClass(b.score)}`}>{b.score.toFixed(1)}</span></td>
+            <td><span class={`model-tag ${b.modelClass}`}>{b.model}</span></td>
+            <td>{b.minDeposit}</td>
+            <td><span class={b.eurusdLevel}>{b.eurusdSpread}</span></td>
+            <td><span class={b.promptPay.class}>{b.promptPay.label}</span></td>
+            <td><span class={b.tradingview.class}>{b.tradingview.label}</span></td>
+            <td><span class={b.thaiSupport.class}>{b.thaiSupport.label}</span></td>
+            <td>
+              {b.reviewUrl ? (
+                <a href={b.reviewUrl} class="btn-review-sm">อ่านรีวิว</a>
+              ) : (
+                <a href="#" class="btn-review-sm" style="opacity:0.5;pointer-events:none;">เร็วๆ นี้</a>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- SPREAD TABLE -->
+  <div class="section-title">Spread เปรียบเทียบ — Standard Account</div>
+  <div class="spread-card">
+    <div style="overflow-x:auto">
+      <table class="stable">
+        <thead>
+          <tr>
+            <th style="text-align:left">โบรกเกอร์</th>
+            <th>EUR/USD<br><small style="font-weight:400;text-transform:none;letter-spacing:0;color:#888">ปกติ · ช่วงข่าว (approx)</small></th>
+            <th>XAU/USD ทอง<br><small style="font-weight:400;text-transform:none;letter-spacing:0;color:#888">ปกติ · ช่วงข่าว (approx)</small></th>
+            <th>BTC/USD<br><small style="font-weight:400;text-transform:none;letter-spacing:0;color:#888">ปกติ เท่านั้น</small></th>
+            <th>Rebate/lot</th>
+          </tr>
+        </thead>
+        <tbody>
+          {spreadTable.map((b) => (
+            <tr class={b.topRow ? 'top-row' : undefined}>
+              <td><div class="broker-cell"><div class="blogo" style={`background:${b.logoBg};width:28px;height:28px;border-radius:6px`}><img src={b.logo} alt={b.name} /></div><strong>{b.name}</strong></div></td>
+              <td><div class="sp-block"><span class={`sp-main ${b.eurusd.level}`}>{b.eurusd.normal}</span>{b.eurusd.news && <span class="sp-news">{b.eurusd.news}</span>}</div></td>
+              <td><div class="sp-block"><span class={`sp-main ${b.xauusd.level}`}>{b.xauusd.normal}</span>{b.xauusd.news && <span class="sp-news">{b.xauusd.news}</span>}</div></td>
+              <td><div class="sp-block"><span class={b.btc.level ? `sp-main ${b.btc.level}` : 'sp-main'} style={!b.btc.level ? 'color:var(--t3)' : undefined}>{b.btc.normal}</span>{b.btc.news && <span class="sp-news">{b.btc.news}</span>}</div></td>
+              <td style="color:var(--t3);font-size:11px;">{b.rebate}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="snote">Standard Account เท่านั้น เพื่อความเท่าเทียม · ข้อมูล ณ พ.ค. 2026 · อัปเดตทุก 6 เดือน · "pts" = points สำหรับ XAUUSD (1 pt = $0.01) · XS = Stable float ไม่ spike · Pepperstone/Exness* อาจ spike ช่วงข่าว · *Exness XAUUSD กำลัง monitor อยู่ อัปเดตเร็วๆ นี้</div>
+  </div>
+
+  <!-- SCORE BREAKDOWN -->
+  <div class="section-title">คะแนนละเอียดแต่ละด้าน</div>
+  <div class="score-breakdown">
+    <div style="overflow-x:auto">
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">โบรกเกอร์</th>
+            <th>รวม<br>(10)</th>
+            <th>น่าเชื่อถือ<br>(25%)</th>
+            <th>ฝากถอน<br>(20%)</th>
+            <th>Trading<br>(20%)</th>
+            <th>Platform<br>(15%)</th>
+            <th>Support TH<br>(10%)</th>
+            <th>Ease<br>(5%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {scoreBreakdown.map((b) => (
+            <tr class={b.topRow ? 'top-row' : undefined}>
+              <td><strong>{b.name}</strong></td>
+              <td style={`color:${scoreColor(b.total)}`}>{b.total.toFixed(1)}</td>
+              <td style={`color:${scoreColor(b.trust)}`}>{b.trust.toFixed(1)}</td>
+              <td style={`color:${scoreColor(b.deposit)}`}>{b.deposit.toFixed(1)}</td>
+              <td style={`color:${scoreColor(b.trading)}`}>{b.trading.toFixed(1)}</td>
+              <td style={`color:${scoreColor(b.platform)}`}>{b.platform.toFixed(1)}</td>
+              <td style={`color:${scoreColor(b.support)}`}>{b.support.toFixed(1)}</td>
+              <td style={`color:${scoreColor(b.ease)}`}>{b.ease.toFixed(1)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>วิธีอ่านคะแนน:</strong> ทีมซุปเต่าใช้ระบบ weighted score — ความน่าเชื่อถือมีน้ำหนัก 25%, ฝากถอนไทย 20%, Trading conditions 20%, Platform 15%, Thai support 10%, Ease of use 5% · <strong>คะแนนฝากถอนไทยสำคัญมาก</strong> เพราะนั่นคือสิ่งที่ Trader ไทยสนใจจริงๆ · อ่านวิธีให้คะแนนแบบเต็มได้ที่หน้า Methodology
+  </div>
+</div>
+
+<Footer />
+
+<script>
+function filterTable(tag: string, btn: HTMLElement) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#mainTbody tr').forEach(row => {
+    const r = row as HTMLElement;
+    if (tag === 'all') { r.style.display = ''; return; }
+    const tags = r.dataset.tags || '';
+    r.style.display = tags.includes(tag) ? '' : 'none';
+  });
+}
+// @ts-expect-error - exposed for inline onclick handler
+window.filterTable = filterTable;
+</script>
+</body>
+</html>

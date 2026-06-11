@@ -1,3 +1,11 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import blacklistData from '../data/blacklist.json';
+
+const { entries } = blacklistData;
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -5,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="/shared.css">
 <style>
   .page-hero { margin-bottom: 24px; }
   .page-hero h1 { font-size: 24px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 6px; }
@@ -105,16 +113,7 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links"><a href="index.html" class="nl">โบรกเกอร์</a><a href="compare.html" class="nl">เปรียบเทียบ</a><a href="matcher.html" class="nl">หาโบรกที่ใช่</a><a href="blacklist.html" class="nl on">แบล็คลิสต์</a><a href="blog.html" class="nl">บทความ</a></div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu"><a href="index.html">โบรกเกอร์</a><a href="compare.html">เปรียบเทียบ</a><a href="matcher.html">หาโบรกที่ใช่</a><a href="blacklist.html" class="on">แบล็คลิสต์</a><a href="blog.html">บทความ</a></div>
+<Nav active="blacklist" />
 <div class="wrap">
 
   <div class="page-hero">
@@ -145,79 +144,30 @@
     </div>
   </div>
 
-  <!-- VT MARKETS -->
-  <div class="bcard avoid">
-    <div class="bcard-head">
-      <div>
-        <div class="bcard-name">VT Markets</div>
-        <div class="bcard-reg">ASIC (ออสเตรเลีย) · เปลี่ยนเจ้าของใหม่ 2025</div>
+  {entries.map((entry) => (
+    <div class={`bcard ${entry.level}`}>
+      <div class="bcard-head">
+        <div>
+          <div class="bcard-name">{entry.name}</div>
+          <div class="bcard-reg">{entry.reg}</div>
+        </div>
+        <span class={`blevel ${entry.level}`}>{entry.levelLabel}</span>
       </div>
-      <span class="blevel avoid">หลีกเลี่ยง</span>
-    </div>
-    <div class="bcard-body">
-      <ul class="reasons">
-        <li><span class="ri">🔄</span>เปลี่ยนเจ้าของเป็นทุนจีนปี 2025 — โมเดลธุรกิจเปลี่ยนจาก ECN ไปทิศทาง B-Book มากขึ้น</li>
-        <li><span class="ri">⏱️</span>ผู้ใช้รายงานถอนเงินช้าลงหลังเปลี่ยนมือ บางรายรอเกิน 7 วันทำการ</li>
-        <li><span class="ri">📋</span>T&C เปลี่ยนหลายครั้งในช่วง 6 เดือนหลังเปลี่ยนเจ้าของ โดยไม่แจ้งลูกค้าล่วงหน้า</li>
-        <li><span class="ri">🏛️</span>ASIC license ยังมี แต่ entity ที่รับ client ไทยไม่ใช่ ASIC entity โดยตรง</li>
-      </ul>
-      <div class="evidence-box">
-        <strong>หลักฐาน:</strong> รายงานเปลี่ยนผู้ถือหุ้นจาก ASIC public register · ความเห็นผู้ใช้จาก Trustpilot และ ForexPeaceArmy · การเปลี่ยน T&C ที่ archive.org บันทึกไว้
-      </div>
-      <div class="bcard-meta">
-        <span>📅 เพิ่มเข้ารายการ: พ.ค. 2026</span>
-        <span>🔄 อัปเดตล่าสุด: พ.ค. 2026</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- OctaFX -->
-  <div class="bcard avoid">
-    <div class="bcard-head">
-      <div>
-        <div class="bcard-name">OctaFX</div>
-        <div class="bcard-reg">SVG (เซนต์วินเซนต์) — ไม่มี Tier-1 regulation</div>
-      </div>
-      <span class="blevel avoid">หลีกเลี่ยง</span>
-    </div>
-    <div class="bcard-body">
-      <ul class="reasons">
-        <li><span class="ri">🏛️</span>จดทะเบียนที่ SVG ซึ่งไม่มีอำนาจ regulate broker จริงๆ — เป็นแค่ company registration ไม่ใช่ financial regulation</li>
-        <li><span class="ri">💰</span>Bonus เงื่อนไขซับซ้อน มีรายงานถูก lock กำไรเพราะ bonus policy</li>
-        <li><span class="ri">📱</span>ใช้ Influencer marketing หนัก — รีวิวส่วนใหญ่เป็นโฆษณาแฝง ไม่ใช่ประสบการณ์จริง</li>
-      </ul>
-      <div class="evidence-box">
-        <strong>หลักฐาน:</strong> SVG FSA ไม่มีอำนาจ regulate broker ด้านการเงิน (ยืนยันจาก FSA SVG website) · complaint บน ForexPeaceArmy มากกว่า 200 รายการเรื่อง bonus withdrawal
-      </div>
-      <div class="bcard-meta">
-        <span>📅 เพิ่มเข้ารายการ: ม.ค. 2026</span>
+      <div class="bcard-body">
+        <ul class="reasons">
+          {entry.reasons.map((r) => (
+            <li><span class="ri">{r.icon}</span>{r.text}</li>
+          ))}
+        </ul>
+        <div class="evidence-box">
+          <strong>หลักฐาน:</strong> {entry.evidence}
+        </div>
+        <div class="bcard-meta">
+          {entry.meta.map((m) => <span>{m}</span>)}
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- FBS — หยุดให้บริการ -->
-  <div class="bcard inactive">
-    <div class="bcard-head">
-      <div>
-        <div class="bcard-name">FBS</div>
-        <div class="bcard-reg">CySEC · FSC Belize · FSCA — หยุดให้บริการในไทยแล้ว</div>
-      </div>
-      <span class="blevel inactive">หยุดให้บริการ</span>
-    </div>
-    <div class="bcard-body">
-      <ul class="reasons">
-        <li><span class="ri">📧</span>FBS ส่ง email แจ้งลูกค้าไทยว่าหยุดให้บริการในภูมิภาคไทยแล้ว — ไม่สามารถเปิดบัญชีใหม่หรือเทรดได้</li>
-        <li><span class="ri">ℹ️</span>ไม่ใช่โบรกอันตราย — แค่ไม่สามารถใช้งานได้สำหรับ trader ไทย</li>
-      </ul>
-      <div class="evidence-box">
-        <strong>หลักฐาน:</strong> Email แจ้งจาก FBS ถึงลูกค้าไทย · ยืนยันโดยทีมซุปเต่าจากการทดสอบ registration พ.ค. 2026
-      </div>
-      <div class="bcard-meta">
-        <span>📅 อัปเดต: พ.ค. 2026</span>
-        <span>ℹ️ สถานะ: หยุดให้บริการในไทย ไม่ใช่ scam</span>
-      </div>
-    </div>
-  </div>
+  ))}
 
   <!-- CHECKLIST -->
   <div class="checklist-card">
@@ -244,23 +194,6 @@
 
 </div>
 
-<footer>
-  <div class="fin">
-    <div class="fl">© 2026 TurtlePip.com · ข้อมูลเพื่อการศึกษา · อ้างอิงจากแหล่งที่ตรวจสอบได้ · การเทรด Forex มีความเสี่ยงสูง</div>
-    <div class="flinks">
-      <a href="#" class="flink">นโยบายความเป็นส่วนตัว</a>
-      <a href="#" class="flink">คำเตือนความเสี่ยง</a>
-    </div>
-    <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
-  </div>
-</footer>
-
-
-<script>
-function toggleMenu() {
-  var m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('open');
-}
-</script>
+<Footer />
 </body>
 </html>

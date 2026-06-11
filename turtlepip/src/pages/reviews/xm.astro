@@ -1,3 +1,8 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -5,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รีวิว XM 2026 — ดีไหม? ข้อมูลจริงจากทีมเต่า | TurtlePip</title>
 <meta name="description" content="รีวิว XM 2026 แบบละเอียด — spread, ถอนเงิน, regulation, ประเภทบัญชี พร้อมผลทดสอบจริง โดยทีมเต่า">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="/shared.css">
 <style>
 .grid{display:grid;grid-template-columns:1fr 280px;gap:24px}
 .card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:20px}
@@ -72,16 +77,16 @@
 </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="turtlepip.html" class="logo"><img src="turtlepip-logo.png" alt="TurtlePip"></a><div class="nav-links"><a href="turtlepip.html" class="nl on">โบรกเกอร์</a><a href="compare.html" class="nl">เปรียบเทียบ</a><a href="matcher.html" class="nl">หาโบรกที่ใช่</a><a href="blacklist.html" class="nl">แบล็คลิสต์</a><a href="blog.html" class="nl">บทความ</a></div></div></nav>
+<Nav />
 <div class="wrap">
 <div style="font-size:12px;color:var(--t3);margin-bottom:16px">
-    <a href="turtlepip.html" style="color:var(--t3);text-decoration:none">หน้าหลัก</a> ›
-    <a href="turtlepip.html" style="color:var(--t3);text-decoration:none">โบรกเกอร์</a> ›
+    <a href="/" style="color:var(--t3);text-decoration:none">หน้าหลัก</a> ›
+    <a href="/" style="color:var(--t3);text-decoration:none">โบรกเกอร์</a> ›
     XM
 </div>
 <div class="review-hero">
     <div class="broker-logo-lg" style="background:#000000">
-        <img src="logo-xm.png" alt="XM" style="width:100%;height:100%;object-fit:cover">
+        <img src="/logos/xm.jpg" alt="XM" style="width:100%;height:100%;object-fit:cover">
     </div>
     <div style="flex:1">
         <div class="hero-top">
@@ -232,10 +237,11 @@
 <div class="scard">
 <div class="shead">เปรียบเทียบกับคู่แข่ง</div>
 <div class="info-row"><span class="info-label">XS.com</span><span class="info-val" style="color:var(--safe);font-family:monospace">9.2</span></div><div class="info-row"><span class="info-label">Pepperstone</span><span class="info-val" style="color:var(--safe);font-family:monospace">9.0</span></div><div class="info-row"><span class="info-label">Exness</span><span class="info-val" style="color:var(--safe);font-family:monospace">8.8</span></div><div class="info-row"><span class="info-label">HFM</span><span class="info-val" style="color:var(--warn);font-family:monospace">7.1</span></div><div class="info-row"><span class="info-label">XM  ★</span><span class="info-val" style="color:var(--avoid);font-family:monospace">6.9</span></div>
-<div style="padding:10px 15px"><a href="compare.html" style="font-size:12px;color:var(--gd);font-weight:600;text-decoration:none">ดูตารางเปรียบเทียบ →</a></div>
+<div style="padding:10px 15px"><a href="/compare" style="font-size:12px;color:var(--gd);font-weight:600;text-decoration:none">ดูตารางเปรียบเทียบ →</a></div>
 </div>
 </div>
 </div>
 </div>
-<footer><div class="fin"><div>© 2026 TurtlePip.com · รีวิวโบรกเกอร์ Forex โดยทีมเต่า · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</div><div class="flinks"><a href="#" class="flink">นโยบายความเป็นส่วนตัว</a><a href="#" class="flink">คำเตือนความเสี่ยง</a></div><div class="dmca"><div class="ddot"></div>DMCA Protected</div></div></footer>
-</body></html>
+<Footer />
+</body>
+</html>

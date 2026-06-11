@@ -1,3 +1,25 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import xs from '../data/brokers/xs.json';
+import pepperstone from '../data/brokers/pepperstone.json';
+import exness from '../data/brokers/exness.json';
+import hfm from '../data/brokers/hfm.json';
+import xm from '../data/brokers/xm.json';
+import xsRebate from '../data/rebates/xs.json';
+
+const brokers = [xs, pepperstone, exness, hfm, xm].sort((a, b) => a.rank - b.rank);
+
+const recommendedCount = brokers.filter((b) => b.status === 'recommended').length;
+const neutralCount = brokers.filter((b) => b.status === 'neutral').length;
+
+const xauRebate = xsRebate.rates.find((r) => r.symbol === 'XAUUSD')!;
+const rebateLo = xauRebate.cashbackUsd[0];
+const rebateHi = xauRebate.cashbackUsd[1];
+const rebateRange = `$${rebateLo.toFixed(2)}–${rebateHi.toFixed(2)}`;
+const thbRate = xsRebate.thbRate;
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -6,7 +28,7 @@
 <title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <link rel="canonical" href="https://turtlepip.com/">
 <meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="/shared.css">
 <style>
 /* ============================================
    MOBILE-FIRST — base styles are mobile.
@@ -423,35 +445,14 @@ input[type="range"].calc-slider::-moz-range-thumb {
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links">
-      <a href="rebate.html" class="nl" style="color:var(--gd);font-weight:700;">รับ Rebate</a>
-      <a href="index.html" class="nl on">โบรกเกอร์</a>
-      <a href="compare.html" class="nl">เปรียบเทียบ</a>
-      <a href="blacklist.html" class="nl">แบล็คลิสต์</a>
-      <a href="blog.html" class="nl">บทความ</a>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="rebate.html" style="color:var(--gd);font-weight:700;">รับ Rebate</a>
-  <a href="index.html" class="on">โบรกเกอร์</a>
-  <a href="compare.html">เปรียบเทียบ</a>
-  <a href="blacklist.html">แบล็คลิสต์</a>
-  <a href="blog.html">บทความ</a>
-</div>
+<Nav active="brokers" />
 
 <!-- TICKER STRIP -->
 <div class="ticker">
   <div class="ticker-in">
-    <span class="tk">โบรกที่รีวิว: <b>5</b></span>
-    <span class="tk">แนะนำ: <b class="g">3</b></span>
-    <span class="tk">กลาง: <b class="bl">2</b></span>
+    <span class="tk">โบรกที่รีวิว: <b>{brokers.length}</b></span>
+    <span class="tk">แนะนำ: <b class="g">{recommendedCount}</b></span>
+    <span class="tk">กลาง: <b class="bl">{neutralCount}</b></span>
     <span class="tk">ข้อมูล: <b>พ.ค. 2026</b></span>
   </div>
 </div>
@@ -490,102 +491,43 @@ input[type="range"].calc-slider::-moz-range-thumb {
           </tr>
         </thead>
         <tbody id="rankBody">
-
-          <tr data-tags="rebate scalper daytrader swing news" onclick="location.href='reviews/xs-com.html'">
-            <td class="broker-cell">
-              <div class="bk">
-                <span class="bk-rank">1</span>
-                <div class="bk-logo" style="background:#fff;"><img src="logos/xs.jpg" alt="XS.com"></div>
-                <div style="min-width:0;">
-                  <div class="bk-name">XS.com</div>
-                  <div class="bk-reg">CySEC · ASIC · FSCA <span class="lic-badge">+5</span></div>
+          {brokers.map((b) => (
+            <tr data-tags={b.tags.join(' ')} onclick={b.reviewUrl ? `location.href='${b.reviewUrl}'` : 'void(0)'}>
+              <td class="broker-cell">
+                <div class="bk">
+                  <span class="bk-rank">{b.rank}</span>
+                  <div class="bk-logo" style={`background:${b.logoBg};`}>
+                    <img src={b.logo} alt={b.name} style={b.logoStyle} />
+                  </div>
+                  <div style="min-width:0;">
+                    <div class="bk-name">{b.name}</div>
+                    <div class="bk-reg">
+                      {b.regulators.join(' · ')}
+                      {b.extraLicenses > 0 && <span class="lic-badge">+{b.extraLicenses}</span>}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td><span class="score-val g">9.2</span></td>
-            <td><a href="rebate.html" onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">$0.60–0.90</span></a></td>
-            <td><span class="spread-val lo">18–20 pts</span></td>
-            <td><span class="dep-val">฿500</span></td>
-            <td><span class="badge bsafe">แนะนำ</span></td>
-            <td><a href="reviews/xs-com.html" class="btn-go" onclick="event.stopPropagation()">รีวิว</a></td>
-          </tr>
-
-          <tr data-tags="scalper daytrader swing news" onclick="void(0)">
-            <td class="broker-cell">
-              <div class="bk">
-                <span class="bk-rank">2</span>
-                <div class="bk-logo" style="background:#0565F8;"><img src="logos/pepperstone.png" alt="Pepperstone" style="object-fit:cover;"></div>
-                <div style="min-width:0;">
-                  <div class="bk-name">Pepperstone</div>
-                  <div class="bk-reg">ASIC · FCA · CySEC <span class="lic-badge">+1</span></div>
-                </div>
-              </div>
-            </td>
-            <td><span class="score-val g">9.0</span></td>
-            <td><span class="rebate-soon">เร็วๆ นี้</span></td>
-            <td><span class="spread-val md">20–25 pts</span></td>
-            <td><span class="dep-val">$200</span></td>
-            <td><span class="badge bsafe">แนะนำ</span></td>
-            <td><span class="btn-go disabled">เร็วๆ นี้</span></td>
-          </tr>
-
-          <tr data-tags="beginner swing copy daytrader" onclick="void(0)">
-            <td class="broker-cell">
-              <div class="bk">
-                <span class="bk-rank">3</span>
-                <div class="bk-logo" style="background:#FFDF01;"><img src="logos/exness.png" alt="Exness"></div>
-                <div style="min-width:0;">
-                  <div class="bk-name">Exness</div>
-                  <div class="bk-reg">CySEC · FCA · FSA <span class="lic-badge">+4</span></div>
-                </div>
-              </div>
-            </td>
-            <td><span class="score-val g">8.8</span></td>
-            <td><span class="rebate-soon">เร็วๆ นี้</span></td>
-            <td><span class="spread-val md">~28 pts*</span></td>
-            <td><span class="dep-val">฿0</span></td>
-            <td><span class="badge bsafe">แนะนำ</span></td>
-            <td><span class="btn-go disabled">เร็วๆ นี้</span></td>
-          </tr>
-
-          <tr data-tags="beginner copy" onclick="void(0)">
-            <td class="broker-cell">
-              <div class="bk">
-                <span class="bk-rank">4</span>
-                <div class="bk-logo" style="background:#000;"><img src="logos/hfm.jpg" alt="HFM" style="object-fit:cover;"></div>
-                <div style="min-width:0;">
-                  <div class="bk-name">HFM</div>
-                  <div class="bk-reg">CySEC · FCA · DFSA · FSA</div>
-                </div>
-              </div>
-            </td>
-            <td><span class="score-val bl">7.1</span></td>
-            <td><span class="rebate-soon">เร็วๆ นี้</span></td>
-            <td><span class="spread-val md">~25 pts</span></td>
-            <td><span class="dep-val">฿0</span></td>
-            <td><span class="badge bneutral">กลาง</span></td>
-            <td><span class="btn-go disabled">เร็วๆ นี้</span></td>
-          </tr>
-
-          <tr data-tags="beginner" onclick="void(0)">
-            <td class="broker-cell">
-              <div class="bk">
-                <span class="bk-rank">5</span>
-                <div class="bk-logo" style="background:#000;"><img src="logos/xm.jpg" alt="XM" style="padding:2px;"></div>
-                <div style="min-width:0;">
-                  <div class="bk-name">XM</div>
-                  <div class="bk-reg">CySEC · ASIC · DFSA</div>
-                </div>
-              </div>
-            </td>
-            <td><span class="score-val bl">6.9</span></td>
-            <td><span class="rebate-soon">เร็วๆ นี้</span></td>
-            <td><span class="spread-val hi">~37 pts</span></td>
-            <td><span class="dep-val">฿175</span></td>
-            <td><span class="badge bneutral">กลาง</span></td>
-            <td><span class="btn-go disabled">เร็วๆ นี้</span></td>
-          </tr>
-
+              </td>
+              <td><span class={`score-val ${b.scoreColor}`}>{b.score.toFixed(1)}</span></td>
+              <td>
+                {b.hasRebate ? (
+                  <a href="/rebate" onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{rebateRange}</span></a>
+                ) : (
+                  <span class="rebate-soon">เร็วๆ นี้</span>
+                )}
+              </td>
+              <td><span class={`spread-val ${b.spreadLevel}`}>{b.spreads.xauusd}</span></td>
+              <td><span class="dep-val">{b.minDeposit.display}</span></td>
+              <td><span class={`badge ${b.status === 'recommended' ? 'bsafe' : 'bneutral'}`}>{b.statusLabel}</span></td>
+              <td>
+                {b.reviewUrl ? (
+                  <a href={b.reviewUrl} class="btn-go" onclick="event.stopPropagation()">รีวิว</a>
+                ) : (
+                  <span class="btn-go disabled">เร็วๆ นี้</span>
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -615,7 +557,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
           <div class="calc-result-val" id="rebateOut">฿420–630</div>
           <div class="calc-result-sub" id="rebateUsd">~$12.00–18.00 / เดือน</div>
         </div>
-        <a href="rebate.html" class="calc-cta">ดูรายละเอียด & สมัครรับ Rebate →</a>
+        <a href="/rebate" class="calc-cta">ดูรายละเอียด & สมัครรับ Rebate →</a>
       </div>
     </div>
   </div>
@@ -623,20 +565,20 @@ input[type="range"].calc-slider::-moz-range-thumb {
   <!-- ARTICLES -->
   <div class="sec-head">
     <span class="sec-title">บทความล่าสุด</span>
-    <a href="blog.html" class="sec-link">ดูทั้งหมด →</a>
+    <a href="/blog" class="sec-link">ดูทั้งหมด →</a>
   </div>
   <div class="art-card">
-    <a href="blog.html" class="art">
+    <a href="/blog" class="art">
       <div class="art-tag d">แจ้งเตือน</div>
       <div class="art-title">โบรกเกอร์ไหนเปลี่ยนทีมบริหารแล้ว — และธุรกิจเปลี่ยนไปอย่างไรในปี 2026</div>
       <div class="art-meta">8 นาทีอ่าน</div>
     </a>
-    <a href="articles/abook-bbook.html" class="art">
+    <a href="/articles/abook-bbook" class="art">
       <div class="art-tag g">คู่มือ</div>
       <div class="art-title">A-Book vs B-Book คืออะไร — โบรกเกอร์ทำเงินจากคุณยังไง?</div>
       <div class="art-meta">6 นาทีอ่าน</div>
     </a>
-    <a href="blog.html" class="art">
+    <a href="/blog" class="art">
       <div class="art-tag t">ทดสอบจริง</div>
       <div class="art-title">ทดสอบถอนเงิน XS.com vs Pepperstone — ใครเร็วกว่า? ผลจริงพร้อมสกรีนช็อต</div>
       <div class="art-meta">5 นาทีอ่าน</div>
@@ -646,35 +588,16 @@ input[type="range"].calc-slider::-moz-range-thumb {
   <!-- XS BANNER -->
   <div class="banner-wrap">
     <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored">
-      <img src="logos/xs-banner.jpg" alt="XS.com — เปิดบัญชีเทรด">
+      <img src="/logos/xs-banner.jpg" alt="XS.com — เปิดบัญชีเทรด">
     </a>
     <div class="banner-disc">Sponsored · การเทรด CFD มีความเสี่ยงสูง</div>
   </div>
 
 </div>
 
-<footer>
-  <div class="fin">
-    <div class="fl">© 2026 TurtlePip.com · Rebate & รีวิวโบรกเกอร์ Forex โดยทีมซุปเต่า · การเทรด Forex มีความเสี่ยงสูง</div>
-    <div class="flinks">
-      <a href="#" class="flink">นโยบายความเป็นส่วนตัว</a>
-      <a href="#" class="flink">คำเตือนความเสี่ยง</a>
-    </div>
-    <div class="dmca"><div class="ddot"></div>DMCA Protected</div>
-  </div>
-</footer>
+<Footer />
 
-<script>
-function toggleMenu() {
-  var m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('open');
-}
-document.querySelectorAll('#mobileMenu a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    document.getElementById('mobileMenu').classList.remove('open');
-  });
-});
-
+<script define:vars={{ rebateLo, rebateHi, thbRate }}>
 function filterTab(tag, btn) {
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('on'); });
   btn.classList.add('on');
@@ -684,21 +607,24 @@ function filterTab(tag, btn) {
     r.style.display = tags.indexOf(tag) > -1 ? '' : 'none';
   });
 }
+// @ts-expect-error - exposed for inline onclick handler
+window.filterTab = filterTab;
 
-/* Rebate calculator — XAUUSD Standard: 6–9 pts/lot = $0.60–0.90/lot, THB ~35 */
+/* Rebate calculator — XAUUSD Standard: rebateLo–rebateHi USD/lot, THB ~thbRate */
 function calcRebate() {
   var lots = parseInt(document.getElementById('lotsSlider').value, 10);
   document.getElementById('lotsVal').textContent = lots + ' lots';
-  var loUsd = lots * 0.60;
-  var hiUsd = lots * 0.90;
-  var THB = 35;
-  var loThb = Math.round(loUsd * THB);
-  var hiThb = Math.round(hiUsd * THB);
+  var loUsd = lots * rebateLo;
+  var hiUsd = lots * rebateHi;
+  var loThb = Math.round(loUsd * thbRate);
+  var hiThb = Math.round(hiUsd * thbRate);
   document.getElementById('rebateOut').textContent =
     '฿' + loThb.toLocaleString() + '–' + hiThb.toLocaleString();
   document.getElementById('rebateUsd').textContent =
     '~$' + loUsd.toFixed(2) + '–' + hiUsd.toFixed(2) + ' / เดือน';
 }
+// @ts-expect-error - exposed for inline onclick handler
+window.calcRebate = calcRebate;
 calcRebate();
 </script>
 </body>

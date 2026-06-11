@@ -1,9 +1,13 @@
+---
+import Nav from '../components/Nav.astro';
+---
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="/shared.css">
 <title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <style>
 /* fonts from shared.css */
@@ -113,16 +117,7 @@ footer{background:var(--surf);border-top:1px solid var(--bdr);margin-top:48px;pa
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logos/turtlepip-logo.png" alt="TurtlePip"></a>
-    <div class="nav-links"><a href="index.html" class="nl">โบรกเกอร์</a><a href="compare.html" class="nl">เปรียบเทียบ</a><a href="matcher.html" class="nl on">หาโบรกที่ใช่</a><a href="blacklist.html" class="nl">แบล็คลิสต์</a><a href="blog.html" class="nl">บทความ</a></div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="เมนู">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu"><a href="index.html">โบรกเกอร์</a><a href="compare.html">เปรียบเทียบ</a><a href="matcher.html" class="on">หาโบรกที่ใช่</a><a href="blacklist.html">แบล็คลิสต์</a><a href="blog.html">บทความ</a></div>
+<Nav active="matcher" />
 <div class="wrap">
 
   <div class="hero">
@@ -258,11 +253,11 @@ footer{background:var(--surf);border-top:1px solid var(--bdr);margin-top:48px;pa
 <footer>© 2026 TurtlePip.com · ไม่รับโฆษณาจากโบรกเกอร์ · การเทรด Forex มีความเสี่ยงสูง</footer>
 
 <script>
-const answers = {q1:null,q2:null,q3:null};
+const answers: {q1: string|null, q2: string|null, q3: string|null} = {q1:null,q2:null,q3:null};
 
 const BROKERS = [
   {
-    id:'xs', name:'XS.com', logo:'logo-xs.jpg', logobg:'#fff', verdict:'แนะนำ',
+    id:'xs', name:'XS.com', logo:'/logos/xs.jpg', logobg:'#fff', verdict:'แนะนำ',
     score:9.2, score_spread:9.0, score_platform:8.5, score_support:9.5,
     best_for:['scalper','daytrader','swing','news'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -276,7 +271,7 @@ const BROKERS = [
     why_tv:'ไม่ support TradingView โดยตรง แต่ใช้ MT5 กับ chart plugin ได้',
   },
   {
-    id:'pepperstone', name:'Pepperstone', logo:'logo-pepperstone.png', logobg:'#0565F8', verdict:'แนะนำ',
+    id:'pepperstone', name:'Pepperstone', logo:'/logos/pepperstone.png', logobg:'#0565F8', verdict:'แนะนำ',
     score:9.0, score_spread:9.5, score_platform:9.5, score_support:8.0,
     best_for:['scalper','daytrader','swing','news'],
     platforms:['mt','tv','any'], min_deposit:'medium',
@@ -289,7 +284,7 @@ const BROKERS = [
     why_tv:'รองรับ TradingView native — เชื่อมต่อได้เลย ไม่ต้องใช้ plugin',
   },
   {
-    id:'exness', name:'Exness', logo:'logo-exness.png', logobg:'#FFDF01', verdict:'แนะนำ',
+    id:'exness', name:'Exness', logo:'/logos/exness.png', logobg:'#FFDF01', verdict:'แนะนำ',
     score:8.8, score_spread:8.5, score_platform:8.0, score_support:9.0,
     best_for:['beginner','swing','copy','daytrader'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -303,7 +298,7 @@ const BROKERS = [
     why_tv:'ไม่รองรับ TradingView โดยตรง แนะนำใช้ MT5',
   },
   {
-    id:'hfm', name:'HFM', logo:'logo-hfm.jpg', logobg:'#111', verdict:'ระวัง',
+    id:'hfm', name:'HFM', logo:'/logos/hfm.jpg', logobg:'#111', verdict:'ระวัง',
     score:7.1, score_spread:7.0, score_platform:7.5, score_support:7.0,
     best_for:['beginner','copy'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -317,7 +312,7 @@ const BROKERS = [
     why_tv:'ไม่รองรับ TradingView',
   },
   {
-    id:'xm', name:'XM', logo:'logo-xm.png', logobg:'#111', verdict:'ระวัง',
+    id:'xm', name:'XM', logo:'/logos/xm.jpg', logobg:'#111', verdict:'ระวัง',
     score:6.9, score_spread:6.5, score_platform:7.0, score_support:7.5,
     best_for:['beginner'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -332,72 +327,72 @@ const BROKERS = [
   },
 ];
 
-function getMatchScore(b, style, capital, platform) {
+function getMatchScore(b: any, style: string, capital: string, platform: string) {
   let score = b.score * 40;
   if (b.best_for.includes(style)) score += 30;
   else score += 5;
   if (b.platforms.includes(platform) || b.platforms.includes('any')) score += 20;
   else score -= 10;
-  const capMap = {micro:0,small:100,medium:500,large:2000};
-  if (b.accounts.some(a => a.min <= capMap[capital]+1)) score += 10;
+  const capMap: Record<string, number> = {micro:0,small:100,medium:500,large:2000};
+  if (b.accounts.some((a: any) => a.min <= capMap[capital]+1)) score += 10;
   return Math.round(score);
 }
 
-function getRecommendedAccount(b, style, capital) {
-  const capMap = {micro:0,small:100,medium:500,large:2000};
+function getRecommendedAccount(b: any, style: string, capital: string) {
+  const capMap: Record<string, number> = {micro:0,small:100,medium:500,large:2000};
   const cap = capMap[capital];
-  const affordable = b.accounts.filter(a => a.min <= cap + (cap===0?15:cap*0.5));
+  const affordable = b.accounts.filter((a: any) => a.min <= cap + (cap===0?15:cap*0.5));
   if (affordable.length === 0) return b.accounts;
   if (style === 'scalper' || style === 'news') {
-    const ecn = affordable.find(a => a.spread.includes('0.0'));
-    if (ecn) return b.accounts.map(a => ({...a, rec: a.name === ecn.name}));
+    const ecn = affordable.find((a: any) => a.spread.includes('0.0'));
+    if (ecn) return b.accounts.map((a: any) => ({...a, rec: a.name === ecn.name}));
   }
   if (style === 'beginner' || capital === 'micro') {
-    const cheap = affordable.reduce((a,b) => a.min <= b.min ? a : b);
-    return b.accounts.map(a => ({...a, rec: a.name === cheap.name}));
+    const cheap = affordable.reduce((a: any,b: any) => a.min <= b.min ? a : b);
+    return b.accounts.map((a: any) => ({...a, rec: a.name === cheap.name}));
   }
-  return b.accounts.map(a => ({...a, rec: affordable.includes(a) && a.rec}));
+  return b.accounts.map((a: any) => ({...a, rec: affordable.includes(a) && a.rec}));
 }
 
-function getMatchPct(score) {
+function getMatchPct(score: number) {
   const max = 9.5*40+30+20+10;
   return Math.round((score/max)*100);
 }
 
-function select(el, q) {
-  el.closest('.options').querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+function select(el: HTMLElement, q: number) {
+  el.closest('.options')?.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
-  answers['q'+q] = el.dataset.val;
-  document.getElementById('next'+q).classList.add('ready');
+  (answers as any)['q'+q] = el.dataset.val;
+  document.getElementById('next'+q)?.classList.add('ready');
 }
 
-function goTo(q) {
+function goTo(q: number) {
   document.querySelectorAll('.qcard').forEach(c => c.classList.remove('show'));
-  document.getElementById('q'+q).classList.add('show');
+  document.getElementById('q'+q)?.classList.add('show');
   updateSteps(q);
 }
 
-function updateSteps(active) {
+function updateSteps(active: number) {
   for (let i=1;i<=3;i++) {
     const num = document.getElementById('s'+i);
     const lbl = document.getElementById('sl'+i);
     const line = document.getElementById('line'+i);
-    num.className = 'step-num' + (i<active?' done':i===active?' active':'');
-    lbl.className = 'step-label' + (i===active?' active':'');
+    if (num) num.className = 'step-num' + (i<active?' done':i===active?' active':'');
+    if (lbl) lbl.className = 'step-label' + (i===active?' active':'');
     if (line) line.className = 'step-line' + (i<active?' done':'');
   }
 }
 
-function styleLabel(v) {
-  const map = {scalper:'Scalper',daytrader:'Day Trader',swing:'Swing Trader',copy:'Copy Trader',news:'News Trader',beginner:'มือใหม่'};
+function styleLabel(v: string) {
+  const map: Record<string,string> = {scalper:'Scalper',daytrader:'Day Trader',swing:'Swing Trader',copy:'Copy Trader',news:'News Trader',beginner:'มือใหม่'};
   return map[v]||v;
 }
-function capitalLabel(v) {
-  const map = {micro:'< $100',small:'$100-$500',medium:'$500-$2,000',large:'> $2,000'};
+function capitalLabel(v: string) {
+  const map: Record<string,string> = {micro:'< $100',small:'$100-$500',medium:'$500-$2,000',large:'> $2,000'};
   return map[v]||v;
 }
-function platformLabel(v) {
-  const map = {mt:'MT4/MT5',tv:'TradingView',any:'แนะนำให้'};
+function platformLabel(v: string) {
+  const map: Record<string,string> = {mt:'MT4/MT5',tv:'TradingView',any:'แนะนำให้'};
   return map[v]||v;
 }
 
@@ -406,7 +401,8 @@ function showResults() {
   if (!style||!capital||!platform) return;
 
   document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('show'));
-  document.getElementById('stepsBar').style.display='none';
+  const stepsBar = document.getElementById('stepsBar');
+  if (stepsBar) stepsBar.style.display='none';
 
   const scored = BROKERS.map(b => ({
     ...b,
@@ -433,7 +429,7 @@ function showResults() {
     const rankClass = i===0?'r1':i===1?'r2':'r3';
     const cardClass = i===0?'rcard rank1':'rcard';
     const why = platform==='tv' ? b.why_tv : b.why_swing;
-    const recAcc = b.accounts.find(a=>a.rec);
+    const recAcc = b.accounts.find((a: any)=>a.rec);
 
     html += `
     <div class="${cardClass}">
@@ -451,7 +447,7 @@ function showResults() {
           <div class="account-rec">
             <div class="account-rec-label">ประเภทบัญชีที่แนะนำ</div>
             <div class="account-tags">
-              ${b.accounts.map(a=>`<span class="acc-tag${a.rec?' recommended':''}">${a.name} ${a.rec?'✓':''}<br><span style="font-size:10px;font-weight:400;color:var(--t2)">${a.spread}</span></span>`).join('')}
+              ${b.accounts.map((a: any)=>`<span class="acc-tag${a.rec?' recommended':''}">${a.name} ${a.rec?'✓':''}<br><span style="font-size:10px;font-weight:400;color:var(--t2)">${a.spread}</span></span>`).join('')}
             </div>
             ${recAcc?`<div style="margin-top:8px;font-size:11px;color:var(--t2)">แนะนำ: <strong>${recAcc.name}</strong> — ${recAcc.note}</div>`:''}
           </div>
@@ -513,6 +509,7 @@ function showResults() {
   </div>`;
 
   const el = document.getElementById('results');
+  if (!el) return;
   el.innerHTML = html;
   el.classList.add('show');
   window.scrollTo({top:0,behavior:'smooth'});
@@ -522,18 +519,22 @@ function restart() {
   answers.q1=answers.q2=answers.q3=null;
   document.querySelectorAll('.opt').forEach(o=>o.classList.remove('selected'));
   document.querySelectorAll('.btn-next').forEach(b=>b.classList.remove('ready'));
-  document.getElementById('results').classList.remove('show');
-  document.getElementById('results').innerHTML='';
-  document.getElementById('stepsBar').style.display='flex';
+  document.getElementById('results')?.classList.remove('show');
+  const el = document.getElementById('results');
+  if (el) el.innerHTML='';
+  const stepsBar = document.getElementById('stepsBar');
+  if (stepsBar) stepsBar.style.display='flex';
   goTo(1);
 }
-</script>
 
-<script>
-function toggleMenu() {
-  var m = document.getElementById('mobileMenu');
-  if (m) m.classList.toggle('open');
-}
+// @ts-expect-error - exposed for inline onclick handlers
+window.select = select;
+// @ts-expect-error - exposed for inline onclick handlers
+window.goTo = goTo;
+// @ts-expect-error - exposed for inline onclick handlers
+window.showResults = showResults;
+// @ts-expect-error - exposed for inline onclick handlers
+window.restart = restart;
 </script>
 </body>
 </html>
