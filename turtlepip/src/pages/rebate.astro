@@ -7,11 +7,9 @@ import xsRebate from '../data/rebates/xs.json';
 const xau = xsRebate.rates.find((r) => r.symbol === 'XAUUSD')!;
 const btc = xsRebate.rates.find((r) => r.symbol === 'BTCUSD')!;
 
-const tableRange = (vals: number[]) => `$${vals[0].toFixed(2)}–${vals[1].toFixed(2)}`;
-const chipRange = (vals: number[]) => {
-  const fmt = (n: number) => (Number.isInteger(n) ? n.toString() : n.toFixed(2));
-  return `$${fmt(vals[0])}–${fmt(vals[1])}`;
-};
+const fmtNum = (n: number) => (Number.isInteger(n) ? n.toString() : n.toFixed(2));
+const tableRange = (vals: number[]) => `$${fmtNum(vals[0])}–${fmtNum(vals[1])}`;
+const chipRange = (vals: number[]) => `$${fmtNum(vals[0])}–${fmtNum(vals[1])}`;
 const pointsRange = (vals: number[]) => `${vals[0].toLocaleString()}–${vals[1].toLocaleString()}`;
 
 const faqs = [
@@ -48,7 +46,7 @@ const faqs = [
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>รับ Rebate จาก XS.com — คืนเงินทุก lot ที่เทรด | TurtlePip</title>
-<meta name="description" content="รับ cashback คืนทุก lot ที่เทรดกับ XS.com ผ่าน TurtlePip — XAUUSD สูงสุด 6-9 pts/lot อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม">
+<meta name="description" content="รับ cashback คืนทุก lot ที่เทรดกับ XS.com ผ่าน TurtlePip — XAUUSD สูงสุด $3–5/lot อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม">
 <link rel="stylesheet" href="/shared.css">
 <style>
   /* HERO */

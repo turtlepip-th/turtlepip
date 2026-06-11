@@ -16,7 +16,8 @@ const neutralCount = brokers.filter((b) => b.status === 'neutral').length;
 const xauRebate = xsRebate.rates.find((r) => r.symbol === 'XAUUSD')!;
 const rebateLo = xauRebate.cashbackUsd[0];
 const rebateHi = xauRebate.cashbackUsd[1];
-const rebateRange = `$${rebateLo.toFixed(2)}–${rebateHi.toFixed(2)}`;
+const fmtUsd = (n: number) => (Number.isInteger(n) ? n.toString() : n.toFixed(2));
+const rebateRange = `$${fmtUsd(rebateLo)}–${fmtUsd(rebateHi)}`;
 const thbRate = xsRebate.thbRate;
 ---
 
@@ -554,8 +555,8 @@ input[type="range"].calc-slider::-moz-range-thumb {
       <div>
         <div class="calc-result">
           <div class="calc-result-label">Rebate ที่ได้รับต่อเดือน</div>
-          <div class="calc-result-val" id="rebateOut">฿420–630</div>
-          <div class="calc-result-sub" id="rebateUsd">~$12.00–18.00 / เดือน</div>
+          <div class="calc-result-val" id="rebateOut">฿2,100–3,500</div>
+          <div class="calc-result-sub" id="rebateUsd">~$60–100 / เดือน</div>
         </div>
         <a href="/rebate" class="calc-cta">ดูรายละเอียด & สมัครรับ Rebate →</a>
       </div>
@@ -620,8 +621,9 @@ function calcRebate() {
   var hiThb = Math.round(hiUsd * thbRate);
   document.getElementById('rebateOut').textContent =
     '฿' + loThb.toLocaleString() + '–' + hiThb.toLocaleString();
+  var fmt = function(n) { return Number.isInteger(n) ? n.toString() : n.toFixed(2); };
   document.getElementById('rebateUsd').textContent =
-    '~$' + loUsd.toFixed(2) + '–' + hiUsd.toFixed(2) + ' / เดือน';
+    '~$' + fmt(loUsd) + '–' + fmt(hiUsd) + ' / เดือน';
 }
 // @ts-expect-error - exposed for inline onclick handler
 window.calcRebate = calcRebate;

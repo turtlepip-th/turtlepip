@@ -9,7 +9,7 @@
       "name": "XAU/USD (ทองคำ)",
       "desc": "Gold · XAUUSD",
       "popular": true,
-      "cashbackUsd": [0.60, 0.90],
+      "cashbackUsd": [3, 5],
       "points": [6, 9]
     },
     {
@@ -17,7 +17,7 @@
       "name": "EUR/USD",
       "desc": "Euro vs US Dollar · EURUSD",
       "popular": false,
-      "cashbackUsd": [0.20, 0.60],
+      "cashbackUsd": [1, 3],
       "points": [2, 6]
     },
     {
@@ -25,7 +25,7 @@
       "name": "BTC/USD",
       "desc": "Bitcoin vs US Dollar · BTCUSD",
       "popular": false,
-      "cashbackUsd": [6.50, 10.00],
+      "cashbackUsd": [3, 5],
       "points": [650, 1000]
     }
   ]
