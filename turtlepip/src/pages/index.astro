@@ -224,27 +224,22 @@ table.rank {
 /* Data cells */
 .score-val {
   font-family: monospace;
-  font-weight: 800;
+  font-weight: 400;
   font-size: 14px;
+  color: var(--t1);
 }
-.score-val.g { color: var(--safe); }
-.score-val.bl { color: #1D4ED8; }
 .rebate-val {
   font-family: monospace;
-  font-weight: 800;
+  font-weight: 400;
   font-size: 13px;
-  color: var(--safe);
-  background: var(--gp);
+  color: var(--t1);
   padding: 3px 8px;
   border-radius: 6px;
   display: inline-block;
 }
 .rebate-soon { font-size: 11px; color: var(--t3); }
-.spread-val { font-family: monospace; font-weight: 600; font-size: 12px; }
-.spread-val.lo { color: var(--safe); }
-.spread-val.md { color: var(--warn); }
-.spread-val.hi { color: var(--avoid); }
-.dep-val { font-family: monospace; font-size: 12px; color: var(--t2); }
+.spread-val { font-family: monospace; font-weight: 400; font-size: 12px; color: var(--t1); }
+.dep-val { font-family: monospace; font-weight: 400; font-size: 12px; color: var(--t2); }
 
 .btn-go {
   display: inline-block;
@@ -509,7 +504,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
                   </div>
                 </div>
               </td>
-              <td><span class={`score-val ${b.scoreColor}`}>{b.score.toFixed(1)}</span></td>
+              <td><span class="score-val">{b.score.toFixed(1)}</span></td>
               <td>
                 {b.hasRebate ? (
                   <a href="/rebate" onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{rebateRange}</span></a>
@@ -517,7 +512,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
                   <span class="rebate-soon">เร็วๆ นี้</span>
                 )}
               </td>
-              <td><span class={`spread-val ${b.spreadLevel}`}>{b.spreads.xauusd}</span></td>
+              <td><span class="spread-val">{b.spreads.xauusd}</span></td>
               <td><span class="dep-val">{b.minDeposit.display}</span></td>
               <td><span class={`badge ${b.status === 'recommended' ? 'bsafe' : 'bneutral'}`}>{b.statusLabel}</span></td>
               <td>

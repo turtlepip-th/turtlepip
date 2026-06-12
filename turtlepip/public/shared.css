@@ -100,7 +100,7 @@ nav {
   white-space: nowrap;
 }
 .bsafe    { background: var(--safebg);  color: var(--safe);  }
-.bneutral { background: #EFF6FF;       color: #1D4ED8;      }
+.bneutral { background: #F1F1EF;       color: var(--t2);    }
 .bwarn    { background: var(--warnbg); color: var(--warn);  }
 .bavoid   { background: var(--avoidbg); color: var(--avoid); }
 

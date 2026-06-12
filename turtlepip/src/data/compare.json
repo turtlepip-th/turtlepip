@@ -9,7 +9,7 @@
       "regText": "CySEC · FSCA · FSA · +5 ใบ",
       "status": "recommended",
       "statusLabel": "แนะนำ",
-      "score": 9.2,
+      "score": 8.8,
       "model": "ECN",
       "modelClass": "model-a",
       "minDeposit": "$10",
@@ -23,26 +23,6 @@
     },
     {
       "rank": 2,
-      "name": "Pepperstone",
-      "logo": "/logos/pepperstone.png",
-      "logoBg": "#0565F8",
-      "regText": "ASIC · FCA · CySEC · DFSA",
-      "status": "recommended",
-      "statusLabel": "แนะนำ",
-      "score": 9.0,
-      "model": "ECN",
-      "modelClass": "model-a",
-      "minDeposit": "$200",
-      "eurusdSpread": "0.7",
-      "eurusdLevel": "sp-low",
-      "promptPay": { "label": "–", "class": "check-n" },
-      "tradingview": { "label": "Native", "class": "check-y" },
-      "thaiSupport": { "label": "อังกฤษ", "class": "check-p" },
-      "reviewUrl": null,
-      "tags": ["scalper", "daytrader", "swing", "news", "tv"]
-    },
-    {
-      "rank": 3,
       "name": "Exness",
       "logo": "/logos/exness.png",
       "logoBg": "#FFDF01",
@@ -60,6 +40,26 @@
       "thaiSupport": { "label": "LINE", "class": "check-y" },
       "reviewUrl": null,
       "tags": ["beginner", "swing", "copy", "daytrader"]
+    },
+    {
+      "rank": 3,
+      "name": "Pepperstone",
+      "logo": "/logos/pepperstone.png",
+      "logoBg": "#0565F8",
+      "regText": "ASIC · FCA · CySEC · DFSA",
+      "status": "recommended",
+      "statusLabel": "แนะนำ",
+      "score": 7.9,
+      "model": "ECN",
+      "modelClass": "model-a",
+      "minDeposit": "$200",
+      "eurusdSpread": "0.7",
+      "eurusdLevel": "sp-low",
+      "promptPay": { "label": "–", "class": "check-n" },
+      "tradingview": { "label": "Native", "class": "check-y" },
+      "thaiSupport": { "label": "อังกฤษ", "class": "check-p" },
+      "reviewUrl": null,
+      "tags": ["scalper", "daytrader", "swing", "news", "tv"]
     },
     {
       "rank": 4,
@@ -159,9 +159,9 @@
     }
   ],
   "scoreBreakdown": [
-    { "name": "XS.com", "topRow": true, "total": 9.2, "trust": 9.0, "deposit": 9.5, "trading": 9.2, "platform": 8.5, "support": 9.5, "ease": 8.5 },
-    { "name": "Pepperstone", "topRow": false, "total": 9.0, "trust": 9.5, "deposit": 7.5, "trading": 9.5, "platform": 9.5, "support": 7.5, "ease": 9.0 },
-    { "name": "Exness", "topRow": false, "total": 8.8, "trust": 8.5, "deposit": 9.5, "trading": 8.5, "platform": 7.5, "support": 9.0, "ease": 9.0 },
+    { "name": "XS.com", "topRow": true, "total": 8.8, "trust": 9.0, "deposit": 8.5, "trading": 9.5, "platform": 7.0, "support": 9.5, "ease": 8.0 },
+    { "name": "Exness", "topRow": false, "total": 8.8, "trust": 8.5, "deposit": 9.5, "trading": 8.0, "platform": 9.0, "support": 9.0, "ease": 9.0 },
+    { "name": "Pepperstone", "topRow": false, "total": 7.9, "trust": 8.5, "deposit": 8.5, "trading": 8.0, "platform": 8.0, "support": 8.5, "ease": 8.5 },
     { "name": "HFM", "topRow": false, "total": 7.1, "trust": 7.5, "deposit": 7.0, "trading": 7.0, "platform": 7.5, "support": 6.5, "ease": 7.5 },
     { "name": "XM", "topRow": false, "total": 6.9, "trust": 7.0, "deposit": 7.5, "trading": 6.0, "platform": 7.0, "support": 7.5, "ease": 7.0 }
   ]
