@@ -8,240 +8,490 @@ import Footer from '../../components/Footer.astro';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>รีวิว Exness 2026 — ดีไหม? ข้อมูลจริงจากทีมเต่า | TurtlePip</title>
-<meta name="description" content="รีวิว Exness 2026 แบบละเอียด — spread, ถอนเงิน, regulation, ประเภทบัญชี พร้อมผลทดสอบจริง โดยทีมเต่า">
+<title>รีวิว Exness 2026 — ดีไหม? ข้อมูลจริงจากทีมซุปเต่า | TurtlePip</title>
+<meta name="description" content="รีวิว Exness 2026 แบบละเอียด — สเปรด ถอนเงิน licenses ประเภทบัญชี เปรียบเทียบกับ XS.com, Pepperstone, HFM, XM โดยทีมซุปเต่า">
 <link rel="stylesheet" href="/shared.css">
 <style>
-.grid{display:grid;grid-template-columns:1fr 280px;gap:24px}
-.card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;margin-bottom:20px}
-.review-hero{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);padding:24px;margin-bottom:24px;display:flex;gap:20px;align-items:flex-start}
-.broker-logo-lg{width:80px;height:80px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--bdr)}
-.broker-logo-lg img{width:100%;height:100%}
-.hero-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-.broker-title{font-size:24px;font-weight:800;letter-spacing:-.5px}
-.hero-meta{font-size:12px;color:var(--t2);margin-bottom:14px;display:flex;gap:14px;flex-wrap:wrap}
-.hero-score{display:flex;gap:10px;flex-wrap:wrap}
-.hs{text-align:center;background:var(--bg);border-radius:8px;padding:10px 12px}
-.hs-label{font-size:10px;color:var(--t3);margin-bottom:3px;font-weight:600}
-.hs-val{font-size:20px;font-weight:800;font-family:monospace}
-.btn-aff{display:inline-flex;align-items:center;gap:6px;background:var(--gd);color:white;border:none;border-radius:9px;padding:12px 24px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);text-decoration:none;margin-top:14px}
-.verdict-box{background:var(--gp);border:2px solid #C3E6A0;border-radius:var(--rl);padding:20px;margin-bottom:20px}
-.verdict-title{font-size:15px;font-weight:800;color:var(--gd);margin-bottom:8px}
-.verdict-text{font-size:13px;color:var(--t2);line-height:1.75}
-.score-bar-item{margin-bottom:12px}
-.sbrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
-.sblab{font-size:12px;font-weight:600}
-.sbval{font-size:13px;font-weight:800;font-family:monospace}
-.bar-track{height:6px;background:var(--bg);border-radius:3px;overflow:hidden}
-.bar-fill{height:100%;border-radius:3px;background:var(--gd)}
-.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pc-col{background:var(--bg);border-radius:var(--r);padding:14px}
-.pc-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
-.pc-title.p{color:var(--safe)}.pc-title.c{color:var(--avoid)}
-.pc-item{display:flex;gap:8px;font-size:12px;color:var(--t2);margin-bottom:7px;line-height:1.4}
-.pc-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.pc-dot.p{background:var(--safe)}.pc-dot.c{background:var(--avoid)}
-.acc-table{width:100%;border-collapse:collapse;font-size:12px}
-.acc-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg)}
-.acc-table td{padding:10px 12px;border-bottom:1px solid var(--bdr);vertical-align:top}
-.acc-table tr:last-child td{border-bottom:none}
-.acc-table tr.rec td{background:var(--gp)}
-.rec-badge{background:var(--gd);color:white;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;margin-left:4px}
-.acc-name{font-weight:700;font-size:13px}
-.sp-table{width:100%;border-collapse:collapse;font-size:12px}
-.sp-table th{padding:8px 12px;font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg);text-align:center}
-.sp-table th:first-child{text-align:left}
-.sp-table td{padding:10px 12px;border-bottom:1px solid var(--bdr);text-align:center;font-family:monospace;font-weight:700}
-.sp-table td:first-child{text-align:left;font-family:var(--f);font-weight:600}
-.sp-table tr:last-child td{border-bottom:none}
-.sp-low{color:var(--safe)}.sp-mid{color:var(--warn)}.sp-high{color:var(--avoid)}
-.news-badge{background:#FFFBEB;color:var(--warn);font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;border:1px solid #FDE68A}
-.snote{font-size:10px;color:var(--t3);padding:8px 14px;background:var(--bg);border-top:1px solid var(--bdr)}
-.notice{background:var(--safebg);border-left:3px solid var(--safe);padding:12px 16px;margin:16px 0;font-size:12px;color:#14532D;line-height:1.6;border-radius:0}
-.updated-tag{display:inline-flex;align-items:center;gap:5px;background:var(--bg);border:1px solid var(--bdr);border-radius:6px;padding:4px 10px;font-size:11px;color:var(--t3);margin-bottom:20px}
-.content h2{font-size:18px;font-weight:800;margin:28px 0 12px;letter-spacing:-.3px;scroll-margin-top:80px}
-.content p{font-size:13px;color:var(--t2);line-height:1.8;margin-bottom:12px}
-.content ul{list-style:none;padding:0;margin-bottom:12px}
-.content ul li{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:6px;padding-left:16px;position:relative}
-.content ul li::before{content:'·';position:absolute;left:4px;color:var(--gd)}
-.sidebar{display:flex;flex-direction:column;gap:16px}
-.scard{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden}
-.shead{padding:11px 15px;border-bottom:1px solid var(--bdr);font-size:12px;font-weight:700}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:9px 15px;border-bottom:1px solid var(--bdr);font-size:12px}
-.info-row:last-child{border-bottom:none}
-.info-label{color:var(--t3)}.info-val{font-weight:700;text-align:right;font-size:12px}
-.toc{list-style:none;padding:12px 15px}
-.toc li{margin-bottom:6px}
-.toc a{font-size:12px;color:var(--gd);text-decoration:none;font-weight:500}
-@media(max-width:820px){.grid{grid-template-columns:1fr}.sidebar{display:none}.pc-grid{grid-template-columns:1fr}.review-hero{flex-direction:column}}
+  .page-grid { display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+  .breadcrumb { font-size: 12px; color: var(--t3); margin-bottom: 16px; }
+  .breadcrumb a { color: var(--t3); text-decoration: none; }
+
+  /* HERO */
+  .review-hero {
+    background: var(--surf); border: 1px solid var(--bdr);
+    border-radius: var(--rl); padding: 24px; margin-bottom: 8px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .broker-logo-lg {
+    width: 80px; height: 80px; border-radius: 14px;
+    overflow: hidden; flex-shrink: 0;
+    border: 1px solid var(--bdr); background: #fff;
+  }
+  .broker-logo-lg img { width: 100%; height: 100%; object-fit: contain; }
+  .hero-name { font-size: 26px; font-weight: 800; letter-spacing: -.5px; }
+  .hero-meta { font-size: 12px; color: var(--t2); margin: 6px 0 14px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .score-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { background: var(--bg); border-radius: 8px; padding: 10px 14px; text-align: center; }
+  .chip-label { font-size: 10px; color: var(--t3); font-weight: 600; margin-bottom: 3px; }
+  .chip-val { font-size: 20px; font-weight: 800; font-family: monospace; }
+  .chip-val.g { color: var(--safe); }
+  .btn-aff {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gd); color: white; border: none;
+    border-radius: 9px; padding: 12px 24px; font-size: 13px;
+    font-weight: 700; cursor: pointer; font-family: var(--f);
+    text-decoration: none; margin-top: 14px;
+  }
+  .updated-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--bg); border: 1px solid var(--bdr);
+    border-radius: 6px; padding: 4px 10px;
+    font-size: 11px; color: var(--t3); margin-bottom: 20px;
+  }
+
+  /* VERDICT */
+  .verdict-box {
+    background: var(--gp); border: 2px solid #C3E6A0;
+    border-radius: var(--rl); padding: 20px; margin-bottom: 20px;
+  }
+  .verdict-title { font-size: 15px; font-weight: 800; color: var(--gd); margin-bottom: 8px; }
+  .verdict-text { font-size: 13px; color: var(--t2); line-height: 1.75; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: #EFF6FF; border: 1px solid #BFDBFE;
+    border-radius: var(--r); padding: 14px 16px; margin-bottom: 16px;
+  }
+  .highlight-title { font-size: 12px; font-weight: 700; color: #1D4ED8; margin-bottom: 6px; }
+  .highlight-text  { font-size: 12px; color: #1E40AF; line-height: 1.6; }
+
+  /* CONTENT */
+  .content h2 {
+    font-size: 18px; font-weight: 800; margin: 28px 0 12px;
+    letter-spacing: -.3px; scroll-margin-top: 80px; color: var(--t1);
+  }
+  .content p { font-size: 13px; color: var(--t2); line-height: 1.8; margin-bottom: 12px; }
+  .content ul { list-style: none; padding: 0; margin-bottom: 12px; }
+  .content ul li {
+    font-size: 13px; color: var(--t2); line-height: 1.6;
+    margin-bottom: 6px; padding-left: 16px; position: relative;
+  }
+  .content ul li::before { content: '·'; position: absolute; left: 4px; color: var(--gd); font-weight: 700; }
+
+  /* SCORE BARS */
+  .score-bar { margin-bottom: 12px; }
+  .score-bar-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .score-bar-label { font-size: 12px; font-weight: 600; color: var(--t1); }
+  .score-bar-val { font-size: 13px; font-weight: 800; font-family: monospace; }
+  .bar-track { height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; background: var(--gd); }
+  .score-total-row {
+    border-top: 1px solid var(--bdr); padding-top: 12px; margin-top: 4px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  /* PROS CONS */
+  .pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .pc-col { background: var(--bg); border-radius: var(--r); padding: 14px; }
+  .pc-title { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+  .pc-title.p { color: var(--safe); }
+  .pc-title.c { color: var(--avoid); }
+  .pc-item { display: flex; gap: 8px; font-size: 12px; color: var(--t2); margin-bottom: 7px; line-height: 1.45; }
+  .pc-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .pc-dot.p { background: var(--safe); }
+  .pc-dot.c { background: var(--avoid); }
+
+  /* TABLES */
+  .data-card { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; margin-bottom: 20px; }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .data-table th {
+    padding: 9px 14px; text-align: left; font-size: 11px; font-weight: 700;
+    color: var(--t3); letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: 1px solid var(--bdr); background: var(--bg);
+  }
+  .data-table td { padding: 11px 14px; border-bottom: 1px solid var(--bdr); vertical-align: top; color: var(--t2); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr.rec-row { background: var(--gp); }
+  .acc-name { font-weight: 700; font-size: 13px; color: var(--t1); }
+  .rec-badge { background: var(--gd); color: white; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; margin-left: 4px; }
+
+  /* SPREAD TABLE */
+  .spread-table th { text-align: center; }
+  .spread-table th:first-child { text-align: left; }
+  .spread-table td { text-align: center; font-family: monospace; font-weight: 700; }
+  .spread-table td:first-child { text-align: left; font-family: var(--f); font-weight: 600; color: var(--t1); }
+  .sp-low { color: var(--safe); }
+  .sp-mid { color: var(--warn); }
+  .news-est { display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; color: var(--warn); font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; font-family: var(--f); }
+  .table-note { font-size: 10px; color: var(--t3); padding: 8px 14px; background: var(--bg); border-top: 1px solid var(--bdr); line-height: 1.6; }
+
+  /* NOTICE */
+  .notice { border-left: 3px solid var(--safe); background: var(--safebg); padding: 12px 16px; margin: 16px 0; font-size: 12px; color: #14532D; line-height: 1.6; }
+  .notice.warn { border-left-color: var(--warn); background: #FFFBEB; color: #92400E; }
+
+  /* SIDEBAR */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .s-card { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; }
+  .s-head { padding: 11px 15px; border-bottom: 1px solid var(--bdr); font-size: 12px; font-weight: 700; color: var(--t1); }
+  .info-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 15px; border-bottom: 1px solid var(--bdr); font-size: 12px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--t3); }
+  .info-val { font-weight: 700; text-align: right; font-size: 12px; }
+  .toc { list-style: none; padding: 12px 15px; }
+  .toc li { margin-bottom: 7px; }
+  .toc a { font-size: 12px; color: var(--gd); text-decoration: none; font-weight: 500; }
+  .side-compare-row { display: flex; justify-content: space-between; padding: 8px 15px; border-bottom: 1px solid var(--bdr); font-size: 12px; }
+  .side-compare-row:last-child { border-bottom: none; }
+  .side-compare-row.current { background: var(--gp); }
+  a.side-compare-row { text-decoration: none; }
+
+  /* UNIQUE BADGE */
+  .unique-badge { display: inline-flex; align-items: center; gap: 4px; background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; }
+
+  @media (max-width: 820px) {
+    .page-grid { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .pc-grid { grid-template-columns: 1fr; }
+    .review-hero { flex-direction: column; }
+  }
+
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tbl-scroll table { min-width: 560px; }
 </style>
 </head>
 <body>
+
 <Nav />
 <div class="wrap">
-<div style="font-size:12px;color:var(--t3);margin-bottom:16px">
-    <a href="/" style="color:var(--t3);text-decoration:none">หน้าหลัก</a> ›
-    <a href="/" style="color:var(--t3);text-decoration:none">โบรกเกอร์</a> ›
+
+  <p class="breadcrumb">
+    <a href="/">หน้าหลัก</a> ›
+    <a href="/">โบรกเกอร์</a> ›
     Exness
-</div>
-<div class="review-hero">
-    <div class="broker-logo-lg" style="background:#FFDF01">
-        <img src="/logos/exness.png" alt="Exness" style="width:100%;height:100%;object-fit:contain">
+  </p>
+
+  <!-- HERO -->
+  <div class="review-hero">
+    <div class="broker-logo-lg" style="background:#FFDF01;">
+      <img src="/logos/exness.png" alt="Exness">
     </div>
-    <div style="flex:1">
-        <div class="hero-top">
-            <span class="broker-title">Exness</span>
-            <span class="badge bsafe">แนะนำ</span>
-        </div>
-        <div class="hero-meta">
-            <span>📍 ก่อตั้ง 2008</span>
-            <span>🏛️ CySEC · FCA · FSA · CBCS</span>
-            <span>🌏 Hybrid</span>
-            <span>🇹🇭 Thai Support</span>
-        </div>
-        <div class="hero-score">
-            <div class="hs"><div class="hs-label">TurtlePip Score</div><div class="hs-val" style="color:var(--safe)">8.8</div></div>
-            <div class="hs"><div class="hs-label">ความน่าเชื่อถือ</div><div class="hs-val" style="color:var(--safe)">8.5</div></div>
-            <div class="hs"><div class="hs-label">ฝากถอน</div><div class="hs-val" style="color:var(--safe)">9.5</div></div>
-            <div class="hs"><div class="hs-label">Spread</div><div class="hs-val" style="color:var(--safe)">8.0</div></div>
-            <div class="hs"><div class="hs-label">Thai Support</div><div class="hs-val" style="color:var(--safe)">9.0</div></div>
-        </div>
-        <a href="https://exness.com" class="btn-aff" target="_blank" rel="nofollow noopener">เปิดบัญชี Exness →</a>
+    <div style="flex:1; min-width:0;">
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
+        <span class="hero-name">Exness</span>
+        <span class="badge bsafe">แนะนำ</span>
+      </div>
+      <div class="hero-meta">
+        <span>ก่อตั้ง 2008</span>
+        <span>7 licenses</span>
+        <span>Market Maker / STP</span>
+        <span>Max leverage 1:Unlimited</span>
+        <span>Thai Support ✓</span>
+      </div>
+      <div class="score-chips">
+        <div class="chip"><div class="chip-label">TurtlePip Score</div><div class="chip-val g">8.8</div></div>
+        <div class="chip"><div class="chip-label">น่าเชื่อถือ</div><div class="chip-val g">8.5</div></div>
+        <div class="chip"><div class="chip-label">ฝากถอน TH</div><div class="chip-val g">9.5</div></div>
+        <div class="chip"><div class="chip-label">XAUUSD Spread</div><div class="chip-val g">8.5</div></div>
+        <div class="chip"><div class="chip-label">Platform/App</div><div class="chip-val g">9.5</div></div>
+      </div>
+      <a href="https://one.exnessonelink.com/a/j9uv5xe0m4" target="_blank" rel="nofollow noopener sponsored" class="btn-aff">เปิดบัญชี Exness →</a>
     </div>
-</div>
-<div class="updated-tag">🐢 อัปเดตล่าสุด: พฤษภาคม 2026 · ทดสอบโดยทีมเต่า</div>
-<div class="grid">
-<div class="content">
-<div class="verdict-box">
-    <div class="verdict-title">✓ ผลตัดสิน — ทีมเต่าแนะนำ</div>
-    <div class="verdict-text">Exness เหมาะกับมือใหม่และ trader ที่ต้องการถอนเงินเร็ว Instant withdrawal และฝากขั้นต่ำต่ำที่สุด แต่ Hybrid model ทำให้คะแนนความน่าเชื่อถือต่ำกว่า XS.com และ Pepperstone</div>
-</div>
-<h2 id="scores">คะแนนละเอียด</h2>
-<div class="card"><div style="padding:20px">
-<div class="score-bar-item">
-        <div class="sbrow"><span class="sblab">ความน่าเชื่อถือ (25%)</span><span class="sbval" style="color:var(--safe)">8.5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:85.0%"></div></div>
-        </div><div class="score-bar-item">
-        <div class="sbrow"><span class="sblab">ฝากถอนไทย (20%)</span><span class="sbval" style="color:var(--safe)">9.5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:95.0%"></div></div>
-        </div><div class="score-bar-item">
-        <div class="sbrow"><span class="sblab">Trading Conditions (20%)</span><span class="sbval" style="color:var(--safe)">8.0</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:80.0%"></div></div>
-        </div><div class="score-bar-item">
-        <div class="sbrow"><span class="sblab">Platform + Mobile (15%)</span><span class="sbval" style="color:var(--safe)">9.0</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:90.0%"></div></div>
-        </div><div class="score-bar-item">
-        <div class="sbrow"><span class="sblab">Thai Support (10%)</span><span class="sbval" style="color:var(--safe)">9.0</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:90.0%"></div></div>
-        </div><div class="score-bar-item">
-        <div class="sbrow"><span class="sblab">Ease of Use (5%)</span><span class="sbval" style="color:var(--safe)">9.0</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:90.0%"></div></div>
+  </div>
+
+  <div class="updated-tag">🐢 อัปเดตล่าสุด: พ.ค. 2026 · ทีมซุปเต่า · ข้อมูลจาก Excel เปรียบเทียบภายใน</div>
+
+  <div class="page-grid">
+
+    <!-- MAIN -->
+    <div class="content">
+
+      <div class="verdict-box">
+        <div class="verdict-title">✓ ผลตัดสิน — ทีมซุปเต่าแนะนำ</div>
+        <div class="verdict-text">
+          Exness ได้ TurtlePip Score 8.8 — โดดเด่นที่ Stop out 0% (ใกล้เคียงที่สุดในกลุ่มในการป้องกัน margin call), ถอนเงินแบบ Instant ไวที่สุดในกลุ่ม, Mobile app ที่ได้รับการยอมรับว่าดีที่สุดในกลุ่มเปรียบเทียบ, Max leverage 1:Unlimited และ verification แบบ instant สมัครง่ายฝากขั้นต่ำ $0 — เหมาะกับ Scalper, มือใหม่ที่ต้องการความสะดวก และคนที่ต้องการถอนเงินไว
         </div>
-<div style="border-top:1px solid var(--bdr);padding-top:12px;margin-top:4px;display:flex;justify-content:space-between;align-items:center">
-    <span style="font-size:13px;font-weight:700">TurtlePip Score รวม</span>
-    <span style="font-size:24px;font-weight:800;color:var(--safe);font-family:monospace">8.8</span>
+      </div>
+
+      <!-- UNIQUE ADVANTAGES -->
+      <div class="highlight-box">
+        <div class="highlight-title">⭐ จุดเด่นที่คู่แข่งไม่มี</div>
+        <div class="highlight-text">
+          1. <strong>Stop out 0%</strong> — ต่ำที่สุดในกลุ่มเปรียบเทียบ (คู่แข่งอยู่ที่ 20%) ทำให้ position มีโอกาสรอดจาก margin call นานกว่า<br>
+          2. <strong>Instant Withdrawal</strong> — ถอนเงินไวที่สุดในกลุ่ม ส่วนคู่แข่งอย่าง XS ใช้เวลา Instant–24 ชม.<br>
+          3. <strong>Mobile App ดีที่สุดในกลุ่ม (Best in class)</strong> — XS ยังไม่มี mobile app ของตัวเอง ใช้ Web Trader<br>
+          4. <strong>Max leverage 1:Unlimited</strong> — สูงที่สุดในกลุ่มเปรียบเทียบ<br>
+          5. <strong>XAUUSD spread เฉลี่ย ~16 pts</strong> — ต่ำกว่า XS (18–20 pts) ในสภาวะปกติ แต่ต้องติดตาม spread ช่วงข่าวอย่างใกล้ชิด (ดูหัวข้อ Spread ด้านล่าง)
+        </div>
+      </div>
+
+      <h2 id="scores">คะแนนละเอียด</h2>
+      <div class="data-card">
+        <div style="padding: 20px;">
+          <div class="score-bar">
+            <div class="score-bar-row"><span class="score-bar-label">ความน่าเชื่อถือ (25%) — 7 licenses แต่ไม่มี fund insurance</span><span class="score-bar-val" style="color:var(--safe)">8.5</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="score-bar">
+            <div class="score-bar-row"><span class="score-bar-label">ฝากถอนไทย (20%) — PromptPay, ธนาคาร, Crypto + ถอน Instant</span><span class="score-bar-val" style="color:var(--safe)">9.5</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="score-bar">
+            <div class="score-bar-row"><span class="score-bar-label">Trading Conditions (20%) — XAUUSD ~16 pts (monitoring ช่วงข่าว), Stop out 0%, Leverage 1:Unlimited</span><span class="score-bar-val" style="color:var(--safe)">8.5</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="score-bar">
+            <div class="score-bar-row"><span class="score-bar-label">Platform + Mobile (15%) — MT4 + MT5 + App ที่ดีที่สุดในกลุ่ม</span><span class="score-bar-val" style="color:var(--safe)">9.5</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="score-bar">
+            <div class="score-bar-row"><span class="score-bar-label">Thai Support (10%) — ภาษาไทย รองรับครบ</span><span class="score-bar-val" style="color:var(--safe)">8.5</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="score-bar">
+            <div class="score-bar-row"><span class="score-bar-label">Ease of Use (5%) — สมัครง่าย ~4 steps, verify instant, ฝากขั้นต่ำ $0</span><span class="score-bar-val" style="color:var(--safe)">9.5</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+          </div>
+          <div class="score-total-row">
+            <span style="font-size:13px; font-weight:700;">TurtlePip Score รวม</span>
+            <span style="font-size:26px; font-weight:800; color:var(--safe); font-family:monospace;">8.8</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="pros-cons">ข้อดี — ข้อเสีย</h2>
+      <div class="pc-grid">
+        <div class="pc-col">
+          <div class="pc-title p">✓ ข้อดี</div>
+          <div class="pc-item"><div class="pc-dot p"></div>Stop out 0% — ป้องกัน margin call ได้ดีที่สุดในกลุ่ม</div>
+          <div class="pc-item"><div class="pc-dot p"></div>ถอนเงินแบบ Instant — ไวที่สุดในกลุ่มเปรียบเทียบ</div>
+          <div class="pc-item"><div class="pc-dot p"></div>Mobile app ดีที่สุดในกลุ่ม (Best in class)</div>
+          <div class="pc-item"><div class="pc-dot p"></div>Max leverage 1:Unlimited</div>
+          <div class="pc-item"><div class="pc-dot p"></div>XAUUSD spread เฉลี่ย ~16 pts ต่ำกว่า XS ในสภาวะปกติ</div>
+          <div class="pc-item"><div class="pc-dot p"></div>Verification แบบ Instant (auto)</div>
+          <div class="pc-item"><div class="pc-dot p"></div>Min deposit $0 ทุกบัญชี</div>
+          <div class="pc-item"><div class="pc-dot p"></div>มี Copy trading / Social trading ในตัว</div>
+        </div>
+        <div class="pc-col">
+          <div class="pc-title c">✗ ข้อเสีย</div>
+          <div class="pc-item"><div class="pc-dot c"></div>ไม่มี Fund insurance — XS มี $5M Lloyd's</div>
+          <div class="pc-item"><div class="pc-dot c"></div>7 licenses — น้อยกว่า XS (8 licenses)</div>
+          <div class="pc-item"><div class="pc-dot c"></div>Swap-free มีเงื่อนไข — ใช้บ่อยเกินไปลดสิทธิ์ และมีค่าธรรมเนียม</div>
+          <div class="pc-item"><div class="pc-dot c"></div>XAUUSD spread อาจ widen เป็น ~20–35 pts ช่วงข่าว ต้อง monitor</div>
+          <div class="pc-item"><div class="pc-dot c"></div>Stop out 0% เสี่ยงขาดทุนหนักกว่าหากไม่บริหารความเสี่ยงดี</div>
+        </div>
+      </div>
+
+      <h2 id="accounts">ประเภทบัญชี</h2>
+      <div class="data-card">
+        <div class="tbl-scroll"><table class="data-table">
+          <thead>
+            <tr>
+              <th>บัญชี</th>
+              <th>ฝากขั้นต่ำ</th>
+              <th>EURUSD Spread</th>
+              <th>XAUUSD Spread</th>
+              <th>Commission</th>
+              <th>เหมาะกับ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="rec-row">
+              <td><div class="acc-name">Standard <span class="rec-badge">แนะนำ</span></div></td>
+              <td>$0</td>
+              <td>0.6–1.5 pips</td>
+              <td>~16 pts avg</td>
+              <td>ไม่มี</td>
+              <td>ทั่วไป · มือใหม่ · Gold trader</td>
+            </tr>
+            <tr>
+              <td><div class="acc-name">Standard Cent</div></td>
+              <td>$0</td>
+              <td>~1.0–1.5 pips</td>
+              <td>~16 pts avg</td>
+              <td>ไม่มี</td>
+              <td>มือใหม่ · ทดสอบ EA (MT4 only)</td>
+            </tr>
+            <tr>
+              <td><div class="acc-name">Pro</div></td>
+              <td>$0</td>
+              <td>~0.1–0.5 pips</td>
+              <td>~15–25 pts</td>
+              <td>ไม่มี</td>
+              <td>Active trader</td>
+            </tr>
+            <tr>
+              <td><div class="acc-name">Raw Spread</div></td>
+              <td>$0</td>
+              <td>~0.0–0.3 pips</td>
+              <td>~0–5 pts</td>
+              <td>$3.5/lot</td>
+              <td>Scalper · Active trader</td>
+            </tr>
+            <tr>
+              <td><div class="acc-name">Zero</div></td>
+              <td>$0</td>
+              <td>0.0 pips (95% ของเวลา)</td>
+              <td>~0 pts</td>
+              <td>$0.2+/side</td>
+              <td>Scalper · EA · High volume</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+      <p style="font-size:12px; color:var(--t3);">หมายเหตุ: Standard ใช้ suffix 'm' (เช่น EURUSDm, XAUUSDm) ส่วน Pro / Raw Spread / Zero ไม่มี suffix — ยืนยัน symbol ตอนเปิดบัญชีจริง</p>
+
+      <h2 id="stopout">Stop out 0% — จุดเด่นที่คู่แข่งทำไม่ได้</h2>
+      <div class="highlight-box">
+        <div class="highlight-title">Exness Stop out 0% — ต่ำที่สุดในกลุ่มเปรียบเทียบ</div>
+        <div class="highlight-text">
+          ขณะที่ XS, FBS, HFM และ XM ใช้ stop out level 20% เหมือนกันหมด Exness ตั้งค่า stop out ไว้ที่ 0% ทำให้ position มี "ที่ว่าง" ก่อนถูก margin call มากกว่าคู่แข่งอย่างเห็นได้ชัด — ข้อดีคือยืดเวลาให้ราคามีโอกาสกลับตัว แต่ก็มาพร้อมความเสี่ยงที่สูงขึ้นถ้าไม่ตั้ง stop loss หรือบริหารขนาด lot ให้เหมาะสม
+        </div>
+      </div>
+
+      <h2 id="spread">Spread — Standard Account</h2>
+      <div class="notice warn">
+        ⚠ Monitoring: XAUUSD ของ Exness เฉลี่ยอยู่ที่ ~16 pts ในสภาวะปกติ ซึ่งต่ำกว่า XS (18–20 pts) แต่ในช่วงข่าวอาจ widen ขึ้นไปถึง ~20–35 pts ต่างจาก XS ที่ใช้ Stable Float (18–20 pts ทั้งช่วงปกติและข่าว) — ทีมซุปเต่ากำลังติดตามข้อมูลนี้อย่างต่อเนื่อง
+      </div>
+      <div class="data-card">
+        <div class="tbl-scroll"><table class="data-table spread-table">
+          <thead>
+            <tr>
+              <th>คู่สกุลเงิน</th>
+              <th>Spread ปกติ</th>
+              <th>ช่วงข่าว</th>
+              <th>ประเภท</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>EUR/USD</td>
+              <td><span class="sp-low">0.6–1.5 pips</span></td>
+              <td><span class="news-est">~3–5 pips</span></td>
+              <td style="color:var(--t2);">Stable</td>
+            </tr>
+            <tr>
+              <td>XAU/USD (ทอง)</td>
+              <td><span class="sp-low">~16 pts avg</span></td>
+              <td><span class="news-est">~20–35 pts</span></td>
+              <td style="color:var(--warn); font-weight:700;">Monitoring — อาจ widen ช่วงข่าว</td>
+            </tr>
+            <tr>
+              <td>BTC/USD</td>
+              <td><span class="sp-mid">15–20 pts</span></td>
+              <td><span class="news-est">—</span></td>
+              <td style="color:var(--t2);">Float</td>
+            </tr>
+          </tbody>
+        </table></div>
+        <div class="table-note">
+          Standard Account เท่านั้น · ข้อมูล ณ พ.ค. 2026 · "pts" = points สำหรับ XAUUSD (1 pt = $0.01) · อัปเดตทุก 6 เดือน
+        </div>
+      </div>
+
+      <h2 id="deposit">ฝาก — ถอนเงิน</h2>
+      <p>Exness รองรับช่องทางไทยครบ — PromptPay, โอนธนาคาร, บัตรเครดิต/เดบิต และ Crypto (BTC, ETH, USDT, USDC ผ่าน BEEM / Match2Pay / Binance Pay)</p>
+      <div class="notice">
+        ✓ Instant Withdrawal — Exness ถอนเงินได้แบบ instant ไวที่สุดในกลุ่มเปรียบเทียบ ต่างจาก XS ที่ใช้เวลา Instant–24 ชั่วโมง
+      </div>
+      <ul>
+        <li>PromptPay / โอนธนาคารไทย — Deposit instant, Withdrawal instant–24 ชั่วโมง</li>
+        <li>ขั้นต่ำฝาก Standard: $0</li>
+        <li>ขั้นต่ำถอน: 350 บาท (ธนาคาร / บัตร / e-wallet)</li>
+        <li>ถอนกลับช่องทางเดิมที่ฝาก (Same method rule)</li>
+        <li>Exness ไม่เก็บค่าธรรมเนียมฝาก-ถอน — อาจมีค่าธรรมเนียมจากธนาคารหรือ provider</li>
+        <li>Verification แบบ Instant (auto) — สมัครและยืนยันตัวตนเสร็จเร็วที่สุดในกลุ่ม</li>
+      </ul>
+
+      <h2 id="verdict">สรุป — Exness เหมาะกับใคร?</h2>
+      <div class="verdict-box">
+        <div class="verdict-title">✓ เหมาะมากสำหรับ</div>
+        <div class="verdict-text">
+          <ul style="margin-top: 8px;">
+            <li>มือใหม่ที่ต้องการสมัครง่าย verify ไว ฝากขั้นต่ำ $0</li>
+            <li>Trader ที่ต้องการถอนเงินไวที่สุด (Instant withdrawal)</li>
+            <li>คนที่ใช้เทรดผ่านมือถือเป็นหลัก — Mobile app ดีที่สุดในกลุ่ม</li>
+            <li>Trader ที่ต้องการ leverage สูง (1:Unlimited) และ stop out ต่ำ (0%)</li>
+            <li>Gold trader ที่เน้น spread เฉลี่ยต่ำในสภาวะปกติ และพร้อม monitor ช่วงข่าว</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="https://one.exnessonelink.com/a/j9uv5xe0m4" target="_blank" rel="nofollow noopener sponsored" class="btn-aff">เปิดบัญชี Exness →</a>
+      <p style="font-size:11px; color:var(--t3); margin-top:10px;">Sponsored · การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินทุนทั้งหมด</p>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="s-card">
+        <div class="s-head">ข้อมูลด่วน</div>
+        <div class="info-row"><span class="info-label">TurtlePip Score</span><span class="info-val" style="color:var(--safe); font-size:17px; font-family:monospace;">8.8</span></div>
+        <div class="info-row"><span class="info-label">สถานะ</span><span class="info-val"><span class="badge bsafe">แนะนำ</span></span></div>
+        <div class="info-row"><span class="info-label">ก่อตั้ง</span><span class="info-val">2008</span></div>
+        <div class="info-row"><span class="info-label">Licenses</span><span class="info-val">7 ใบ</span></div>
+        <div class="info-row"><span class="info-label">Insurance</span><span class="info-val">ไม่มี</span></div>
+        <div class="info-row"><span class="info-label">Execution</span><span class="info-val">Market Maker / STP</span></div>
+        <div class="info-row"><span class="info-label">Max leverage</span><span class="info-val" style="color:var(--safe);">1:Unlimited</span></div>
+        <div class="info-row"><span class="info-label">Stop out</span><span class="info-val" style="color:var(--safe);">0% (ต่ำสุดในกลุ่ม)</span></div>
+        <div class="info-row"><span class="info-label">ฝากขั้นต่ำ</span><span class="info-val">$0</span></div>
+        <div class="info-row"><span class="info-label">EURUSD</span><span class="info-val" style="color:var(--safe);">0.6–1.5 pips</span></div>
+        <div class="info-row"><span class="info-label">XAUUSD</span><span class="info-val" style="color:var(--warn);">~16 pts (monitoring)</span></div>
+        <div class="info-row"><span class="info-label">ถอนเงิน</span><span class="info-val" style="color:var(--safe);">✓ Instant</span></div>
+        <div class="info-row"><span class="info-label">PromptPay</span><span class="info-val" style="color:var(--safe);">✓ รองรับ</span></div>
+        <div class="info-row"><span class="info-label">Mobile App</span><span class="info-val" style="color:var(--safe);">✓ ดีที่สุดในกลุ่ม</span></div>
+        <div style="padding:12px 15px;">
+          <a href="https://one.exnessonelink.com/a/j9uv5xe0m4" target="_blank" rel="nofollow noopener sponsored" class="btn-aff" style="width:100%; justify-content:center; display:flex;">
+            เปิดบัญชีเลย →
+          </a>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <div class="s-head">สารบัญ</div>
+        <ul class="toc">
+          <li><a href="#scores">คะแนนละเอียด</a></li>
+          <li><a href="#pros-cons">ข้อดี — ข้อเสีย</a></li>
+          <li><a href="#accounts">ประเภทบัญชี</a></li>
+          <li><a href="#stopout">Stop out 0%</a></li>
+          <li><a href="#spread">Spread Table</a></li>
+          <li><a href="#deposit">ฝาก — ถอนเงิน</a></li>
+          <li><a href="#verdict">สรุป</a></li>
+        </ul>
+      </div>
+
+      <div class="s-card">
+        <div class="s-head">เปรียบเทียบกับคู่แข่ง</div>
+        <div class="side-compare-row current">
+          <span style="font-weight:700;">Exness ★</span>
+          <span style="color:var(--safe); font-family:monospace; font-weight:800;">8.8</span>
+        </div>
+        <a href="/reviews/xs-com" class="side-compare-row">
+          <span style="color:var(--t2);">XS.com</span>
+          <span style="color:var(--safe); font-family:monospace; font-weight:700;">8.8</span>
+        </a>
+        <a href="/reviews/pepperstone" class="side-compare-row">
+          <span style="color:var(--t2);">Pepperstone</span>
+          <span style="color:#1D4ED8; font-family:monospace; font-weight:700;">7.9</span>
+        </a>
+        <a href="/reviews/hfm" class="side-compare-row">
+          <span style="color:var(--t2);">HFM</span>
+          <span style="color:#1D4ED8; font-family:monospace; font-weight:700;">7.1</span>
+        </a>
+        <a href="/reviews/xm" class="side-compare-row">
+          <span style="color:var(--t2);">XM</span>
+          <span style="color:#1D4ED8; font-family:monospace; font-weight:700;">6.9</span>
+        </a>
+        <div style="padding:10px 15px;">
+          <a href="/compare" style="font-size:12px; color:var(--gd); font-weight:600; text-decoration:none;">ดูตารางเปรียบเทียบ →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
-</div></div>
-<h2 id="pros-cons">ข้อดี — ข้อเสีย</h2>
-<div class="pc-grid">
-<div class="pc-col"><div class="pc-title p">✓ ข้อดี</div><div class="pc-item"><div class="pc-dot p"></div>ถอนเงินได้ทันที Instant withdrawal</div><div class="pc-item"><div class="pc-dot p"></div>ฝากขั้นต่ำ $10 ต่ำที่สุดในกลุ่ม</div><div class="pc-item"><div class="pc-dot p"></div>Thai support ดีมาก ตอบเร็ว</div><div class="pc-item"><div class="pc-dot p"></div>Mobile app ดีที่สุดในกลุ่ม</div><div class="pc-item"><div class="pc-dot p"></div>Standard Cent account สำหรับฝึกเทรด</div></div>
-<div class="pc-col"><div class="pc-title c">✗ ข้อเสีย</div><div class="pc-item"><div class="pc-dot c"></div>Hybrid model Standard อาจ B-Book</div><div class="pc-item"><div class="pc-dot c"></div>ไม่รองรับ TradingView</div></div>
-</div>
-<h2 id="accounts">ประเภทบัญชี</h2>
-<div class="card"><div style="padding:0"><table class="acc-table">
-<thead><tr><th>บัญชี</th><th>ฝากขั้นต่ำ</th><th>Spread</th><th>Commission</th><th>เหมาะกับ</th></tr></thead>
-<tbody><tr class="rec">
-        <td><div class="acc-name">Standard <span class="rec-badge">แนะนำ</span></div></td>
-        <td>$10</td>
-        <td>0.3 pip</td>
-        <td>ไม่มี</td>
-        <td>มือใหม่ เงินทุนน้อย</td>
-        </tr><tr>
-        <td><div class="acc-name">Standard Cent</div></td>
-        <td>$10</td>
-        <td>0.3 pip</td>
-        <td>ไม่มี</td>
-        <td>ฝึกเทรด lot เล็กมาก</td>
-        </tr><tr>
-        <td><div class="acc-name">Pro</div></td>
-        <td>$200</td>
-        <td>0.1 pip</td>
-        <td>ไม่มี</td>
-        <td>Trader ระดับกลางขึ้นไป</td>
-        </tr></tbody>
-</table></div></div>
-<h2 id="spread">Spread — Standard Account</h2>
-<div class="notice" style="background:var(--warnbg);border-color:var(--warn);color:#713F12">ทีมเต่ากำลังทดสอบถอนเงินจริง — ผลจะอัปเดตเร็วๆ นี้</div>
-<div class="card"><div style="padding:0">
-<table class="sp-table">
-<thead><tr>
-    <th style="text-align:left">คู่สกุลเงิน</th>
-    <th>Spread ปกติ</th>
-    <th>ช่วงข่าว (estimate)</th>
-    <th>เทียบกลุ่ม</th>
-</tr></thead>
-<tbody>
-<tr>
-    <td>EUR/USD</td>
-    <td><span class="sp-low">0.9 pip</span></td>
-    <td><span class="news-badge">3-6 pip</span></td>
-    <td><span class="sp-low">ดีกว่าเฉลี่ย</span></td>
-</tr>
-<tr>
-    <td>XAU/USD (ทอง)</td>
-    <td><span class="sp-mid">$0.25</span></td>
-    <td><span class="news-badge">$10-20</span></td>
-    <td><span class="sp-mid">ปานกลาง</span></td>
-</tr>
-<tr>
-    <td>BTC/USD</td>
-    <td><span class="sp-low">$50</span></td>
-    <td><span class="news-badge">$200-400</span></td>
-    <td><span class="sp-low">ดีกว่าเฉลี่ย</span></td>
-</tr>
-</tbody>
-</table>
-<div class="snote">Standard Account · ข้อมูล ณ 2026-05 · ค่าช่วงข่าวเป็น estimate อาจแตกต่างตามสภาวะตลาด · อัปเดตทุก 6 เดือน</div>
-</div></div>
-<div class="verdict-box" style="margin-top:24px">
-    <div class="verdict-title">✓ Exness เหมาะกับใคร?</div>
-    <div class="verdict-text">Exness เหมาะกับมือใหม่และ trader ที่ต้องการถอนเงินเร็ว Instant withdrawal และฝากขั้นต่ำต่ำที่สุด แต่ Hybrid model ทำให้คะแนนความน่าเชื่อถือต่ำกว่า XS.com และ Pepperstone</div>
-</div>
-<a href="https://exness.com" class="btn-aff" target="_blank" rel="nofollow noopener">เปิดบัญชี Exness →</a>
-<p style="font-size:11px;color:var(--t3);margin-top:10px">การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินทุนทั้งหมด</p>
-</div>
-<div class="sidebar">
-<div class="scard">
-<div class="shead">ข้อมูลด่วน</div>
-<div class="info-row"><span class="info-label">TurtlePip Score</span><span class="info-val" style="color:var(--safe);font-size:16px;font-family:monospace">8.8</span></div>
-<div class="info-row"><span class="info-label">สถานะ</span><span class="info-val"><span class="badge bsafe">แนะนำ</span></span></div>
-<div class="info-row"><span class="info-label">ก่อตั้ง</span><span class="info-val">2008</span></div>
-<div class="info-row"><span class="info-label">Regulation</span><span class="info-val" style="font-size:11px">CySEC · FCA · FSA · CBCS</span></div>
-<div class="info-row"><span class="info-label">Execution</span><span class="info-val">Hybrid</span></div>
-<div class="info-row"><span class="info-label">ฝากขั้นต่ำ</span><span class="info-val">$10</span></div>
-<div class="info-row"><span class="info-label">EUR/USD Spread</span><span class="info-val" style="color:var(--warn)">0.9 pip</span></div>
-<div class="info-row"><span class="info-label">TradingView</span><span class="info-val" style="color:var(--avoid)">ไม่รองรับ</span></div>
-<div class="info-row"><span class="info-label">PromptPay</span><span class="info-val" style="color:var(--safe)">✓ รองรับ</span></div>
-<div class="info-row"><span class="info-label">Thai Support</span><span class="info-val" style="color:var(--safe)">✓ LINE ภาษาไทย</span></div>
-<div style="padding:12px 15px"><a href="https://exness.com" class="btn-aff" style="width:100%;justify-content:center;display:flex" target="_blank" rel="nofollow noopener">เปิดบัญชีเลย →</a></div>
-</div>
-<div class="scard">
-<div class="shead">สารบัญ</div>
-<ul class="toc">
-    <li><a href="#scores">คะแนนละเอียด</a></li>
-    <li><a href="#pros-cons">ข้อดี — ข้อเสีย</a></li>
-    <li><a href="#accounts">ประเภทบัญชี</a></li>
-    <li><a href="#spread">Spread Table</a></li>
-</ul>
-</div>
-<div class="scard">
-<div class="shead">เปรียบเทียบกับคู่แข่ง</div>
-<div class="info-row"><span class="info-label">XS.com</span><span class="info-val" style="color:var(--safe);font-family:monospace">8.8</span></div><div class="info-row"><span class="info-label">Exness  ★</span><span class="info-val" style="color:var(--safe);font-family:monospace">8.8</span></div><div class="info-row"><span class="info-label">Pepperstone</span><span class="info-val" style="color:#1D4ED8;font-family:monospace">7.9</span></div><div class="info-row"><span class="info-label">HFM</span><span class="info-val" style="color:var(--warn);font-family:monospace">7.1</span></div><div class="info-row"><span class="info-label">XM</span><span class="info-val" style="color:var(--avoid);font-family:monospace">6.9</span></div>
-<div style="padding:10px 15px"><a href="/compare" style="font-size:12px;color:var(--gd);font-weight:600;text-decoration:none">ดูตารางเปรียบเทียบ →</a></div>
-</div>
-</div>
-</div>
-</div>
+
 <Footer />
 </body>
 </html>
