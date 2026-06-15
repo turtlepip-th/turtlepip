@@ -11,7 +11,7 @@
 
   <!-- Rebate page - highest priority -->
   <url>
-    <loc>https://turtlepip.com/rebate.html</loc>
+    <loc>https://turtlepip.com/rebate</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -19,28 +19,28 @@
 
   <!-- Main pages -->
   <url>
-    <loc>https://turtlepip.com/compare.html</loc>
+    <loc>https://turtlepip.com/compare</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/matcher.html</loc>
+    <loc>https://turtlepip.com/matcher</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/blacklist.html</loc>
+    <loc>https://turtlepip.com/blacklist</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/blog.html</loc>
+    <loc>https://turtlepip.com/blog</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -48,35 +48,35 @@
 
   <!-- Broker reviews -->
   <url>
-    <loc>https://turtlepip.com/reviews/xs-com.html</loc>
+    <loc>https://turtlepip.com/reviews/xs-com</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/reviews/pepperstone.html</loc>
+    <loc>https://turtlepip.com/reviews/pepperstone</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/reviews/exness.html</loc>
+    <loc>https://turtlepip.com/reviews/exness</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/reviews/hfm.html</loc>
+    <loc>https://turtlepip.com/reviews/hfm</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://turtlepip.com/reviews/xm.html</loc>
+    <loc>https://turtlepip.com/reviews/xm</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -84,7 +84,7 @@
 
   <!-- Articles -->
   <url>
-    <loc>https://turtlepip.com/articles/abook-bbook.html</loc>
+    <loc>https://turtlepip.com/articles/abook-bbook</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
