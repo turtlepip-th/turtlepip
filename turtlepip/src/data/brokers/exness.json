@@ -12,12 +12,12 @@
   "extraLicenses": 4,
   "minDeposit": { "thb": 0, "display": "฿0" },
   "spreads": {
-    "xauusd": "~28 pts*"
+    "xauusd": "~16 pts*"
   },
-  "spreadLevel": "md",
-  "spreadNote": "*Exness กำลัง monitor อัปเดตเร็วๆ นี้",
+  "spreadLevel": "lo",
+  "spreadNote": "*Exness XAUUSD ~16 pts ปกติ อาจ widen ~20–35 pts ช่วงข่าว · กำลัง monitor",
   "hasRebate": false,
   "tags": ["beginner", "swing", "copy", "daytrader"],
-  "reviewUrl": null,
+  "reviewUrl": "/reviews/exness",
   "updated": "2026-05"
 }

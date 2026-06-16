@@ -257,7 +257,7 @@ const answers: {q1: string|null, q2: string|null, q3: string|null} = {q1:null,q2
 
 const BROKERS = [
   {
-    id:'xs', name:'XS.com', logo:'/logos/xs.jpg', logobg:'#fff', verdict:'แนะนำ',
+    id:'xs', name:'XS.com', logo:'/logos/xs.jpg', logobg:'#fff', verdict:'แนะนำ', review_url:'/reviews/xs-com',
     score:8.8, score_spread:9.5, score_platform:7.0, score_support:9.5,
     best_for:['scalper','daytrader','swing','news'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -271,7 +271,7 @@ const BROKERS = [
     why_tv:'ไม่ support TradingView โดยตรง แต่ใช้ MT5 กับ chart plugin ได้',
   },
   {
-    id:'pepperstone', name:'Pepperstone', logo:'/logos/pepperstone.png', logobg:'#0565F8', verdict:'แนะนำ',
+    id:'pepperstone', name:'Pepperstone', logo:'/logos/pepperstone.png', logobg:'#0565F8', verdict:'แนะนำ', review_url:'/reviews/pepperstone',
     score:7.9, score_spread:8.0, score_platform:8.0, score_support:8.5,
     best_for:['scalper','daytrader','swing','news'],
     platforms:['mt','tv','any'], min_deposit:'medium',
@@ -284,7 +284,7 @@ const BROKERS = [
     why_tv:'รองรับ TradingView native — เชื่อมต่อได้เลย ไม่ต้องใช้ plugin',
   },
   {
-    id:'exness', name:'Exness', logo:'/logos/exness.png', logobg:'#FFDF01', verdict:'แนะนำ',
+    id:'exness', name:'Exness', logo:'/logos/exness.png', logobg:'#FFDF01', verdict:'แนะนำ', review_url:'/reviews/exness',
     score:8.8, score_spread:8.0, score_platform:9.0, score_support:9.0,
     best_for:['beginner','swing','copy','daytrader'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -298,7 +298,7 @@ const BROKERS = [
     why_tv:'ไม่รองรับ TradingView โดยตรง แนะนำใช้ MT5',
   },
   {
-    id:'hfm', name:'HFM', logo:'/logos/hfm.jpg', logobg:'#111', verdict:'ระวัง',
+    id:'hfm', name:'HFM', logo:'/logos/hfm.jpg', logobg:'#111', verdict:'ระวัง', review_url:'/reviews/hfm',
     score:7.1, score_spread:7.0, score_platform:7.5, score_support:7.0,
     best_for:['beginner','copy'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -312,7 +312,7 @@ const BROKERS = [
     why_tv:'ไม่รองรับ TradingView',
   },
   {
-    id:'xm', name:'XM', logo:'/logos/xm.jpg', logobg:'#111', verdict:'ระวัง',
+    id:'xm', name:'XM', logo:'/logos/xm.jpg', logobg:'#111', verdict:'ระวัง', review_url:'/reviews/xm',
     score:6.9, score_spread:6.5, score_platform:7.0, score_support:7.5,
     best_for:['beginner'],
     platforms:['mt','any'], min_deposit:'micro',
@@ -460,7 +460,7 @@ function showResults() {
           <div class="score-item"><div class="score-label">Platform</div><div class="score-val ${b.score_platform>=8.5?'g':'a'}">${b.score_platform}</div></div>
           <div class="score-item"><div class="score-label">Support TH</div><div class="score-val ${b.score_support>=8.5?'g':'a'}">${b.score_support}</div></div>
         </div>
-        <button class="btn-review">อ่านรีวิวเต็ม →</button>
+        ${b.review_url ? `<a href="${b.review_url}" class="btn-review" style="text-decoration:none;display:inline-flex;align-items:center;">อ่านรีวิวเต็ม →</a>` : `<button class="btn-review" disabled style="opacity:.4;cursor:default">อ่านรีวิวเต็ม →</button>`}
       </div>
     </div>`;
   });
