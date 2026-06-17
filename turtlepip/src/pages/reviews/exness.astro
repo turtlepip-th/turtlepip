@@ -191,7 +191,7 @@ import Footer from '../../components/Footer.astro';
         <div class="chip"><div class="chip-label">TurtlePip Score</div><div class="chip-val g">8.8</div></div>
         <div class="chip"><div class="chip-label">น่าเชื่อถือ</div><div class="chip-val g">8.5</div></div>
         <div class="chip"><div class="chip-label">ฝากถอน TH</div><div class="chip-val g">9.5</div></div>
-        <div class="chip"><div class="chip-label">XAUUSD Spread</div><div class="chip-val g">8.5</div></div>
+        <div class="chip"><div class="chip-label">XAUUSD Spread</div><div class="chip-val" style="color:var(--warn)">8.0</div></div>
         <div class="chip"><div class="chip-label">Platform/App</div><div class="chip-val g">9.5</div></div>
       </div>
       <a href="https://one.exnessonelink.com/a/j9uv5xe0m4" target="_blank" rel="nofollow noopener sponsored" class="btn-aff">เปิดบัญชี Exness →</a>
@@ -220,7 +220,7 @@ import Footer from '../../components/Footer.astro';
           2. <strong>Instant Withdrawal</strong> — ถอนเงินไวที่สุดในกลุ่ม ส่วนคู่แข่งอย่าง XS ใช้เวลา Instant–24 ชม.<br>
           3. <strong>Mobile App ดีที่สุดในกลุ่ม (Best in class)</strong> — XS ยังไม่มี mobile app ของตัวเอง ใช้ Web Trader<br>
           4. <strong>Max leverage 1:Unlimited</strong> — สูงที่สุดในกลุ่มเปรียบเทียบ<br>
-          5. <strong>XAUUSD spread เฉลี่ย ~16 pts</strong> — ต่ำกว่า XS (18–20 pts) ในสภาวะปกติ แต่ต้องติดตาม spread ช่วงข่าวอย่างใกล้ชิด (ดูหัวข้อ Spread ด้านล่าง)
+          5. <strong>Instant Withdrawal + Stop out 0%</strong> — ถอนเงินไวสุด + position มีโอกาสรอดนานสุดในกลุ่ม
         </div>
       </div>
 
@@ -236,7 +236,7 @@ import Footer from '../../components/Footer.astro';
             <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
           </div>
           <div class="score-bar">
-            <div class="score-bar-row"><span class="score-bar-label">Trading Conditions (20%) — XAUUSD ~16 pts (monitoring ช่วงข่าว), Stop out 0%, Leverage 1:Unlimited</span><span class="score-bar-val" style="color:var(--safe)">8.5</span></div>
+            <div class="score-bar-row"><span class="score-bar-label">Trading Conditions (20%) — XAUUSD 26–30 pts (spike ช่วงข่าวเหมือนทุกโบรก), Stop out 0%, Leverage 1:Unlimited</span><span class="score-bar-val" style="color:var(--warn)">8.0</span></div>
             <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
           </div>
           <div class="score-bar">
@@ -266,7 +266,7 @@ import Footer from '../../components/Footer.astro';
           <div class="pc-item"><div class="pc-dot p"></div>ถอนเงินแบบ Instant — ไวที่สุดในกลุ่มเปรียบเทียบ</div>
           <div class="pc-item"><div class="pc-dot p"></div>Mobile app ดีที่สุดในกลุ่ม (Best in class)</div>
           <div class="pc-item"><div class="pc-dot p"></div>Max leverage 1:Unlimited</div>
-          <div class="pc-item"><div class="pc-dot p"></div>XAUUSD spread เฉลี่ย ~16 pts ต่ำกว่า XS ในสภาวะปกติ</div>
+          <div class="pc-item"><div class="pc-dot p"></div>Stop out 0% + leverage 1:Unlimited — ดีที่สุดในกลุ่ม</div>
           <div class="pc-item"><div class="pc-dot p"></div>Verification แบบ Instant (auto)</div>
           <div class="pc-item"><div class="pc-dot p"></div>Min deposit $0 ทุกบัญชี</div>
           <div class="pc-item"><div class="pc-dot p"></div>มี Copy trading / Social trading ในตัว</div>
@@ -276,7 +276,7 @@ import Footer from '../../components/Footer.astro';
           <div class="pc-item"><div class="pc-dot c"></div>ไม่มี Fund insurance — XS มี $5M Lloyd's</div>
           <div class="pc-item"><div class="pc-dot c"></div>7 licenses — น้อยกว่า XS (8 licenses)</div>
           <div class="pc-item"><div class="pc-dot c"></div>Swap-free มีเงื่อนไข — ใช้บ่อยเกินไปลดสิทธิ์ และมีค่าธรรมเนียม</div>
-          <div class="pc-item"><div class="pc-dot c"></div>XAUUSD spread อาจ widen เป็น ~20–35 pts ช่วงข่าว ต้อง monitor</div>
+          <div class="pc-item"><div class="pc-dot c"></div>XAUUSD spread 26–30 pts ปกติ spike ช่วงข่าวเหมือนทุกโบรก</div>
           <div class="pc-item"><div class="pc-dot c"></div>Stop out 0% เสี่ยงขาดทุนหนักกว่าหากไม่บริหารความเสี่ยงดี</div>
         </div>
       </div>
@@ -299,7 +299,7 @@ import Footer from '../../components/Footer.astro';
               <td><div class="acc-name">Standard <span class="rec-badge">แนะนำ</span></div></td>
               <td>$0</td>
               <td>0.6–1.5 pips</td>
-              <td>~16 pts avg</td>
+              <td>26–30 pts</td>
               <td>ไม่มี</td>
               <td>ทั่วไป · มือใหม่ · Gold trader</td>
             </tr>
@@ -307,7 +307,7 @@ import Footer from '../../components/Footer.astro';
               <td><div class="acc-name">Standard Cent</div></td>
               <td>$0</td>
               <td>~1.0–1.5 pips</td>
-              <td>~16 pts avg</td>
+              <td>26–30 pts</td>
               <td>ไม่มี</td>
               <td>มือใหม่ · ทดสอบ EA (MT4 only)</td>
             </tr>
@@ -350,7 +350,7 @@ import Footer from '../../components/Footer.astro';
 
       <h2 id="spread">Spread — Standard Account</h2>
       <div class="notice warn">
-        ⚠ Monitoring: XAUUSD ของ Exness เฉลี่ยอยู่ที่ ~16 pts ในสภาวะปกติ ซึ่งต่ำกว่า XS (18–20 pts) แต่ในช่วงข่าวอาจ widen ขึ้นไปถึง ~20–35 pts ต่างจาก XS ที่ใช้ Stable Float (18–20 pts ทั้งช่วงปกติและข่าว) — ทีมซุปเต่ากำลังติดตามข้อมูลนี้อย่างต่อเนื่อง
+        ⚠ XAUUSD ของ Exness อยู่ที่ 26–30 pts ในสภาวะปกติ และ spike ช่วงข่าวเหมือนโบรกอื่นๆ ทั่วไป — XS ใช้ Stable Float (18–20 pts ทั้งปกติและข่าว) ถ้าเทรดทองช่วงข่าวบ่อย ควรเปรียบเทียบก่อนเลือก
       </div>
       <div class="data-card">
         <div class="tbl-scroll"><table class="data-table spread-table">
@@ -371,9 +371,9 @@ import Footer from '../../components/Footer.astro';
             </tr>
             <tr>
               <td>XAU/USD (ทอง)</td>
-              <td><span class="sp-low">~16 pts avg</span></td>
-              <td><span class="news-est">~20–35 pts</span></td>
-              <td style="color:var(--warn); font-weight:700;">Monitoring — อาจ widen ช่วงข่าว</td>
+              <td><span class="sp-mid">26–30 pts</span></td>
+              <td><span class="news-est">spike เหมือนทุกโบรก</span></td>
+              <td style="color:var(--t2);">Float</td>
             </tr>
             <tr>
               <td>BTC/USD</td>
@@ -411,7 +411,7 @@ import Footer from '../../components/Footer.astro';
             <li>Trader ที่ต้องการถอนเงินไวที่สุด (Instant withdrawal)</li>
             <li>คนที่ใช้เทรดผ่านมือถือเป็นหลัก — Mobile app ดีที่สุดในกลุ่ม</li>
             <li>Trader ที่ต้องการ leverage สูง (1:Unlimited) และ stop out ต่ำ (0%)</li>
-            <li>Gold trader ที่เน้น spread เฉลี่ยต่ำในสภาวะปกติ และพร้อม monitor ช่วงข่าว</li>
+            <li>Trader ทั่วไปที่ไม่ได้เน้น XAUUSD ช่วงข่าว (ถ้าเน้นทองช่วงข่าว ลอง XS ที่ spread stable กว่า)</li>
           </ul>
         </div>
       </div>
@@ -436,7 +436,7 @@ import Footer from '../../components/Footer.astro';
         <div class="info-row"><span class="info-label">Stop out</span><span class="info-val" style="color:var(--safe);">0% (ต่ำสุดในกลุ่ม)</span></div>
         <div class="info-row"><span class="info-label">ฝากขั้นต่ำ</span><span class="info-val">$0</span></div>
         <div class="info-row"><span class="info-label">EURUSD</span><span class="info-val" style="color:var(--safe);">0.6–1.5 pips</span></div>
-        <div class="info-row"><span class="info-label">XAUUSD</span><span class="info-val" style="color:var(--warn);">~16 pts (monitoring)</span></div>
+        <div class="info-row"><span class="info-label">XAUUSD</span><span class="info-val" style="color:var(--warn);">26–30 pts</span></div>
         <div class="info-row"><span class="info-label">ถอนเงิน</span><span class="info-val" style="color:var(--safe);">✓ Instant</span></div>
         <div class="info-row"><span class="info-label">PromptPay</span><span class="info-val" style="color:var(--safe);">✓ รองรับ</span></div>
         <div class="info-row"><span class="info-label">Mobile App</span><span class="info-val" style="color:var(--safe);">✓ ดีที่สุดในกลุ่ม</span></div>

@@ -38,7 +38,7 @@
       "promptPay": { "label": "", "class": "check-y" },
       "tradingview": { "label": "–", "class": "check-n" },
       "thaiSupport": { "label": "LINE", "class": "check-y" },
-      "reviewUrl": null,
+      "reviewUrl": "/reviews/exness",
       "tags": ["beginner", "swing", "copy", "daytrader"]
     },
     {
@@ -58,7 +58,7 @@
       "promptPay": { "label": "–", "class": "check-n" },
       "tradingview": { "label": "Native", "class": "check-y" },
       "thaiSupport": { "label": "อังกฤษ", "class": "check-p" },
-      "reviewUrl": null,
+      "reviewUrl": "/reviews/pepperstone",
       "tags": ["scalper", "daytrader", "swing", "news", "tv"]
     },
     {
@@ -80,7 +80,7 @@
       "promptPay": { "label": "", "class": "check-y" },
       "tradingview": { "label": "–", "class": "check-n" },
       "thaiSupport": { "label": "จำกัด", "class": "check-p" },
-      "reviewUrl": null,
+      "reviewUrl": "/reviews/hfm",
       "tags": ["beginner", "copy"]
     },
     {
@@ -102,7 +102,7 @@
       "promptPay": { "label": "", "class": "check-y" },
       "tradingview": { "label": "–", "class": "check-n" },
       "thaiSupport": { "label": "", "class": "check-y" },
-      "reviewUrl": null,
+      "reviewUrl": "/reviews/xm",
       "tags": ["beginner"]
     }
   ],
@@ -133,7 +133,7 @@
       "logoBg": "#FFDF01",
       "topRow": false,
       "eurusd": { "normal": "0.6–1.5", "level": "sp-low", "news": "~3–6 pips" },
-      "xauusd": { "normal": "~28 pts", "level": "sp-mid", "news": "spike ช่วงข่าว*" },
+      "xauusd": { "normal": "26–30 pts", "level": "sp-mid", "news": "spike ช่วงข่าว" },
       "btc": { "normal": "15–20 pts", "level": "sp-low", "news": null },
       "rebate": "เร็วๆ นี้"
     },
