@@ -44,6 +44,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* TRADINGVIEW TICKER TAPE */
+.tv-tape { overflow: hidden; border-bottom: 1px solid var(--bdr); }
+
 /* NAV */
 nav {
   background: var(--surf);
