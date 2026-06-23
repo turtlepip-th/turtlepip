@@ -1,0 +1,354 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSI บุกจับ Forex เถื่อน 24 จุด — HFM โยงคดี ทีมซุปเต่าอธิบายทุกอย่าง | TurtlePip</title>
+<meta name="description" content="DSI บุกจับ Forex ผิดกฎหมาย 24 จุด 19 มิ.ย. 2569 ยึดทรัพย์ 65 ล้าน — HFM, QRS Global โยงคดี ทีมซุปเต่าอธิบายว่า entity ไหนปลอดภัย entity ไหนเสี่ยง">
+<link rel="canonical" href="https://turtlepip.com/blog/dsi-forex-2569-hfm">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .article-wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px; }
+  .breadcrumb { font-size: 12px; color: var(--t3); margin-bottom: 20px; }
+  .breadcrumb a { color: var(--t3); text-decoration: none; }
+
+  /* ARTICLE HEADER */
+  .article-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--avoid); margin-bottom: 10px;
+  }
+  .article-title {
+    font-size: 26px; font-weight: 800;
+    letter-spacing: -.4px; line-height: 1.3;
+    color: var(--t1); margin-bottom: 12px;
+  }
+  .article-meta {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; color: var(--t3);
+    margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .meta-author { font-weight: 600; color: var(--t2); }
+
+  /* ALERT BOX */
+  .news-alert {
+    background: #FEF2F2; border: 1px solid #FECACA;
+    border-radius: var(--rl); padding: 16px 20px; margin-bottom: 28px;
+  }
+  .news-alert-title { font-size: 13px; font-weight: 700; color: var(--avoid); margin-bottom: 6px; }
+  .news-alert-text { font-size: 13px; color: #7F1D1D; line-height: 1.7; }
+
+  /* ARTICLE BODY */
+  .article-body h2 {
+    font-size: 19px; font-weight: 800;
+    letter-spacing: -.3px; color: var(--t1);
+    margin: 32px 0 12px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--bdr);
+  }
+  .article-body h3 {
+    font-size: 15px; font-weight: 700;
+    color: var(--t1); margin: 20px 0 8px;
+  }
+  .article-body p {
+    font-size: 14px; color: var(--t2);
+    line-height: 1.85; margin-bottom: 14px;
+  }
+  .article-body ul { list-style: none; padding: 0; margin-bottom: 14px; }
+  .article-body ul li {
+    font-size: 14px; color: var(--t2);
+    line-height: 1.7; margin-bottom: 8px;
+    padding-left: 18px; position: relative;
+  }
+  .article-body ul li::before {
+    content: '·'; position: absolute;
+    left: 5px; color: var(--gd); font-weight: 700;
+  }
+  .article-body strong { color: var(--t1); font-weight: 700; }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: var(--gp); border-left: 3px solid var(--gd);
+    border-radius: 0 var(--r) var(--r) 0;
+    padding: 14px 18px; margin: 20px 0;
+    font-size: 13px; color: var(--t2); line-height: 1.7;
+  }
+  .highlight strong { color: var(--gd); }
+
+  .warn-box {
+    background: var(--warnbg); border-left: 3px solid var(--warn);
+    border-radius: 0 var(--r) var(--r) 0;
+    padding: 14px 18px; margin: 20px 0;
+    font-size: 13px; color: #713F12; line-height: 1.7;
+  }
+
+  .danger-box {
+    background: var(--avoidbg); border-left: 3px solid var(--avoid);
+    border-radius: 0 var(--r) var(--r) 0;
+    padding: 14px 18px; margin: 20px 0;
+    font-size: 13px; color: #7F1D1D; line-height: 1.7;
+  }
+
+  /* TABLE */
+  .data-card { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; margin: 20px 0; }
+  .tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .article-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 13px; }
+  .article-table th { padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; color: var(--t3); letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--bdr); background: var(--bg); }
+  .article-table td { padding: 12px 14px; border-bottom: 1px solid var(--bdr); color: var(--t2); vertical-align: top; }
+  .article-table tr:last-child td { border-bottom: none; }
+  .article-table tr.danger td { background: var(--avoidbg); }
+  .article-table tr.safe td { background: var(--safebg); }
+
+  /* KEY FACTS BOX */
+  .facts-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 12px; margin: 20px 0;
+  }
+  .fact-card {
+    background: var(--bg); border: 1px solid var(--bdr);
+    border-radius: var(--r); padding: 14px;
+  }
+  .fact-num { font-size: 22px; font-weight: 800; font-family: monospace; color: var(--avoid); }
+  .fact-label { font-size: 12px; color: var(--t3); margin-top: 3px; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; margin: 16px 0; }
+  .checklist li {
+    display: flex; gap: 10px;
+    font-size: 13px; color: var(--t2);
+    margin-bottom: 10px; line-height: 1.5;
+  }
+  .check-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--gd); color: white;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* CTA */
+  .article-cta {
+    background: var(--gd); border-radius: var(--rl);
+    padding: 24px; margin: 32px 0; text-align: center;
+  }
+  .article-cta h3 { font-size: 18px; font-weight: 800; color: white; margin-bottom: 8px; }
+  .article-cta p { font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 16px; }
+  .btn-cta {
+    display: inline-block; background: white; color: var(--gd);
+    border-radius: 9px; padding: 12px 28px;
+    font-size: 13px; font-weight: 800; text-decoration: none;
+    font-family: var(--f);
+  }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--bdr); margin: 32px 0; }
+
+  /* SOURCE */
+  .sources { font-size: 11px; color: var(--t3); line-height: 1.8; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--bdr); }
+  .sources a { color: var(--t3); }
+
+  @media (max-width: 600px) {
+    .article-title { font-size: 21px; }
+    .facts-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<Nav />
+
+<div class="article-wrap">
+
+  <p class="breadcrumb">
+    <a href="/">หน้าหลัก</a> ›
+    <a href="/blog">บทความ</a> ›
+    DSI บุกจับ Forex เถื่อน 2569
+  </p>
+
+  <!-- HEADER -->
+  <div class="article-tag">แจ้งเตือน · ข่าวด่วน</div>
+  <h1 class="article-title">DSI บุกจับ Forex เถื่อน 24 จุด — HFM โยงคดี ทีมซุปเต่าอธิบายทุกอย่าง</h1>
+  <div class="article-meta">
+    <span class="meta-author">ทีมซุปเต่า</span>
+    <span>19 มิถุนายน 2569</span>
+    <span>8 นาทีอ่าน</span>
+  </div>
+
+  <!-- ALERT -->
+  <div class="news-alert">
+    <div class="news-alert-title">สรุปสั้น — อ่านก่อนใครเลื่อน</div>
+    <div class="news-alert-text">
+      DSI บุกจับ Forex เถื่อน 19 มิ.ย. 2569 — โบรกที่ถูกระบุในคดีคือ QRS Global, HFM (entity SV), GOFX, Eterwealth <strong>ไม่ใช่โบรกที่มี CySEC/FCA/ASIC โดยตรง</strong> ทีมซุปเต่าอธิบายว่า entity ไหนปลอดภัย entity ไหนเสี่ยง
+    </div>
+  </div>
+
+  <!-- KEY FACTS -->
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-num">24</div>
+      <div class="fact-label">จุดที่ DSI บุกตรวจค้น 16 มิ.ย. 2569</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">65 ล้าน</div>
+      <div class="fact-label">มูลค่าทรัพย์สินที่ยึดได้ (บาท)</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">500+</div>
+      <div class="fact-label">ผู้เสียหายที่เข้าร้องทุกข์กับ DSI</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-num">4</div>
+      <div class="fact-label">โบรกที่ถูกระบุในคดี</div>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <h2>เกิดอะไรขึ้น</h2>
+    <p>วันที่ 19 มิถุนายน 2569 กรมสอบสวนคดีพิเศษ (DSI) นำโดย พ.ต.ต. ยุทธนา แพรดำ อธิบดี DSI ร่วมกับตำรวจไซเบอร์ (สอท.) และธนาคารแห่งประเทศไทย แถลงผลปฏิบัติการทลายเครือข่าย Forex ผิดกฎหมาย หลังบุกตรวจค้น 24 จุดทั่วกรุงเทพและปริมณฑลเมื่อวันที่ 16 มิถุนายน</p>
+    <p>ผลการตรวจค้น: ยึดเงินสด 65.27 ล้านบาท รถหรู 5 คัน นาฬิกาหรู 113 เรือน ทองคำ 50 บาท และอุปกรณ์เทคโนโลยีจำนวนมาก พร้อมอายัดบัญชีธนาคาร 77 บัญชี</p>
+    <p>ธนาคารแห่งประเทศไทยยืนยันชัดว่า <strong>ไม่มีผู้ประกอบธุรกิจ Forex รายใดในไทยที่ได้รับอนุญาตอย่างถูกกฎหมาย</strong> — ทุกโบรกที่ไทยใช้คือ offshore broker ทั้งหมด</p>
+
+    <h2>โบรกไหนถูกระบุในคดี</h2>
+    <p>DSI ระบุชื่อโบรกที่มีผู้เสียหายร้องเรียน 4 รายคือ:</p>
+    <div class="data-card">
+      <div class="tbl-scroll">
+        <table class="article-table">
+          <thead>
+            <tr>
+              <th>โบรก</th>
+              <th>สถานะในคดี</th>
+              <th>Regulation จริง</th>
+              <th>ทีมซุปเต่าเคยแนะนำไหม</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="danger">
+              <td><strong>QRS Global</strong></td>
+              <td>ผู้เสียหายร้องเรียน</td>
+              <td>MISA (Comoros) — ไม่ใช่ Tier-1</td>
+              <td style="color:var(--avoid);font-weight:700;">ไม่เคย</td>
+            </tr>
+            <tr class="danger">
+              <td><strong>HFM (SV) Ltd</strong></td>
+              <td>ผู้เสียหายร้องเรียน</td>
+              <td>SVG — ไม่มี regulation จริง</td>
+              <td style="color:var(--avoid);font-weight:700;">ไม่เคย</td>
+            </tr>
+            <tr class="danger">
+              <td><strong>GOFX</strong></td>
+              <td>ผู้เสียหายร้องเรียน</td>
+              <td>ไม่ทราบ</td>
+              <td style="color:var(--avoid);font-weight:700;">ไม่เคย</td>
+            </tr>
+            <tr class="danger">
+              <td><strong>Eterwealth</strong></td>
+              <td>ผู้เสียหายร้องเรียน</td>
+              <td>Offshore (UK/Cayman/SVG)</td>
+              <td style="color:var(--avoid);font-weight:700;">ไม่เคย</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2>HFM ในคดีนี้คือ entity ไหน — สำคัญมาก</h2>
+    <p>DSI ระบุชัดว่าโบรกในคดีคือ <strong>HF Markets (SV) Ltd</strong> — SV ย่อมาจาก St. Vincent and the Grenadines ซึ่งเป็น offshore jurisdiction ที่ไม่มี financial regulation จริง</p>
+
+    <div class="warn-box">
+      <strong>ความเข้าใจผิดที่อันตราย:</strong> HFM มีหลาย entity ภายใต้ชื่อเดียวกัน entity ที่ถูกระบุในคดีคือ (SV) ซึ่งต่างจาก entity ที่มี CySEC/FCA license โดยสิ้นเชิง — แต่ผู้เสียหายหลายรายอาจไม่รู้ว่าตัวเองอยู่ภายใต้ entity ไหน
+    </div>
+
+    <div class="data-card">
+      <div class="tbl-scroll">
+        <table class="article-table">
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Regulation</th>
+              <th>ระดับความปลอดภัย</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="safe">
+              <td>HF Markets (EU) Ltd</td>
+              <td>CySEC ไซปรัส</td>
+              <td style="color:var(--safe);font-weight:700;">Tier-1 — ปลอดภัย</td>
+            </tr>
+            <tr class="safe">
+              <td>HF Markets (UK) Ltd</td>
+              <td>FCA อังกฤษ</td>
+              <td style="color:var(--safe);font-weight:700;">Tier-1 — ปลอดภัย</td>
+            </tr>
+            <tr class="danger">
+              <td><strong>HF Markets (SV) Ltd</strong></td>
+              <td>SVG — ไม่มี regulation จริง</td>
+              <td style="color:var(--avoid);font-weight:700;">ไม่มีการคุ้มครอง</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>ทีมซุปเต่ารีวิว HFM โดยพิจารณา CySEC/FCA entity — ให้สถานะ "กลาง" เพราะ spread XAUUSD สูงและ licenses น้อย แต่ยังถือว่ามี regulation จริง ต่างจาก SV entity ที่ไม่มีการคุ้มครองใดๆ</p>
+
+    <h2>QRS Global — ไม่มี Tier-1 license แม้แต่ใบเดียว</h2>
+    <p>QRS Global อ้างว่ามี license จาก MISA (Comoros), FinCEN (US), FSP (NZ), Canada MSB — ทีมซุปเต่าอธิบายว่าแต่ละอันหมายความว่าอะไรจริงๆ:</p>
+
+    <div class="danger-box">
+      <strong>MISA (Comoros)</strong> — เป็นแค่ offshore company registration ของเกาะเล็กๆ ในแอฟริกา ไม่มีอำนาจกำกับดูแลการเงินจริงๆ<br><br>
+      <strong>FinCEN (US)</strong> — เป็น anti-money laundering registration ไม่ใช่ broker license ใครก็ลงทะเบียนได้<br><br>
+      <strong>FSP (NZ)</strong> — เป็นแค่ registration ไม่ใช่ regulation นิวซีแลนด์เคยถูกใช้เป็น loophole มาก จน FMA NZ ออกมาเตือนซ้ำหลายครั้ง<br><br>
+      <strong>สรุป: ไม่มีอันไหนที่คุ้มครองเงินลูกค้าจริงๆ</strong>
+    </div>
+
+    <h2>รูปแบบการหลอกลวงที่ DSI พบ</h2>
+    <p>DSI เปิดเผยว่าเครือข่ายนี้ทำงาน 3 ระดับ ซึ่งเป็น pattern ที่พบบ่อยมากในไทย:</p>
+    <ul>
+      <li><strong>กลุ่มโบรก offshore</strong> — เปิดแพลตฟอร์ม อ้าง regulation จากประเทศที่ไม่มีอำนาจจริง</li>
+      <li><strong>กลุ่ม IB / อาจารย์สอนเทรด</strong> — สร้างภาพ lifestyle หรูหรา โชว์พอร์ตกำไร ชักชวนให้ฝากเงิน</li>
+      <li><strong>กลุ่ม Payment Gateway</strong> — รับโอนเงินผ่านบริษัทบังหน้า แปลงเป็น crypto</li>
+    </ul>
+    <p>ในช่วงแรกลูกค้าถอนได้จริง เพื่อสร้างความไว้ใจ จากนั้นจึงเริ่มอ้างเงื่อนไข บังคับซื้อคอร์ส หรือล็อกคำสั่งซื้อขาย จนถอนไม่ได้</p>
+
+    <hr class="divider">
+
+    <h2>วิธีป้องกันตัวเองก่อนเปิดบัญชีโบรก</h2>
+    <ul class="checklist">
+      <li><span class="check-num">1</span>ตรวจ entity ที่คุณเปิดบัญชีโดยตรงจาก regulator website — ASIC: asic.gov.au, FCA: fca.org.uk, CySEC: cysec.gov.cy</li>
+      <li><span class="check-num">2</span>ถ้าโบรกมี license ที่ SV, Comoros, Belize, Vanuatu — ไม่มี regulation จริง</li>
+      <li><span class="check-num">3</span>อาจารย์สอนเทรดที่โชว์รถหรู บ้านหรู — ระวังให้มาก รายได้จริงมาจากค่า IB ไม่ใช่จากการเทรด</li>
+      <li><span class="check-num">4</span>ถอนทดสอบก้อนเล็กก่อนเสมอ ก่อนฝากก้อนใหญ่</li>
+      <li><span class="check-num">5</span>โบรกที่ดีจะบอกชัดเจนว่าคุณอยู่ภายใต้ entity ไหน และ entity นั้น regulate ที่ไหน</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>ทีมซุปเต่าแนะนำเฉพาะโบรกที่มี ASIC, FCA, หรือ CySEC license โดย entity ที่ให้บริการลูกค้าไทยโดยตรง</strong> ไม่ใช่แค่ดูโลโก้บนหน้าเว็บ
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3>ดูรีวิวโบรกที่ทีมซุปเต่าตรวจสอบแล้ว</h3>
+      <p>ทุกโบรกที่เราแนะนำมี Tier-1 regulation และผ่านการตรวจสอบ entity จริงๆ</p>
+      <a href="/" class="btn-cta">ดูอันดับโบรกเกอร์ →</a>
+    </div>
+
+    <div class="sources">
+      <strong>แหล่งอ้างอิง:</strong><br>
+      DSI Official — dsi.go.th (19 มิ.ย. 2569)<br>
+      PostToday — posttoday.com<br>
+      ThaiPost — thaipost.net<br>
+      The Standard (เนื้อหาข่าว)<br>
+      <em>บทความนี้อ้างอิงข้อมูลจาก official DSI statement เท่านั้น ไม่มีการตัดสินความผิดของบุคคลหรือองค์กรใด การสืบสวนยังอยู่ระหว่างดำเนินการ</em>
+    </div>
+
+  </div>
+</div>
+
+<Footer />
+</body>
+</html>
