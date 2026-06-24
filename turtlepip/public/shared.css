@@ -278,3 +278,61 @@ body { overflow-x: hidden; max-width: 100%; }
 .compare-table tr.highlight-row td {
   background: var(--gp, #f0fdf4);
 }
+
+/* --- Author box --- */
+.author-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border: 1px solid var(--bdr);
+  border-radius: var(--rl);
+  margin: 20px 0;
+  background: var(--bg);
+}
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gd);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.author-info { flex: 1; }
+.author-name { font-size: 14px; font-weight: 700; color: var(--t1); margin-bottom: 4px; }
+.author-bio { font-size: 12px; color: var(--t2); line-height: 1.6; margin-bottom: 6px; }
+.author-meta { font-size: 11px; color: var(--t3); }
+.author-meta a { color: var(--gd); text-decoration: none; }
+
+/* --- Risk warning --- */
+.risk-warning {
+  font-size: 11px;
+  color: var(--t3);
+  background: var(--bg);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r);
+  padding: 8px 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* --- Article layout (about/disclosure/pillar pages) --- */
+.article-wrap { max-width: 780px; margin: 0 auto; }
+.article-body h2 { font-size: 18px; font-weight: 800; margin: 32px 0 12px; color: var(--t1); }
+.article-body h3 { font-size: 15px; font-weight: 700; margin: 24px 0 8px; color: var(--t1); }
+.article-body p { font-size: 13px; color: var(--t2); line-height: 1.8; margin-bottom: 12px; }
+.article-body ul { list-style: none; padding: 0; margin-bottom: 14px; }
+.article-body ul li { font-size: 13px; color: var(--t2); line-height: 1.6; margin-bottom: 6px; padding-left: 18px; position: relative; }
+.article-body ul li::before { content: '·'; position: absolute; left: 4px; color: var(--gd); font-weight: 700; }
+.highlight-box-green { background: var(--gp); border-left: 3px solid var(--gd); border-radius: 0 var(--r) var(--r) 0; padding: 14px 18px; margin: 16px 0; font-size: 13px; color: var(--t1); line-height: 1.7; }
+.warn-box-light { background: var(--warnbg); border-left: 3px solid var(--warn); border-radius: 0 var(--r) var(--r) 0; padding: 14px 18px; margin: 16px 0; font-size: 13px; color: #713F12; line-height: 1.7; }
+.danger-box { background: var(--avoidbg); border: 1px solid #FECACA; border-radius: var(--r); padding: 14px 18px; margin: 16px 0; font-size: 13px; color: #7F1D1D; line-height: 1.7; }
+.checklist-green { list-style: none; padding: 0; }
+.checklist-green li { display: flex; gap: 10px; font-size: 13px; color: var(--t2); line-height: 1.6; margin-bottom: 8px; }
+.checklist-green li::before { content: '✓'; color: var(--safe); font-weight: 700; flex-shrink: 0; }
+.page-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gd); background: var(--gp); padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }

@@ -1,0 +1,15 @@
+---
+interface Props {
+  reviewDate?: string;
+}
+const { reviewDate = "มิ.ย. 2026" } = Astro.props;
+---
+
+<div class="author-box">
+  <div class="author-avatar">ซุปเต่า</div>
+  <div class="author-info">
+    <div class="author-name">ทีมซุปเต่า</div>
+    <div class="author-bio">ประสบการณ์ด้าน Forex และ IB management กว่า 8 ปี — เชี่ยวชาญการเปรียบเทียบโบรกและระบบรีเบทสำหรับนักเทรดไทย</div>
+    <div class="author-meta">อัปเดต: {reviewDate} · <a href="/about">เกี่ยวกับทีมซุปเต่า</a> · <a href="/disclosure">Affiliate Disclosure</a></div>
+  </div>
+</div>

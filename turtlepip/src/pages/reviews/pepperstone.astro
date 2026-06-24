@@ -1,6 +1,7 @@
 ---
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
 ---
 
 <!DOCTYPE html>
@@ -29,6 +30,17 @@ import Footer from '../../components/Footer.astro';
     "name": "TurtlePip",
     "url": "https://turtlepip.com"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "FinancialService", "name": "Pepperstone", "url": "https://pepperstone.com" },
+  "reviewRating": { "@type": "Rating", "ratingValue": "7.9", "bestRating": "10", "worstRating": "1" },
+  "author": { "@type": "Organization", "name": "ทีมซุปเต่า", "url": "https://turtlepip.com" },
+  "publisher": { "@type": "Organization", "name": "TurtlePip", "url": "https://turtlepip.com" },
+  "datePublished": "2026-06-24"
 }
 </script>
 <link rel="stylesheet" href="/shared.css">
@@ -149,6 +161,9 @@ import Footer from '../../components/Footer.astro';
   </div>
 
   <div class="updated-tag">อัปเดตล่าสุด: มิ.ย. 2026 · ทีมซุปเต่า</div>
+
+  <AuthorBox reviewDate="มิ.ย. 2026" />
+  <p class="risk-warning">⚠️ การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินลงทุนทั้งหมด เนื้อหานี้มีวัตถุประสงค์เพื่อให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำทางการเงิน</p>
 
   <div class="page-grid">
     <div class="content">
@@ -427,6 +442,10 @@ import Footer from '../../components/Footer.astro';
             </div>
           </div>
         </section>
+      </div>
+
+      <div style="margin:20px 0; font-size:13px; color:var(--t2);">
+        บทความที่เกี่ยวข้อง: <a href="/compare/pepperstone-vs-exness" style="color:var(--gd);font-weight:600;">Pepperstone vs Exness เปรียบละเอียด</a> · <a href="/lowest-spread-broker" style="color:var(--gd);font-weight:600;">โบรก Spread ต่ำสุดในไทย</a>
       </div>
 
       <a href="https://trk.pepperstonepartners.com/aff_c?offer_id=367&aff_id=46363" target="_blank" rel="nofollow noopener sponsored" class="btn-aff">เปิดบัญชี Pepperstone →</a>

@@ -1,0 +1,280 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>โบรกทอง (XAUUSD) ที่ดีที่สุดในไทย 2026 — เปรียบ Spread + Rebate | TurtlePip</title>
+<meta name="description" content="เปรียบโบรก XAUUSD ที่ดีที่สุดสำหรับนักเทรดไทย 2026 — XS, Exness, Pepperstone เทียบ spread จริง, ค่าคอม, regulation และรีเบท">
+<link rel="canonical" href="https://turtlepip.com/best-gold-broker-thailand">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "โบรกทอง (XAUUSD) ที่ดีที่สุดในไทย 2026",
+  "url": "https://turtlepip.com/best-gold-broker-thailand",
+  "dateModified": "2026-06-24",
+  "author": { "@type": "Organization", "name": "ทีมซุปเต่า", "url": "https://turtlepip.com" },
+  "publisher": { "@type": "Organization", "name": "TurtlePip", "url": "https://turtlepip.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "โบรก XAUUSD spread ต่ำสุดในไทยคือโบรกไหน?",
+      "acceptedAnswer": { "@type": "Answer", "text": "สำหรับ Standard account XS.com และ Pepperstone มี spread XAUUSD ใกล้เคียงกันที่ 18–20 pts และ stable ไม่ spike ช่วงข่าว Exness ~16 pts avg แต่ spike ช่วงข่าว สำหรับ ECN/Raw account Exness Zero และ XS Elite spread ต่ำกว่ามากแต่มี commission" }
+    },
+    {
+      "@type": "Question",
+      "name": "XAUUSD กับ XAU/USD ต่างกันยังไง?",
+      "acceptedAnswer": { "@type": "Answer", "text": "เป็น symbol เดียวกัน — ทองคำเทียบ USD โบรกแต่ละรายใช้ชื่อต่างกัน บางรายใช้ XAUUSD บางรายใช้ XAU/USD หรือ Gold บางรายอาจมี suffix เช่น XAUUSDm สำหรับบัญชีบางประเภท" }
+    },
+    {
+      "@type": "Question",
+      "name": "Stable float spread กับ variable spread ต่างกันอย่างไร?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Variable spread เปลี่ยนตามสภาวะตลาด — ปกติต่ำแต่ spike สูงมากช่วงข่าว Stable float spread (แบบ XS.com) คงที่มากกว่า ทำให้ต้นทุนการเทรดช่วงข่าวควบคุมได้ เหมาะกับ trader ที่เทรด NFP หรือ CPI" }
+    },
+    {
+      "@type": "Question",
+      "name": "ค่า commission กับ spread รวมกันแล้วอะไรสำคัญกว่า?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ต้องดู total cost รวมกัน บัญชีที่ spread ต่ำแต่ commission สูงอาจแพงกว่าบัญชี Standard ที่ spread สูงกว่าเล็กน้อย ทีมซุปเต่าแนะนำคำนวณเป็น total cost per lot = spread value + (commission per side × 2)" }
+    },
+    {
+      "@type": "Question",
+      "name": "ทำไมต้องดู entity ที่ลูกค้าไทยได้จริง ไม่ใช่แค่โลโก้บนเว็บ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "โบรกหลายรายแสดงโลโก้ ASIC หรือ FCA บนเว็บ แต่ลูกค้าไทยถูก assign ให้อยู่ภายใต้ offshore entity (Seychelles, Belize, SVG) ซึ่งมีการคุ้มครองต่ำกว่ามาก ต้องตรวจสอบว่า entity จริงที่ดูแลบัญชีคุณคือ entity ไหน" }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .pillar-hero { margin-bottom: 28px; }
+  .pillar-hero h1 { font-size: 28px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 8px; color: var(--t1); }
+  .pillar-hero p { font-size: 14px; color: var(--t2); line-height: 1.7; max-width: 680px; }
+  .criteria-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0; }
+  .criteria-item { display: flex; gap: 8px; font-size: 13px; color: var(--t2); align-items: flex-start; }
+  .criteria-item::before { content: '✓'; color: var(--safe); font-weight: 700; flex-shrink: 0; }
+  .master-table-wrap { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; margin: 24px 0; }
+  .master-table { width: 100%; min-width: 700px; border-collapse: collapse; font-size: 12px; }
+  .master-table th { padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700; color: var(--t3); letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--bdr); background: var(--bg); }
+  .master-table td { padding: 11px 14px; border-bottom: 1px solid var(--bdr); color: var(--t2); }
+  .master-table tr:last-child td { border-bottom: none; }
+  .master-table tr.top-row td { background: var(--gp); }
+  .broker-link { font-weight: 700; color: var(--t1); }
+  .broker-tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 10px; background: var(--gp); color: var(--gd); margin-left: 4px; vertical-align: middle; }
+  .spread-stable { color: var(--safe); font-weight: 700; }
+  .spread-variable { color: var(--warn); font-weight: 700; }
+  .spread-high { color: var(--avoid); font-weight: 700; }
+  .broker-section { border: 1px solid var(--bdr); border-radius: var(--rl); padding: 20px; margin-bottom: 20px; background: var(--surf); }
+  .broker-section h3 { font-size: 16px; font-weight: 800; margin-bottom: 12px; color: var(--t1); }
+  .usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+  .usecase-card { background: var(--bg); border: 1px solid var(--bdr); border-radius: var(--r); padding: 16px; }
+  .usecase-title { font-size: 12px; font-weight: 700; color: var(--gd); margin-bottom: 6px; }
+  .usecase-text { font-size: 12px; color: var(--t2); line-height: 1.6; }
+  @media (max-width: 720px) {
+    .criteria-list { grid-template-columns: 1fr; }
+    .usecase-grid { grid-template-columns: 1fr; }
+    .pillar-hero h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<Nav />
+<div class="wrap">
+
+  <p style="font-size:12px;color:var(--t3);margin-bottom:16px;">
+    <a href="/" style="color:var(--t3);text-decoration:none;">หน้าหลัก</a> › โบรก XAUUSD ที่ดีที่สุดในไทย
+  </p>
+
+  <div class="pillar-hero">
+    <div class="page-tag">คู่มือ XAUUSD 2026</div>
+    <h1>โบรก XAUUSD ที่ดีที่สุดสำหรับนักเทรดไทย 2026</h1>
+    <p>เปรียบ spread จริง, regulation entity ที่ลูกค้าไทยได้จริง, ค่า rebate และวิธีเลือกโบรกที่เหมาะกับสไตล์การเทรดของคุณ — ข้อมูลจากการทดสอบจริงและ IB data ภายใน</p>
+  </div>
+
+  <AuthorBox reviewDate="มิ.ย. 2026" />
+  <p class="risk-warning">⚠️ การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินลงทุนทั้งหมด เนื้อหานี้มีวัตถุประสงค์เพื่อให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำทางการเงิน</p>
+
+  <div class="article-body">
+
+    <h2>ทำไม XAUUSD ถึงสำคัญสำหรับนักเทรดไทย</h2>
+    <p>XAUUSD หรือ Gold คือ instrument ที่นักเทรดไทยนิยมมากที่สุด เพราะมี liquidity สูง เคลื่อนไหวทุกวัน และ leverage ที่โบรกส่วนใหญ่ให้ทำให้ควบคุม position size ได้ดี อย่างไรก็ตาม spread ของ XAUUSD แตกต่างระหว่างโบรกมาก — จาก ~16 pts (Exness avg) ถึง ~37 pts (HFM) ซึ่งส่งผลต่อต้นทุนสุทธิอย่างมีนัยสำคัญ โดยเฉพาะถ้าคุณเทรดหลาย lot ต่อวัน</p>
+
+    <h2>เกณฑ์ที่ทีมซุปเต่าใช้เลือก</h2>
+    <div class="criteria-list">
+      <div class="criteria-item">Spread stability — ต่ำและ stable ช่วงข่าว</div>
+      <div class="criteria-item">Regulation Tier-1 จริง — ไม่ใช่แค่โลโก้</div>
+      <div class="criteria-item">Rebate — ลดต้นทุนสุทธิได้จริง</div>
+      <div class="criteria-item">ถอนเงินไทย — PromptPay / bank ไทย</div>
+      <div class="criteria-item">Entity ที่ลูกค้าไทยได้จริง</div>
+      <div class="criteria-item">Platform ที่รองรับสไตล์การเทรด</div>
+    </div>
+
+    <h2>ตารางเปรียบเทียบ XAUUSD Standard Account</h2>
+    <div class="master-table-wrap">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="master-table">
+          <thead>
+            <tr>
+              <th>โบรก</th>
+              <th>XAUUSD Spread (ปกติ)</th>
+              <th>Spread ช่วงข่าว</th>
+              <th>Regulation</th>
+              <th>Rebate/lot</th>
+              <th>เหมาะกับ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="top-row">
+              <td><a href="/reviews/xs-com" class="broker-link">XS.com</a> <span class="broker-tag">⭐ แนะนำ</span></td>
+              <td><span class="spread-stable">18–20 pts</span></td>
+              <td><span class="spread-stable">~20–25 pts (stable)</span></td>
+              <td>ASIC, CySEC, FSCA +5</td>
+              <td style="color:var(--safe);font-weight:700;">$6–9 (Standard)</td>
+              <td>Gold trader, Swing</td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/exness" class="broker-link">Exness</a></td>
+              <td><span class="spread-stable">~16 pts avg</span></td>
+              <td><span class="spread-variable">spike ช่วงข่าว</span></td>
+              <td>FCA, CySEC, FSA</td>
+              <td style="color:var(--t3);">เร็วๆ นี้</td>
+              <td>ถอนเร็ว, มือใหม่</td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/pepperstone" class="broker-link">Pepperstone</a></td>
+              <td><span class="spread-stable">18–20 pts</span></td>
+              <td><span class="spread-variable">spike ช่วงข่าว</span></td>
+              <td>ASIC, FCA, CySEC</td>
+              <td style="color:var(--safe);font-weight:700;">$1.8–5/lot</td>
+              <td>TradingView user</td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/hfm" class="broker-link">HFM</a></td>
+              <td><span class="spread-variable">~25 pts</span></td>
+              <td><span class="spread-high">~30–40 pts</span></td>
+              <td>CySEC, FCA, DFSA</td>
+              <td style="color:var(--t3);">เร็วๆ นี้</td>
+              <td>กลาง</td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/xm" class="broker-link">XM</a></td>
+              <td><span class="spread-variable">~22 pts</span></td>
+              <td><span class="spread-high">spike ถึง 37+ pts</span></td>
+              <td>CySEC, ASIC, DFSA</td>
+              <td style="color:var(--t3);">เร็วๆ นี้</td>
+              <td>มือใหม่ เท่านั้น</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:8px 14px;font-size:10px;color:var(--t3);background:var(--bg);border-top:1px solid var(--bdr);">
+        Standard Account · ข้อมูล ณ มิ.ย. 2026 · 1 pt = $0.01 สำหรับ XAUUSD · เลื่อนตารางซ้าย-ขวาได้บนมือถือ
+      </div>
+    </div>
+
+    <h2>XS.com — ตัวเลือกที่ดีที่สุดสำหรับ Gold Trader</h2>
+    <div class="broker-section">
+      <h3>XS.com <span style="font-size:12px;color:var(--safe);font-weight:400;">TurtlePip Score 8.8</span></h3>
+      <p>XS.com โดดเด่นที่ XAUUSD spread 18–20 pts แบบ <strong>Stable Float</strong> — ไม่ spike ช่วงข่าว NFP/CPI/FOMC ต่างจากคู่แข่งที่อาจ spike ได้ถึง 37+ pts ช่วงข่าวใหญ่ นอกจากนี้ยังมี $5M Lloyd's insurance ที่คู่แข่งในกลุ่มไม่มี และ Swap-free 5 วันอัตโนมัติไม่ต้องยื่นขอ</p>
+      <p><strong>จุดเด่น:</strong> Stable spread · $5M insurance · Swap-free อัตโนมัติ · Trading Miles</p>
+      <p><strong>ข้อด้อย:</strong> ไม่มี mobile app เป็นของตัวเอง · EURUSD spread สูงกว่า Pepperstone เล็กน้อย</p>
+      <p><a href="/reviews/xs-com" style="color:var(--gd);font-weight:700;">อ่านรีวิว XS.com ฉบับเต็ม →</a></p>
+    </div>
+
+    <h2>Exness — เหมาะถ้าเน้นถอนเงินเร็ว</h2>
+    <div class="broker-section">
+      <h3>Exness <span style="font-size:12px;color:var(--safe);font-weight:400;">TurtlePip Score 8.8</span></h3>
+      <p>Exness มี XAUUSD Standard spread ~16 pts avg ซึ่งต่ำกว่าหลายคู่แข่ง แต่เป็น variable spread ที่ spike ได้ช่วงข่าว จุดเด่นที่แตกต่างชัดเจนคือ <strong>Instant Withdrawal</strong> ที่ไวที่สุดในกลุ่ม, Stop out 0% และ Mobile app ที่ดีที่สุด ลูกค้าไทยส่วนใหญ่อยู่ภายใต้ entity SC (Seychelles) ซึ่งเป็น offshore ไม่ใช่ FCA/CySEC โดยตรง</p>
+      <p><strong>จุดเด่น:</strong> Instant withdrawal · Stop out 0% · Mobile app ดีที่สุด</p>
+      <p><strong>ข้อด้อย:</strong> Spread spike ช่วงข่าว · Entity ไทยเป็น offshore</p>
+      <p><a href="/reviews/exness" style="color:var(--gd);font-weight:700;">อ่านรีวิว Exness ฉบับเต็ม →</a></p>
+    </div>
+
+    <h2>Pepperstone — เหมาะสำหรับ TradingView User</h2>
+    <div class="broker-section">
+      <h3>Pepperstone <span style="font-size:12px;color:#1D4ED8;font-weight:400;">TurtlePip Score 7.9</span></h3>
+      <p>Pepperstone มี XAUUSD Standard spread 18–20 pts และ Razor (ECN) ที่ spread เริ่ม 0.0 pip + $3.5/side ซึ่งเหมาะ scalper จุดเด่นที่ไม่มีคู่แข่งคือ <strong>TradingView Native</strong> — เชื่อมต่อและส่งออเดอร์จาก TradingView ได้โดยตรง ไม่ต้องสลับหน้าต่าง นอกจากนี้ยังมีรีเบท $1.8–5/lot ผ่านทีมซุปเต่าแล้ว</p>
+      <p><strong>จุดเด่น:</strong> TradingView native · Regulation ดีที่สุดในกลุ่ม (8 licenses) · มี rebate แล้ว</p>
+      <p><strong>ข้อด้อย:</strong> ไม่มี Thai support · Spread spike ช่วงข่าว</p>
+      <p><a href="/reviews/pepperstone" style="color:var(--gd);font-weight:700;">อ่านรีวิว Pepperstone ฉบับเต็ม →</a></p>
+    </div>
+
+    <h2>สรุปแนะนำตาม Use Case</h2>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-title">เน้น stable spread ช่วงข่าว</div>
+        <div class="usecase-text"><strong>→ XS.com</strong> Stable Float 18–20 pts ทั้งช่วงปกติและข่าว + rebate $6–9/lot</div>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">เน้นถอนเงินเร็วที่สุด</div>
+        <div class="usecase-text"><strong>→ Exness</strong> Instant Withdrawal ไวที่สุดในกลุ่ม + Mobile app ดีที่สุด</div>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">ใช้ TradingView เทรด</div>
+        <div class="usecase-text"><strong>→ Pepperstone</strong> TradingView Native เชื่อมต่อโดยตรง + rebate $1.8–5/lot</div>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">มือใหม่ต้องการ seminar ไทย</div>
+        <div class="usecase-text"><strong>→ XM (แบบจำกัด)</strong> Education ดี, ฝาก ฿350 แต่ spread สูง ไม่เหมาะ active trader</div>
+      </div>
+    </div>
+
+    <h2>คำถามที่พบบ่อย</h2>
+    <div itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-section">
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">โบรก XAUUSD spread ต่ำสุดในไทยคือโบรกไหน?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">สำหรับ Standard account XS.com และ Pepperstone มี spread 18–20 pts stable ไม่ spike Exness ~16 pts avg แต่ spike ช่วงข่าว สำหรับ ECN account Exness Zero และ XS Elite spread ต่ำกว่ามากแต่มี commission</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">XAUUSD กับ XAU/USD ต่างกันยังไง?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">เป็น symbol เดียวกัน — ทองคำเทียบ USD โบรกแต่ละรายใช้ชื่อต่างกัน บางรายอาจมี suffix เช่น XAUUSDm สำหรับบัญชีบางประเภท</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Stable float spread กับ variable spread ต่างกันอย่างไร?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Variable spread เปลี่ยนตามตลาด — ปกติต่ำแต่ spike ช่วงข่าว Stable float (แบบ XS.com) คงที่มากกว่า ทำให้ต้นทุนช่วงข่าวควบคุมได้</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">ค่า commission กับ spread รวมกันแล้วอะไรสำคัญกว่า?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">ต้องดู total cost รวมกัน = spread value + (commission per side × 2) บัญชี spread ต่ำแต่ commission สูงอาจแพงกว่า Standard account</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">ทำไมต้องดู entity ที่ลูกค้าไทยได้จริง?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">โบรกหลายรายแสดงโลโก้ ASIC/FCA แต่ลูกค้าไทยถูก assign ให้อยู่ภายใต้ offshore entity ที่มีการคุ้มครองต่ำกว่ามาก ต้องตรวจสอบว่า entity จริงที่ดูแลบัญชีคุณคือ entity ไหน</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin:28px 0; padding:16px; background:var(--bg); border:1px solid var(--bdr); border-radius:var(--r); font-size:13px; color:var(--t2);">
+      บทความที่เกี่ยวข้อง:
+      <a href="/lowest-spread-broker" style="color:var(--gd);font-weight:600;">โบรก Spread ต่ำสุดในไทย — เปรียบ Total Cost</a> ·
+      <a href="/compare/pepperstone-vs-exness" style="color:var(--gd);font-weight:600;">Pepperstone vs Exness เปรียบทุกมิติ</a> ·
+      <a href="/reviews/xs-com" style="color:var(--gd);font-weight:600;">รีวิว XS.com ฉบับเต็ม</a>
+    </div>
+
+  </div>
+</div>
+<Footer />
+</body>
+</html>

@@ -1,0 +1,292 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>โบรก Spread ต่ำสุดในไทย 2026 — XAUUSD เปรียบจริง | TurtlePip</title>
+<meta name="description" content="เปรียบโบรก spread ต่ำสุดสำหรับนักเทรดไทย 2026 — XAUUSD total cost จริงรวมค่าคอม และผลของรีเบทต่อต้นทุนสุทธิ">
+<link rel="canonical" href="https://turtlepip.com/lowest-spread-broker">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "โบรก Spread ต่ำสุดในไทย 2026 — XAUUSD + Rebate",
+  "url": "https://turtlepip.com/lowest-spread-broker",
+  "dateModified": "2026-06-24",
+  "author": { "@type": "Organization", "name": "ทีมซุปเต่า", "url": "https://turtlepip.com" },
+  "publisher": { "@type": "Organization", "name": "TurtlePip", "url": "https://turtlepip.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Spread กับ commission ต่างกันยังไง อันไหนสำคัญกว่า?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Spread คือส่วนต่างระหว่าง bid/ask ที่จ่ายเมื่อเปิดออเดอร์ Commission คือค่าธรรมเนียมต่อ lot แยกต่างหาก (บางบัญชีเท่านั้น) ที่สำคัญกว่าคือ total cost = spread value + (commission × 2) ถ้ามี บัญชีที่ spread ต่ำแต่ commission สูงอาจแพงกว่า Standard account ที่ spread สูงกว่าเล็กน้อย" }
+    },
+    {
+      "@type": "Question",
+      "name": "Stable spread กับ variable spread ต่างกันอย่างไรในทางปฏิบัติ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Variable spread เปลี่ยนตามสภาวะตลาด — ปกติดูต่ำแต่ spike ได้ 2–5 เท่าช่วงข่าวสำคัญ (NFP, CPI, FOMC) Stable float spread เช่นของ XS.com คงที่มากกว่า ทำให้ต้นทุนช่วงข่าวควบคุมได้ สำหรับ trader ที่เทรดช่วงข่าว stable spread มีมูลค่าสูงกว่า spread เฉลี่ยที่ต่ำกว่าเล็กน้อย" }
+    },
+    {
+      "@type": "Question",
+      "name": "รีเบทช่วยลดต้นทุนได้จริงไหม คิดเป็นเท่าไหร่?",
+      "acceptedAnswer": { "@type": "Answer", "text": "จริงมาก — XS.com Standard account gross cost ~$19/lot หักรีเบท $7 (mid tier) = net cost ~$12/lot ลดลง 37% เทียบกับ Exness ~$16 ที่ไม่มีรีเบท XS.com จึง net cost ต่ำกว่า Exness แม้ spread จะสูงกว่า" }
+    },
+    {
+      "@type": "Question",
+      "name": "โบรก spread ต่ำสุดในไทยตอนนี้คือโบรกไหน (Standard account)?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard account ไม่มี commission: Exness ~16 pts avg ต่ำสุด แต่ spike ช่วงข่าว XS.com และ Pepperstone 18–20 pts แต่ stable กว่า เมื่อรวม rebate: XS.com net cost ~$10–13/lot ต่ำสุดในกลุ่มสำหรับ trader ที่เทรดปริมาณพอควร" }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .pillar-h1 { font-size: 26px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 8px; }
+  .cost-table-wrap { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; margin: 20px 0; }
+  .cost-table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 12px; }
+  .cost-table th { padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 700; color: var(--t3); letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--bdr); background: var(--bg); }
+  .cost-table td { padding: 10px 12px; border-bottom: 1px solid var(--bdr); color: var(--t2); }
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-table tr.winner td { background: var(--gp); }
+  .net-win { color: var(--safe); font-weight: 800; }
+  .net-mid { color: var(--warn); font-weight: 700; }
+  .net-high { color: var(--avoid); font-weight: 700; }
+  .spread-stable { color: var(--safe); font-weight: 700; }
+  .spread-var { color: var(--warn); font-weight: 700; }
+  .calc-box { background: var(--gp); border: 1px solid #C3E6A0; border-radius: var(--rl); padding: 20px; margin: 24px 0; }
+  .calc-box-title { font-size: 14px; font-weight: 800; color: var(--gd); margin-bottom: 12px; }
+  .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 13px; }
+  .calc-row:last-child { border-bottom: none; font-weight: 700; color: var(--gd); }
+  .calc-label { color: var(--t2); }
+  .calc-val { font-family: monospace; font-weight: 700; color: var(--t1); }
+  .ecn-table-wrap { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; margin: 16px 0; }
+  .ecn-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12px; }
+  .ecn-table th { padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 700; color: var(--t3); letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--bdr); background: var(--bg); }
+  .ecn-table td { padding: 10px 12px; border-bottom: 1px solid var(--bdr); color: var(--t2); }
+  .ecn-table tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+<Nav />
+<div class="wrap">
+
+  <p style="font-size:12px;color:var(--t3);margin-bottom:16px;">
+    <a href="/" style="color:var(--t3);text-decoration:none;">หน้าหลัก</a> › โบรก Spread ต่ำสุดในไทย
+  </p>
+
+  <div class="page-tag">คู่มือ Spread 2026</div>
+  <h1 class="pillar-h1">โบรก Spread ต่ำสุดในไทย 2026 — XAUUSD + Rebate</h1>
+  <p style="font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:20px;max-width:680px;">Spread ต่ำ ≠ ต้นทุนต่ำเสมอ — ต้องดู total cost รวม commission และ rebate ด้วย บทความนี้เปรียบเทียบต้นทุนจริงต่อ lot รวมทุกค่าใช้จ่าย</p>
+
+  <AuthorBox reviewDate="มิ.ย. 2026" />
+  <p class="risk-warning">⚠️ การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินลงทุนทั้งหมด เนื้อหานี้มีวัตถุประสงค์เพื่อให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำทางการเงิน</p>
+
+  <div class="article-body">
+
+    <h2>Section 1: Spread vs Total Cost — สิ่งที่โบรกไม่บอกคุณ</h2>
+    <p>นักเทรดหลายคนดูแค่ spread ตัวเลขที่โบรกแสดง แต่ต้นทุนจริงต่อ 1 lot XAUUSD คือ <strong>total cost = spread value (USD) + commission (ถ้ามี) − rebate</strong> บัญชีที่ spread 0.0 pip แต่ commission $7/round turn อาจแพงกว่า Standard account ที่ spread 18 pts สำหรับ low-frequency trader และยิ่งถ้ามี rebate เข้ามา สมการเปลี่ยนไปมาก</p>
+
+    <h2>Section 2: XAUUSD Standard Account — Total Cost จริง</h2>
+    <div class="cost-table-wrap">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>โบรก</th>
+              <th>Spread (ปกติ)</th>
+              <th>Spread (ข่าว)</th>
+              <th>ประเภท</th>
+              <th>Commission</th>
+              <th>Gross cost/lot</th>
+              <th>Rebate (ซุปเต่า)</th>
+              <th>Net cost หลัง rebate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td><a href="/reviews/xs-com" style="font-weight:700;color:var(--t1);">XS.com ⭐</a></td>
+              <td><span class="spread-stable">18–20 pts</span></td>
+              <td><span class="spread-stable">~20–25 pts</span></td>
+              <td><span class="spread-stable">Stable float ✓</span></td>
+              <td>$0</td>
+              <td>~$19</td>
+              <td style="color:var(--safe);font-weight:700;">$6–9</td>
+              <td><span class="net-win">~$10–13</span></td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/exness" style="font-weight:700;color:var(--t1);">Exness</a></td>
+              <td><span class="spread-stable">~16 pts avg</span></td>
+              <td><span class="spread-var">spike</span></td>
+              <td><span class="spread-var">Variable</span></td>
+              <td>$0</td>
+              <td>~$16</td>
+              <td style="color:var(--t3);">เร็วๆ นี้</td>
+              <td><span class="net-mid">~$16</span></td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/pepperstone" style="font-weight:700;color:var(--t1);">Pepperstone</a></td>
+              <td><span class="spread-stable">18–20 pts</span></td>
+              <td><span class="spread-var">spike</span></td>
+              <td><span class="spread-var">Variable</span></td>
+              <td>$0</td>
+              <td>~$19</td>
+              <td style="color:var(--safe);font-weight:700;">$1.8–5</td>
+              <td><span class="net-mid">~$14–17</span></td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/hfm" style="font-weight:700;color:var(--t1);">HFM</a></td>
+              <td><span class="spread-var">~25 pts</span></td>
+              <td><span class="net-high">~30–40 pts</span></td>
+              <td><span class="spread-var">Variable</span></td>
+              <td>$0</td>
+              <td>~$25</td>
+              <td style="color:var(--t3);">เร็วๆ นี้</td>
+              <td><span class="net-high">~$25</span></td>
+            </tr>
+            <tr>
+              <td><a href="/reviews/xm" style="font-weight:700;color:var(--t1);">XM</a></td>
+              <td><span class="spread-var">~22 pts</span></td>
+              <td><span class="net-high">spike ถึง 37+</span></td>
+              <td><span class="spread-var">Variable</span></td>
+              <td>$0</td>
+              <td>~$22</td>
+              <td style="color:var(--t3);">เร็วๆ นี้</td>
+              <td><span class="net-high">~$22</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:8px 12px;font-size:10px;color:var(--t3);background:var(--bg);border-top:1px solid var(--bdr);">Standard Account · ข้อมูล ณ มิ.ย. 2026 · 1 pt = $0.01 · Gross cost คำนวณจาก spread avg mid-point · เลื่อนซ้าย-ขวาบนมือถือ</div>
+    </div>
+
+    <div class="calc-box">
+      <div class="calc-box-title">ตัวอย่างการคำนวณ — XS.com vs Exness Standard, 1 lot XAUUSD</div>
+      <div class="calc-row">
+        <span class="calc-label">XS.com spread ~19 pts = gross cost</span>
+        <span class="calc-val">~$19/lot</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">หักรีเบท Standard mid-tier ($7/lot)</span>
+        <span class="calc-val">−$7</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">Net cost XS.com หลังรีเบท</span>
+        <span class="calc-val" style="color:var(--gd);">~$12/lot</span>
+      </div>
+      <div class="calc-row" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.1);">
+        <span class="calc-label">Exness spread ~16 pts = gross cost</span>
+        <span class="calc-val">~$16/lot</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">รีเบท Exness (ปัจจุบัน)</span>
+        <span class="calc-val">$0</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-label">Net cost Exness</span>
+        <span class="calc-val" style="color:var(--warn);">~$16/lot</span>
+      </div>
+      <p style="font-size:12px;color:var(--gd);font-weight:700;margin:12px 0 0;">→ XS.com หลังรีเบทถูกกว่า Exness ~$4/lot แม้ spread จะสูงกว่า</p>
+    </div>
+
+    <h2>Section 3: Stable Spread คืออะไร ทำไมสำคัญ</h2>
+    <p>นักเทรดมักสังเกตว่า spread ที่โบรกแสดงบนเว็บกับ spread จริงตอนเทรดช่วงข่าวต่างกันมาก — นั่นเพราะ variable spread ที่ปกติดูต่ำ แต่ spike ได้ 2–5 เท่าช่วง NFP (US Non-Farm Payroll), CPI (เงินเฟ้อสหรัฐ) หรือ FOMC (ประชุม Fed)</p>
+    <p>XS.com ใช้ Stable Float spread สำหรับ XAUUSD — spread อยู่ที่ 18–20 pts ทั้งช่วงปกติและช่วงข่าว ต่างจากโบรกอื่นที่อาจ spike ถึง 37+ pts ช่วงข่าวใหญ่ ถ้าคุณเทรดช่วงข่าว ความแตกต่างนี้สำคัญมาก</p>
+
+    <h2>Section 4: ECN/Elite Account — สำหรับ Scalper ที่ต้องการ Spread ต่ำมาก</h2>
+    <p>สำหรับ scalper ที่เทรดปริมาณมากต่อวัน บัญชี ECN/Raw account มี spread ต่ำกว่ามากแต่มี commission ต้องคำนวณ total cost ให้ครบ:</p>
+    <div class="ecn-table-wrap">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="ecn-table">
+          <thead>
+            <tr>
+              <th>บัญชี</th>
+              <th>Spread XAUUSD</th>
+              <th>Commission</th>
+              <th>Total cost/lot</th>
+              <th>เหมาะกับ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>XS Elite</strong></td>
+              <td style="color:var(--safe);font-weight:700;">~5–8 pts</td>
+              <td>$3/side ($6 RT)</td>
+              <td style="color:var(--safe);font-weight:700;">~$11–14</td>
+              <td>Scalper, High volume</td>
+            </tr>
+            <tr>
+              <td><strong>Exness Raw/Zero</strong></td>
+              <td style="color:var(--safe);font-weight:700;">0–5 pts</td>
+              <td>$3.5/side ($7 RT)</td>
+              <td style="color:var(--safe);font-weight:700;">~$7–12</td>
+              <td>Scalper, EA</td>
+            </tr>
+            <tr>
+              <td><strong>Pepperstone Razor</strong></td>
+              <td style="color:var(--safe);font-weight:700;">0–13 pts</td>
+              <td>$3.5/side ($7 RT)</td>
+              <td style="color:var(--safe);font-weight:700;">~$7–20</td>
+              <td>Scalper, TradingView</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:8px 12px;font-size:10px;color:var(--t3);background:var(--bg);border-top:1px solid var(--bdr);">ก่อนหักรีเบท · ข้อมูล ณ มิ.ย. 2026</div>
+    </div>
+
+    <h2>คำถามที่พบบ่อย</h2>
+    <div itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-section">
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Spread กับ commission ต่างกันยังไง อันไหนสำคัญกว่า?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Spread คือส่วนต่าง bid/ask จ่ายเมื่อเปิดออเดอร์ Commission คือค่าธรรมเนียมต่อ lot (บางบัญชีเท่านั้น) สิ่งสำคัญกว่าคือ total cost = spread value + commission × 2 บัญชี spread ต่ำแต่ commission สูงอาจแพงกว่า Standard ที่ spread สูงกว่าเล็กน้อย</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Stable spread กับ variable spread ต่างกันอย่างไรในทางปฏิบัติ?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Variable spread ดูต่ำในเวลาปกติ แต่ spike ได้ 2–5 เท่าช่วงข่าว Stable float (XS.com) คงที่มากกว่า ทำให้ต้นทุนช่วงข่าวควบคุมได้ สำหรับ trader ที่เทรดช่วงข่าว stable spread มีมูลค่าสูง</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">รีเบทช่วยลดต้นทุนได้จริงไหม คิดเป็นเท่าไหร่?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">จริงมาก — XS.com Standard gross cost ~$19/lot หักรีเบท $7 = net ~$12/lot ลดลง 37% เทียบกับ Exness ~$16 ไม่มีรีเบท XS.com net cost ต่ำกว่าแม้ spread จะสูงกว่า</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">โบรก spread ต่ำสุดในไทยตอนนี้คือโบรกไหน (Standard account)?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Standard account ไม่มี commission: Exness ~16 pts avg ต่ำสุด แต่ spike ช่วงข่าว เมื่อรวม rebate: XS.com net cost ~$10–13/lot ต่ำสุดในกลุ่ม</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin:28px 0;padding:16px;background:var(--bg);border:1px solid var(--bdr);border-radius:var(--r);font-size:13px;color:var(--t2);">
+      บทความที่เกี่ยวข้อง:
+      <a href="/reviews/xs-com" style="color:var(--gd);font-weight:600;">รีวิว XS.com</a> ·
+      <a href="/reviews/exness" style="color:var(--gd);font-weight:600;">รีวิว Exness</a> ·
+      <a href="/reviews/pepperstone" style="color:var(--gd);font-weight:600;">รีวิว Pepperstone</a> ·
+      <a href="/best-gold-broker-thailand" style="color:var(--gd);font-weight:600;">โบรก XAUUSD ดีที่สุดในไทย</a> ·
+      <a href="/compare/pepperstone-vs-exness" style="color:var(--gd);font-weight:600;">Pepperstone vs Exness</a>
+    </div>
+
+  </div>
+</div>
+<Footer />
+</body>
+</html>

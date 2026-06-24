@@ -1,0 +1,224 @@
+---
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+---
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pepperstone vs Exness 2026 — เปรียบทุกมิติ XAUUSD + Rebate | TurtlePip</title>
+<meta name="description" content="เปรียบ Pepperstone vs Exness 2026 — spread XAUUSD จริง, regulation entity ไทย, ถอนเงิน, rebate ซุปเต่า และโบรกไหนเหมาะกับสไตล์คุณ">
+<link rel="canonical" href="https://turtlepip.com/compare/pepperstone-vs-exness">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pepperstone vs Exness 2026 — เปรียบทุกมิติ XAUUSD + Rebate",
+  "url": "https://turtlepip.com/compare/pepperstone-vs-exness",
+  "dateModified": "2026-06-24",
+  "author": { "@type": "Organization", "name": "ทีมซุปเต่า", "url": "https://turtlepip.com" },
+  "publisher": { "@type": "Organization", "name": "TurtlePip", "url": "https://turtlepip.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pepperstone กับ Exness ต่างกันที่สำคัญที่สุดคืออะไร?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ต่างกัน 3 จุดหลัก: (1) Platform — Pepperstone มี TradingView native, Exness ไม่มี (2) ถอนเงิน — Exness Instant, Pepperstone 1–3 วัน (3) Rebate — Pepperstone มี $1.8–5/lot แล้ว, Exness ยังไม่มี" }
+    },
+    {
+      "@type": "Question",
+      "name": "ค่า spread XAUUSD สองโบรกนี้ต่างกันมากไหม?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard account: Pepperstone 18–20 pts, Exness ~16 pts avg — ใกล้เคียงกัน แต่ทั้งคู่ spike ช่วงข่าว ความแตกต่างชัดเจนขึ้นเมื่อรวม rebate: Pepperstone หลังหักรีเบท $1.8–5/lot ทำให้ net cost ต่ำกว่า Exness ที่ยังไม่มีรีเบท" }
+    },
+    {
+      "@type": "Question",
+      "name": "โบรกไหนถอนเงินเร็วกว่า?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Exness ชนะชัดเจน — Instant Withdrawal ส่วนใหญ่ไม่เกิน 1 ชั่วโมง Pepperstone 1–3 วันทำการ ถ้าถอนเงินเร็วเป็นปัจจัยหลัก Exness เหมาะกว่า" }
+    },
+    {
+      "@type": "Question",
+      "name": "ถ้าเทรดทอง scalping ควรเลือกโบรกไหน?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pepperstone Razor account: spread 0.0 pip + $3.5/side commission + rebate $3–5/lot ทำให้ net cost ต่ำมาก เหมาะ scalper ที่ต้องการ TradingView สำหรับ scalper ที่ไม่ใช้ TradingView และต้องการถอนเงินเร็ว Exness Raw Spread + Zero account เป็นตัวเลือกที่ดี" }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .vs-hero { margin-bottom: 24px; }
+  .vs-hero h1 { font-size: 26px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 10px; }
+  .verdict-quick { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+  .verdict-card { border-radius: var(--rl); padding: 16px; border: 2px solid var(--bdr); }
+  .verdict-card.pp { border-color: #0565F8; background: #EFF6FF; }
+  .verdict-card.ex { border-color: var(--gd); background: var(--gp); }
+  .verdict-broker { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .verdict-broker.pp { color: #0565F8; }
+  .verdict-broker.ex { color: var(--gd); }
+  .verdict-use { font-size: 12px; color: var(--t2); line-height: 1.6; }
+  .compare-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0; background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); overflow: hidden; margin-bottom: 24px; }
+  .cg-head { background: var(--bg); padding: 10px 14px; font-size: 11px; font-weight: 700; color: var(--t3); letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid var(--bdr); }
+  .cg-row { display: contents; }
+  .cg-cell { padding: 11px 14px; border-bottom: 1px solid var(--bdr); font-size: 12px; color: var(--t2); }
+  .cg-cell.label { font-weight: 600; color: var(--t1); background: var(--bg); }
+  .cg-cell.winner { color: var(--safe); font-weight: 700; }
+  .cg-cell.loser { color: var(--t3); }
+  .section-h2 { font-size: 18px; font-weight: 800; margin: 28px 0 12px; color: var(--t1); }
+  .dual-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+  .cta-box { border-radius: var(--rl); padding: 20px; text-align: center; }
+  .cta-box.pp { background: #EFF6FF; border: 1px solid #BFDBFE; }
+  .cta-box.ex { background: var(--gp); border: 1px solid #C3E6A0; }
+  .cta-box-name { font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .cta-box.pp .cta-box-name { color: #0565F8; }
+  .cta-box.ex .cta-box-name { color: var(--gd); }
+  .cta-box-desc { font-size: 12px; color: var(--t2); margin-bottom: 14px; line-height: 1.6; }
+  .cta-box-btn { display: inline-block; border-radius: 8px; padding: 10px 20px; font-size: 13px; font-weight: 700; text-decoration: none; }
+  .cta-box.pp .cta-box-btn { background: #0565F8; color: white; }
+  .cta-box.ex .cta-box-btn { background: var(--gd); color: white; }
+  @media (max-width: 640px) {
+    .verdict-quick { grid-template-columns: 1fr; }
+    .dual-cta { grid-template-columns: 1fr; }
+    .vs-hero h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<Nav />
+<div class="wrap">
+
+  <p style="font-size:12px;color:var(--t3);margin-bottom:16px;">
+    <a href="/" style="color:var(--t3);text-decoration:none;">หน้าหลัก</a> ›
+    <a href="/compare" style="color:var(--t3);text-decoration:none;">เปรียบเทียบ</a> ›
+    Pepperstone vs Exness
+  </p>
+
+  <div class="vs-hero">
+    <div class="page-tag">เปรียบเทียบ 2026</div>
+    <h1>Pepperstone vs Exness — เปรียบละเอียดทุกมิติ 2026</h1>
+  </div>
+
+  <div class="verdict-quick">
+    <div class="verdict-card pp">
+      <div class="verdict-broker pp">Pepperstone</div>
+      <div class="verdict-use">เน้นรีเบท + TradingView — เหมาะ TradingView user ที่ต้องการ rebate และ regulation ดีที่สุด</div>
+    </div>
+    <div class="verdict-card ex">
+      <div class="verdict-broker ex">Exness</div>
+      <div class="verdict-use">เน้นถอนเงินเร็ว + leverage สูง — เหมาะคนที่ต้องการ Instant withdrawal, Stop out 0% และ mobile app</div>
+    </div>
+  </div>
+
+  <AuthorBox reviewDate="มิ.ย. 2026" />
+  <p class="risk-warning">⚠️ การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินลงทุนทั้งหมด เนื้อหานี้มีวัตถุประสงค์เพื่อให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำทางการเงิน</p>
+
+  <h2 class="section-h2">ตารางเปรียบเทียบ Quick</h2>
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+    <table style="width:100%;min-width:480px;border-collapse:collapse;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl);overflow:hidden;font-size:12px;">
+      <thead>
+        <tr>
+          <th style="padding:9px 14px;text-align:left;background:var(--bg);border-bottom:1px solid var(--bdr);font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;">หัวข้อ</th>
+          <th style="padding:9px 14px;text-align:left;background:#EFF6FF;border-bottom:1px solid var(--bdr);font-size:11px;font-weight:700;color:#0565F8;letter-spacing:.06em;text-transform:uppercase;">Pepperstone</th>
+          <th style="padding:9px 14px;text-align:left;background:var(--gp);border-bottom:1px solid var(--bdr);font-size:11px;font-weight:700;color:var(--gd);letter-spacing:.06em;text-transform:uppercase;">Exness</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">Founded</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">2010</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">2008</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">Licenses</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--safe);font-weight:700;">8 ใบ (ASIC, FCA, CySEC +5)</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">7 ใบ (FCA, CySEC, FSA +4)</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">XAUUSD Standard</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--warn);">18–20 pts (spike ช่วงข่าว)</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--warn);">~16 pts avg (spike ช่วงข่าว)</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">EURUSD Standard</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--safe);font-weight:700;">0.7–1.1 pips</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">0.6–1.5 pips</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">Min deposit</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">฿500</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--safe);font-weight:700;">$0</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">ถอนเงิน</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">1–3 วันทำการ</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--safe);font-weight:700;">Instant</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">Platform</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--safe);font-weight:700;">MT4, MT5, cTrader, TradingView</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">MT4, MT5, App</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">Stop out</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t2);">20%</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--safe);font-weight:700;">0%</td></tr>
+        <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);">Fund insurance</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t3);">ไม่มี</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);color:var(--t3);">ไม่มี</td></tr>
+        <tr><td style="padding:10px 14px;font-weight:600;color:var(--t1);">Rebate (ซุปเต่า)</td><td style="padding:10px 14px;color:var(--safe);font-weight:700;">✅ $1.8–5/lot</td><td style="padding:10px 14px;color:var(--t3);">เร็วๆ นี้</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="article-body">
+
+    <h2 class="section-h2">1. Regulation — Entity ที่ลูกค้าไทยได้จริง</h2>
+    <p>ทั้ง Pepperstone และ Exness มี Tier-1 licenses แต่ลูกค้าไทยส่วนใหญ่ถูก assign ภายใต้ offshore entity — Pepperstone ภายใต้ SCB (Bahamas) และ Exness ภายใต้ SC (Seychelles) ซึ่งไม่ใช่ ASIC หรือ FCA โดยตรง</p>
+    <p>อย่างไรก็ตาม ทั้งสองโบรกมีประวัติการดำเนินงานยาวนานและได้รับความไว้วางใจจากนักเทรดทั่วโลก การมี offshore entity ไม่ได้หมายความว่าอันตราย แต่ต่างจาก ASIC/FCA direct ในด้านกองทุนคุ้มครอง ถ้าต้องการ regulation ดีที่สุดสำหรับ Thai client — XS.com มี ASIC entity ที่ครอบคลุมกว้างกว่า</p>
+
+    <h2 class="section-h2">2. Spread + Cost XAUUSD — เปรียบ Total Cost รวม Rebate</h2>
+    <p>Standard account: Exness ~16 pts avg vs Pepperstone 18–20 pts — Exness spread ต่ำกว่าเล็กน้อย แต่ทั้งคู่ spike ช่วงข่าว เมื่อรวม rebate: Pepperstone Standard $1.8–2.5/lot หรือ Razor $3–5/lot ทำให้ net cost หลังรีเบทต่ำกว่า Exness ที่ยังไม่มีรีเบท</p>
+    <p>ตัวอย่างการคำนวณ (Standard account, 1 lot XAUUSD): Pepperstone spread ~$19 − rebate $2/lot = net $17 vs Exness spread ~$16 − $0 = net $16 — ใกล้เคียงกัน แต่ถ้าใช้ Razor account + rebate $4/lot: $7 commission + rebate $4 = net $3/lot ต่ำกว่ามาก</p>
+
+    <h2 class="section-h2">3. การถอนเงิน — Exness ชนะชัด</h2>
+    <p>Exness Instant Withdrawal คือจุดต่างที่ชัดเจนที่สุด — ส่วนใหญ่ไม่เกิน 1 ชั่วโมง ไม่ว่าจะเป็น PromptPay, โอนธนาคาร หรือ Crypto Pepperstone ใช้เวลา 1–3 วันทำการ ถ้าคุณต้องการถอนเงินไว Exness เหมาะกว่าชัดเจน</p>
+
+    <h2 class="section-h2">4. Platform — Pepperstone ชนะสำหรับ TradingView + Algo</h2>
+    <p>Pepperstone รองรับ TradingView Native — เชื่อมต่อและส่งออเดอร์จาก TradingView ได้โดยตรง ไม่ต้องสลับหน้าต่าง และยังมี cTrader สำหรับ algo trader นอกเหนือจาก MT4/MT5 Exness มี MT4/MT5 + Mobile App ที่ดีที่สุดในกลุ่ม แต่ไม่มี TradingView Native หรือ cTrader</p>
+
+    <h2 class="section-h2">5. Rebate — Pepperstone มีแล้ว, Exness ยังรอ</h2>
+    <p>Pepperstone มีรีเบท $1.8–5/lot ผ่านทีมซุปเต่าแล้ว สมัครผ่านลิงค์ของเราได้เลย Exness ยังไม่มีโปรแกรมรีเบทอย่างเป็นทางการผ่านทีมซุปเต่า — ติดตามอัปเดตได้ที่หน้า <a href="/rebate" style="color:var(--gd);">Rebate</a></p>
+
+    <h2 class="section-h2">6. เหมาะกับใคร — สรุปตาม Use Case</h2>
+    <p><strong>เลือก Pepperstone ถ้า:</strong> ใช้ TradingView เทรด · ต้องการ cTrader สำหรับ EA · ต้องการ rebate ทันที · ต้องการ regulation ดีที่สุด (8 licenses)</p>
+    <p><strong>เลือก Exness ถ้า:</strong> ต้องการถอนเงินเร็ว (Instant) · ต้องการ Stop out 0% · ใช้ mobile app เป็นหลัก · ต้องการ leverage สูง (1:Unlimited) · ต้องการ min deposit $0</p>
+
+    <h2 class="section-h2">คำถามที่พบบ่อย</h2>
+    <div itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-section">
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">Pepperstone กับ Exness ต่างกันที่สำคัญที่สุดคืออะไร?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">3 จุดหลัก: (1) Platform — Pepperstone มี TradingView native, Exness ไม่มี (2) ถอนเงิน — Exness Instant, Pepperstone 1–3 วัน (3) Rebate — Pepperstone มี $1.8–5/lot แล้ว, Exness ยังไม่มี</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">ค่า spread XAUUSD สองโบรกนี้ต่างกันมากไหม?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Standard account: Pepperstone 18–20 pts, Exness ~16 pts avg — ใกล้เคียงกัน แต่เมื่อรวม rebate Pepperstone net cost ต่ำกว่า</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">โบรกไหนถอนเงินเร็วกว่า?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Exness ชนะชัด — Instant Withdrawal ส่วนใหญ่ไม่เกิน 1 ชั่วโมง Pepperstone 1–3 วันทำการ</p>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 itemprop="name">ถ้าเทรดทอง scalping ควรเลือกโบรกไหน?</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Pepperstone Razor: spread 0.0 pip + $3.5/side + rebate $3–5/lot = net cost ต่ำมาก เหมาะ scalper ที่ใช้ TradingView สำหรับ scalper ที่ต้องการถอนเงินเร็ว Exness Raw/Zero account เป็นทางเลือกที่ดีเช่นกัน</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dual-cta">
+    <div class="cta-box pp">
+      <div class="cta-box-name">Pepperstone</div>
+      <div class="cta-box-desc">TradingView Native · 8 licenses · Rebate $1.8–5/lot</div>
+      <a href="/reviews/pepperstone" class="cta-box-btn">อ่านรีวิวเต็ม →</a>
+    </div>
+    <div class="cta-box ex">
+      <div class="cta-box-name">Exness</div>
+      <div class="cta-box-desc">Instant Withdrawal · Stop out 0% · Mobile app ดีที่สุด</div>
+      <a href="/reviews/exness" class="cta-box-btn">อ่านรีวิวเต็ม →</a>
+    </div>
+  </div>
+
+  <div style="margin:20px 0;font-size:13px;color:var(--t2);">
+    บทความที่เกี่ยวข้อง:
+    <a href="/best-gold-broker-thailand" style="color:var(--gd);font-weight:600;">โบรก XAUUSD ที่ดีที่สุดในไทย</a> ·
+    <a href="/lowest-spread-broker" style="color:var(--gd);font-weight:600;">โบรก Spread ต่ำสุดในไทย</a> ·
+    <a href="/reviews/xs-com" style="color:var(--gd);font-weight:600;">รีวิว XS.com</a>
+  </div>
+
+</div>
+<Footer />
+</body>
+</html>
