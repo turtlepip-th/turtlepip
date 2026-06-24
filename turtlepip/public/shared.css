@@ -336,3 +336,18 @@ body { overflow-x: hidden; max-width: 100%; }
 .checklist-green li { display: flex; gap: 10px; font-size: 13px; color: var(--t2); line-height: 1.6; margin-bottom: 8px; }
 .checklist-green li::before { content: '✓'; color: var(--safe); font-weight: 700; flex-shrink: 0; }
 .page-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gd); background: var(--gp); padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+
+
+/* --- Global utility classes (rebate/pillar pages) --- */
+.btn-cta { display:inline-block; background:var(--gd); color:white; border:1.5px solid var(--gd); border-radius:8px; padding:11px 20px; font-size:13px; font-weight:700; text-decoration:none; font-family:var(--f); cursor:pointer; }
+.btn-cta:hover { opacity:.9; }
+.article-table { width:100%; border-collapse:collapse; font-size:13px; }
+.article-table th { padding:9px 14px; text-align:left; font-size:11px; font-weight:700; color:var(--t3); letter-spacing:.06em; text-transform:uppercase; border-bottom:1px solid var(--bdr); background:var(--bg); }
+.article-table td { padding:10px 14px; border-bottom:1px solid var(--bdr); color:var(--t2); }
+.article-table tr:last-child td { border-bottom:none; }
+.warn-box { background:var(--warnbg); border:1px solid #FDE68A; border-radius:var(--r); padding:14px 18px; margin:16px 0; font-size:13px; color:#713F12; line-height:1.7; }
+.highlight { background:var(--gp); border-left:3px solid var(--gd); border-radius:0 var(--r) var(--r) 0; padding:14px 18px; margin:16px 0; font-size:13px; color:var(--t1); line-height:1.7; }
+.data-card { background:var(--surf); border:1px solid var(--bdr); border-radius:var(--rl); overflow:hidden; margin-bottom:20px; }
+hr.divider { border:none; border-top:1px solid var(--bdr); margin:40px 0; }
+/* --- LINE contact box --- */
+.line-contact-box { background:var(--bg); border:1px solid var(--bdr); border-radius:var(--rl); margin:24px 0; }

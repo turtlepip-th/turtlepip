@@ -13,30 +13,14 @@ const chipRange = (vals: number[]) => `$${fmtNum(vals[0])}–${fmtNum(vals[1])}`
 const pointsRange = (vals: number[]) => `${vals[0].toLocaleString()}–${vals[1].toLocaleString()}`;
 
 const faqs = [
-  {
-    q: 'Rebate จะเข้าเมื่อไหร่?',
-    a: 'Rebate คำนวณจาก volume การเทรดและจ่ายอัตโนมัติ ไม่ต้อง claim เอง ระยะเวลาขึ้นอยู่กับระบบ XS.com',
-  },
-  {
-    q: 'ต้องเทรด minimum กี่ lot ถึงได้ rebate?',
-    a: 'ทุก lot ที่เทรดได้ rebate ไม่มีขั้นต่ำ ไม่ว่าจะเป็น 0.01 lot หรือ 10 lot ก็ได้ cashback เหมือนกัน',
-  },
-  {
-    q: 'ถ้าเทรดขาดทุนก็ได้ rebate ไหม?',
-    a: 'ได้ครับ — Rebate คำนวณจาก volume ที่เทรด ไม่ใช่ผลกำไร ดังนั้นไม่ว่า trade จะปิดกำไรหรือขาดทุนก็ได้ cashback เหมือนกัน',
-  },
-  {
-    q: 'ทำไม range rebate ถึงไม่บอกตัวเลขแน่นอน?',
-    a: 'Rebate rate ขึ้นอยู่กับ volume รวมของ portfolio ทั้งหมด — ยิ่งเทรดมาก rate ยิ่งดีขึ้น ทีมซุปเต่าจะให้ rate ที่ดีที่สุดที่ทำได้เสมอ',
-  },
-  {
-    q: 'มีค่าธรรมเนียมในการรับ rebate ไหม?',
-    a: 'ไม่มีครับ — Rebate ฟรี 100% ไม่มีค่าสมาชิก ไม่มีค่าธรรมเนียม คุณได้รับ cashback เพิ่มโดยไม่เสียอะไร',
-  },
-  {
-    q: 'สามารถใช้กับทุก account type ได้ไหม?',
-    a: 'ตารางด้านบนแสดง Standard account — account type อื่นมี rebate rate ต่างกัน ติดต่อทีมซุปเต่าเพื่อสอบถามเพิ่มเติม',
-  },
+  { q: 'Rebate จะเข้าเมื่อไหร่?', a: 'XS.com จ่าย rebate อัตโนมัติทุก lot ไม่ต้อง claim Pepperstone และ Exness จ่ายหลังจาก activate กับทีมซุปเต่าแล้ว ระยะเวลาขึ้นกับแต่ละโบรก' },
+  { q: 'ต้องเทรด minimum กี่ lot ถึงได้ rebate?', a: 'ทุก lot ที่เทรดได้ rebate ไม่มีขั้นต่ำ ไม่ว่าจะเป็น 0.01 lot หรือ 100 lot ก็ได้ cashback เหมือนกัน' },
+  { q: 'ถ้าเทรดขาดทุนก็ได้ rebate ไหม?', a: 'ได้ครับ — Rebate คำนวณจาก volume ที่เทรด ไม่ใช่ผลกำไร ดังนั้นไม่ว่า trade จะปิดกำไรหรือขาดทุนก็ได้ cashback เหมือนกัน' },
+  { q: 'ทำไม range rebate ถึงไม่บอกตัวเลขแน่นอน?', a: 'XS.com: rate ขึ้นกับ volume tier ยิ่งเทรดมาก rate ยิ่งดี Pepperstone: rate คงที่ตาม account type Exness: rate คงที่ตาม account type ทีมซุปเต่าให้ rate ดีที่สุดที่ทำได้เสมอ' },
+  { q: 'มีค่าธรรมเนียมในการรับ rebate ไหม?', a: 'ไม่มีครับ — Rebate ฟรี 100% ไม่มีค่าสมาชิก ไม่มีค่าธรรมเนียม คุณได้รับ cashback เพิ่มโดยไม่เสียอะไร' },
+  { q: 'สามารถใช้กับทุก account type ได้ไหม?', a: 'ได้ แต่ rate ต่างกันตาม account type ดูตารางอัตราในแต่ละโบรกด้านล่าง หรือติดต่อทีมซุปเต่าผ่าน LINE OA เพื่อสอบถาม' },
+  { q: 'Pepperstone rebate ต้องทำอะไรบ้าง?', a: 'ถ้ายังไม่มีบัญชี — สมัครผ่านลิงค์ TurtlePip แล้ว rebate จะเข้าอัตโนมัติทุก lot ถ้ามีบัญชีอยู่แล้ว — ติดต่อทีมซุปเต่าผ่าน LINE OA เพื่อย้าย IB มาอยู่ใต้เรา ไม่มีค่าใช้จ่าย' },
+  { q: 'Exness rebate ทำไมต้องสมัครใหม่?', a: 'Exness ไม่อนุญาตให้ย้าย IB หลังสมัครแล้ว ต้องเปิด account ใหม่ผ่านลิงค์ TurtlePip เท่านั้น ถ้าสมัครผ่าน link อื่นแล้ว account นั้นจะไม่ได้รับ rebate จากเรา' },
 ];
 ---
 
@@ -45,378 +29,242 @@ const faqs = [
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>รับ Rebate จาก XS.com — คืนเงินทุก lot ที่เทรด | TurtlePip</title>
-<meta name="description" content="รับ cashback คืนทุก lot ที่เทรดกับ XS.com ผ่าน TurtlePip — XAUUSD สูงสุด $3–5/lot อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม">
+<title>รับ Rebate จาก XS.com · Pepperstone · Exness — คืนเงินทุก lot | TurtlePip</title>
+<meta name="description" content="รับ cashback คืนทุก lot จาก XS.com, Pepperstone และ Exness ผ่านทีมซุปเต่า — XAUUSD สูงสุด $5/lot ไม่ว่าจะกำไรหรือขาดทุน">
+<link rel="canonical" href="https://turtlepip.com/rebate">
 <link rel="stylesheet" href="/shared.css">
 <style>
   /* HERO */
-  .rebate-hero {
-    background: var(--gd);
-    padding: 48px 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .rebate-hero::before {
-    content: '';
-    position: absolute;
-    width: 300px; height: 300px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 50%;
-    top: -100px; right: -80px;
-  }
-  .rebate-hero::after {
-    content: '';
-    position: absolute;
-    width: 200px; height: 200px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 50%;
-    bottom: -60px; left: -40px;
-  }
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.15);
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-  }
-  .rebate-hero h1 {
-    font-size: 32px;
-    font-weight: 800;
-    color: white;
-    letter-spacing: -.5px;
-    line-height: 1.25;
-    margin-bottom: 12px;
-    position: relative;
-  }
-  .rebate-hero p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.8);
-    max-width: 520px;
-    margin: 0 auto 28px;
-    line-height: 1.7;
-    position: relative;
-  }
-  .hero-btns {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-  }
-  .btn-hero-main {
-    background: white;
-    color: var(--gd);
-    border: none;
-    border-radius: 10px;
-    padding: 14px 28px;
-    font-size: 14px;
-    font-weight: 800;
-    cursor: pointer;
-    font-family: var(--f);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .btn-hero-sub {
-    background: rgba(255,255,255,0.15);
-    color: white;
-    border: 1.5px solid rgba(255,255,255,0.4);
-    border-radius: 10px;
-    padding: 14px 28px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: var(--f);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-  }
+  .rebate-hero { background:var(--gd); padding:48px 28px; text-align:center; position:relative; overflow:hidden; }
+  .rebate-hero::before { content:''; position:absolute; width:300px; height:300px; background:rgba(255,255,255,0.04); border-radius:50%; top:-100px; right:-80px; }
+  .rebate-hero::after  { content:''; position:absolute; width:200px; height:200px; background:rgba(255,255,255,0.04); border-radius:50%; bottom:-60px; left:-40px; }
+  .hero-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); color:white; font-size:12px; font-weight:700; padding:5px 14px; border-radius:20px; margin-bottom:16px; }
+  .rebate-hero h1 { font-size:32px; font-weight:800; color:white; letter-spacing:-.5px; line-height:1.25; margin-bottom:12px; position:relative; }
+  .rebate-hero p { font-size:15px; color:rgba(255,255,255,0.82); max-width:520px; margin:0 auto 28px; line-height:1.7; position:relative; }
+  .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; position:relative; }
+  .btn-hero-main { background:white; color:var(--gd); border:none; border-radius:10px; padding:14px 28px; font-size:14px; font-weight:800; cursor:pointer; font-family:var(--f); text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .btn-hero-sub  { background:rgba(255,255,255,0.15); color:white; border:1.5px solid rgba(255,255,255,0.4); border-radius:10px; padding:14px 28px; font-size:14px; font-weight:600; cursor:pointer; font-family:var(--f); text-decoration:none; display:inline-flex; align-items:center; }
 
-  /* STATS CHIPS */
-  .stats-chips {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 20px 28px;
-    background: var(--surf);
-    border-bottom: 1px solid var(--bdr);
-  }
-  .stat-chip {
-    text-align: center;
-    padding: 12px 20px;
-    background: var(--bg);
-    border-radius: var(--r);
-    border: 1px solid var(--bdr);
-  }
-  .stat-chip-val { font-size: 20px; font-weight: 800; color: var(--gd); font-family: monospace; }
-  .stat-chip-label { font-size: 11px; color: var(--t3); margin-top: 2px; }
+  /* FACTS GRID */
+  .facts-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; padding:20px 28px; background:var(--surf); border-bottom:1px solid var(--bdr); }
+  .fact-card { text-align:center; padding:14px 10px; background:var(--bg); border-radius:var(--r); border:1px solid var(--bdr); }
+  .fact-num { font-size:20px; font-weight:800; color:var(--gd); font-family:monospace; margin-bottom:3px; }
+  .fact-label { font-size:11px; color:var(--t3); line-height:1.4; }
 
   /* SECTION */
-  .section { max-width: 860px; margin: 0 auto; padding: 40px 28px; }
-  .section-title {
-    font-size: 22px; font-weight: 800; letter-spacing: -.3px;
-    margin-bottom: 6px; color: var(--t1);
-  }
-  .section-sub { font-size: 13px; color: var(--t2); margin-bottom: 24px; line-height: 1.6; }
+  .section { max-width:900px; margin:0 auto; padding:40px 28px; }
+  .section-h2 { font-size:22px; font-weight:800; letter-spacing:-.3px; margin-bottom:14px; color:var(--t1); scroll-margin-top:80px; }
+  .section-sub { font-size:13px; color:var(--t2); margin-bottom:20px; line-height:1.6; }
 
   /* HOW IT WORKS */
-  .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 40px; }
-  .step-card {
-    background: var(--surf);
-    border: 1px solid var(--bdr);
-    border-radius: var(--rl);
-    padding: 20px;
-    text-align: center;
-  }
-  .step-num {
-    width: 36px; height: 36px;
-    background: var(--gd); color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 800;
-    margin: 0 auto 12px;
-  }
-  .step-title { font-size: 13px; font-weight: 700; color: var(--t1); margin-bottom: 6px; }
-  .step-text  { font-size: 12px; color: var(--t2); line-height: 1.6; }
+  .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:32px; }
+  .step-card { background:var(--surf); border:1px solid var(--bdr); border-radius:var(--rl); padding:20px; text-align:center; }
+  .step-num { width:36px; height:36px; background:var(--gd); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; margin:0 auto 12px; }
+  .step-title { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:6px; }
+  .step-text  { font-size:12px; color:var(--t2); line-height:1.6; }
 
   /* REBATE TABLE */
-  .rebate-card {
-    background: var(--surf);
-    border: 1px solid var(--bdr);
-    border-radius: var(--rl);
-    overflow: hidden;
-    margin-bottom: 32px;
-  }
-  .rebate-card-head {
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--bdr);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .rebate-card-title { font-size: 13px; font-weight: 700; color: var(--t1); }
-  .rebate-note { font-size: 11px; color: var(--t3); }
-  .rtable { width: 100%; border-collapse: collapse; }
-  .rtable th {
-    padding: 9px 16px;
-    font-size: 11px; font-weight: 700; color: var(--t3);
-    letter-spacing: .06em; text-transform: uppercase;
-    border-bottom: 1px solid var(--bdr);
-    background: var(--bg); text-align: left;
-  }
-  .rtable th.center { text-align: center; }
-  .rtable td { padding: 12px 16px; border-bottom: 1px solid var(--bdr); font-size: 13px; color: var(--t2); }
-  .rtable td.center { text-align: center; }
-  .rtable tr:last-child td { border-bottom: none; }
-  .rtable tr:hover td { background: var(--bg); }
-  .symbol-name { font-weight: 700; color: var(--t1); }
-  .symbol-desc { font-size: 11px; color: var(--t3); margin-top: 1px; }
-  .rebate-range {
-    font-weight: 800; font-family: monospace;
-    color: var(--safe); font-size: 14px;
-  }
-  .you-get {
-    background: var(--gp);
-    color: var(--gd);
-    font-weight: 800;
-    font-family: monospace;
-    font-size: 13px;
-    padding: 3px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-  .popular-badge {
-    background: #FEF3C7; color: #92400E;
-    font-size: 9px; font-weight: 700;
-    padding: 2px 6px; border-radius: 10px;
-    margin-left: 6px; vertical-align: middle;
-  }
-  .table-footer {
-    padding: 10px 16px;
-    font-size: 11px; color: var(--t3);
-    background: var(--bg);
-    border-top: 1px solid var(--bdr);
-    line-height: 1.6;
-  }
+  .rebate-card { background:var(--surf); border:1px solid var(--bdr); border-radius:var(--rl); overflow:hidden; margin-bottom:24px; }
+  .rebate-card-head { padding:14px 20px; border-bottom:1px solid var(--bdr); display:flex; align-items:center; justify-content:space-between; }
+  .rebate-card-title { font-size:13px; font-weight:700; color:var(--t1); }
+  .rebate-note { font-size:11px; color:var(--t3); }
+  .rtable { width:100%; border-collapse:collapse; }
+  .rtable th { padding:9px 16px; font-size:11px; font-weight:700; color:var(--t3); letter-spacing:.06em; text-transform:uppercase; border-bottom:1px solid var(--bdr); background:var(--bg); text-align:left; }
+  .rtable th.center { text-align:center; }
+  .rtable td { padding:12px 16px; border-bottom:1px solid var(--bdr); font-size:13px; color:var(--t2); }
+  .rtable td.center { text-align:center; }
+  .rtable tr:last-child td { border-bottom:none; }
+  .rtable tr:hover td { background:var(--bg); }
+  .symbol-name { font-weight:700; color:var(--t1); }
+  .symbol-desc { font-size:11px; color:var(--t3); margin-top:1px; }
+  .rebate-range { font-weight:800; font-family:monospace; color:var(--safe); font-size:14px; }
+  .you-get { background:var(--gp); color:var(--gd); font-weight:800; font-family:monospace; font-size:13px; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+  .popular-badge { background:#FEF3C7; color:#92400E; font-size:9px; font-weight:700; padding:2px 6px; border-radius:10px; margin-left:6px; vertical-align:middle; }
+  .table-footer { padding:10px 16px; font-size:11px; color:var(--t3); background:var(--bg); border-top:1px solid var(--bdr); line-height:1.6; }
 
   /* CASE CARDS */
-  .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-  .case-card {
-    border-radius: var(--rl);
-    overflow: hidden;
-    border: 1px solid var(--bdr);
-  }
-  .case-head {
-    padding: 16px 20px;
-    font-size: 14px; font-weight: 800;
-    border-bottom: 1px solid var(--bdr);
-  }
-  .case-card.new .case-head { background: var(--gp); color: var(--gd); }
-  .case-card.transfer .case-head { background: #EFF6FF; color: #1D4ED8; }
-  .case-body { padding: 20px; background: var(--surf); }
-  .case-steps { list-style: none; padding: 0; }
-  .case-steps li {
-    display: flex; gap: 12px;
-    font-size: 13px; color: var(--t2);
-    margin-bottom: 14px; line-height: 1.5;
-  }
-  .case-steps li:last-child { margin-bottom: 0; }
-  .case-step-num {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700;
-    flex-shrink: 0; margin-top: 1px;
-  }
-  .case-card.new    .case-step-num { background: var(--gp); color: var(--gd); }
-  .case-card.transfer .case-step-num { background: #EFF6FF; color: #1D4ED8; }
-  .btn-case {
-    width: 100%;
-    padding: 12px;
-    border: none; border-radius: 8px;
-    font-size: 13px; font-weight: 700;
-    cursor: pointer; font-family: var(--f);
-    margin-top: 16px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-  }
-  .case-card.new .btn-case { background: var(--gd); color: white; }
-  .case-card.transfer .btn-case { background: #1D4ED8; color: white; }
+  .cases-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:32px; }
+  .case-card { border-radius:var(--rl); overflow:hidden; border:1px solid var(--bdr); }
+  .case-head { padding:16px 20px; font-size:14px; font-weight:800; border-bottom:1px solid var(--bdr); }
+  .case-card.new .case-head { background:var(--gp); color:var(--gd); }
+  .case-card.transfer .case-head { background:#EFF6FF; color:#1D4ED8; }
+  .case-body { padding:20px; background:var(--surf); }
+  .case-steps { list-style:none; padding:0; }
+  .case-steps li { display:flex; gap:12px; font-size:13px; color:var(--t2); margin-bottom:14px; line-height:1.5; }
+  .case-steps li:last-child { margin-bottom:0; }
+  .case-step-num { width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; margin-top:1px; }
+  .case-card.new .case-step-num { background:var(--gp); color:var(--gd); }
+  .case-card.transfer .case-step-num { background:#EFF6FF; color:#1D4ED8; }
+  .btn-case { width:100%; padding:12px; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; font-family:var(--f); margin-top:16px; text-decoration:none; display:block; text-align:center; }
+  .case-card.new .btn-case { background:var(--gd); color:white; }
+  .case-card.transfer .btn-case { background:#1D4ED8; color:white; }
 
-  /* EMAIL TEMPLATE BOX */
-  .email-box {
-    background: var(--bg);
-    border: 1px solid var(--bdr);
-    border-radius: var(--r);
-    padding: 16px;
-    font-size: 12px;
-    color: var(--t2);
-    line-height: 1.8;
-    margin-top: 12px;
-    font-family: monospace;
-  }
-  .copy-btn {
-    background: var(--surf);
-    border: 1px solid var(--bdr);
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: var(--f);
-    color: var(--t2);
-    margin-top: 10px;
-    width: 100%;
-  }
-  .copy-btn:active { background: var(--gp); color: var(--gd); }
+  /* EMAIL */
+  .email-box { background:var(--bg); border:1px solid var(--bdr); border-radius:var(--r); padding:16px; font-size:12px; color:var(--t2); line-height:1.8; margin-top:12px; font-family:monospace; }
+  .copy-btn { background:var(--surf); border:1px solid var(--bdr); border-radius:6px; padding:6px 12px; font-size:11px; font-weight:600; cursor:pointer; font-family:var(--f); color:var(--t2); margin-top:10px; width:100%; }
+  .copy-btn:active { background:var(--gp); color:var(--gd); }
 
   /* FAQ */
-  .faq-card {
-    background: var(--surf);
-    border: 1px solid var(--bdr);
-    border-radius: var(--rl);
-    overflow: hidden;
-    margin-bottom: 32px;
-  }
-  .faq-item { border-bottom: 1px solid var(--bdr); }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-q {
-    padding: 14px 20px;
-    font-size: 13px; font-weight: 700; color: var(--t1);
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .faq-q:hover { background: var(--bg); }
-  .faq-a {
-    padding: 0 20px 14px;
-    font-size: 13px; color: var(--t2);
-    line-height: 1.75; display: none;
-  }
-  .faq-a.open { display: block; }
-  .faq-arrow { font-size: 12px; color: var(--t3); transition: transform 0.2s; }
-  .faq-arrow.open { transform: rotate(180deg); }
+  .faq-card { background:var(--surf); border:1px solid var(--bdr); border-radius:var(--rl); overflow:hidden; margin-bottom:32px; }
+  .faq-item { border-bottom:1px solid var(--bdr); }
+  .faq-item:last-child { border-bottom:none; }
+  .faq-q { padding:14px 20px; font-size:13px; font-weight:700; color:var(--t1); cursor:pointer; display:flex; align-items:center; justify-content:space-between; }
+  .faq-q:hover { background:var(--bg); }
+  .faq-a { padding:0 20px 14px; font-size:13px; color:var(--t2); line-height:1.75; display:none; }
+  .faq-a.open { display:block; }
+  .faq-arrow { font-size:12px; color:var(--t3); transition:transform 0.2s; }
+  .faq-arrow.open { transform:rotate(180deg); }
 
   /* CTA BOTTOM */
-  .cta-bottom {
-    background: var(--gd);
-    border-radius: var(--rl);
-    padding: 32px;
-    text-align: center;
-    margin-bottom: 0;
-  }
-  .cta-bottom h2 { font-size: 22px; font-weight: 800; color: white; margin-bottom: 8px; }
-  .cta-bottom p  { font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; }
-  .btn-cta-big {
-    background: white; color: var(--gd);
-    border: none; border-radius: 10px;
-    padding: 14px 32px; font-size: 14px; font-weight: 800;
-    cursor: pointer; font-family: var(--f);
-    text-decoration: none; display: inline-block;
-  }
+  .cta-bottom { background:var(--gd); border-radius:var(--rl); padding:32px; text-align:center; margin-bottom:0; }
+  .cta-bottom h2 { font-size:22px; font-weight:800; color:white; margin-bottom:8px; }
+  .cta-bottom p  { font-size:13px; color:rgba(255,255,255,0.75); margin-bottom:20px; }
+  .btn-cta-big { background:white; color:var(--gd); border:none; border-radius:10px; padding:14px 32px; font-size:14px; font-weight:800; cursor:pointer; font-family:var(--f); text-decoration:none; display:inline-block; }
 
-  @media (max-width: 700px) {
-    .rebate-hero h1 { font-size: 24px; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .cases-grid { grid-template-columns: 1fr; }
-    .stats-chips { gap: 8px; }
-    .stat-chip { padding: 10px 14px; }
-    .section { padding: 28px 16px; }
-  }
+  /* BROKER SECTION ANCHOR */
+  .broker-section-head { display:flex; align-items:center; gap:14px; margin-bottom:20px; border-bottom:2px solid var(--bdr); padding-bottom:14px; }
+  .broker-section-logo { width:40px; height:40px; border-radius:8px; overflow:hidden; border:1px solid var(--bdr); object-fit:contain; }
 
-.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.tbl-scroll .rtable { min-width: 480px; }
+  @media (max-width:700px) {
+    .rebate-hero h1 { font-size:24px; }
+    .steps-grid { grid-template-columns:1fr; }
+    .cases-grid { grid-template-columns:1fr; }
+    .facts-grid { padding:14px; }
+    .section { padding:28px 16px; }
+  }
+  .tbl-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .tbl-scroll table { min-width:400px; }
 </style>
 </head>
 <body>
 
 <Nav active="rebate" />
 
-<!-- HERO -->
+<!-- SECTION 1 — HERO -->
 <div class="rebate-hero">
-  <div class="hero-tag">Cashback อัตโนมัติ — ทุก lot ที่เทรด</div>
-  <h1>เทรด XS.com ผ่านเรา<br>รับ Rebate คืนทุก lot</h1>
-  <p>ไม่ว่าจะกำไรหรือขาดทุน — ทีมซุปเต่าคืน cashback ให้คุณทุกครั้งที่เทรด อัตโนมัติ ไม่ต้องทำอะไรเพิ่ม</p>
+  <div class="hero-tag">Cashback · คืนเงินทุก lot</div>
+  <h1>รับ Rebate จากโบรกที่คุณเทรดอยู่</h1>
+  <p>ทีมซุปเต่าคืน cashback ให้ทุก lot — ไม่ว่าจะกำไรหรือขาดทุน<br>รองรับ XS.com · Pepperstone · Exness</p>
   <div class="hero-btns">
-    <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-hero-main">
-      สมัครรับ Rebate เลย →
-    </a>
-    <a href="#how-it-works" class="btn-hero-sub">ดูวิธีการ</a>
+    <a href="#xs" class="btn-hero-main">รับ Rebate XS.com →</a>
+    <a href="#pepperstone" class="btn-hero-sub">Pepperstone</a>
+    <a href="#exness" class="btn-hero-sub">Exness</a>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats-chips">
-  <div class="stat-chip">
-    <div class="stat-chip-val">{chipRange(xau.cashbackUsd)}</div>
-    <div class="stat-chip-label">XAUUSD / lot</div>
+<!-- FACTS GRID -->
+<div class="facts-grid">
+  <div class="fact-card">
+    <div class="fact-num">$3–5</div>
+    <div class="fact-label">XS.com XAUUSD / lot</div>
   </div>
-  <div class="stat-chip">
-    <div class="stat-chip-val">{chipRange(btc.cashbackUsd)}</div>
-    <div class="stat-chip-label">BTCUSD / lot</div>
+  <div class="fact-card">
+    <div class="fact-num">$1.8–5</div>
+    <div class="fact-label">Pepperstone XAUUSD / lot</div>
   </div>
-  <div class="stat-chip">
-    <div class="stat-chip-val">อัตโนมัติ</div>
-    <div class="stat-chip-label">ไม่ต้อง claim เอง</div>
+  <div class="fact-card">
+    <div class="fact-num">~$2.56</div>
+    <div class="fact-label">Exness XAUUSD / lot (Standard)</div>
   </div>
-  <div class="stat-chip">
-    <div class="stat-chip-val">ทุก lot</div>
-    <div class="stat-chip-label">กำไรหรือขาดทุนก็ได้</div>
+  <div class="fact-card">
+    <div class="fact-num">ทุก lot</div>
+    <div class="fact-label">กำไรหรือขาดทุนก็ได้</div>
   </div>
 </div>
 
 <div class="section">
 
-  <!-- HOW IT WORKS -->
-  <div id="how-it-works">
-    <div class="section-title">วิธีรับ Rebate</div>
-    <div class="section-sub">ง่ายมาก — สมัครครั้งเดียว รับเงินคืนทุก lot ตลอดไป</div>
+  <!-- SECTION 2 — BROKER COMPARISON CARDS -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:0 0 36px">
+
+    <div class="data-card" style="padding:20px;text-align:center">
+      <img src="/logos/xs.jpg" alt="XS.com" style="height:36px;margin-bottom:12px;object-fit:contain">
+      <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px">XS.com</div>
+      <div style="font-size:22px;font-weight:800;color:var(--gd);margin:8px 0">$3–5<span style="font-size:13px;font-weight:400">/lot XAU</span></div>
+      <span class="badge bsafe" style="display:inline-block;margin-bottom:12px">อัตโนมัติ ไม่ต้อง claim</span>
+      <a href="#xs" class="btn-cta" style="display:block;font-size:13px;padding:10px">รับ Rebate XS →</a>
+    </div>
+
+    <div class="data-card" style="padding:20px;text-align:center">
+      <img src="/logos/pepperstone.png" alt="Pepperstone" style="height:36px;margin-bottom:12px;object-fit:contain">
+      <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px">Pepperstone</div>
+      <div style="font-size:22px;font-weight:800;color:var(--gd);margin:8px 0">$1.8–5<span style="font-size:13px;font-weight:400">/lot XAU</span></div>
+      <span class="badge bwarn" style="display:inline-block;margin-bottom:12px">มีบัญชีอยู่แล้ว ย้ายได้</span>
+      <a href="#pepperstone" class="btn-cta" style="display:block;font-size:13px;padding:10px">รับ Rebate Pepperstone →</a>
+    </div>
+
+    <div class="data-card" style="padding:20px;text-align:center">
+      <img src="/logos/exness.png" alt="Exness" style="height:36px;margin-bottom:12px;object-fit:contain">
+      <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px">Exness</div>
+      <div style="font-size:22px;font-weight:800;color:var(--gd);margin:8px 0">~$2.56<span style="font-size:13px;font-weight:400">/lot XAU</span></div>
+      <span class="badge" style="display:inline-block;margin-bottom:12px;background:#EFF6FF;color:#1D4ED8">สมัครใหม่ผ่านลิงค์เรา</span>
+      <a href="#exness" class="btn-cta" style="display:block;font-size:13px;padding:10px">รับ Rebate Exness →</a>
+    </div>
+
+  </div>
+
+  <!-- SECTION 3 — COMBINED RATE TABLE -->
+  <h2 class="section-h2">อัตรา Rebate เปรียบเทียบ — Standard Account</h2>
+  <div class="data-card">
+    <div class="tbl-scroll">
+      <table class="article-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>XS.com</th>
+            <th>Pepperstone</th>
+            <th>Exness</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XAU/USD (ทอง)</strong></td>
+            <td style="color:var(--gd);font-weight:700">{tableRange(xau.cashbackUsd)}/lot</td>
+            <td style="color:var(--gd);font-weight:700">$1.8–5/lot</td>
+            <td style="color:var(--gd);font-weight:700">~$2.56/lot</td>
+          </tr>
+          <tr>
+            <td>EUR/USD</td>
+            <td>$1–3/lot</td>
+            <td>~$1–2/lot</td>
+            <td>~$0.80/lot</td>
+          </tr>
+          <tr>
+            <td>BTC/USD</td>
+            <td>{tableRange(btc.cashbackUsd)}/lot</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>วิธีรับ</td>
+            <td>อัตโนมัติ</td>
+            <td>ติดต่อ LINE</td>
+            <td>ติดต่อ LINE</td>
+          </tr>
+          <tr>
+            <td>มีบัญชีอยู่แล้ว</td>
+            <td>ย้าย IB ได้</td>
+            <td>ย้ายได้ผ่าน LINE</td>
+            <td>ต้องสมัครใหม่</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p style="font-size:11px;color:var(--t3);margin-top:-12px;margin-bottom:32px">Standard Account · Exness XAUUSD ~16 pts avg · Range ขึ้นกับ volume · อัปเดต มิ.ย. 2026</p>
+
+  <!-- ===================== SECTION 4a — XS.COM ===================== -->
+  <div id="xs">
+    <div class="broker-section-head">
+      <img src="/logos/xs.jpg" alt="XS.com" class="broker-section-logo">
+      <div>
+        <h2 class="section-h2" style="margin-bottom:2px">XS.com — รับ Rebate</h2>
+        <span class="badge bsafe" style="font-size:11px">อัตโนมัติ ทุก lot</span>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="section-sub">สมัครผ่านลิงค์เราครั้งเดียว รับเงินคืนทุก lot ตลอดไป</div>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -434,53 +282,11 @@ const faqs = [
         <div class="step-text">Cashback คำนวณและจ่ายให้อัตโนมัติ ไม่ต้อง claim ไม่ต้องทำอะไรเพิ่ม</div>
       </div>
     </div>
-  </div>
 
-  <!-- REBATE TABLE -->
-  <div class="section-title">อัตรา Rebate — Standard Account</div>
-  <div class="broker-tabs" style="display:flex;gap:8px;margin:12px 0 16px;flex-wrap:wrap;">
-    <button class="btab on" style="padding:8px 18px;border-radius:8px;border:1.5px solid var(--gd);background:var(--gd);color:white;font-size:13px;font-weight:700;font-family:var(--f);cursor:pointer;">XS.com</button>
-    <button class="btab" style="padding:8px 18px;border-radius:8px;border:1px solid var(--bdr);background:var(--surf);color:var(--t2);font-size:13px;font-weight:600;font-family:var(--f);cursor:pointer;" onclick="showPepperstone(this)">Pepperstone</button>
-    <button class="btab" style="padding:8px 18px;border-radius:8px;border:1px solid var(--bdr);background:var(--surf);color:var(--t3);font-size:13px;font-weight:600;font-family:var(--f);cursor:not-allowed;" disabled>Exness — เร็วๆ นี้</button>
-  </div>
-  <div class="section-sub">ตัวเลขด้านล่างคือ cashback ที่คุณจะได้รับจริงต่อ 1 lot — จ่ายอัตโนมัติ ไม่ต้อง claim</div>
-
-  <div class="rebate-card">
-    <div class="rebate-card-head">
-      <span class="rebate-card-title">XS.com — {xsRebate.account}</span>
-      <span class="rebate-note">อัปเดต พ.ค. 2026</span>
-    </div>
-    <div class="tbl-scroll"><table class="rtable">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th class="center">Cashback / lot</th>
-          <th class="center">หน่วย points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {xsRebate.rates.map((rate) => (
-          <tr>
-            <td>
-              <div class="symbol-name">{rate.name} {rate.popular && <span class="popular-badge">ยอดนิยม</span>}</div>
-              <div class="symbol-desc">{rate.desc}</div>
-            </td>
-            <td class="center"><span class="rebate-range">{tableRange(rate.cashbackUsd)}</span></td>
-            <td class="center"><span class="you-get">{pointsRange(rate.points)} pts</span></td>
-          </tr>
-        ))}
-      </tbody>
-    </table></div>
-    <div class="table-footer">
-      Standard Account เท่านั้น · Range ขึ้นอยู่กับ volume การเทรด · Symbol อื่นๆ สอบถามทีมซุปเต่า · ค่าโดยประมาณ อาจแตกต่างตามสภาวะตลาด
-    </div>
-  </div>
-
-  <!-- PEPPERSTONE REBATE CARD (hidden by default) -->
-  <div id="pepperstoneCard" style="display:none;">
+    <!-- XS RATE TABLE -->
     <div class="rebate-card">
       <div class="rebate-card-head">
-        <span class="rebate-card-title">Pepperstone — Standard &amp; Razor Account</span>
+        <span class="rebate-card-title">XS.com — {xsRebate.account}</span>
         <span class="rebate-note">อัปเดต มิ.ย. 2026</span>
       </div>
       <div class="tbl-scroll"><table class="rtable">
@@ -488,141 +294,239 @@ const faqs = [
           <tr>
             <th>Symbol</th>
             <th class="center">Cashback / lot</th>
-            <th class="center">หมายเหตุ</th>
+            <th class="center">หน่วย points</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div class="symbol-name">XAU/USD (ทองคำ) <span class="popular-badge">ยอดนิยม</span></div>
-              <div class="symbol-desc">ทองคำเทียบ US Dollar</div>
-            </td>
-            <td class="center"><span class="rebate-range">~$1.8–5/lot</span></td>
-            <td class="center" style="font-size:11px;color:var(--t3);">Standard–Razor</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="symbol-name">EUR/USD</div>
-              <div class="symbol-desc">ยูโรเทียบ US Dollar</div>
-            </td>
-            <td class="center"><span class="rebate-range">~$1–3/lot</span></td>
-            <td class="center" style="font-size:11px;color:var(--t3);">Standard–Razor</td>
-          </tr>
+          {xsRebate.rates.map((rate) => (
+            <tr>
+              <td>
+                <div class="symbol-name">{rate.name} {rate.popular && <span class="popular-badge">ยอดนิยม</span>}</div>
+                <div class="symbol-desc">{rate.desc}</div>
+              </td>
+              <td class="center"><span class="rebate-range">{tableRange(rate.cashbackUsd)}</span></td>
+              <td class="center"><span class="you-get">{pointsRange(rate.points)} pts</span></td>
+            </tr>
+          ))}
         </tbody>
       </table></div>
       <div class="table-footer">
-        Standard และ Razor account · Range ขึ้นอยู่กับ volume · ข้อมูลจาก Pepperstone IB agreement โดยตรง · อัปเดต มิ.ย. 2026
+        Standard Account เท่านั้น · Range ขึ้นอยู่กับ volume การเทรด · Symbol อื่นๆ สอบถามทีมซุปเต่า · ค่าโดยประมาณ อาจแตกต่างตามสภาวะตลาด
       </div>
     </div>
 
-    <!-- Pepperstone IB transfer template -->
-    <div class="section-title" style="margin-top:0;">ย้าย IB มาใต้ TurtlePip — Pepperstone</div>
+    <!-- XS NEW / TRANSFER -->
+    <div class="section-sub">เลือกตามสถานการณ์ของคุณ</div>
     <div class="cases-grid">
+
       <div class="case-card new">
-        <div class="case-head">ยังไม่มี Pepperstone account</div>
+        <div class="case-head">ยังไม่มี XS.com account</div>
         <div class="case-body">
           <ul class="case-steps">
-            <li><div class="case-step-num">1</div><div>คลิกลิงค์ TurtlePip เพื่อเปิดบัญชี Pepperstone</div></li>
-            <li><div class="case-step-num">2</div><div>Verify เอกสาร และฝากเงิน (ขั้นต่ำ ฿500)</div></li>
-            <li><div class="case-step-num">3</div><div>เทรดได้เลย — Rebate เข้าอัตโนมัติ</div></li>
+            <li><div class="case-step-num">1</div><div>คลิก link ด้านล่างเพื่อเปิดบัญชี XS.com — สมัครตามปกติ</div></li>
+            <li><div class="case-step-num">2</div><div>Verify เอกสาร และฝากเงินเข้าบัญชี</div></li>
+            <li><div class="case-step-num">3</div><div>เทรดได้เลย — Rebate จะเข้าอัตโนมัติทุก lot</div></li>
           </ul>
-          <a href="https://trk.pepperstonepartners.com/aff_c?offer_id=367&aff_id=46363" target="_blank" rel="nofollow noopener sponsored" class="btn-case">
-            สมัคร Pepperstone รับ Rebate →
+          <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-case">
+            สมัคร XS.com รับ Rebate →
           </a>
+          <p style="font-size:10px;color:var(--t3);margin-top:8px;text-align:center">Sponsored · การเทรด CFD มีความเสี่ยงสูง</p>
         </div>
       </div>
+
       <div class="case-card transfer">
-        <div class="case-head">มี Pepperstone account อยู่แล้ว</div>
+        <div class="case-head">มี XS.com account อยู่แล้ว</div>
         <div class="case-body">
           <ul class="case-steps">
-            <li><div class="case-step-num">1</div><div>ส่ง email ขอย้าย IB — ใช้ template ด้านล่าง</div></li>
-            <li><div class="case-step-num">2</div><div>ส่งไปที่ <strong>partners@pepperstone.com</strong></div></li>
-            <li><div class="case-step-num">3</div><div>แจ้งทีมซุปเต่าผ่าน LINE หลัง confirm</div></li>
+            <li><div class="case-step-num">1</div><div>ส่ง email ขอย้าย IB มาใต้ TurtlePip — ใช้ template ด้านล่าง</div></li>
+            <li><div class="case-step-num">2</div><div>ส่งไปที่ <strong>partner@xs.com</strong> — รอ 24-48 ชั่วโมง</div></li>
+            <li><div class="case-step-num">3</div><div>หลัง confirm แจ้งทีมซุปเต่าผ่าน LINE เพื่อ activate rebate</div></li>
           </ul>
-          <div class="email-box" id="ppEmailTemplate">Subject: Assign myself under new IB
-
-Dear Pepperstone Partner team,
-
-Please assign my account [ACCOUNT NUMBER] under IB TurtlePip affiliate.
-
-Thank you</div>
-          <button class="copy-btn" onclick="copyPPEmail()">Copy Email Template</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CASES -->
-  <div class="section-title">เริ่มต้นรับ Rebate</div>
-  <div class="section-sub">เลือกตามสถานการณ์ของคุณ</div>
-
-  <div class="cases-grid">
-
-    <!-- NEW ACCOUNT -->
-    <div class="case-card new">
-      <div class="case-head">ยังไม่มี XS.com account</div>
-      <div class="case-body">
-        <ul class="case-steps">
-          <li>
-            <div class="case-step-num">1</div>
-            <div>คลิก link ด้านล่างเพื่อเปิดบัญชี XS.com — สมัครตามปกติ</div>
-          </li>
-          <li>
-            <div class="case-step-num">2</div>
-            <div>Verify เอกสาร และฝากเงินเข้าบัญชี</div>
-          </li>
-          <li>
-            <div class="case-step-num">3</div>
-            <div>เทรดได้เลย — Rebate จะเข้าอัตโนมัติทุก lot</div>
-          </li>
-        </ul>
-        <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-case">
-          สมัคร XS.com รับ Rebate →
-        </a>
-        <p style="font-size:10px;color:var(--t3);margin-top:8px;text-align:center;">Sponsored · การเทรด CFD มีความเสี่ยงสูง</p>
-      </div>
-    </div>
-
-    <!-- TRANSFER -->
-    <div class="case-card transfer">
-      <div class="case-head">มี XS.com account อยู่แล้ว</div>
-      <div class="case-body">
-        <ul class="case-steps">
-          <li>
-            <div class="case-step-num">1</div>
-            <div>ส่ง email ขอย้าย IB มาใต้ TurtlePip — ใช้ template ด้านล่าง</div>
-          </li>
-          <li>
-            <div class="case-step-num">2</div>
-            <div>ส่งไปที่ <strong>partner@xs.com</strong> — รอ 24-48 ชั่วโมง</div>
-          </li>
-          <li>
-            <div class="case-step-num">3</div>
-            <div>หลัง confirm แจ้งทีมซุปเต่าผ่าน LINE เพื่อ activate rebate</div>
-          </li>
-        </ul>
-
-        <div class="email-box" id="emailTemplate">Subject: Assign myself under new IB
+          <div class="email-box" id="emailTemplate">Subject: Assign myself under new IB
 
 Dear XS Partner team,
 
 Please help to assign myself
 CID: [ใส่ XS Client ID ของคุณ]
-under new IB CID: [TurtlePip CID - เร็วๆ นี้]
+under new IB CID: (ทีมซุปเต่าจะแจ้งให้ทาง LINE)
 
 Thank you</div>
-        <button class="copy-btn" onclick="copyEmail()">Copy Email Template</button>
+          <button class="copy-btn" onclick="copyEmail()">Copy Email Template</button>
+          <a href="#line-contact" class="btn-case" style="margin-top:10px;background:#1D4ED8">แจ้งทีมซุปเต่าหลัง Transfer →</a>
+          <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;margin-top:10px">
+            <img src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png" alt="เพิ่มเพื่อน LINE OA" style="height:36px">
+          </a>
+        </div>
+      </div>
 
-        <a href="#line-contact" class="btn-case" style="margin-top:10px;background:#1D4ED8;">
-          แจ้งทีมซุปเต่าหลัง Transfer →
-        </a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===================== SECTION 4b — PEPPERSTONE ===================== -->
+  <div id="pepperstone">
+    <div class="broker-section-head">
+      <img src="/logos/pepperstone.png" alt="Pepperstone" class="broker-section-logo" style="background:#0565F8">
+      <div>
+        <h2 class="section-h2" style="margin-bottom:2px">Pepperstone — รับ Rebate</h2>
+        <span class="badge bwarn" style="font-size:11px">มีบัญชีอยู่แล้ว ย้ายได้</span>
       </div>
     </div>
 
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px">
+      <div class="fact-card">
+        <div class="fact-num">$1.8–5</div>
+        <div class="fact-label">XAUUSD / lot</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">ติดต่อ LINE</div>
+        <div class="fact-label">วิธีรับ rebate</div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>Pepperstone rebate — อัตราคงที่ตาม account type:</strong> เมื่อสมัครหรือย้ายมาอยู่ใต้ TurtlePip แล้ว cashback จะเข้าอัตโนมัติทุก lot ไม่ต้อง claim ไม่มีขั้นต่ำ
+    </div>
+
+    <div class="rebate-card">
+      <div class="rebate-card-head">
+        <span class="rebate-card-title">Pepperstone — Standard &amp; Razor Account</span>
+        <span class="rebate-note">อัปเดต มิ.ย. 2026</span>
+      </div>
+      <div class="tbl-scroll"><table class="article-table">
+        <thead>
+          <tr><th>Account Type</th><th>XAU/USD / lot</th><th>EUR/USD / lot</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Razor (ECN)</strong></td><td style="color:var(--gd);font-weight:700">~$5/lot</td><td>~$2/lot</td></tr>
+          <tr><td>Standard</td><td style="color:var(--gd);font-weight:700">~$1.8/lot</td><td>~$1/lot</td></tr>
+        </tbody>
+      </table></div>
+      <div class="table-footer">อัตราโดยประมาณ · ข้อมูลจาก Pepperstone IB agreement โดยตรง · อัปเดต มิ.ย. 2026</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0">
+
+      <div class="data-card" style="padding:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">ยังไม่มี Pepperstone account</div>
+        <ol style="font-size:13px;color:var(--t2);line-height:2;padding-left:18px;margin-bottom:16px">
+          <li>คลิกลิงค์สมัครด้านล่าง</li>
+          <li>Verify เอกสาร ฝากเงิน (ขั้นต่ำ ฿500)</li>
+          <li>เทรดได้เลย — rebate เข้าอัตโนมัติ</li>
+        </ol>
+        <a href="https://trk.pepperstonepartners.com/aff_c?offer_id=367&aff_id=46363" target="_blank" rel="noopener sponsored" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px">
+          สมัคร Pepperstone รับ Rebate →
+        </a>
+        <p style="font-size:10px;color:var(--t3);margin-top:8px;text-align:center">Sponsored · CFD มีความเสี่ยงสูง</p>
+      </div>
+
+      <div class="data-card" style="padding:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">มี Pepperstone account อยู่แล้ว</div>
+        <ol style="font-size:13px;color:var(--t2);line-height:2;padding-left:18px;margin-bottom:16px">
+          <li>ติดต่อทีมซุปเต่าผ่าน LINE OA</li>
+          <li>แจ้ง Pepperstone account number</li>
+          <li>ทีมซุปเต่าจัดการ IB transfer ให้</li>
+        </ol>
+        <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px;background:white;border-color:#06C755;color:#06C755">
+          ติดต่อ LINE OA →
+        </a>
+      </div>
+
+    </div>
   </div>
 
-  <!-- FAQ -->
-  <div class="section-title">คำถามที่พบบ่อย</div>
+  <hr class="divider">
+
+  <!-- ===================== SECTION 4c — EXNESS ===================== -->
+  <div id="exness">
+    <div class="broker-section-head">
+      <img src="/logos/exness.png" alt="Exness" class="broker-section-logo" style="background:#FFDF01">
+      <div>
+        <h2 class="section-h2" style="margin-bottom:2px">Exness — รับ Rebate</h2>
+        <span class="badge" style="font-size:11px;background:#EFF6FF;color:#1D4ED8">ต้องสมัครใหม่ผ่านลิงค์เรา</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px">
+      <div class="fact-card">
+        <div class="fact-num">~$2.56</div>
+        <div class="fact-label">XAUUSD Standard / lot</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">สมัครใหม่</div>
+        <div class="fact-label">ต้องสมัครผ่านลิงค์เรา</div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <strong>สำคัญ — Exness rebate ต้องสมัครใหม่ผ่านลิงค์เรา:</strong> ถ้ามี Exness account อยู่แล้วที่สมัครผ่าน link อื่น <strong>ย้าย IB ไม่ได้</strong> — ต้องเปิด account ใหม่ผ่านลิงค์ TurtlePip เท่านั้น ติดต่อ LINE OA ก่อนสมัครหากมีข้อสงสัย
+    </div>
+
+    <div class="rebate-card">
+      <div class="rebate-card-head">
+        <span class="rebate-card-title">Exness — อัตรา Rebate</span>
+        <span class="rebate-note">อัปเดต มิ.ย. 2026</span>
+      </div>
+      <div class="tbl-scroll"><table class="article-table">
+        <thead>
+          <tr><th>Account Type</th><th>XAU/USD / lot</th><th>EUR/USD / lot</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Standard / Cent</strong></td><td style="color:var(--gd);font-weight:700">~$2.56/lot</td><td>~$0.80/lot</td></tr>
+          <tr><td>Zero / Raw Spread</td><td>$1.50/lot</td><td>$0.43/lot</td></tr>
+          <tr><td>Pro</td><td>~$2.18/lot</td><td>~$0.68/lot</td></tr>
+        </tbody>
+      </table></div>
+      <div class="table-footer">Standard Account · Zero/Raw = $1.50/lot · ข้อมูลจาก Exness Partners dashboard · อัปเดต มิ.ย. 2026</div>
+    </div>
+
+    <div class="data-card" style="padding:20px;max-width:480px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px">วิธีรับ Rebate Exness</div>
+      <ol style="font-size:13px;color:var(--t2);line-height:2.2;padding-left:18px;margin-bottom:16px">
+        <li>คลิกลิงค์สมัคร Exness ด้านล่าง — <strong>ต้องสมัครใหม่ผ่านลิงค์นี้เท่านั้น</strong></li>
+        <li>Verify เอกสาร ฝากเงิน เทรด</li>
+        <li>ติดต่อทีมซุปเต่าผ่าน LINE OA เพื่อ activate rebate</li>
+        <li>รับ cashback ทุก lot อัตโนมัติ</li>
+      </ol>
+      <a href="https://one.exnessonelink.com/a/j9uv5xe0m4" target="_blank" rel="noopener sponsored" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px;margin-bottom:8px">
+        สมัคร Exness รับ Rebate →
+      </a>
+      <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px;background:white;border-color:#06C755;color:#06C755">
+        ติดต่อ LINE OA เพื่อ activate →
+      </a>
+      <p style="font-size:10px;color:var(--t3);margin-top:8px;text-align:center">Sponsored · CFD มีความเสี่ยงสูง</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 5 — LINE OA CONTACT -->
+  <div id="line-contact" style="text-align:center;padding:32px 0">
+    <h2 class="section-h2" style="margin-bottom:8px">ติดต่อทีมซุปเต่า</h2>
+    <p style="font-size:14px;color:var(--t2);margin-bottom:24px">
+      มีคำถามเรื่อง rebate, ย้าย IB, หรือเลือกโบรก — ทีมซุปเต่าตอบภาษาไทยทุกวัน
+    </p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap">
+      <img src="https://qr-official.line.me/gs/M_354vbfpw_BW.png?oat_content=qr"
+           alt="QR Code LINE OA ทีมซุปเต่า"
+           style="width:120px;height:120px;border-radius:8px;border:1px solid var(--bdr)">
+      <div style="text-align:left">
+        <div style="font-size:13px;color:var(--t3);margin-bottom:8px">สแกน QR หรือกดปุ่มด้านล่าง</div>
+        <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:8px;background:#06C755;color:white;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:700;text-decoration:none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          เพิ่มเพื่อน LINE OA
+        </a>
+        <div style="font-size:12px;color:var(--t3);margin-top:8px">@turtlepip · ตอบทุกวัน ภาษาไทย</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 6 — FAQ -->
+  <h2 class="section-h2">คำถามที่พบบ่อย</h2>
   <div class="faq-card">
     {faqs.map((faq) => (
       <div class="faq-item">
@@ -630,9 +534,7 @@ Thank you</div>
           <span>{faq.q}</span>
           <span class="faq-arrow">▼</span>
         </div>
-        <div class="faq-a">
-          {faq.a}
-        </div>
+        <div class="faq-a">{faq.a}</div>
       </div>
     ))}
   </div>
@@ -640,11 +542,11 @@ Thank you</div>
   <!-- CTA BOTTOM -->
   <div class="cta-bottom">
     <h2>เริ่มรับ Rebate วันนี้</h2>
-    <p>สมัครผ่าน TurtlePip — ได้ rebate ทุก lot ตลอดไป ไม่มีหมดอายุ</p>
+    <p>สมัครผ่าน TurtlePip — ได้ rebate ทุก lot ตลอดไป ไม่มีหมดอายุ ทั้ง XS.com, Pepperstone และ Exness</p>
     <a href={xs.affiliateUrl} target="_blank" rel="nofollow noopener sponsored" class="btn-cta-big">
       สมัคร XS.com รับ Rebate →
     </a>
-    <p style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:12px;">Sponsored · การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินทุนทั้งหมด</p>
+    <p style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:12px">Sponsored · การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินทุนทั้งหมด</p>
   </div>
 
 </div>
@@ -658,41 +560,17 @@ function toggleFaq(el: HTMLElement) {
   ans.classList.toggle('open');
   arrow?.classList.toggle('open');
 }
-// @ts-expect-error - exposed for inline onclick handler
+// @ts-expect-error
 window.toggleFaq = toggleFaq;
-
-function showPepperstone(btn: HTMLElement) {
-  const xsCard = document.querySelector('.rebate-card') as HTMLElement;
-  const ppCard = document.getElementById('pepperstoneCard') as HTMLElement;
-  const xsBtn = document.querySelector('.btab.on') as HTMLElement;
-  if (xsBtn) { xsBtn.classList.remove('on'); xsBtn.style.background='var(--surf)'; xsBtn.style.color='var(--t2)'; xsBtn.style.borderColor='var(--bdr)'; }
-  btn.style.background='var(--gd)'; btn.style.color='white'; btn.style.borderColor='var(--gd)'; btn.classList.add('on');
-  if (xsCard) xsCard.style.display = 'none';
-  if (ppCard) ppCard.style.display = 'block';
-}
-// @ts-expect-error
-window.showPepperstone = showPepperstone;
-
-function copyPPEmail() {
-  const text = (document.getElementById('ppEmailTemplate') as HTMLElement).innerText;
-  navigator.clipboard.writeText(text).then(function() {
-    const btns = document.querySelectorAll('.copy-btn');
-    btns.forEach(function(b: Element) { (b as HTMLElement).textContent = 'Copied!'; });
-    setTimeout(function(){ btns.forEach(function(b: Element) { (b as HTMLElement).textContent = 'Copy Email Template'; }); }, 2000);
-  });
-}
-// @ts-expect-error
-window.copyPPEmail = copyPPEmail;
 
 function copyEmail() {
   const text = (document.getElementById('emailTemplate') as HTMLElement).innerText;
   navigator.clipboard.writeText(text).then(function() {
     const btn = document.querySelector('.copy-btn') as HTMLElement;
-    btn.textContent = 'Copied!';
-    setTimeout(function(){ btn.textContent = 'Copy Email Template'; }, 2000);
+    if (btn) { btn.textContent = 'Copied!'; setTimeout(function(){ btn.textContent = 'Copy Email Template'; }, 2000); }
   });
 }
-// @ts-expect-error - exposed for inline onclick handler
+// @ts-expect-error
 window.copyEmail = copyEmail;
 </script>
 </body>

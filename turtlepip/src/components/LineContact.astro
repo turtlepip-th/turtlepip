@@ -1,0 +1,22 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<div class="line-contact-box" style={compact ? "padding:16px 20px" : "padding:24px"}>
+  <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <img src="https://qr-official.line.me/gs/M_354vbfpw_BW.png?oat_content=qr"
+         alt="QR Code LINE OA ทีมซุปเต่า"
+         style="width:72px;height:72px;border-radius:6px;flex-shrink:0">
+    <div>
+      <div style="font-size:14px;font-weight:700;color:var(--t1);margin-bottom:4px">ติดต่อทีมซุปเต่า</div>
+      <div style="font-size:12px;color:var(--t2);margin-bottom:10px">สอบถาม rebate, เลือกโบรก, ย้าย IB — ตอบภาษาไทยทุกวัน</div>
+      <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:6px;background:#06C755;color:white;border-radius:6px;padding:8px 16px;font-size:12px;font-weight:700;text-decoration:none">
+        เพิ่มเพื่อน LINE OA →
+      </a>
+    </div>
+  </div>
+</div>
