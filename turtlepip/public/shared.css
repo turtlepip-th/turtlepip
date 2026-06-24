@@ -195,3 +195,86 @@ body { overflow-x: hidden; max-width: 100%; }
   footer { padding: 16px 14px; }
   .fin { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
+
+/* --- Rebate box --- */
+.rebate-box {
+  background: var(--gp, #f0fdf4);
+  border-left: 3px solid var(--gd, #16a34a);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.rebate-box .rebate-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: var(--gd, #16a34a);
+}
+.rebate-box .rebate-note {
+  font-size: 12px;
+  color: var(--t3, #6b7280);
+  margin-top: 8px;
+}
+
+/* --- FAQ section --- */
+.faq-section h2 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--bdr, #e5e7eb);
+}
+.faq-item {
+  border-bottom: 1px solid var(--bdr, #e5e7eb);
+  padding: 16px 0;
+}
+.faq-item h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--t1, #111827);
+  margin: 0 0 8px;
+}
+.faq-item p {
+  font-size: 14px;
+  color: var(--t2, #374151);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* --- Compare table --- */
+.compare-table-wrap {
+  margin: 20px 0;
+}
+.compare-table-wrap h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--t1, #111827);
+  margin-bottom: 10px;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 480px;
+}
+.compare-table th {
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--t3, #6b7280);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--bdr, #e5e7eb);
+  background: var(--bg, #f9fafb);
+}
+.compare-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--bdr, #e5e7eb);
+  color: var(--t2, #374151);
+}
+.compare-table tr.highlight-row td {
+  background: var(--gp, #f0fdf4);
+}
