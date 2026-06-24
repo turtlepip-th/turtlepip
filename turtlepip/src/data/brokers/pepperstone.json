@@ -16,7 +16,8 @@
     "xauusd": "20–25 pts"
   },
   "spreadLevel": "md",
-  "hasRebate": false,
+  "hasRebate": true,
+  "rebateXauDisplay": "$1.8–5/lot",
   "tags": ["scalper", "daytrader", "swing", "news"],
   "reviewUrl": "/reviews/pepperstone",
   "updated": "2026-05"

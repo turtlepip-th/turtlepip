@@ -507,7 +507,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
               <td><span class="score-val">{b.score.toFixed(1)}</span></td>
               <td>
                 {b.hasRebate ? (
-                  <a href="/rebate" onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{rebateRange}</span></a>
+                  <a href="/rebate" onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{(b as any).rebateXauDisplay || rebateRange}</span></a>
                 ) : (
                   <span class="rebate-soon">เร็วๆ นี้</span>
                 )}

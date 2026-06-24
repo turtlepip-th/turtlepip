@@ -28,6 +28,20 @@
       "meta": ["📅 เพิ่มเข้ารายการ: ม.ค. 2026"]
     },
     {
+      "name": "QRS Global",
+      "reg": "MISA (Comoros) · FinCEN (US) · FSP (NZ) — ไม่มี Tier-1 regulation",
+      "level": "avoid",
+      "levelLabel": "หลีกเลี่ยง",
+      "reasons": [
+        { "icon": "🏛️", "text": "MISA (Comoros) เป็นแค่ offshore company registration ไม่ใช่ financial regulator — ไม่มีอำนาจคุ้มครองเงินลูกค้า" },
+        { "icon": "🇺🇸", "text": "FinCEN (US) เป็น anti-money laundering registration ที่ใครก็ลงทะเบียนได้ ไม่ใช่ broker license" },
+        { "icon": "🇳🇿", "text": "FSP (NZ) เป็น registration ไม่ใช่ regulation — FMA New Zealand เตือนซ้ำหลายครั้งเรื่องนี้" },
+        { "icon": "⚠️", "text": "ชื่อปรากฏในคดี DSI บุกจับ Forex เถื่อน มิถุนายน 2569" }
+      ],
+      "evidence": "ตรวจสอบ license โดยตรงจาก ASIC, FCA, CySEC — ไม่พบ QRS Global · FMA NZ คำเตือนเรื่อง FSP registration · อ้างอิง: /blog/dsi-forex-2569",
+      "meta": ["📅 เพิ่มเข้ารายการ: มิ.ย. 2026", "📌 อ้างอิง: DSI บุกจับ Forex เถื่อน มิ.ย. 2569"]
+    },
+    {
       "name": "FBS",
       "reg": "CySEC · FSC Belize · FSCA — หยุดให้บริการในไทยแล้ว",
       "level": "inactive",
