@@ -1,0 +1,32 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Mascot from '../components/Mascot.astro';
+---
+
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — ไม่พบหน้านี้ | TurtlePip</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/shared.css">
+</head>
+<body>
+  <Nav />
+  <main style="min-height:60vh;display:flex;align-items:center;justify-content:center;padding:48px 24px">
+    <div style="text-align:center;max-width:400px">
+      <Mascot pose="thinking" size="lg" />
+      <h1 style="font-size:22px;font-weight:800;margin:20px 0 8px">หน้านี้ไม่มีอยู่</h1>
+      <p style="font-size:14px;color:var(--t2);margin-bottom:28px">
+        ทีมซุปเต่าหาหน้านี้ไม่เจอ — อาจย้าย URL หรือพิมพ์ผิด
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="/" class="btn-cta" style="padding:10px 20px;font-size:13px">กลับหน้าแรก →</a>
+        <a href="/reviews/xs-com" style="padding:10px 20px;font-size:13px;border:1px solid var(--bdr);border-radius:var(--r);text-decoration:none;color:var(--t2)">ดูรีวิวโบรก</a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>

@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Mascot from '../components/Mascot.astro';
 import xs from '../data/brokers/xs.json';
 import xsRebate from '../data/rebates/xs.json';
 
@@ -143,15 +144,18 @@ const faqs = [
 <Nav active="rebate" />
 
 <!-- SECTION 1 — HERO -->
-<div class="rebate-hero">
-  <div class="hero-tag">Cashback · คืนเงินทุก lot</div>
-  <h1>รับ Rebate จากโบรกที่คุณเทรดอยู่</h1>
-  <p>ทีมซุปเต่าคืน cashback ให้ทุก lot — ไม่ว่าจะกำไรหรือขาดทุน<br>รองรับ XS.com · Pepperstone · Exness</p>
-  <div class="hero-btns">
-    <a href="#xs" class="btn-hero-main">รับ Rebate XS.com →</a>
-    <a href="#pepperstone" class="btn-hero-sub">Pepperstone</a>
-    <a href="#exness" class="btn-hero-sub">Exness</a>
+<div class="rebate-hero" style="display:flex;align-items:flex-end;justify-content:center;gap:24px;flex-wrap:wrap">
+  <div style="position:relative;z-index:1;">
+    <div class="hero-tag">Cashback · คืนเงินทุก lot</div>
+    <h1>รับ Rebate จากโบรกที่คุณเทรดอยู่</h1>
+    <p>ทีมซุปเต่าคืน cashback ให้ทุก lot — ไม่ว่าจะกำไรหรือขาดทุน<br>รองรับ XS.com · Pepperstone · Exness</p>
+    <div class="hero-btns">
+      <a href="#xs" class="btn-hero-main">รับ Rebate XS.com →</a>
+      <a href="#pepperstone" class="btn-hero-sub">Pepperstone</a>
+      <a href="#exness" class="btn-hero-sub">Exness</a>
+    </div>
   </div>
+  <Mascot pose="tablet" size="lg" class="hero-mascot" />
 </div>
 
 <!-- FACTS GRID -->

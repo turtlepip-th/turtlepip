@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Mascot from '../components/Mascot.astro';
 import xs from '../data/brokers/xs.json';
 import pepperstone from '../data/brokers/pepperstone.json';
 import exness from '../data/brokers/exness.json';
@@ -456,9 +457,12 @@ input[type="range"].calc-slider::-moz-range-thumb {
 <div class="pg">
 
   <!-- PAGE HEAD -->
-  <div class="page-head">
-    <h1>อันดับโบรกเกอร์ Forex 2026</h1>
-    <p>จัดอันดับจากข้อมูลจริง — สมัครผ่าน TurtlePip รับ Rebate คืนทุก lot</p>
+  <div class="page-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div>
+      <h1>อันดับโบรกเกอร์ Forex 2026</h1>
+      <p>จัดอันดับจากข้อมูลจริง — สมัครผ่าน TurtlePip รับ Rebate คืนทุก lot</p>
+    </div>
+    <Mascot pose="tablet" size="lg" class="hero-mascot" />
   </div>
 
   <!-- FILTER TABS -->
