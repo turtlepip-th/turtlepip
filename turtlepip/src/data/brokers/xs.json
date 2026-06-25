@@ -14,7 +14,7 @@
   "licenseCount": 8,
   "insurance": "$5M Lloyd's",
   "execution": "ECN/STP",
-  "minDeposit": { "thb": 0, "usd": 0, "display": "500" },
+  "minDeposit": { "thb": 300, "display": "300" },
   "spreads": {
     "eurusd": "1.1 pips",
     "xauusd": "18–20"

@@ -10,7 +10,7 @@
   "statusLabel": "แนะนำ",
   "regulators": ["CySEC", "FCA", "FSA"],
   "extraLicenses": 4,
-  "minDeposit": { "thb": 0, "display": "0" },
+  "minDeposit": { "usd": 50, "display": "$50" },
   "spreads": {
     "xauusd": "~16*"
   },

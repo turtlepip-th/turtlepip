@@ -11,7 +11,7 @@
   "statusLabel": "กลาง",
   "regulators": ["CySEC", "FCA", "DFSA", "FSA"],
   "extraLicenses": 0,
-  "minDeposit": { "thb": 0, "display": "0" },
+  "minDeposit": { "thb": 300, "display": "300" },
   "spreads": {
     "xauusd": "~25"
   },
