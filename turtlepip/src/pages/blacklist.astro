@@ -1,7 +1,6 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import Mascot from '../components/Mascot.astro';
 import blacklistData from '../data/blacklist.json';
 
 const { entries } = blacklistData;
@@ -117,12 +116,9 @@ const { entries } = blacklistData;
 <Nav active="blacklist" />
 <div class="wrap">
 
-  <div class="page-hero" style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
-    <Mascot pose="serious" size="md" />
-    <div>
-      <h1>โบรกเกอร์ที่ควรระวัง</h1>
-      <p>รายชื่อโบรกเกอร์ที่ทีมซุปเต่าไม่แนะนำ — ทุก entry มีหลักฐานอ้างอิงจากแหล่งที่ตรวจสอบได้ ไม่ใช่ความเห็นส่วนตัว</p>
-    </div>
+  <div class="page-hero">
+    <h1>โบรกเกอร์ที่ควรระวัง</h1>
+    <p>รายชื่อโบรกเกอร์ที่ทีมซุปเต่าไม่แนะนำ — ทุก entry มีหลักฐานอ้างอิงจากแหล่งที่ตรวจสอบได้ ไม่ใช่ความเห็นส่วนตัว</p>
   </div>
 
   <!-- CRITERIA -->

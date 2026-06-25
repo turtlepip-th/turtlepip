@@ -355,13 +355,3 @@ hr.divider { border:none; border-top:1px solid var(--bdr); margin:40px 0; }
 /* --- Calc broker selector --- */
 .calc-broker-btn { font-size:12px; padding:6px 14px; border-radius:var(--r); border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.85); cursor:pointer; font-family:var(--f); font-weight:600; }
 .calc-broker-btn.active { background:white; color:var(--gd); border-color:white; }
-
-/* --- Mascot --- */
-.mascot { display: block; object-fit: contain; }
-.mascot-sm { width: 80px;  height: auto; }
-.mascot-md { width: 140px; height: auto; }
-.mascot-lg { width: 180px; height: auto; }
-@media (max-width: 640px) {
-  .mascot-lg { width: 140px; }
-  .hero-mascot { display: none; }
-}
