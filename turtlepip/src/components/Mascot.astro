@@ -1,12 +1,10 @@
 ---
 interface Props {
   pose?: 'tablet' | 'happy' | 'thinking' | 'serious';
-  size?: 'sm' | 'md' | 'lg';
   alt?: string;
-  fixed?: boolean;
 }
 
-const { pose = 'tablet', size = 'md', alt, fixed = false } = Astro.props;
+const { pose = 'tablet', alt } = Astro.props;
 
 const altText = alt ?? {
   tablet:   'ทีมซุปเต่ากำลังวิเคราะห์ข้อมูลโบรก',
@@ -15,15 +13,17 @@ const altText = alt ?? {
   serious:  'ทีมซุปเต่าแจ้งเตือน',
 }[pose];
 
-const sizeW = { sm: '70px', md: '110px', lg: '160px' }[size];
+// tablet is the high-res full body — show larger
+// the 3 head poses are lower res — keep small
+const width = pose === 'tablet' ? '140px' : '80px';
 ---
 
-<img
-  src={`/mascot/mascot-${pose}.png`}
-  alt={altText}
-  loading="lazy"
-  decoding="async"
-  style={fixed
-    ? `position:fixed;bottom:18px;right:18px;width:${sizeW};height:auto;z-index:40;pointer-events:none;`
-    : `width:${sizeW};height:auto;display:block;object-fit:contain;`}
-/>
+<div style="display:flex;justify-content:flex-end;padding:8px 0 0;">
+  <img
+    src={`/mascot/mascot-${pose}.png`}
+    alt={altText}
+    loading="lazy"
+    decoding="async"
+    style={`width:${width};height:auto;display:block;`}
+  />
+</div>
