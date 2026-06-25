@@ -11,9 +11,9 @@
   "statusLabel": "กลาง",
   "regulators": ["CySEC", "ASIC", "DFSA"],
   "extraLicenses": 0,
-  "minDeposit": { "thb": 175, "display": "฿175" },
+  "minDeposit": { "thb": 175, "display": "175" },
   "spreads": {
-    "xauusd": "~37 pts"
+    "xauusd": "~37"
   },
   "spreadLevel": "hi",
   "hasRebate": false,

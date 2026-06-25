@@ -13,11 +13,11 @@
   "extraLicenses": 1,
   "minDeposit": { "usd": 200, "display": "$200" },
   "spreads": {
-    "xauusd": "20–25 pts"
+    "xauusd": "20–25"
   },
   "spreadLevel": "md",
   "hasRebate": true,
-  "rebateXauDisplay": "$1.8–5/lot",
+  "rebateXauDisplay": "$1.8–5",
   "rebateAnchor": "/rebate#pepperstone",
   "tags": ["rebate", "scalper", "daytrader", "swing"],
   "reviewUrl": "/reviews/pepperstone",

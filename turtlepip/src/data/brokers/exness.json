@@ -10,14 +10,14 @@
   "statusLabel": "แนะนำ",
   "regulators": ["CySEC", "FCA", "FSA"],
   "extraLicenses": 4,
-  "minDeposit": { "thb": 0, "display": "฿0" },
+  "minDeposit": { "thb": 0, "display": "0" },
   "spreads": {
-    "xauusd": "~16 pts*"
+    "xauusd": "~16*"
   },
   "spreadLevel": "lo",
   "spreadNote": "*Exness XAUUSD ~16 pts ปกติ อาจ widen ~20–35 pts ช่วงข่าว · กำลัง monitor",
   "hasRebate": true,
-  "rebateXauDisplay": "~$2.56/lot",
+  "rebateXauDisplay": "~$2.56",
   "rebateAnchor": "/rebate#exness",
   "tags": ["rebate", "swing", "lowdeposit"],
   "reviewUrl": "/reviews/exness",
