@@ -18,7 +18,8 @@
   "spreadLevel": "md",
   "hasRebate": true,
   "rebateXauDisplay": "$1.8–5/lot",
-  "tags": ["scalper", "daytrader", "swing", "news"],
+  "rebateAnchor": "/rebate#pepperstone",
+  "tags": ["rebate", "scalper", "daytrader", "swing"],
   "reviewUrl": "/reviews/pepperstone",
   "updated": "2026-05"
 }

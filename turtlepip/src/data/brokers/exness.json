@@ -16,8 +16,10 @@
   },
   "spreadLevel": "lo",
   "spreadNote": "*Exness XAUUSD ~16 pts ปกติ อาจ widen ~20–35 pts ช่วงข่าว · กำลัง monitor",
-  "hasRebate": false,
-  "tags": ["beginner", "swing", "copy", "daytrader"],
+  "hasRebate": true,
+  "rebateXauDisplay": "~$2.56/lot",
+  "rebateAnchor": "/rebate#exness",
+  "tags": ["rebate", "swing", "lowdeposit"],
   "reviewUrl": "/reviews/exness",
   "updated": "2026-05"
 }

@@ -449,7 +449,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
     <span class="tk">โบรกที่รีวิว: <b>{brokers.length}</b></span>
     <span class="tk">แนะนำ: <b class="g">{recommendedCount}</b></span>
     <span class="tk">กลาง: <b class="bl">{neutralCount}</b></span>
-    <span class="tk">ข้อมูล: <b>พ.ค. 2026</b></span>
+    <span class="tk">ข้อมูล: <b>มิ.ย. 2026</b></span>
   </div>
 </div>
 
@@ -468,7 +468,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
     <button class="tab" onclick="filterTab('scalper',this)">Scalper</button>
     <button class="tab" onclick="filterTab('daytrader',this)">Day Trader</button>
     <button class="tab" onclick="filterTab('swing',this)">Swing</button>
-    <button class="tab" onclick="filterTab('beginner',this)">Low Deposit</button>
+    <button class="tab" onclick="filterTab('lowdeposit',this)">Low Deposit</button>
   </div>
 
   <!-- RANKING TABLE -->
@@ -507,7 +507,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
               <td><span class="score-val">{b.score.toFixed(1)}</span></td>
               <td>
                 {b.hasRebate ? (
-                  <a href="/rebate" onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{(b as any).rebateXauDisplay || rebateRange}</span></a>
+                  <a href={(b as any).rebateAnchor || '/rebate'} onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{(b as any).rebateXauDisplay || rebateRange}</span></a>
                 ) : (
                   <span class="rebate-soon">เร็วๆ นี้</span>
                 )}
@@ -528,7 +528,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
       </table>
     </div>
     <div class="tbl-note">
-      Standard Account · สเปรด XAUUSD ณ พ.ค. 2026 (1 pt = $0.01) · *Exness กำลัง monitor อัปเดตเร็วๆ นี้ · เลื่อนตารางซ้าย-ขวาได้บนมือถือ
+      Standard Account · สเปรด XAUUSD ณ มิ.ย. 2026 (1 pt = $0.01) · เลื่อนตารางซ้าย-ขวาได้บนมือถือ
     </div>
   </div>
 
@@ -538,7 +538,12 @@ input[type="range"].calc-slider::-moz-range-thumb {
     <div class="calc-grid">
       <div>
         <h2>เทรดเท่าไหร่ ได้คืนเท่าไหร่?</h2>
-        <p class="calc-sub">คำนวณ cashback ที่จะได้รับจากการเทรด XAUUSD กับ XS.com ผ่าน TurtlePip</p>
+        <p class="calc-sub">คำนวณ cashback XAUUSD จาก 3 โบรกผ่าน TurtlePip</p>
+        <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+          <button class="calc-broker-btn active" data-broker="xs" data-min="3" data-max="5" onclick="selectBroker(this)">XS.com</button>
+          <button class="calc-broker-btn" data-broker="pepperstone" data-min="1.8" data-max="5" onclick="selectBroker(this)">Pepperstone</button>
+          <button class="calc-broker-btn" data-broker="exness" data-min="2.56" data-max="2.56" onclick="selectBroker(this)">Exness</button>
+        </div>
         <div class="calc-row">
           <div class="calc-label">
             <span>จำนวน lots ต่อเดือน (XAUUSD)</span>
@@ -598,7 +603,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
 
 <Footer />
 
-<script define:vars={{ rebateLo, rebateHi, thbRate }}>
+<script define:vars={{ thbRate }}>
 function filterTab(tag, btn) {
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('on'); });
   btn.classList.add('on');
@@ -608,24 +613,35 @@ function filterTab(tag, btn) {
     r.style.display = tags.indexOf(tag) > -1 ? '' : 'none';
   });
 }
-// @ts-expect-error - exposed for inline onclick handler
+// @ts-expect-error
 window.filterTab = filterTab;
 
-/* Rebate calculator — XAUUSD Standard: rebateLo–rebateHi USD/lot, THB ~thbRate */
+function selectBroker(btn) {
+  document.querySelectorAll('.calc-broker-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  calcRebate();
+}
+// @ts-expect-error
+window.selectBroker = selectBroker;
+
 function calcRebate() {
+  var activeBtn = document.querySelector('.calc-broker-btn.active');
+  var lo = activeBtn ? parseFloat(activeBtn.dataset.min) : 3;
+  var hi = activeBtn ? parseFloat(activeBtn.dataset.max) : 5;
   var lots = parseInt(document.getElementById('lotsSlider').value, 10);
   document.getElementById('lotsVal').textContent = lots + ' lots';
-  var loUsd = lots * rebateLo;
-  var hiUsd = lots * rebateHi;
-  var loThb = Math.round(loUsd * thbRate);
-  var hiThb = Math.round(hiUsd * thbRate);
-  document.getElementById('rebateOut').textContent =
-    '฿' + loThb.toLocaleString() + '–' + hiThb.toLocaleString();
+  var loUsd = lots * lo;
+  var hiUsd = lots * hi;
   var fmt = function(n) { return Number.isInteger(n) ? n.toString() : n.toFixed(2); };
-  document.getElementById('rebateUsd').textContent =
-    '~$' + fmt(loUsd) + '–' + fmt(hiUsd) + ' / เดือน';
+  if (lo === hi) {
+    document.getElementById('rebateOut').textContent = '฿' + Math.round(loUsd * thbRate).toLocaleString();
+    document.getElementById('rebateUsd').textContent = '~$' + fmt(loUsd) + ' / เดือน';
+  } else {
+    document.getElementById('rebateOut').textContent = '฿' + Math.round(loUsd * thbRate).toLocaleString() + '–' + Math.round(hiUsd * thbRate).toLocaleString();
+    document.getElementById('rebateUsd').textContent = '~$' + fmt(loUsd) + '–' + fmt(hiUsd) + ' / เดือน';
+  }
 }
-// @ts-expect-error - exposed for inline onclick handler
+// @ts-expect-error
 window.calcRebate = calcRebate;
 calcRebate();
 </script>

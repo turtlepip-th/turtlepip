@@ -20,7 +20,9 @@ const faqs = [
   { q: 'มีค่าธรรมเนียมในการรับ rebate ไหม?', a: 'ไม่มีครับ — Rebate ฟรี 100% ไม่มีค่าสมาชิก ไม่มีค่าธรรมเนียม คุณได้รับ cashback เพิ่มโดยไม่เสียอะไร' },
   { q: 'สามารถใช้กับทุก account type ได้ไหม?', a: 'ได้ แต่ rate ต่างกันตาม account type ดูตารางอัตราในแต่ละโบรกด้านล่าง หรือติดต่อทีมซุปเต่าผ่าน LINE OA เพื่อสอบถาม' },
   { q: 'Pepperstone rebate ต้องทำอะไรบ้าง?', a: 'ถ้ายังไม่มีบัญชี — สมัครผ่านลิงค์ TurtlePip แล้ว rebate จะเข้าอัตโนมัติทุก lot ถ้ามีบัญชีอยู่แล้ว — ติดต่อทีมซุปเต่าผ่าน LINE OA เพื่อย้าย IB มาอยู่ใต้เรา ไม่มีค่าใช้จ่าย' },
-  { q: 'Exness rebate ทำไมต้องสมัครใหม่?', a: 'Exness ไม่อนุญาตให้ย้าย IB หลังสมัครแล้ว ต้องเปิด account ใหม่ผ่านลิงค์ TurtlePip เท่านั้น ถ้าสมัครผ่าน link อื่นแล้ว account นั้นจะไม่ได้รับ rebate จากเรา' },
+  { q: 'มี Exness account อยู่แล้ว ย้าย IB ได้ไหม?', a: 'ได้ — Exness ให้เปลี่ยน Partner ได้เองใน my.exness.com โดยตรง ไปที่ การตั้งค่า → Partner แล้วกรอก Partner Code: j9uv5xe0m4 ไม่ต้องส่ง email ไม่ต้องรอ approval ทำได้ทันที' },
+  { q: 'มี Pepperstone account อยู่แล้ว ย้าย IB ได้ไหม?', a: 'ได้ — แต่ต้องติดต่อทีมซุปเต่าผ่าน LINE OA ก่อน เราจะส่ง request ไปที่ Pepperstone เพื่อย้าย IB ให้ ไม่มีค่าใช้จ่าย ไม่กระทบยอดเงินหรือ position ที่เปิดอยู่' },
+  { q: 'Exness rebate กับ XS rebate ต่างกันยังไง?', a: 'XS.com rebate rate สูงกว่าสำหรับ XAUUSD ($3–5 vs ~$2.56) แต่ Exness มีข้อดีที่ spread XAUUSD ต่ำกว่าและถอนเงินอัตโนมัติ ถ้าเทรด high volume XS คุ้มกว่า ถ้าเน้นถอนเงินเร็วหรือ leverage สูง Exness ดีกว่า' },
 ];
 ---
 
@@ -197,7 +199,7 @@ const faqs = [
       <img src="/logos/exness.png" alt="Exness" style="height:36px;margin-bottom:12px;object-fit:contain">
       <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px">Exness</div>
       <div style="font-size:22px;font-weight:800;color:var(--gd);margin:8px 0">~$2.56<span style="font-size:13px;font-weight:400">/lot XAU</span></div>
-      <span class="badge" style="display:inline-block;margin-bottom:12px;background:#EFF6FF;color:#1D4ED8">สมัครใหม่ผ่านลิงค์เรา</span>
+      <span class="badge bsafe" style="display:inline-block;margin-bottom:12px">ย้าย IB ได้จาก Portal</span>
       <a href="#exness" class="btn-cta" style="display:block;font-size:13px;padding:10px">รับ Rebate Exness →</a>
     </div>
 
@@ -444,7 +446,7 @@ Thank you</div>
       <img src="/logos/exness.png" alt="Exness" class="broker-section-logo" style="background:#FFDF01">
       <div>
         <h2 class="section-h2" style="margin-bottom:2px">Exness — รับ Rebate</h2>
-        <span class="badge" style="font-size:11px;background:#EFF6FF;color:#1D4ED8">ต้องสมัครใหม่ผ่านลิงค์เรา</span>
+        <span class="badge bsafe" style="font-size:11px">ย้าย IB ได้เลยจาก Portal</span>
       </div>
     </div>
 
@@ -454,13 +456,9 @@ Thank you</div>
         <div class="fact-label">XAUUSD Standard / lot</div>
       </div>
       <div class="fact-card">
-        <div class="fact-num">สมัครใหม่</div>
-        <div class="fact-label">ต้องสมัครผ่านลิงค์เรา</div>
+        <div class="fact-num">รายวัน</div>
+        <div class="fact-label">จ่ายเข้าบัญชีเทรดโดยตรง</div>
       </div>
-    </div>
-
-    <div class="warn-box">
-      <strong>สำคัญ — Exness rebate ต้องสมัครใหม่ผ่านลิงค์เรา:</strong> ถ้ามี Exness account อยู่แล้วที่สมัครผ่าน link อื่น <strong>ย้าย IB ไม่ได้</strong> — ต้องเปิด account ใหม่ผ่านลิงค์ TurtlePip เท่านั้น ติดต่อ LINE OA ก่อนสมัครหากมีข้อสงสัย
     </div>
 
     <div class="rebate-card">
@@ -470,7 +468,7 @@ Thank you</div>
       </div>
       <div class="tbl-scroll"><table class="article-table">
         <thead>
-          <tr><th>Account Type</th><th>XAU/USD / lot</th><th>EUR/USD / lot</th></tr>
+          <tr><th>ประเภทบัญชี</th><th>XAU/USD / lot</th><th>EUR/USD / lot</th></tr>
         </thead>
         <tbody>
           <tr><td><strong>Standard / Cent</strong></td><td style="color:var(--gd);font-weight:700">~$2.56/lot</td><td>~$0.80/lot</td></tr>
@@ -478,24 +476,46 @@ Thank you</div>
           <tr><td>Pro</td><td>~$2.18/lot</td><td>~$0.68/lot</td></tr>
         </tbody>
       </table></div>
-      <div class="table-footer">Standard Account · Zero/Raw = $1.50/lot · ข้อมูลจาก Exness Partners dashboard · อัปเดต มิ.ย. 2026</div>
+      <div class="table-footer">Standard Account · Zero/Raw = $1.50/lot fixed · อัปเดต มิ.ย. 2026</div>
     </div>
 
-    <div class="data-card" style="padding:20px;max-width:480px">
-      <div style="font-size:13px;font-weight:700;margin-bottom:12px">วิธีรับ Rebate Exness</div>
-      <ol style="font-size:13px;color:var(--t2);line-height:2.2;padding-left:18px;margin-bottom:16px">
-        <li>คลิกลิงค์สมัคร Exness ด้านล่าง — <strong>ต้องสมัครใหม่ผ่านลิงค์นี้เท่านั้น</strong></li>
-        <li>Verify เอกสาร ฝากเงิน เทรด</li>
-        <li>ติดต่อทีมซุปเต่าผ่าน LINE OA เพื่อ activate rebate</li>
-        <li>รับ cashback ทุก lot อัตโนมัติ</li>
-      </ol>
-      <a href="https://one.exnessonelink.com/a/j9uv5xe0m4" target="_blank" rel="noopener sponsored" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px;margin-bottom:8px">
-        สมัคร Exness รับ Rebate →
-      </a>
-      <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px;background:white;border-color:#06C755;color:#06C755">
-        ติดต่อ LINE OA เพื่อ activate →
-      </a>
-      <p style="font-size:10px;color:var(--t3);margin-top:8px;text-align:center">Sponsored · CFD มีความเสี่ยงสูง</p>
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 14px;color:var(--t1)">เริ่มต้นรับ Rebate Exness</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px">
+
+      <!-- Path 1: New account -->
+      <div class="data-card" style="padding:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px">ยังไม่มี Exness account</div>
+        <ol style="font-size:13px;color:var(--t2);line-height:2.2;padding-left:18px;margin-bottom:16px">
+          <li>คลิกลิงค์สมัครด้านล่าง — <strong>ต้องสมัครผ่านลิงค์นี้เท่านั้น</strong></li>
+          <li>Verify เอกสาร ฝากเงิน เทรด</li>
+          <li>Rebate เข้าบัญชีเทรดอัตโนมัติทุกวัน</li>
+        </ol>
+        <a href="https://one.exnesstrack.org/a/j9uv5xe0m4" target="_blank" rel="noopener sponsored" class="btn-cta" style="display:block;text-align:center;padding:10px;font-size:13px;margin-bottom:8px">
+          สมัคร Exness รับ Rebate →
+        </a>
+        <p style="font-size:10px;color:var(--t3);text-align:center">Sponsored · CFD มีความเสี่ยงสูง</p>
+      </div>
+
+      <!-- Path 2: Existing account — change IB in portal -->
+      <div class="data-card" style="padding:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:4px">มี Exness account อยู่แล้ว</div>
+        <span class="badge bsafe" style="display:inline-block;margin-bottom:12px;font-size:11px">ย้าย IB ได้เลย — ไม่ต้องส่ง email</span>
+        <ol style="font-size:13px;color:var(--t2);line-height:2.2;padding-left:18px;margin-bottom:16px">
+          <li>Login เข้า <strong>my.exness.com</strong></li>
+          <li>ไปที่ <strong>การตั้งค่า → Partner</strong> (Settings → Partner)</li>
+          <li>กรอก Partner Code: <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-weight:700;font-size:12px">j9uv5xe0m4</code></li>
+          <li>ยืนยัน — Rebate เริ่มเข้าอัตโนมัติวันถัดไป</li>
+        </ol>
+        <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener" style="display:block;text-align:center;padding:10px;font-size:13px;border:1px solid #06C755;color:#06C755;border-radius:var(--r);text-decoration:none;font-weight:600">
+          มีปัญหา? ติดต่อ LINE OA →
+        </a>
+      </div>
+
+    </div>
+
+    <div class="highlight">
+      <strong>ทำไม Exness ย้าย IB ได้ง่ายกว่าโบรกอื่น?</strong><br>
+      Exness ให้ client เปลี่ยน Partner ได้เองใน portal โดยตรง — ไม่ต้องส่ง email ไม่ต้องรอ approval จากโบรก ทำได้ทันทีตลอด 24 ชั่วโมง
     </div>
   </div>
 

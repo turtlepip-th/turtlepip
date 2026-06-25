@@ -24,7 +24,8 @@
   "promptPay": true,
   "thaiSupport": true,
   "hasRebate": true,
-  "tags": ["rebate", "scalper", "daytrader", "swing", "news"],
+  "rebateAnchor": "/rebate#xs",
+  "tags": ["rebate", "scalper", "daytrader", "swing", "lowdeposit"],
   "scoreBreakdown": {
     "trust": { "value": 9.0, "weight": 25, "label": "ความน่าเชื่อถือ — 8 licenses + $5M insurance" },
     "thaiDeposit": { "value": 8.5, "weight": 20, "label": "ฝากถอนไทย — PromptPay, ธนาคาร, Crypto (Exness ถอนเร็วกว่า)" },
