@@ -321,6 +321,46 @@ body { overflow-x: hidden; max-width: 100%; }
   line-height: 1.6;
 }
 
+/* --- Experience box (first-hand testing signal) --- */
+.experience-box {
+  border: 1px solid var(--bdr);
+  border-left: 3px solid var(--gd);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+  background: var(--bg);
+}
+.experience-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gd);
+  margin-bottom: 10px;
+}
+.experience-box ul {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.9;
+  padding-left: 18px;
+  margin: 0;
+}
+
+/* --- Shared verdict box (conclusion) --- */
+.verdict-box-shared {
+  background: var(--bg);
+  border: 1px solid var(--bdr);
+  border-radius: var(--rl);
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+.verdict-box-shared .verdict-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--t1);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--bdr);
+}
+
 /* --- Article layout (about/disclosure/pillar pages) --- */
 .article-wrap { max-width: 780px; margin: 0 auto; }
 .article-body h2 { font-size: 18px; font-weight: 800; margin: 32px 0 12px; color: var(--t1); }

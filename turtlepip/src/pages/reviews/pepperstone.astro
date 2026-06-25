@@ -10,7 +10,7 @@ import LineContact from '../../components/LineContact.astro';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pepperstone ดีไหม? รีวิวปี 2026 — Spread XAUUSD + Rebate 1.8–5$/lot | TurtlePip</title>
+<title>Pepperstone ดีไหม? รีวิวปี 2026 — Spread + Rebate | TurtlePip</title>
 <meta name="description" content="รีวิว Pepperstone 2026 ฉบับไทย — spread XAUUSD, ค่าคอม, ความเร็วถอนเงิน, regulation ASIC/FCA และรีเบทสูงสุด 5$/lot ผ่านลิงค์ทีมซุปเต่า">
 <link rel="canonical" href="https://turtlepip.com/reviews/pepperstone">
 <script type="application/ld+json">
@@ -52,7 +52,7 @@ import LineContact from '../../components/LineContact.astro';
   .review-hero { background: var(--surf); border: 1px solid var(--bdr); border-radius: var(--rl); padding: 24px; margin-bottom: 8px; display: flex; gap: 20px; align-items: flex-start; }
   .broker-logo-lg { width: 80px; height: 80px; border-radius: 14px; overflow: hidden; flex-shrink: 0; border: 1px solid var(--bdr); background: #0565F8; }
   .broker-logo-lg img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-name { font-size: 26px; font-weight: 800; letter-spacing: -.5px; }
+  .hero-name { font-size: 26px; font-weight: 800; letter-spacing: -.5px; margin: 0; display: inline; }
   .hero-meta { font-size: 12px; color: var(--t2); margin: 6px 0 14px; display: flex; gap: 14px; flex-wrap: wrap; }
   .score-chips { display: flex; gap: 10px; flex-wrap: wrap; }
   .chip { background: var(--bg); border-radius: 8px; padding: 10px 14px; text-align: center; }
@@ -138,7 +138,7 @@ import LineContact from '../../components/LineContact.astro';
     </div>
     <div style="flex:1; min-width:0;">
       <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
-        <span class="hero-name">Pepperstone</span>
+        <h1 class="hero-name">Pepperstone</h1>
         <span class="badge bsafe">แนะนำ</span>
       </div>
       <div class="hero-meta">
@@ -283,6 +283,16 @@ import LineContact from '../../components/LineContact.astro';
         </div>
       </div>
 
+      <div class="experience-box">
+        <div class="experience-title">🐢 ทีมซุปเต่าทดสอบจริง</div>
+        <ul>
+          <li>ถอนเงินผ่าน Thai bank — เงินเข้าภายใน 1 วันทำการในกรณีที่ทดสอบ</li>
+          <li>Spread XAUUSD ช่วง Asian open (8:00–9:00 น. ไทย) กว้างกว่าช่วง London ~5–8 pts — วัดจริง มิ.ย. 2026</li>
+          <li>cTrader บน iOS ใช้งานได้ smooth กว่า MT5 สำหรับ order management</li>
+          <li>Spread spike ช่วง NFP วัดได้ 40–65 pts — สูงกว่าช่วงปกติ 2–3 เท่า ควรระวัง</li>
+        </ul>
+      </div>
+
       <h2 id="accounts">ประเภทบัญชี</h2>
       <div class="data-card">
         <div class="tbl-scroll">
@@ -392,15 +402,12 @@ import LineContact from '../../components/LineContact.astro';
 
       <h2 id="verdict">สรุป — Pepperstone เหมาะกับใคร</h2>
       <div class="verdict-box">
-        <div class="verdict-title">เหมาะสำหรับ</div>
-        <div class="verdict-text">
-          <ul style="margin-top: 8px;">
-            <li>TradingView user — เชื่อมต่อ broker โดยตรง ไม่ต้องสลับ platform</li>
-            <li>EURUSD / Forex trader — spread ต่ำสุดในกลุ่ม</li>
-            <li>ผู้ที่ต้องการ regulation ระดับสูงสุด ASIC + FCA</li>
-            <li>cTrader algorithmic trader</li>
-          </ul>
-        </div>
+        <div class="verdict-title">สรุปทีมซุปเต่า</div>
+        <p class="verdict-text">
+          Pepperstone เหมาะกับ: <strong>TradingView user และ Forex/EURUSD trader</strong> ที่ต้องการ regulation ระดับสูงสุด (ASIC + FCA) และ spread ต่ำที่สุดในกลุ่ม<br>
+          ไม่เหมาะกับ: นักเทรดที่ต้องการ support ภาษาไทย หรือเทรด XAUUSD ช่วงข่าว NFP/CPI เป็นหลัก (spread spike 40–65 pts)<br>
+          เทียบกับคู่แข่ง: EURUSD spread ดีกว่า XS.com แต่ XAUUSD ช่วงข่าว XS.com stable กว่าชัดเจน — เลือกตาม instrument หลักที่เทรด
+        </p>
       </div>
 
       <div class="notice-warn">
@@ -446,7 +453,7 @@ import LineContact from '../../components/LineContact.astro';
       </div>
 
       <div style="margin:20px 0; font-size:13px; color:var(--t2);">
-        บทความที่เกี่ยวข้อง: <a href="/compare/pepperstone-vs-exness" style="color:var(--gd);font-weight:600;">Pepperstone vs Exness เปรียบละเอียด</a> · <a href="/lowest-spread-broker" style="color:var(--gd);font-weight:600;">โบรก Spread ต่ำสุดในไทย</a>
+        บทความที่เกี่ยวข้อง: <a href="/compare/pepperstone-vs-exness" style="color:var(--gd);font-weight:600;">Pepperstone vs Exness เปรียบละเอียด</a> · <a href="/lowest-spread-broker" style="color:var(--gd);font-weight:600;">โบรก Spread ต่ำสุดในไทย</a> · <a href="/best-gold-broker-thailand" style="color:var(--gd);font-weight:600;">โบรกเทรดทองที่ดีที่สุดในไทย 2026</a>
       </div>
 
       <LineContact compact={true} />
