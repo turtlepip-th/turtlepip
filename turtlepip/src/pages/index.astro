@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Mascot from '../components/Mascot.astro';
 import xs from '../data/brokers/xs.json';
 import pepperstone from '../data/brokers/pepperstone.json';
 import exness from '../data/brokers/exness.json';
@@ -224,22 +225,22 @@ table.rank {
 /* Data cells */
 .score-val {
   font-family: monospace;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 15px;
   color: var(--t1);
 }
 .rebate-val {
   font-family: monospace;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 13px;
-  color: var(--t1);
+  color: var(--safe);
   padding: 3px 8px;
   border-radius: 6px;
   display: inline-block;
 }
 .rebate-soon { font-size: 11px; color: var(--t3); }
-.spread-val { font-family: monospace; font-weight: 400; font-size: 12px; color: var(--t1); }
-.dep-val { font-family: monospace; font-weight: 400; font-size: 12px; color: var(--t2); }
+.spread-val { font-family: monospace; font-weight: 700; font-size: 13px; color: var(--t1); }
+.dep-val { font-family: monospace; font-weight: 600; font-size: 13px; color: var(--t2); }
 
 .btn-go {
   display: inline-block;
@@ -601,6 +602,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
 
 </div>
 
+<Mascot pose="tablet" size="lg" fixed={true} />
 <Footer />
 
 <script define:vars={{ thbRate }}>

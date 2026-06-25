@@ -1,0 +1,29 @@
+---
+interface Props {
+  pose?: 'tablet' | 'happy' | 'thinking' | 'serious';
+  size?: 'sm' | 'md' | 'lg';
+  alt?: string;
+  fixed?: boolean;
+}
+
+const { pose = 'tablet', size = 'md', alt, fixed = false } = Astro.props;
+
+const altText = alt ?? {
+  tablet:   'ทีมซุปเต่ากำลังวิเคราะห์ข้อมูลโบรก',
+  happy:    'ทีมซุปเต่ายินดีต้อนรับ',
+  thinking: 'ทีมซุปเต่ากำลังคิดวิเคราะห์',
+  serious:  'ทีมซุปเต่าแจ้งเตือน',
+}[pose];
+
+const sizeW = { sm: '70px', md: '110px', lg: '160px' }[size];
+---
+
+<img
+  src={`/mascot/mascot-${pose}.png`}
+  alt={altText}
+  loading="lazy"
+  decoding="async"
+  style={fixed
+    ? `position:fixed;bottom:18px;right:18px;width:${sizeW};height:auto;z-index:40;pointer-events:none;`
+    : `width:${sizeW};height:auto;display:block;object-fit:contain;`}
+/>

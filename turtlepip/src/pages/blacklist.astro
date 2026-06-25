@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Mascot from '../components/Mascot.astro';
 import blacklistData from '../data/blacklist.json';
 
 const { entries } = blacklistData;
@@ -194,6 +195,7 @@ const { entries } = blacklistData;
 
 </div>
 
+<Mascot pose="serious" size="lg" fixed={true} />
 <Footer />
 </body>
 </html>
