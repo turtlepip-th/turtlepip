@@ -144,6 +144,25 @@ footer {
 }
 .ddot { width: 6px; height: 6px; background: var(--safe); border-radius: 50%; }
 
+.footer-risk {
+  font-size: 11px;
+  color: var(--t3);
+  line-height: 1.6;
+  border-top: 1px solid var(--bdr);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+.footer-risk a { color: var(--t3); text-decoration: underline; }
+
+.rebate-disclaimer {
+  font-size: 11px;
+  color: var(--t3);
+  border-top: 1px solid var(--bdr);
+  padding-top: 10px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
 
 /* HAMBURGER — shared across all pages */
 .hamburger {

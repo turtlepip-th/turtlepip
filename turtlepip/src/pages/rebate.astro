@@ -150,7 +150,7 @@ const faqs = [
 <div class="rebate-hero">
   <div class="hero-tag">Cashback · คืนเงินทุก lot</div>
   <h1 data-i18n="rebate.title">รับ Rebate จากโบรกที่คุณเทรดอยู่</h1>
-  <p data-i18n="rebate.subtitle">ทีมซุปเต่าคืน cashback ให้ทุก lot — ไม่ว่าจะกำไรหรือขาดทุน</p>
+  <p data-i18n="rebate.subtitle">ทีมซุปเต่าแบ่งคืน cashback จากค่าคอมมิชชั่น IB ทุก lot ที่เทรด</p>
   <div class="hero-btns">
     <a href="#xs" class="btn-hero-main">รับ Rebate XS.com →</a>
     <a href="#pepperstone" class="btn-hero-sub">Pepperstone</a>
@@ -174,7 +174,7 @@ const faqs = [
   </div>
   <div class="fact-card">
     <div class="fact-num">ทุก lot</div>
-    <div class="fact-label">กำไรหรือขาดทุนก็ได้</div>
+    <div class="fact-label">ทุก lot ที่เทรด</div>
   </div>
 </div>
 
@@ -257,7 +257,8 @@ const faqs = [
       </table>
     </div>
   </div>
-  <p style="font-size:11px;color:var(--t3);margin-top:-12px;margin-bottom:32px">Standard Account · Exness XAUUSD ~16 pts avg · Range ขึ้นกับ volume · อัปเดต มิ.ย. 2026</p>
+  <p style="font-size:11px;color:var(--t3);margin-top:-12px;margin-bottom:8px">Standard Account · Exness XAUUSD ~16 pts avg · Range ขึ้นกับ volume · อัปเดต มิ.ย. 2026</p>
+  <p class="rebate-disclaimer">Rebate คือส่วนหนึ่งของค่าคอมมิชชั่นที่ TurtlePip ได้รับจากโบรกในฐานะ IB (Introducing Broker) และนำมาแบ่งคืนให้ผู้ใช้ — ไม่ใช่ผลตอบแทนการลงทุน ไม่ได้รับประกันกำไร และไม่ลดความเสี่ยงในการเทรด</p>
 
   <!-- ===================== SECTION 4a — XS.COM ===================== -->
   <div id="xs">
@@ -295,31 +296,35 @@ const faqs = [
         <span class="rebate-card-title">XS.com — {xsRebate.account}</span>
         <span class="rebate-note">อัปเดต มิ.ย. 2026</span>
       </div>
-      <div class="tbl-scroll"><table class="rtable">
+      <div class="tbl-scroll"><table class="article-table">
         <thead>
           <tr>
             <th>Symbol</th>
-            <th class="center">Cashback / lot</th>
-            <th class="center">หน่วย points</th>
+            <th>Silver tier</th>
+            <th>Gold tier</th>
+            <th>Titanium tier</th>
           </tr>
         </thead>
         <tbody>
-          {xsRebate.rates.map((rate) => (
-            <tr>
-              <td>
-                <div class="symbol-name">{rate.name} {rate.popular && <span class="popular-badge">ยอดนิยม</span>}</div>
-                <div class="symbol-desc">{rate.desc}</div>
-              </td>
-              <td class="center"><span class="rebate-range">{tableRange(rate.cashbackUsd)}</span></td>
-              <td class="center"><span class="you-get">{pointsRange(rate.points)} pts</span></td>
-            </tr>
-          ))}
+          <tr>
+            <td><strong>XAU/USD</strong> <span class="popular-badge">ยอดนิยม</span></td>
+            <td style="color:var(--gd);font-weight:700">$3/lot</td>
+            <td style="color:var(--gd);font-weight:700">$4/lot</td>
+            <td style="color:var(--gd);font-weight:700">$5/lot</td>
+          </tr>
+          <tr>
+            <td>EUR/USD</td>
+            <td>$1/lot</td>
+            <td>$2/lot</td>
+            <td>$3/lot</td>
+          </tr>
         </tbody>
       </table></div>
       <div class="table-footer">
-        Standard Account เท่านั้น · Range ขึ้นอยู่กับ volume การเทรด · Symbol อื่นๆ สอบถามทีมซุปเต่า · ค่าโดยประมาณ อาจแตกต่างตามสภาวะตลาด
+        Standard Account เท่านั้น · Tier ขึ้นอยู่กับ volume รายเดือน · Symbol อื่นๆ สอบถามทีมซุปเต่า · ค่าโดยประมาณ อาจแตกต่างตามสภาวะตลาด
       </div>
     </div>
+    <p class="rebate-disclaimer">Tier ขึ้นอยู่กับ volume รายเดือน · ติดต่อ LINE OA เพื่อสอบถาม tier ปัจจุบัน</p>
 
     <!-- XS NEW / TRANSFER -->
     <div class="section-sub">เลือกตามสถานการณ์ของคุณ</div>
@@ -411,6 +416,7 @@ Thank you</div>
       </table></div>
       <div class="table-footer">อัตราโดยประมาณ · ข้อมูลจาก Pepperstone IB agreement โดยตรง · อัปเดต มิ.ย. 2026</div>
     </div>
+    <p class="rebate-disclaimer">Rebate คือส่วนหนึ่งของค่าคอมมิชชั่นที่ TurtlePip ได้รับจากโบรกในฐานะ IB (Introducing Broker) และนำมาแบ่งคืนให้ผู้ใช้ — ไม่ใช่ผลตอบแทนการลงทุน ไม่ได้รับประกันกำไร และไม่ลดความเสี่ยงในการเทรด</p>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0">
 
@@ -482,6 +488,7 @@ Thank you</div>
       </table></div>
       <div class="table-footer">Standard Account · Zero/Raw = $1.50/lot fixed · อัปเดต มิ.ย. 2026</div>
     </div>
+    <p class="rebate-disclaimer">Rebate คือส่วนหนึ่งของค่าคอมมิชชั่นที่ TurtlePip ได้รับจากโบรกในฐานะ IB (Introducing Broker) และนำมาแบ่งคืนให้ผู้ใช้ — ไม่ใช่ผลตอบแทนการลงทุน ไม่ได้รับประกันกำไร และไม่ลดความเสี่ยงในการเทรด</p>
 
     <h3 style="font-size:16px;font-weight:700;margin:24px 0 14px;color:var(--t1)">เริ่มต้นรับ Rebate Exness</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px">
