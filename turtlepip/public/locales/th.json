@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "reviews": "โบรกเกอร์",
+    "compare": "เปรียบเทียบ",
+    "rebate": "รับ Rebate",
+    "warning": "ระวัง",
+    "blog": "บทความ",
+    "matcher": "หาโบรกที่ใช่"
+  },
+  "hero": {
+    "title": "อันดับโบรกเกอร์ Forex 2026",
+    "subtitle": "จัดอันดับจากข้อมูลจริง — สมัครผ่าน TurtlePip รับ Rebate คืนทุก lot",
+    "cta_rebate": "ดู Rebate ที่ได้",
+    "cta_compare": "เปรียบโบรกทั้งหมด"
+  },
+  "table": {
+    "rank": "อันดับ",
+    "broker": "โบรกเกอร์",
+    "regulation": "Regulation",
+    "xauusd_spread": "สเปรด XAU/USD",
+    "rebate": "Rebate XAU ($/lot)",
+    "min_deposit": "ฝากขั้นต่ำ (฿)",
+    "score": "คะแนน",
+    "status": "สถานะ",
+    "review": "รีวิว",
+    "open_account": "เปิดบัญชี",
+    "recommended": "แนะนำ"
+  },
+  "tabs": {
+    "all": "ทั้งหมด",
+    "has_rebate": "มี Rebate",
+    "scalper": "Scalper",
+    "daytrader": "Day Trader",
+    "swing": "Swing",
+    "low_deposit": "Low Deposit"
+  },
+  "rebate": {
+    "title": "รับ Rebate จากโบรกที่คุณเทรดอยู่",
+    "subtitle": "ทีมซุปเต่าคืน cashback ให้ทุก lot — ไม่ว่าจะกำไรหรือขาดทุน",
+    "per_lot": "/ lot XAU",
+    "automatic": "อัตโนมัติ ไม่ต้อง claim",
+    "existing_account": "มีบัญชีอยู่แล้ว ย้ายได้",
+    "new_account": "สมัครใหม่ผ่านลิงค์เรา"
+  },
+  "warning_page": {
+    "title": "โบรกที่ควรระวัง",
+    "subtitle": "ข้อมูลตามข้อเท็จจริง — ไม่มีเนื้อหาที่ไม่ได้รับการยืนยัน",
+    "avoid_badge": "ควรหลีกเลี่ยง"
+  },
+  "common": {
+    "read_review": "อ่านรีวิว",
+    "learn_more": "อ่านต่อ",
+    "updated": "อัปเดต",
+    "tier1": "Tier-1 — ปลอดภัย",
+    "offshore": "Offshore",
+    "no_regulation": "ไม่มีการคุ้มครอง",
+    "contact_line": "ติดต่อ LINE OA",
+    "risk_warning": "การเทรด Forex และ CFD มีความเสี่ยงสูง คุณอาจสูญเสียเงินลงทุนทั้งหมด เนื้อหานี้มีวัตถุประสงค์เพื่อให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำทางการเงิน",
+    "data_updated": "ข้อมูล: มิ.ย. 2026",
+    "coming_soon": "เร็วๆ นี้",
+    "review": "รีวิว"
+  },
+  "footer": {
+    "tagline": "รีวิวโบรก Forex สำหรับนักเทรดไทย",
+    "about": "เกี่ยวกับเรา",
+    "disclosure": "Affiliate Disclosure",
+    "warning": "โบรกที่ควรระวัง",
+    "privacy": "นโยบายความเป็นส่วนตัว",
+    "risk": "คำเตือนความเสี่ยง"
+  },
+  "line_contact": {
+    "title": "ติดต่อทีมซุปเต่า",
+    "subtitle": "สอบถาม rebate, เลือกโบรก, ย้าย IB — ตอบภาษาไทยทุกวัน",
+    "cta": "เพิ่มเพื่อน LINE OA →"
+  },
+  "review": {
+    "overview": "ภาพรวม",
+    "regulation": "Regulation และความปลอดภัย",
+    "accounts": "ประเภทบัญชี",
+    "spreads": "Spread และค่าคอม",
+    "xauusd": "ต้นทุน XAUUSD",
+    "deposit_withdrawal": "ฝาก-ถอนเงิน",
+    "platforms": "แพลตฟอร์ม",
+    "pros": "ข้อดี",
+    "cons": "ข้อเสีย",
+    "rebate": "Rebate ผ่านทีมซุปเต่า",
+    "suitable_for": "เหมาะกับใคร",
+    "faq": "คำถามที่พบบ่อย",
+    "verdict": "สรุปทีมซุปเต่า",
+    "related": "โบรกอื่นที่น่าสนใจ",
+    "experience": "ทีมซุปเต่าทดสอบจริง",
+    "scores": "คะแนนละเอียด",
+    "pros_cons": "ข้อดี — ข้อเสีย",
+    "spread": "Spread",
+    "deposit": "ฝาก — ถอนเงิน"
+  }
+}

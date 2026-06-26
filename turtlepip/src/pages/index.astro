@@ -29,6 +29,9 @@ const thbRate = xsRebate.thbRate;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TurtlePip — รีวิวโบรกเกอร์ Forex จากข้อมูลจริง</title>
 <link rel="canonical" href="https://turtlepip.com/">
+<link rel="alternate" hreflang="th" href="https://turtlepip.com/">
+<link rel="alternate" hreflang="en" href="https://turtlepip.com/">
+<link rel="alternate" hreflang="x-default" href="https://turtlepip.com/">
 <meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
 <link rel="stylesheet" href="/shared.css">
 <style>
@@ -450,7 +453,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
     <span class="tk">โบรกที่รีวิว: <b>{brokers.length}</b></span>
     <span class="tk">แนะนำ: <b class="g">{recommendedCount}</b></span>
     <span class="tk">กลาง: <b class="bl">{neutralCount}</b></span>
-    <span class="tk">ข้อมูล: <b>มิ.ย. 2026</b></span>
+    <span class="tk" data-i18n="common.data_updated">ข้อมูล: มิ.ย. 2026</span>
   </div>
 </div>
 
@@ -458,18 +461,18 @@ input[type="range"].calc-slider::-moz-range-thumb {
 
   <!-- PAGE HEAD -->
   <div class="page-head">
-    <h1>อันดับโบรกเกอร์ Forex 2026</h1>
-    <p>จัดอันดับจากข้อมูลจริง — สมัครผ่าน TurtlePip รับ Rebate คืนทุก lot</p>
+    <h1 data-i18n="hero.title">อันดับโบรกเกอร์ Forex 2026</h1>
+    <p data-i18n="hero.subtitle">จัดอันดับจากข้อมูลจริง — สมัครผ่าน TurtlePip รับ Rebate คืนทุก lot</p>
   </div>
 
   <!-- FILTER TABS -->
   <div class="tabs">
-    <button class="tab on" onclick="filterTab('all',this)">ทั้งหมด</button>
-    <button class="tab" onclick="filterTab('rebate',this)">มี Rebate</button>
-    <button class="tab" onclick="filterTab('scalper',this)">Scalper</button>
-    <button class="tab" onclick="filterTab('daytrader',this)">Day Trader</button>
-    <button class="tab" onclick="filterTab('swing',this)">Swing</button>
-    <button class="tab" onclick="filterTab('lowdeposit',this)">Low Deposit</button>
+    <button class="tab on" onclick="filterTab('all',this)" data-i18n="tabs.all">ทั้งหมด</button>
+    <button class="tab" onclick="filterTab('rebate',this)" data-i18n="tabs.has_rebate">มี Rebate</button>
+    <button class="tab" onclick="filterTab('scalper',this)" data-i18n="tabs.scalper">Scalper</button>
+    <button class="tab" onclick="filterTab('daytrader',this)" data-i18n="tabs.daytrader">Day Trader</button>
+    <button class="tab" onclick="filterTab('swing',this)" data-i18n="tabs.swing">Swing</button>
+    <button class="tab" onclick="filterTab('lowdeposit',this)" data-i18n="tabs.low_deposit">Low Deposit</button>
   </div>
 
   <!-- RANKING TABLE -->
@@ -478,12 +481,12 @@ input[type="range"].calc-slider::-moz-range-thumb {
       <table class="rank">
         <thead>
           <tr>
-            <th class="broker-col">โบรกเกอร์</th>
-            <th>คะแนน</th>
-            <th>Rebate XAU ($/lot)</th>
-            <th>สเปรด XAU (pts)</th>
-            <th>ฝากขั้นต่ำ (฿)</th>
-            <th>สถานะ</th>
+            <th class="broker-col" data-i18n="table.broker">โบรกเกอร์</th>
+            <th data-i18n="table.score">คะแนน</th>
+            <th data-i18n="table.rebate">Rebate XAU ($/lot)</th>
+            <th data-i18n="table.xauusd_spread">สเปรด XAU (pts)</th>
+            <th data-i18n="table.min_deposit">ฝากขั้นต่ำ (฿)</th>
+            <th data-i18n="table.status">สถานะ</th>
             <th></th>
           </tr>
         </thead>
@@ -510,7 +513,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
                 {b.hasRebate ? (
                   <a href={(b as any).rebateAnchor || '/rebate'} onclick="event.stopPropagation()" style="text-decoration:none;"><span class="rebate-val">{(b as any).rebateXauDisplay || rebateRange}</span></a>
                 ) : (
-                  <span class="rebate-soon">เร็วๆ นี้</span>
+                  <span class="rebate-soon" data-i18n="common.coming_soon">เร็วๆ นี้</span>
                 )}
               </td>
               <td><span class="spread-val">{b.spreads.xauusd}</span></td>
@@ -518,9 +521,9 @@ input[type="range"].calc-slider::-moz-range-thumb {
               <td><span class={`badge ${b.status === 'recommended' ? 'bsafe' : 'bneutral'}`}>{b.statusLabel}</span></td>
               <td>
                 {b.reviewUrl ? (
-                  <a href={b.reviewUrl} class="btn-go" onclick="event.stopPropagation()">รีวิว</a>
+                  <a href={b.reviewUrl} class="btn-go" onclick="event.stopPropagation()" data-i18n="common.review">รีวิว</a>
                 ) : (
-                  <span class="btn-go disabled">เร็วๆ นี้</span>
+                  <span class="btn-go disabled" data-i18n="common.coming_soon">เร็วๆ นี้</span>
                 )}
               </td>
             </tr>

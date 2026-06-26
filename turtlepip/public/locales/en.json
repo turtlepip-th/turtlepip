@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "reviews": "Brokers",
+    "compare": "Compare",
+    "rebate": "Get Rebate",
+    "warning": "Avoid",
+    "blog": "Articles",
+    "matcher": "Find My Broker"
+  },
+  "hero": {
+    "title": "Top Forex Brokers 2026",
+    "subtitle": "Ranked from real data — open via TurtlePip and earn rebate on every lot",
+    "cta_rebate": "View Rebate Rates",
+    "cta_compare": "Compare All Brokers"
+  },
+  "table": {
+    "rank": "Rank",
+    "broker": "Broker",
+    "regulation": "Regulation",
+    "xauusd_spread": "XAU/USD Spread",
+    "rebate": "Rebate XAU ($/lot)",
+    "min_deposit": "Min Deposit (฿)",
+    "score": "Score",
+    "status": "Status",
+    "review": "Review",
+    "open_account": "Open Account",
+    "recommended": "Recommended"
+  },
+  "tabs": {
+    "all": "All",
+    "has_rebate": "Has Rebate",
+    "scalper": "Scalper",
+    "daytrader": "Day Trader",
+    "swing": "Swing",
+    "low_deposit": "Low Deposit"
+  },
+  "rebate": {
+    "title": "Earn Rebates on Every Trade",
+    "subtitle": "TurtlePip returns cashback on every lot — whether you win or lose",
+    "per_lot": "/ lot XAU",
+    "automatic": "Automatic — no claiming needed",
+    "existing_account": "Already have an account? Transfer available",
+    "new_account": "Open new account via our link"
+  },
+  "warning_page": {
+    "title": "Brokers to Avoid",
+    "subtitle": "Factual information only — no unverified claims",
+    "avoid_badge": "Avoid"
+  },
+  "common": {
+    "read_review": "Read Review",
+    "learn_more": "Learn More",
+    "updated": "Updated",
+    "tier1": "Tier-1 — Safe",
+    "offshore": "Offshore",
+    "no_regulation": "No real protection",
+    "contact_line": "Contact LINE OA",
+    "risk_warning": "Trading Forex and CFDs carries significant risk. You may lose all invested capital. This content is for informational purposes only and does not constitute financial advice.",
+    "data_updated": "Data: June 2026",
+    "coming_soon": "Coming Soon",
+    "review": "Review"
+  },
+  "footer": {
+    "tagline": "Forex Broker Reviews for Thai Traders",
+    "about": "About Us",
+    "disclosure": "Affiliate Disclosure",
+    "warning": "Brokers to Avoid",
+    "privacy": "Privacy Policy",
+    "risk": "Risk Warning"
+  },
+  "line_contact": {
+    "title": "Contact TurtlePip Team",
+    "subtitle": "Questions about rebates, broker selection, or IB transfer — Thai support available daily",
+    "cta": "Add LINE OA →"
+  },
+  "review": {
+    "overview": "Overview",
+    "regulation": "Regulation & Safety",
+    "accounts": "Account Types",
+    "spreads": "Spreads & Commissions",
+    "xauusd": "XAUUSD Trading Cost",
+    "deposit_withdrawal": "Deposits & Withdrawals",
+    "platforms": "Platforms",
+    "pros": "Pros",
+    "cons": "Cons",
+    "rebate": "Rebate via TurtlePip",
+    "suitable_for": "Who Is It For?",
+    "faq": "Frequently Asked Questions",
+    "verdict": "TurtlePip Verdict",
+    "related": "Other Brokers to Consider",
+    "experience": "TurtlePip Tested",
+    "scores": "Detailed Scores",
+    "pros_cons": "Pros — Cons",
+    "spread": "Spread",
+    "deposit": "Deposits & Withdrawals"
+  }
+}

@@ -6,12 +6,12 @@ interface Props {
 const { active } = Astro.props;
 
 const links = [
-  { key: 'rebate', href: '/rebate', label: 'รับ Rebate', highlight: true },
-  { key: 'brokers', href: '/', label: 'โบรกเกอร์' },
-  { key: 'compare', href: '/compare', label: 'เปรียบเทียบ' },
-  { key: 'matcher', href: '/matcher', label: 'หาโบรกที่ใช่' },
-  { key: 'blacklist', href: '/blacklist', label: 'ระวัง' },
-  { key: 'blog', href: '/blog', label: 'บทความ' },
+  { key: 'rebate', href: '/rebate', label: 'รับ Rebate', i18n: 'nav.rebate', highlight: true },
+  { key: 'brokers', href: '/', label: 'โบรกเกอร์', i18n: 'nav.reviews' },
+  { key: 'compare', href: '/compare', label: 'เปรียบเทียบ', i18n: 'nav.compare' },
+  { key: 'matcher', href: '/matcher', label: 'หาโบรกที่ใช่', i18n: 'nav.matcher' },
+  { key: 'blacklist', href: '/blacklist', label: 'ระวัง', i18n: 'nav.warning' },
+  { key: 'blog', href: '/blog', label: 'บทความ', i18n: 'nav.blog' },
 ] as const;
 ---
 
@@ -30,10 +30,17 @@ const links = [
           class:list={['nl', { on: active === link.key }]}
           style={link.highlight ? 'color:var(--gd);font-weight:700;' : undefined}
         >
-          {link.label}
+          <span data-i18n={link.i18n}>{link.label}</span>
         </a>
       ))}
     </div>
+    <button
+      id="lang-toggle"
+      onclick="setLanguage(document.documentElement.lang === 'th' ? 'en' : 'th')"
+      style="font-size:12px;font-weight:700;padding:6px 12px;border-radius:6px;border:1px solid var(--bdr);background:var(--bg);color:var(--t1);cursor:pointer"
+      aria-label="Switch language">
+      EN
+    </button>
     <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:6px;background:#06C755;color:white;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap"
        aria-label="ติดต่อ LINE OA ทีมซุปเต่า">
@@ -51,7 +58,7 @@ const links = [
       class:list={{ on: active === link.key }}
       style={link.highlight ? 'color:var(--gd);font-weight:700;' : undefined}
     >
-      {link.label}
+      <span data-i18n={link.i18n}>{link.label}</span>
     </a>
   ))}
   <a href="https://lin.ee/yGAb5q3" target="_blank" rel="noopener" style="color:#06C755;font-weight:700">
@@ -72,4 +79,61 @@ const links = [
       document.getElementById('mobileMenu')?.classList.remove('open');
     });
   });
+</script>
+
+<script is:inline>
+const DEFAULT_LANG = 'th';
+const SUPPORTED = ['th', 'en'];
+
+let translations = {};
+let currentLang = DEFAULT_LANG;
+
+async function loadTranslations(lang) {
+  const res = await fetch(`/locales/${lang}.json`);
+  translations = await res.json();
+}
+
+function t(key) {
+  const keys = key.split('.');
+  let val = translations;
+  for (const k of keys) {
+    val = val?.[k];
+    if (val === undefined) return key;
+  }
+  return val ?? key;
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    el.placeholder = t(el.dataset.i18nPlaceholder);
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    el.title = t(el.dataset.i18nTitle);
+  });
+  document.documentElement.lang = currentLang;
+  const btn = document.getElementById('lang-toggle');
+  if (btn) btn.textContent = currentLang === 'th' ? 'EN' : 'ไทย';
+}
+
+async function setLanguage(lang) {
+  if (!SUPPORTED.includes(lang)) return;
+  currentLang = lang;
+  localStorage.setItem('tp_lang', lang);
+  await loadTranslations(lang);
+  applyTranslations();
+}
+
+async function initI18n() {
+  const saved = localStorage.getItem('tp_lang') ?? DEFAULT_LANG;
+  await setLanguage(saved);
+}
+
+window.setLanguage = setLanguage;
+window.t = t;
+
+document.addEventListener('DOMContentLoaded', initI18n);
 </script>
