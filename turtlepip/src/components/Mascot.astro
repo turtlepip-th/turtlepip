@@ -13,17 +13,19 @@ const altText = alt ?? {
   serious:  'ทีมซุปเต่าแจ้งเตือน',
 }[pose];
 
-// tablet is the high-res full body — show larger
-// the 3 head poses are lower res — keep small
-const width = pose === 'tablet' ? '140px' : '80px';
+const dims = pose === 'tablet'
+  ? { w: 200, h: 267, css: '140px' }
+  : { w: 260, h: 236, css: '80px' };
 ---
 
 <div style="display:flex;justify-content:flex-end;padding:8px 0 0;">
   <img
-    src={`/mascot/mascot-${pose}.png`}
+    src={`/mascot/mascot-${pose}.webp`}
     alt={altText}
+    width={dims.w}
+    height={dims.h}
     loading="lazy"
     decoding="async"
-    style={`width:${width};height:auto;display:block;`}
+    style={`width:${dims.css};height:auto;display:block;`}
   />
 </div>

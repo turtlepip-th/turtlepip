@@ -33,6 +33,8 @@ const thbRate = xsRebate.thbRate;
 <link rel="alternate" hreflang="en" href="https://turtlepip.com/">
 <link rel="alternate" hreflang="x-default" href="https://turtlepip.com/">
 <meta name="description" content="รีวิวโบรกเกอร์ Forex ภาษาไทย โดยทีมซุปเต่า เปรียบเทียบข้อมูลจริงเรื่องสเปรด ค่าธรรมเนียม ใบอนุญาต และเงื่อนไขถอนเงิน">
+<link rel="preload" as="image" href="/mascot/mascot-tablet.webp" type="image/webp">
+<link rel="preload" as="image" href="/logos/turtlepip-logo.webp" type="image/webp">
 <link rel="stylesheet" href="/shared.css">
 <style>
 /* ============================================
@@ -553,7 +555,8 @@ input[type="range"].calc-slider::-moz-range-thumb {
             <span>จำนวน lots ต่อเดือน (XAUUSD)</span>
             <b id="lotsVal">20 lots</b>
           </div>
-          <input type="range" class="calc-slider" id="lotsSlider" min="1" max="200" value="20" oninput="calcRebate()">
+          <label for="lotsSlider" class="sr-only">จำนวน lots ต่อเดือน</label>
+          <input type="range" class="calc-slider" id="lotsSlider" min="1" max="200" value="20" oninput="calcRebate()" aria-label="จำนวน lots ต่อเดือน">
         </div>
       </div>
       <div>
@@ -598,7 +601,7 @@ input[type="range"].calc-slider::-moz-range-thumb {
   <!-- XS BANNER -->
   <div class="banner-wrap">
     <a href="https://my.xs.com/marketing/links/go/413" target="_blank" rel="nofollow noopener sponsored">
-      <img src="/logos/xs-banner.jpg" alt="XS.com — เปิดบัญชีเทรด">
+      <img src="/logos/xs-banner.webp" alt="XS.com — เปิดบัญชีเทรด" width="728" height="90" loading="lazy">
     </a>
     <div class="banner-disc">Sponsored · การเทรด CFD มีความเสี่ยงสูง</div>
   </div>
@@ -629,7 +632,12 @@ function selectBroker(btn) {
 // @ts-expect-error
 window.selectBroker = selectBroker;
 
+var calcTimer;
 function calcRebate() {
+  clearTimeout(calcTimer);
+  calcTimer = setTimeout(function() { _doCalc(); }, 50);
+}
+function _doCalc() {
   var activeBtn = document.querySelector('.calc-broker-btn.active');
   var lo = activeBtn ? parseFloat(activeBtn.dataset.min) : 3;
   var hi = activeBtn ? parseFloat(activeBtn.dataset.max) : 5;
@@ -648,7 +656,7 @@ function calcRebate() {
 }
 // @ts-expect-error
 window.calcRebate = calcRebate;
-calcRebate();
+_doCalc();
 </script>
 </body>
 </html>

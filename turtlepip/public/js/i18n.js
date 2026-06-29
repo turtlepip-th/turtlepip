@@ -5,8 +5,16 @@ let translations = {};
 let currentLang = DEFAULT_LANG;
 
 async function loadTranslations(lang) {
-  const res = await fetch(`/locales/${lang}.json`);
-  translations = await res.json();
+  try {
+    const res = await fetch(`/locales/${lang}.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    translations = await res.json();
+  } catch (err) {
+    console.warn(`i18n: could not load ${lang}.json, falling back to Thai`);
+    if (lang !== DEFAULT_LANG) {
+      await loadTranslations(DEFAULT_LANG);
+    }
+  }
 }
 
 function t(key) {

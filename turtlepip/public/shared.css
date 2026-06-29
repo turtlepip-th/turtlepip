@@ -24,9 +24,9 @@
   --t1: #111110;
   --t2: #5C5C58;
   --t3: #9C9C98;
-  --safe: #16A34A;
+  --safe: #15803d;
   --safebg: #F0FDF4;
-  --warn: #D97706;
+  --warn: #92400e;
   --warnbg: #FFFBEB;
   --avoid: #DC2626;
   --avoidbg: #FEF2F2;
@@ -417,3 +417,6 @@ hr.divider { border:none; border-top:1px solid var(--bdr); margin:40px 0; }
 
 /* i18n */
 [data-i18n] { word-break: break-word; }
+
+/* accessibility */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
