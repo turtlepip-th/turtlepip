@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://turtlepip.com/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- Rebate page - highest priority -->
   <url>
     <loc>https://turtlepip.com/rebate</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -20,28 +20,28 @@
   <!-- Main pages -->
   <url>
     <loc>https://turtlepip.com/compare</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/matcher</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/blacklist</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/blog</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -49,50 +49,72 @@
   <!-- Broker reviews -->
   <url>
     <loc>https://turtlepip.com/reviews/xs-com</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/reviews/pepperstone</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/reviews/exness</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/reviews/hfm</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/reviews/xm</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Authority content pages -->
+  <url>
+    <loc>https://turtlepip.com/best-gold-broker-thailand</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://turtlepip.com/lowest-spread-broker</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://turtlepip.com/compare/pepperstone-vs-exness</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- Articles -->
   <url>
     <loc>https://turtlepip.com/blog/dsi-forex-2569-hfm</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://turtlepip.com/articles/abook-bbook</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

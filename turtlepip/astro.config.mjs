@@ -5,5 +5,12 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://turtlepip.com',
   trailingSlash: 'never',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !page.includes('/disclosure') &&
+        !page.includes('/risk-warning') &&
+        !page.includes('/privacy-policy'),
+    }),
+  ],
 });
