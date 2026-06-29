@@ -1,4 +1,5 @@
----
+﻿---
+import ClarityHead from '../../components/ClarityHead.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 ---
@@ -65,6 +66,7 @@ ul li::before{content:'›';position:absolute;left:4px;color:var(--gd);font-weig
 .related-title2{font-size:12px;font-weight:700;color:var(--t1);line-height:1.4}
 @media(max-width:600px){.compare-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
 </style>
+<ClarityHead />
 </head>
 <body>
 <Nav active="blog" />

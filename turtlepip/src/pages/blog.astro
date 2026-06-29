@@ -1,4 +1,5 @@
----
+﻿---
+import ClarityHead from '../components/ClarityHead.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import articlesData from '../data/articles.json';
@@ -56,6 +57,7 @@ const { featured, articles } = articlesData;
 .btnline-sm{background:#06C755;color:white;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--f);flex-shrink:0}
 @media(max-width:600px){.articles-grid{grid-template-columns:1fr}.featured-card{grid-template-columns:1fr}.feat-img{display:none}}
 </style>
+<ClarityHead />
 </head>
 <body>
 <Nav active="blog" />
