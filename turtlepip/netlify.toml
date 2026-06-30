@@ -2,6 +2,74 @@
   command = "npm run build"
   publish = "dist"
 
+# www → non-www canonical redirect
+[[redirects]]
+  from = "https://www.turtlepip.com/*"
+  to = "https://turtlepip.com/:splat"
+  status = 301
+  force = true
+
+# .html → clean URL redirects (fixes GSC "discovered not indexed" URLs)
+[[redirects]]
+  from = "/articles/abook-bbook.html"
+  to = "/articles/abook-bbook"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blacklist.html"
+  to = "/blacklist"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare.html"
+  to = "/compare"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/matcher.html"
+  to = "/matcher"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews/exness.html"
+  to = "/reviews/exness"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews/hfm.html"
+  to = "/reviews/hfm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews/pepperstone.html"
+  to = "/reviews/pepperstone"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews/xm.html"
+  to = "/reviews/xm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/reviews/xs-com.html"
+  to = "/reviews/xs-com"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/404"

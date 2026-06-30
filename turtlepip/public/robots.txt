@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.turtlepip.com/sitemap.xml
+Sitemap: https://turtlepip.com/sitemap-index.xml
+Sitemap: https://turtlepip.com/sitemap.xml
